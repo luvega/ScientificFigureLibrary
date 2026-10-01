@@ -266,3 +266,9 @@ html.dialog-open .local-main { overflow: hidden; }
 .favorite-card h2 { font-size: 1.05rem; }
 .favorite-source { color: #246b4d; }
 .favorite-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
+.update-banner { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding: 12px 16px; margin-bottom: 16px; border-radius: 12px; background: #edf6ef; color: #245a3a; }
+.update-banner[hidden] { display: none; }
+.update-banner > span { flex: 1 1 260px; }
+.update-banner a, #update-release { color: #245a3a; text-decoration: underline; }
+#update-release { margin-left: 12px; }

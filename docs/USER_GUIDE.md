@@ -34,6 +34,8 @@ Appendices:
 - [Appendix A: end-to-end example](#appendix-a-end-to-end-example)
 - [Appendix B: document maintenance and link checks](#appendix-b-document-maintenance-and-link-checks)
 
+[Client updates](#client-updates)
+
 ---
 
 ## 1. Scope and boundaries
@@ -600,3 +602,7 @@ or plotting success.
 Use ☆ on a gallery card or template detail to save that exact version; ★ removes it. The macOS and local Web clients include a **Favorites (收藏)** page with search by title, source and application, and an action to reopen the template for preview/use.
 
 Favorites are stored in the machine-local user configuration, survive restarts and are independent of preview/archive caches. Provider identities and exact versions stay separate. If the original version is withdrawn, updated or its source disabled, opening it reports an error and retains the bookmark; remove it or explicitly star a new version from the gallery. Starring does not download archives, execute code, select plotting references or grant preview/materialization approval.
+
+## Client updates
+
+The local client checks the latest official stable release in the background after connecting. When an update is available, open the release page from the banner or dismiss it for the current session. In Settings → Client updates, view the running version and check again manually. Network failures appear in settings and can be retried after checking the network or proxy. Choose the appropriate platform and architecture on the release page and install manually; the check does not download packages or migrate your library.

@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { z } from "zod";
 import { integrationGuide, localConnection } from "./integrations.ts";
+import { createClientUpdateChecker } from "./updates.ts";
 import { VERSION } from "../version.ts";
 import { createLibraryService, type LibraryService } from "../library-service.ts";
 import { inspectNetworkAccess, loadNetworkAccess, saveNetworkAccess } from "../network-access.ts";
@@ -61,8 +62,10 @@ export async function startLocalHttp(options: {
   htmlPath?: string;
   port?: number;
   allowShutdown?: boolean;
+  updateChecker?: ReturnType<typeof createClientUpdateChecker>;
 } = {}) {
   const service = options.service ?? await createLibraryService();
+  const checkUpdates = options.updateChecker ?? createClientUpdateChecker();
   const token = randomBytes(32).toString("base64url");
   const cookieName = `sfl_${randomBytes(8).toString("hex")}`;
   const tickets = new Map<string, number>();
@@ -162,6 +165,10 @@ export async function startLocalHttp(options: {
         if (body.action === "clear") return json(response, 200, await service.local.clearPreviewCache());
         request.socket?.setTimeout(0);
         return json(response, 200, await service.local.prefetchPreviewCache(body.providerId));
+      }
+      if (url.pathname === "/api/updates/check") {
+        const { force } = z.object({ force: z.boolean().optional().default(false) }).strict().parse(input);
+        return json(response, 200, await checkUpdates(force));
       }
       if (url.pathname === "/api/network-access") {
         const body = z.object({
