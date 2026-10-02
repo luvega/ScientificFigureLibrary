@@ -116,3 +116,13 @@ npm run docs:check-links -- docs/PRIVATE_TEMPLATE_MIGRATION.zh-CN.md
 ```
 
 针对性测试使用隔离临时目录，覆盖嵌套 GBK ZIP、内容重复、坏归档与限额、私有来源 metadata、过期执行证据、官方 Local plan/publish/materialize、完整 runtime 路径恢复及破坏性路径输入。测试用例中的绘图证据是接口 fixture，不能替代真实模板的运行验收。整个流程复用 Node ESM、现有 `fflate` 与 SFL 接口，没有新增 Python 工具运行时或修改核心服务 API。
+
+## 资料目录重整后的来源映射
+
+宿主可以使用 [`source-path-map.mjs`](../scripts/source-path-map.mjs) 的 `resolveSourceReferences`，把历史路径解析为单独的当前路径记录。输入为来源引用、路径迁移记录和允许读取的来源根目录；它只读文件，不修改源资料、模板或发布资产。
+
+移除的 ZIP 若只映射到归档清单，清单属于来源登记，不能替代 ZIP 或成员内容。可用 `archiveEntrySha256` 解析解压后保留的成员；原容器身份仍保留。保留容器时，容器和成员分别验证。解析结果的 `matchedDigestScope` 区分文件、归档成员和容器。
+
+迁移记录使用 `originalPath/originalSha256/currentPath/currentSha256`，可附加 `archiveEntry/disposition`。工具要求当前文件实际哈希与迁移记录一致；代码规范化导致字节变化时保留两个哈希并明确标记变换。多个不同当前版本保持歧义，缺少历史哈希保持未确认。宿主若从历史盘点或迁移清单补充哈希，必须记录该锚点来源，不能把它写成原模板已声明的哈希。
+
+嵌套压缩包成员可按历史内容哈希定位已抽取的文件。若引用的是容器及其内部图像，可显式声明 `digestScope: 'container'`；此时工具核验容器，成员存在性和成员哈希由宿主另外核验并记录。不要将容器哈希当作内部成员哈希。
