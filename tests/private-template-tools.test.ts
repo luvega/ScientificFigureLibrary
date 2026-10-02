@@ -49,8 +49,14 @@ async function fixture(root: string) {
   return template;
 }
 
-async function publishedFixture(root: string) {
-  const template = await fixture(root), request = await buildPrivateCandidate({ template });
+async function publishedFixture(root: string, standaloneAdapter = false) {
+  const template = await fixture(root);
+  if (standaloneAdapter) {
+    await fs.mkdir(path.join(template, 'adapters'));
+    await fs.writeFile(path.join(template, 'adapters', 'prepare.R'),
+      "# Standalone conversion recipe; never executed by SFL.\nargs <- commandArgs(trailingOnly=TRUE)\nx <- readRDS(args[1])\nstop('Host must explicitly run this recipe')\n");
+  }
+  const request = await buildPrivateCandidate({ template });
   const libraryRoot = path.join(root, 'isolated-library'); await ensureLibraryRootMarker(libraryRoot);
   const library = new VersionedTemplateLibrary(libraryRoot), ops = new OperationRegistry();
   definePublishOperations({ operations: ops, currentLibrary: async () => library });
@@ -190,6 +196,24 @@ test('official isolated plan/publish/materialize works and runtime mapping resto
   await fs.appendFile(path.join(materialized.target, 'assets', 'code', 'plot.r'), '\nchanged\n');
   await assert.rejects(prepareMaterializedWork({ template: materialized.target, out: path.join(root, 'another-work') }), /digest mismatch/u);
   await assert.rejects(fs.access(path.join(root, 'another-work')));
+});
+
+test('standalone adapters survive publication and work preparation without becoming plotting dependencies', async t => {
+  const root = await temporary(); t.after(() => fs.rm(root, { recursive: true, force: true }));
+  const { template, request, materialized } = await publishedFixture(root, true);
+  const adapter = request.candidate.referenceAssets.find((asset: any) => asset.origin.stagingPath === 'adapters/prepare.R');
+  assert.ok(adapter);
+  assert.ok(!request.candidate.codeAssets.some((asset: any) => asset.origin.stagingPath.startsWith('adapters/')));
+  assert.ok(!request.candidate.runtime.dependencies.some((asset: any) => asset.codePath.startsWith('adapters/')));
+  assert.equal(request.candidate.executionStatus, 'passed');
+  const out = path.join(root, 'host-work');
+  await prepareMaterializedWork({ template: materialized.target, out });
+  assert.deepEqual(await fs.readFile(path.join(out, 'adapters/prepare.R')), await fs.readFile(path.join(template, 'adapters/prepare.R')));
+  assert.equal(JSON.parse(await fs.readFile(path.join(out, 'work-origin.json'), 'utf8')).codeExecuted, false);
+  const stored = path.join(materialized.target, 'assets', 'references', `${adapter.assetId}.r`);
+  await fs.chmod(stored, 0o666); await fs.appendFile(stored, '\nchanged recipe\n');
+  await assert.rejects(prepareMaterializedWork({ template: materialized.target, out: path.join(root, 'tampered-work') }), /digest mismatch/u);
+  await assert.rejects(fs.access(path.join(root, 'tampered-work')));
 });
 
 test('work rejects materialized-root descendants and alias descendants without changing the original directory', async t => {

@@ -360,7 +360,10 @@ export async function buildPrivateCandidate({ template, mode = 'create' }) {
   for (const rel of [...inputPaths, ...documentation, 'preview.png']) await regularFile(root, rel);
   const evidence = selected.filter(rel => rel.startsWith('evidence/'));
   const optionalDocuments = ['description.md', 'template.yml', 'plot.pdf'].filter(rel => selected.includes(rel));
-  const support = [...new Set([...inputPaths, ...documentation, ...optionalDocuments])];
+  // Standalone conversion recipes are preserved as references. They are not
+  // plotting dependencies: their external inputs and execution remain host-owned.
+  const adapters = selected.filter(rel => rel.startsWith('adapters/'));
+  const support = [...new Set([...inputPaths, ...documentation, ...optionalDocuments, ...adapters])];
   const allSelected = [...code, ...support, ...evidence, 'preview.png'];
   const identities = new Map();
   for (const rel of allSelected) identities.set(rel, { path: rel, sha256: await digestFile(await regularFile(root, rel)) });

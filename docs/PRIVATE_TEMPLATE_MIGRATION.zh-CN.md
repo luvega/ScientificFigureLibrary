@@ -62,6 +62,8 @@ sc-example/
 
 文件名使用可移植相对路径，不能包含路径穿越、Windows 保留名、大小写冲突或符号链接。`params.yml` 自动纳入运行输入。README、数据 schema、来源说明和 details JSON 作为私有 supporting assets 保存；包内若有 `description.md`、`template.yml` 和 `plot.pdf` 也一并保留，供材料化后恢复中文说明、私有清单和矢量输出。原始来源包不随模板整体复制。
 
+独立输入转换脚本可放在 `adapters/`。候选转换会将该目录作为 supporting reference 保存，材料化后的工作副本恢复原相对路径。适配器不进入绘图入口的依赖或绘图执行证据：宿主按需单独运行，声明对象来源、转换参数和实际转换记录，再将标准结果表交给绘图入口。SFL 不运行适配器，也不从绘图成功推断转换或上游分析通过。
+
 ## 运行证据与候选转换
 
 宿主运行整理后的模板并看图，保存真实运行环境记录。`evidence/render.json` 至少包含：
