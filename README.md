@@ -4,6 +4,8 @@
 
 # Scientific Figure Library
 
+This fork includes [38 single-cell plotting examples](examples/single-cell/README.md) with R code, small inputs, parameters, PNG/PDF previews, provenance and validation summaries. Their source licenses remain unknown; see the [collection notice](examples/single-cell/LICENSE_NOTICE.md).
+
 [Website](https://xuzhougeng.github.io/ScientificFigureLibrary/) ·
 [简体中文](README.zh-CN.md) ·
 [Quickstart](docs/QUICKSTART.md) ·

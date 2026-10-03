@@ -1,0 +1,43 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 4,
+  "inputCasesPassed": 4,
+  "semanticCases": 0,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "81955665d0f9e202687d1c151ecb6b46401509dd6685288dcdc589ed070a2ce0",
+        "actual": "81955665d0f9e202687d1c151ecb6b46401509dd6685288dcdc589ed070a2ce0",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "e99ae6c9db5053ad50ee17887ea2b77bc9c1954333bdc81e8e89ca7bc7bac50f",
+        "actual": "e99ae6c9db5053ad50ee17887ea2b77bc9c1954333bdc81e8e89ca7bc7bac50f",
+        "passed": true
+      }
+    ],
+    "review": {
+      "labels": "reviewed",
+      "legends": "reviewed",
+      "scales": "reviewed",
+      "cropping": "reviewed",
+      "overlap": "reviewed",
+      "notes": "Provided bin order and module annotation tracks checked; synthetic values remain explicit."
+    }
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

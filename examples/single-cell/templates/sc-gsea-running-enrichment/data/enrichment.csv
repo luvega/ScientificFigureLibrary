@@ -1,0 +1,3 @@
+"pathway_id","description","set_size","enrichment_score","nes","p_adjust"
+"hsa03010","Ribosome",130,0.600897791421302,2.17324684026065,1.32710029405217e-07
+"hsa05168","Herpes simplex virus 1 infection",454,-0.384502336072904,-1.96982469063819,1.62396152484947e-12

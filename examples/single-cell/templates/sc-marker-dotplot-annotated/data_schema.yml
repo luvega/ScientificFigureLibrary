@@ -1,0 +1,13 @@
+files:
+  data/expression_summary.csv:
+    required: [gene, cluster_id, average_expression, percent_expressed]
+    constraints: ["unique gene and cluster_id pairs", "complete rectangular grid", "finite nonnegative means", "percent_expressed in 0..100"]
+  data/gene_annotations.csv:
+    required: [gene, marker_celltype, gene_group]
+    key: gene
+  data/cluster_annotations.csv:
+    required: [cluster_id, celltype, lineage]
+    key: cluster_id
+
+parameters:
+  data_label: "actual input scope; default Synthetic example"

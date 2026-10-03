@@ -1,0 +1,44 @@
+{
+  "schema": "private-template-input.v1",
+  "inputs": {
+    "data/enrichment.csv": {
+      "columns": {
+        "pathway_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "celltype": {
+          "type": "string"
+        },
+        "qvalue": {
+          "type": "number"
+        },
+        "up_count": {
+          "type": "number"
+        },
+        "down_count": {
+          "type": "number"
+        },
+        "all_count": {
+          "type": "number"
+        },
+        "de_score": {
+          "type": "number"
+        }
+      },
+      "description": "原DEscore.csv全部15行；pathway_id/description/group/celltype/qvalue/up_count/down_count/all_count/de_score"
+    }
+  },
+  "semantic_contract": [
+    "保留原DEscore.csv全部15行及文件顺序；不重新计算差异表达、GO富集或qvalue。",
+    "DEscore=(up_count-down_count)/all_count，all_count=up_count+down_count；检查原值在1e-6内一致。",
+    "分组与celltype分列保存；Macrophage按真实原表标注，纠正来源图中将该块写为Neutrophil的固定文字。",
+    "横坐标=-log10(提供qvalue)，qvalue=0仅显示时使用参数下限；气泡面积编码上下调成员总数，不是背景基因数。",
+    "此有符号汇总表示通路差异基因的方向比例，不证明整个通路活性或因果效应。"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "sc-regulon-rss-ranking",
+  "title": "SCENIC regulon 特异性排序图",
+  "titleEn": "Regulon specificity score rank panels",
+  "plotFamily": "regulon_specificity_ranking",
+  "scientificQuestion": "已计算 RSS 的高排名regulon在各细胞类型中有哪些？",
+  "description": "各细胞类型独立按预计算 RSS 降序排列，突出并标注前若干regulon，保留原例蓝色背景点与红色高排名点。",
+  "application": "- 展示上游已计算并保存的regulon specificity score。\n- 按给定细胞类型比较排名；RSS不等价于调控因果或表达量。",
+  "dataProfile": "合成RSS长表：4个演示细胞类型×30个regulon，固定种子；不从教程AUC重新计算或假称原RSS结果。",
+  "visualProfile": "多面板排名散点图，前若干点红色、其余蓝色；引导线标注完整regulon名称。",
+  "inputs": [
+    {
+      "path": "data/rss.csv",
+      "description": "celltype/regulon/rss；RSS已计算，范围[0,1]"
+    }
+  ],
+  "semanticDecisions": [
+    "RSS是预计算specificity score，输入值不做zscore，不重算RSS。",
+    "每celltype内rss降序，平分时按regulon完整字符串升序，排名从1开始。",
+    "top_n只控制标注数量，不筛选显著性；不生成pvalue。",
+    "每celltype/regulon唯一；各细胞类型须具有相同regulon集合，避免比较不同候选全集。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml",
+    "ggrepel"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/1-单细胞转录组（scRNA）/3-scRNA转录因子分析（SCENIC）/3-pyscenic R语言版可视化及个性化分析/pySCENIC单细胞转录因子分析及可视化（pyscenic R语言可视化）.R",
+      "sha256": "d00b7a478c9cb549ea2fc54aaaec2588dec3cc18e79c5af31753689e2237071f",
+      "notes": "原脚本291–330行RSS rank风格：蓝底点、红色top6、repel标签；删除calcRSS分析依赖。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

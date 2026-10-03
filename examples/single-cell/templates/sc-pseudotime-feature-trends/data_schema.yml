@@ -1,0 +1,24 @@
+inputs:
+  trends:
+    required:
+      - feature
+      - group
+      - pseudotime
+      - value
+      - lower
+      - upper
+      - n_cells
+    unique:
+      - feature
+      - group
+      - pseudotime
+    interval: both missing or lower <= value <= upper
+    pseudotime: finite >= 0
+  points:
+    optional_empty: true
+    required:
+      - cell_id
+      - feature
+      - group
+      - pseudotime
+      - value

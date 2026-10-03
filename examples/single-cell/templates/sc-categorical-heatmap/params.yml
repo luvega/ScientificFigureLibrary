@@ -1,0 +1,7 @@
+width: 9
+height: 8
+dpi: 300
+font_size: 11
+font_family: sans
+title: Categorical matrix
+legend_title: Disease association

@@ -1,0 +1,48 @@
+{
+  "id": "sc-velocity-vector-umap",
+  "title": "预计算嵌入速度矢量图",
+  "titleEn": "Projected velocity vectors (synthetic)",
+  "plotFamily": "velocity",
+  "scientificQuestion": "已投影的向量在提供嵌入中的方向和位置如何？",
+  "description": "绘制已有cell坐标与同坐标基准的网格位移向量。模板不估计RNA velocity、不计算流线或重新投影。",
+  "application": "用于展示已有RNA velocity或其他模型已投影到嵌入的位移向量，检查给定细胞状态与局部预测向量的空间关系。",
+  "dataProfile": "cell_id/x/y/celltype；540个合成细胞。; vector_id/x/y/dx/dy；预计算合成网格位移，非RNA velocity估计。",
+  "visualProfile": "彩色点表示提供的celltype，灰黑箭头从网格原点(x,y)指向(x+vector_scale×dx,y+vector_scale×dy)；箭头不按长度归一化，坐标纵横比保持一致。",
+  "inputs": [
+    {
+      "path": "data/cells.csv",
+      "description": "cell_id/x/y/celltype；540个合成细胞。"
+    },
+    {
+      "path": "data/vectors.csv",
+      "description": "vector_id/x/y/dx/dy；预计算合成网格位移，非RNA velocity估计。"
+    }
+  ],
+  "semanticDecisions": [
+    "seed=20261005；细胞、类型、网格位移完全合成；不是由spliced/unspliced估计。",
+    "vectors的x/y/dx/dy必须已经处于cells的同一嵌入坐标基准；vector_id为网格点ID，不需冒充cell_id。",
+    "显示端点严格为(x+vector_scale*dx,y+vector_scale*dy)，不按长度归一化；零向量保留但至少应有一个非零向量。",
+    "嵌入矢量只是提供的模型/示例量；不能据此证明分化方向或因果关系。"
+  ],
+  "packages": [
+    "ggplot2",
+    "yaml",
+    "ragg"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/2025-07-KS-account-codes/1-单细胞转录组（scRNA）/2-scRNA 拟时分析/RNA速率/R语言版RNA速率分析/R语言版RNA速率.R",
+      "sha256": "db03f0f420e8a46021772e314c5754cd5a56e73a77f9849c1c4929583da59618",
+      "notes": "参考116–173行嵌入scatter+arrow；原源码还含RunVelocity/scVelo推断，均未运行。"
+    },
+    {
+      "path": "source-collection/1-单细胞转录组（scRNA）/2-scRNA 拟时分析/RNA速率/R语言版RNA速率分析/R语言版本RNA速率分析（VIP）.pdf",
+      "sha256": "c86ba0457c23cc77fb5739d7c1546d90ab2f4db827d3406d6383ffa33baa87f2",
+      "notes": "实际查看PDF第6页，两幅tSNE矢量图；保留细胞分类颜色与灰黑网格箭头布局。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

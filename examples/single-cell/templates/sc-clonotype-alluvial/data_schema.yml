@@ -1,0 +1,29 @@
+{
+  "schema": "private-template-input.v1",
+  "inputs": {
+    "data/flows.csv": {
+      "columns": {
+        "sample": {
+          "type": "string"
+        },
+        "celltype": {
+          "type": "string"
+        },
+        "clone_class": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        }
+      },
+      "rows": 32
+    }
+  },
+  "semantic_contract": [
+    "32行固定合成交叉计数；Single/Small/Large/Hyperexpanded仅为预设类别，不由此模板定义大小阈值。",
+    "count是每样本相应celltype×clone_class的同批细胞计数，要求正整数且键唯一；先在外部汇总零记录。",
+    "宽度在每样本内按count比例缩放，两侧同一条带宽度保持一致；不把跨组类别条带解释为同一细胞的迁移。",
+    "条带是注释交叉分布；不重新组装VDJ、识别clone_id、推断克隆扩增或轨迹。",
+    "等效平滑polygon实现无需scRepertoire/ggalluvial，灰白节点和彩色celltype条带参考原图。"
+  ]
+}

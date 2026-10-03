@@ -1,0 +1,8 @@
+width: 12
+height: 10
+dpi: 240
+font_family: sans
+font_size: 12
+title: GSEA running enrichment and ranked statistic
+positive_colour: "#C21B00"
+negative_colour: "#2D8313"

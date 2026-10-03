@@ -1,0 +1,13 @@
+files:
+  data/differential_results.csv:
+    required: [comparison, celltype, gene, log2_fc, p_adj]
+    unique: [comparison, celltype, gene]
+    optional_columns: [label]
+    constraints: ["finite numeric log2_fc", "finite p_adj in 0..1"]
+parameters:
+  p_adj_threshold: "(0,1]"
+  log2_fc_threshold: "nonnegative"
+  zero_p_floor: "(0,p_adj_threshold]"
+
+parameters:
+  data_label: "actual input scope; default Synthetic example"

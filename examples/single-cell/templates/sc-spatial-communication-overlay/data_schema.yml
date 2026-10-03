@@ -1,0 +1,31 @@
+inputs:
+  nodes:
+    required:
+      - node_id
+      - sample_id
+      - cell_type
+      - x
+      - y
+    unique:
+      - node_id
+    sample: exactly one sample
+  edges:
+    required:
+      - edge_id
+      - source
+      - target
+      - signal
+      - ligand
+      - receptor
+      - weight
+    unique:
+      - signal
+      - source
+      - target
+    weight: finite >= 0
+    relation: known distinct endpoints in same sample
+  celltype_colors:
+    required:
+      - cell_type
+      - color
+    relation: exact observed node cell types

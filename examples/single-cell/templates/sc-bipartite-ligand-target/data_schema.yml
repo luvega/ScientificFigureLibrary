@@ -1,0 +1,33 @@
+{
+  "format": "CSV UTF-8",
+  "files": [
+    {
+      "path": "data/edges.csv",
+      "required_columns": {
+        "from": "ligand node id",
+        "to": "target node id",
+        "weight": "number >= 0"
+      },
+      "uniqueness": [
+        "from",
+        "to"
+      ]
+    },
+    {
+      "path": "data/nodes.csv",
+      "required_columns": {
+        "id": "nonempty entity identifier",
+        "side": "ligand or target"
+      },
+      "uniqueness": [
+        "id",
+        "side"
+      ]
+    }
+  ],
+  "outputs": [
+    "preview.png",
+    "plot.pdf"
+  ],
+  "entrypoint": "code/plot.R"
+}

@@ -1,0 +1,15 @@
+gene,marker_celltype,gene_group
+LYZ,Mac,Immune
+C1QA,Mac,Immune
+CD3D,Ly,Immune
+NKG7,Ly,Immune
+EPCAM,Cepi,Epithelial
+KRT19,Cepi,Epithelial
+MUC1,Uepi,Epithelial
+KRT8,Uepi,Epithelial
+PECAM1,Endo,Endothelial
+VWF,Endo,Endothelial
+ACTA2,SMC,Stromal
+TAGLN,SMC,Stromal
+COL1A1,Sfib,Stromal
+DCN,Sfib,Stromal

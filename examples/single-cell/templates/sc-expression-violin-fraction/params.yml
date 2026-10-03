@@ -1,0 +1,11 @@
+width: 10
+height: 6
+dpi: 300
+font_family: sans
+font_size: 12
+data_label: Synthetic example
+expression_threshold: 0
+expression_label: Normalized expression
+group_order: [HC, AEH, EEC]
+show_cells: true
+ncol: 2

@@ -1,0 +1,8 @@
+width: 10
+height: 6
+dpi: 300
+font_family: sans
+font_size: 12
+data_label: Synthetic example
+normalization: within_group
+include_total: true

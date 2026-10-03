@@ -1,0 +1,276 @@
+{
+  "schema": "single-cell.public-copy-import-check.v1",
+  "checkedAt": "2026-10-03T01:54:11.887Z",
+  "passed": true,
+  "templates": 38,
+  "catalogSha256": "a80bef36c58ca96012684be0b65d59d61fbe72de35866a4ebcbb379e34aa1308",
+  "scope": "Candidate conversion only; no Library write and no automatically created provider.",
+  "records": [
+    {
+      "templateId": "sc-bipartite-ligand-target",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-categorical-heatmap",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 16
+    },
+    {
+      "templateId": "sc-celltype-stacked-proportion",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-circular-heatmap",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-clonotype-alluvial",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-communication-circle-network",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-communication-group-bubble",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-communication-lr-chord",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-correlation-spearman-bubble",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-enrichment-descore",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-enrichment-gene-sankey",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-enrichment-pathway-genes",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-expression-violin-fraction",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-feature-umap",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-gsea-multiterm-rank",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 17
+    },
+    {
+      "templateId": "sc-gsea-running-enrichment",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 18
+    },
+    {
+      "templateId": "sc-marker-density-umap",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-marker-dotplot-annotated",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 16
+    },
+    {
+      "templateId": "sc-marker-mean-heatmap",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 16
+    },
+    {
+      "templateId": "sc-multigroup-volcano-counts",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-paga-connectivity-network",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 16
+    },
+    {
+      "templateId": "sc-paired-raincloud",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-ppi-group-network",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-pseudotime-celltype-density",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-pseudotime-expression-heatmap",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 16
+    },
+    {
+      "templateId": "sc-pseudotime-feature-trends",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 16
+    },
+    {
+      "templateId": "sc-qc-metric-panels",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-regulatory-tf-target-network",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-regulon-auc-heatmap",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-regulon-csi-heatmap",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-regulon-rss-ranking",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-sample-celltype-proportion",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 16
+    },
+    {
+      "templateId": "sc-spatial-communication-overlay",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 17
+    },
+    {
+      "templateId": "sc-spatial-feature-spots",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-ternary-expression",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 14
+    },
+    {
+      "templateId": "sc-trajectory-curve-overlay",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-umap-marker-annotations",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    },
+    {
+      "templateId": "sc-velocity-vector-umap",
+      "passed": true,
+      "executionStatus": "passed",
+      "runtimeEntrypoint": "code/plot.r",
+      "assets": 15
+    }
+  ]
+}

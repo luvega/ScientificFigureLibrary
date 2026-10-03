@@ -1,0 +1,9 @@
+# 绘图参数；不改变上游分析或统计结果
+width: 10
+height: 7
+dpi: 300
+font_family: "sans"
+font_size: 12
+title: "Relative mean expression across three groups"
+vertex_labels: ["E1", "E18", "E30"]
+point_size: 1.5

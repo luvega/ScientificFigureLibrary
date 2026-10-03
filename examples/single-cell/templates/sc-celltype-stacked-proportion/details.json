@@ -1,0 +1,43 @@
+{
+  "id": "sc-celltype-stacked-proportion",
+  "title": "细胞比例堆叠柱图",
+  "titleEn": "Stacked cell-type fractions",
+  "plotFamily": "stacked-bar",
+  "scientificQuestion": "各组内的细胞组成比例有何差异，或某细胞类型在组间的组成比例如何分布？",
+  "description": "保留原例黑边堆叠柱和总览柱，显式选择归一方向，默认以各组纳入细胞总数为分母。",
+  "application": "- 比较病例或处理分组中纳入细胞的组成比例，观察哪个细胞类型占据较多或较少份额。\n- 选择按细胞类型归一可观察同一种细胞在不同组之间的构成；样本计数汇总仅用于展示，不作差异丰度推断。",
+  "dataProfile": "每个sample_id×group×celltype的非负整数计数。",
+  "visualProfile": "高对比堆叠色、黑色柱边、可选总量柱和原方向下的类型注释圆点。",
+  "inputs": [
+    {
+      "path": "data/cell_counts.csv",
+      "description": "sample_id、group、celltype、count；每个样本只能属于一个group"
+    }
+  ],
+  "semanticDecisions": [
+    "within_group默认：x轴是group、填色celltype，分母为该group所有纳入细胞数，各柱之和为1。",
+    "within_celltype：x轴是celltype、填色group，分母为该celltype所有group细胞数，保留原案例归一方向和注释点。",
+    "组内先合并样本计数再计算比例，是按细胞数加权的pooled composition；不代表等权样本均值或差异丰度检验。",
+    "缺少组合按计数0补齐，但任何归一分母为0时停止；不丢弃零计数。",
+    "总览柱在within_group模式中为全体样本的细胞类型组成，在within_celltype模式中为全体细胞的组组成。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/(VIP) 2023-9-22单细胞scRNA-scATAC细胞比例堆叠柱状图(函数）/单细胞scRNA-scATAC细胞比例堆叠柱状图.R",
+      "notes": "原源码按celltype跨组rowSums归一；保留为within_celltype并新增明确的默认组内组成。"
+    },
+    {
+      "path": "source-collection/(VIP) 2023-9-22单细胞scRNA-scATAC细胞比例堆叠柱状图(函数）/1.png",
+      "notes": "实际查看堆叠柱、类型彩色点和total柱。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

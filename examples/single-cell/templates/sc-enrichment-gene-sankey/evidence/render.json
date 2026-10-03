@@ -1,0 +1,48 @@
+{
+  "schema": "private-figure-render.v1",
+  "status": "passed",
+  "scope": "example_data",
+  "exitCode": 0,
+  "startedAt": "2026-10-02T06:38:57.948Z",
+  "completedAt": "2026-10-02T06:39:02.100Z",
+  "command": "Rscript --vanilla code/plot.R",
+  "files": [
+    {
+      "path": "code/plot.R",
+      "bytes": 5025,
+      "sha256": "7bc784616c6c9f64b170eccbd4e02a534a00e75b7210307176ab435d2de59fce"
+    },
+    {
+      "path": "code/common.R",
+      "bytes": 2520,
+      "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+    },
+    {
+      "path": "params.yml",
+      "bytes": 185,
+      "sha256": "e117286090779e82052e98d2b6e0776b034d13d5a204efca4a0cdb1693155307"
+    },
+    {
+      "path": "data/memberships.csv",
+      "bytes": 940,
+      "sha256": "cd01d5476267c0721be705e58603253580a49ab5e1b36121899edc3186befa1b"
+    },
+    {
+      "path": "data/enrichment.csv",
+      "bytes": 367,
+      "sha256": "b6ab0d839338991d71e8353df25b7b72a96a890f1577f380c3e4022efcb5297d"
+    },
+    {
+      "path": "preview.png",
+      "bytes": 597285,
+      "sha256": "8fb8e2d2133cf8fecf5153557580a008c6f7c55574c0cda750d6601eaed0c4b6"
+    },
+    {
+      "path": "plot.pdf",
+      "bytes": 64124,
+      "sha256": "ca76a8d93eee6871f4c8cfa363134096b1de17fcdc07c7bb1ae9c3edcf9ba5bf"
+    }
+  ],
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

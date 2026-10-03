@@ -1,0 +1,15 @@
+inputs:
+  category_matrix.csv:
+    row_key: row_id
+    values: nonempty_categorical_strings
+    unique_rows_and_columns: true
+  column_annotations.csv:
+    required: [column_id, group, color]
+    unique: [column_id]
+    relation: exact_matrix_column_ids
+    colors: six_digit_hex_with_consistent_group_mapping
+  category_colors.csv:
+    required: [category, color]
+    unique: [category]
+    relation: exact_observed_categories
+    colors: six_digit_hex

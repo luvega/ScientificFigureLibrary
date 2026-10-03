@@ -1,0 +1,10 @@
+width: 14
+height: 9
+dpi: 300
+font_family: sans
+font_size: 12
+title: Gene–pathway Sankey and enrichment
+node_gap: 0.022
+node_width: 0.11
+pathway_wrap: 30
+max_bubble_size: 11

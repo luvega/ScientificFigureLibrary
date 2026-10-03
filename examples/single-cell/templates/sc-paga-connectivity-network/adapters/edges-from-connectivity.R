@@ -1,0 +1,13 @@
+# Read a saved, symmetric PAGA connectivity matrix; no PAGA inference or layout.
+args<-commandArgs(trailingOnly=TRUE)
+if(length(args)!=3)stop("usage: Rscript edges-from-connectivity.R connectivity.csv nodes.csv output-directory")
+d<-read.csv(args[1],check.names=FALSE,stringsAsFactors=FALSE)
+n<-read.csv(args[2],check.names=FALSE,stringsAsFactors=FALSE)
+if(!all(c("node_id","x","y","n_cells","group") %in% names(n))||names(d)[1]!="node_id")stop("missing matrix or node columns")
+if(anyDuplicated(n$node_id)||anyDuplicated(d$node_id)||anyDuplicated(names(d)[-1])||!setequal(d$node_id,n$node_id)||!setequal(names(d)[-1],n$node_id))stop("matrix annotation mismatch")
+m<-as.matrix(d[match(n$node_id,d$node_id),n$node_id,drop=FALSE])
+if(!is.numeric(m)||any(!is.finite(m))||any(m<0|m>1)||any(abs(m-t(m))>1e-10)||any(abs(diag(m))>1e-10))stop("connectivity must be finite, symmetric, zero-diagonal and in [0,1]")
+ij<-which(upper.tri(m)&m>0,arr.ind=TRUE)
+edges<-data.frame(source=n$node_id[ij[,1]],target=n$node_id[ij[,2]],connectivity=m[ij])
+dir.create(args[3],recursive=TRUE,showWarnings=FALSE)
+write.csv(n,file.path(args[3],"nodes.csv"),row.names=FALSE,na="");write.csv(edges,file.path(args[3],"edges.csv"),row.names=FALSE)

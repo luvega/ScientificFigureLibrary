@@ -1,0 +1,48 @@
+{
+  "schema": "private-figure-render.v1",
+  "status": "passed",
+  "scope": "synthetic_data",
+  "exitCode": 0,
+  "startedAt": "2026-10-02T04:38:19.819Z",
+  "completedAt": "2026-10-02T04:38:27.562Z",
+  "command": "Rscript --vanilla code/plot.R",
+  "files": [
+    {
+      "path": "code/plot.R",
+      "bytes": 2622,
+      "sha256": "32cd27e43adeef3cf0808855374037c1c84fb0a11527e35e4b7d0146bbbb435f"
+    },
+    {
+      "path": "code/common.R",
+      "bytes": 2520,
+      "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+    },
+    {
+      "path": "params.yml",
+      "bytes": 240,
+      "sha256": "bfd36ca0abb319dfa682b744985516f8b9a5fb919f1d5c39a53ec46a8c37560a"
+    },
+    {
+      "path": "data/csi.csv",
+      "bytes": 5745,
+      "sha256": "6d6e873f435ed3e224623ce1a86481fb7a453ce5ced7a25d6f99adfceea33b40"
+    },
+    {
+      "path": "data/regulon_annotations.csv",
+      "bytes": 808,
+      "sha256": "479da1c0d7dc021563781c56efa0c3aa4149556cc4130beb811db96ada7a3e3b"
+    },
+    {
+      "path": "preview.png",
+      "bytes": 379681,
+      "sha256": "bd944702d3163495fa424146c2dffe277e3f4c36f3d5df565e4726afd4779639"
+    },
+    {
+      "path": "plot.pdf",
+      "bytes": 37517,
+      "sha256": "77172a54d026fd22d7687971a8644ffc506273bcf2b57e126596d8333df76d74"
+    }
+  ],
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

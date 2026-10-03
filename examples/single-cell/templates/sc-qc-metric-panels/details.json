@@ -1,0 +1,39 @@
+{
+  "id": "sc-qc-metric-panels",
+  "title": "细胞质量指标分面图",
+  "titleEn": "Cell quality metric panels",
+  "plotFamily": "qc_metric_panels",
+  "scientificQuestion": "不同样本的已计算质量指标分布和参考阈值位置有何差异？",
+  "description": "并列展示每个样本的基因数、计数总量与线粒体比例，帮助观察指标分布、极端值和参考阈值的位置。",
+  "application": "- 在过滤前比较不同样本的质量指标分布，识别需要进一步核对的样本或细胞范围。\n- 在同一指标的统一坐标下展示外部确定的阈值，保留每个样本的细胞分布；阈值适用性由具体实验确定。",
+  "dataProfile": "每个cell_id一行，sample_id和group标记来源，包含已计算的nFeature_RNA、nCount_RNA和百分制percent_mt。",
+  "visualProfile": "三个横向小提琴分面叠加细胞点，样本横轴、各指标独立纵轴、分组填色和红色参考虚线。",
+  "inputs": [
+    {
+      "path": "data/qc_metrics.csv",
+      "description": "360个合成细胞，6个示例样本；原指标值"
+    }
+  ],
+  "semanticDecisions": [
+    "入口只读预计算QC指标，所有纳入细胞保留；虚线不触发过滤。",
+    "percent_mt使用0–100百分制，nFeature_RNA与nCount_RNA是非负整数且基因数不超过计数数。",
+    "sample_id用于显示来源，同一样本只映射一个group；细胞点不表示独立生物重复。",
+    "合成示例固定种子20261011，没有来源的真实细胞QC表。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/1-单细胞转录组（scRNA）/Seurat V5 基本分析流程/2_redData&QC.R",
+      "sha256": "d3f67d76966b3bc508b1894ac68803d688f8bd139f50accedbbb3c2423e9c3dc",
+      "notes": "只读核对42–45、51–53行的QC小提琴作图；没有执行10X读取、比例计算或48–49行过滤。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

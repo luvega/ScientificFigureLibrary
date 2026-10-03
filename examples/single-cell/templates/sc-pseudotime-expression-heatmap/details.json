@@ -1,0 +1,48 @@
+{
+  "id": "sc-pseudotime-expression-heatmap",
+  "title": "拟时序表达热图与模块注释",
+  "titleEn": "Precomputed pseudotime expression heatmap",
+  "plotFamily": "pseudotime_expression_heatmap",
+  "scientificQuestion": "已有拟时序顺序下基因模式如何变化？",
+  "description": "按已有拟时序排列预处理矩阵，显示给定细胞类型和模块；图形不能建立发育方向、分支关系或因果过程。",
+  "application": "- 上游已提供拟时序及表达矩阵时，可查看关注基因沿该顺序变化。\n- 已给模块划分时可显示模块色条；不重新发现模块或推断根细胞。",
+  "dataProfile": "seed=20261002合成24基因×60时间箱已按行z-score矩阵；时间箱和模块均为示例设定。",
+  "visualProfile": "蓝–白–红热图，顶部拟时序和细胞类型色条，左侧模块色条；列无聚类。",
+  "inputs": [
+    {
+      "path": "data/expression.csv",
+      "description": "已预处理表达矩阵"
+    },
+    {
+      "path": "data/bin_annotations.csv",
+      "description": "bin_id,pseudotime,celltype"
+    },
+    {
+      "path": "data/gene_annotations.csv",
+      "description": "gene,module"
+    }
+  ],
+  "semanticDecisions": [
+    "示例为固定seed合成，不是实验结果",
+    "不平滑、不再z-score、不聚类模块",
+    "不运行Monocle全流程；按元数据稳定排序",
+    "2024-10-14目录p1–p4不是表达热图，不作为本预览的生成证据"
+  ],
+  "packages": [
+    "ComplexHeatmap",
+    "circlize",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/Monocle3分析流程及函数.R",
+      "sha256": "e70ae102e71d98799f9846db45beea63fde2d9801f4019038c0ff7f208ce36c1",
+      "notes": "178行函数的绘图和注释结构；跳过Monocle及平滑/缩放"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

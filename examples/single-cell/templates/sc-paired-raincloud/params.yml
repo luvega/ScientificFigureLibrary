@@ -1,0 +1,10 @@
+width: 7.5
+height: 6.5
+dpi: 300
+font_size: 12
+font_family: sans
+title: Paired richness distribution
+y_label: Richness
+group_order: [Patient, Relative]
+group_colors: ["#E69F00", "#009E73"]
+pair_jitter: 0.045

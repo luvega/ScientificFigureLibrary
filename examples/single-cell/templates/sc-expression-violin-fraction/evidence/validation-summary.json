@@ -1,0 +1,43 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 4,
+  "inputCasesPassed": 4,
+  "semanticCases": 1,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "e0a25bdb2c66f44b4f1febb45302faf1df9c957d8f80d2f676ba258dfb1e6a41",
+        "actual": "e0a25bdb2c66f44b4f1febb45302faf1df9c957d8f80d2f676ba258dfb1e6a41",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "1f9e915f31c5a7f8478592baef443b13499931a21d2ecc5e23dab639fd631240",
+        "actual": "1f9e915f31c5a7f8478592baef443b13499931a21d2ecc5e23dab639fd631240",
+        "passed": true
+      }
+    ],
+    "review": {
+      "labels": "reviewed",
+      "legends": "reviewed",
+      "scales": "reviewed",
+      "cropping": "reviewed",
+      "overlap": "reviewed",
+      "notes": "Violin panels, expression labels, pie proportions and legends checked."
+    }
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

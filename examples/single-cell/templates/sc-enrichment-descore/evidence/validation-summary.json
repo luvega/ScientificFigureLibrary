@@ -1,0 +1,36 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 5,
+  "inputCasesPassed": 5,
+  "semanticCases": 1,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "1e16c12d91dbc57c1ae5f528aab25dbf8eac81df5edbf0efb490b392ff07710e",
+        "actual": "1e16c12d91dbc57c1ae5f528aab25dbf8eac81df5edbf0efb490b392ff07710e",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "82196e057259df7a641045adadf5a56f41566fec7cb50e398f79aedab59a335f",
+        "actual": "82196e057259df7a641045adadf5a56f41566fec7cb50e398f79aedab59a335f",
+        "passed": true
+      }
+    ],
+    "review": "Macrophage annotation follows the input; gene counts, signed score legend and q-value axis are visible."
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

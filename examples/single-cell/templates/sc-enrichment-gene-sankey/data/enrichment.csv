@@ -1,0 +1,9 @@
+pathway,gene_ratio,count,display_score
+Thermogenesis,0.6,45,12.092
+ribosome assembly,0.5,22,8.948
+VEGFA-VEGFR2 signaling,0.5,34,8.351
+regulation of apoptotic signaling pathway,0.45,23,7.056
+Kaposi sarcoma-associated herpesvirus infection,0.4,12,6.374
+purine nucleotide metabolic process,0.3,13,5.915
+cell-cell adhesion,0.25,12,5.678
+Ferroptosis,0.2,34,5.369

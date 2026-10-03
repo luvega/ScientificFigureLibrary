@@ -1,0 +1,49 @@
+{
+  "id": "sc-paga-connectivity-network",
+  "title": "PAGA 群体连接网络",
+  "titleEn": "PAGA group connectivity network",
+  "plotFamily": "paga_connectivity_network",
+  "scientificQuestion": "既有PAGA结果中，哪些细胞群具有较强的无向连接？",
+  "description": "使用提供的群体坐标和连接权重绘制PAGA抽象网络；连线宽度表示连接值，可选择按提供的细胞数显示节点面积。",
+  "application": "- 展示已有PAGA群体连接及其预计算布局。\n- 根据明确阈值查看较强连接，同时保留没有显示边的节点。",
+  "dataProfile": "从2023-12-14教程HTML输出表提取8个群体坐标与25条边，数值保留教程展示精度。教程未提供节点计数表，示例节点大小统一。",
+  "visualProfile": "黑色无向边、红绿群体节点与淡色分区；坐标沿用教程输出，不重新布局。",
+  "inputs": [
+    {
+      "path": "data/nodes.csv",
+      "description": "node_id/x/y/n_cells/group；n_cells允许为空，只有计数模式才必需"
+    },
+    {
+      "path": "data/edges.csv",
+      "description": "source/target/connectivity；唯一无向边，权重[0,1]"
+    }
+  ],
+  "semanticDecisions": [
+    "PAGA连接为无向关系，不绘制箭头、不解释为拟时方向或谱系因果。",
+    "按node_id匹配坐标和边，禁止按行顺序替换布局；名称完整保存。",
+    "示例坐标与连接来自已显示的输出表，精度为6位小数；不冒称原对象完整精度。",
+    "只有明确提供n_cells才启用节点面积编码；示例uniform模式不编造细胞数。",
+    "阈值只筛选显示边，节点保留；边宽统一以[0,1]为尺度。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/05_拟时与RNA速率/Slingshot与PAGA/C392b491ecb62__将Seurat转AnnData计算PAGA群间连接并导出边表用于.notebook.txt",
+      "sha256": "ebd1f7d0e4da958a85ee7a9dcf104f02ed500b9803769362676e34bf76868d72",
+      "notes": "仅阅读图式与已输出数据，未执行来源流程。"
+    },
+    {
+      "path": "source-collection/05_拟时与RNA速率/Slingshot与PAGA/配套资源/示例记录/dceddfc047__PAGA更新-PAGA网络数据提取及个性化作图.html",
+      "sha256": "dceddfc04736553a7c036f304c41951e14dc4db54af4484b1a72767804c6dc1d",
+      "notes": "实际提取HTML中已有输出表，保留显示精度。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

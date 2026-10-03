@@ -1,0 +1,59 @@
+{
+  "id": "sc-communication-group-bubble",
+  "title": "多组细胞通讯受配体气泡图",
+  "titleEn": "Grouped ligand–receptor bubble plot",
+  "plotFamily": "grouped_ligand_receptor_bubble",
+  "scientificQuestion": "已有各组受配体结果在来源与目标细胞之间如何分布？",
+  "description": "分面比较各条件的已有受配体结果。颜色表示输入互作数值，面积表示已有pvalue的负对数；不构成新的组间差异检验。",
+  "application": "- 若已完成各组CPDB或CellChat分析，可统一成长表后比较选定细胞对和LR结果。\n- 图例须写明输入是CPDB mean还是CellChat probability，二者不可混用。",
+  "dataProfile": "GO/WT已有CPDB结果，3种source/target细胞及6组LR，共108行；按两组p≤0.05且mean>0的出现次数选LR。",
+  "visualProfile": "行分面为group，列分面为source；target在顶部横轴，LR为纵轴；Spectral色阶和黑色点边框。",
+  "inputs": [
+    {
+      "path": "data/communication.csv",
+      "description": "value为原始CPDB mean；其余为已有pvalue与明确配对字段"
+    }
+  ],
+  "semanticDecisions": [
+    "source,target,ligand,receptor显式分列",
+    "缺失记录不补零；pvalue=0仅视觉变换截断",
+    "不执行通讯分析、不做跨组差异检验",
+    "横轴准确命名Target cells，避免原例Source cells误标"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/（VIP）2024-10-29 【函数】复现SCI-cellchat-cpdb-细胞互作受配体分组气泡图函数/cellphonedb V5-细胞互作受配体多组气泡图函数.R",
+      "sha256": "2c945625d276b129211c45265e7975001c2fc3f94e95e41ef7ec792f1f2e14e6",
+      "notes": "group×source分面、target横轴和LR纵轴布局"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-17 cellphonedb V5多组受配体分析可视化函数/GO_cpdb/statistical_analysis_pvalues_08_15_2024_132104.txt",
+      "sha256": "5c5fe3b55d28bf0f64a9d8101f5e55da76542d30bee13a4222d5b31219f85fe7",
+      "notes": "原始pvalue，不重算"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-17 cellphonedb V5多组受配体分析可视化函数/GO_cpdb/statistical_analysis_means_08_15_2024_132104.txt",
+      "sha256": "bb21cc37ce1c95a9618c752ef4a755178d1bb1dd8b0d653cb8125974525e6cc0",
+      "notes": "原始CPDB mean，不是CellChat probability"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-17 cellphonedb V5多组受配体分析可视化函数/WT_cpdb/statistical_analysis_pvalues_08_15_2024_132617.txt",
+      "sha256": "8648b79bef25229b721b358925f695c571f4e1ea95d2dd53b7d84bbddb074390",
+      "notes": "原始pvalue，不重算"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-17 cellphonedb V5多组受配体分析可视化函数/WT_cpdb/statistical_analysis_means_08_15_2024_132617.txt",
+      "sha256": "d7d2bdc5c27b3324c68be4015ca4f0da45b44f599729ba6e09e1cf3c7048a66d",
+      "notes": "原始CPDB mean，不是CellChat probability"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

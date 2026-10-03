@@ -1,0 +1,48 @@
+{
+  "id": "sc-sample-celltype-proportion",
+  "title": "样本细胞类型比例箱线与点图",
+  "titleEn": "Sample cell-type proportions",
+  "plotFamily": "sample_celltype_proportion",
+  "scientificQuestion": "各样本文库中，给定细胞类型占全部注释细胞的比例如何分布？",
+  "description": "以每个样本为绘图单位，分面展示细胞类型比例的箱线和样本点；分母独立保存，筛选细胞类型后仍保持原比例。",
+  "application": "- 查看各样本的细胞组成及样本之间的离散程度。\n- 按实验分组展示样本层面的比例，可叠加已有比较标注。",
+  "dataProfile": "从原教程已处理的6025个细胞注释汇总两个文库的8种细胞类型；文库是绘图单位，未确认其独立生物学重复身份。",
+  "visualProfile": "白底分面、组色箱线与点、比例百分比纵轴；保留原函数以样本统计比例的布局。",
+  "inputs": [
+    {
+      "path": "data/counts.csv",
+      "description": "sample_id/group/cell_type/count/total_cells；分母为该样本全部输入细胞"
+    },
+    {
+      "path": "data/comparisons.csv",
+      "description": "可选cell_type/group1/group2/y/label，只有表头表示无比较标注"
+    }
+  ],
+  "semanticDecisions": [
+    "先计算count/total_cells×100，再筛选显示的细胞类型；不得对筛选后的计数重新归一化。",
+    "每个样本只能归属一个组；total_cells在同一样本各行必须一致；默认要求完整组成、计数和等于分母，零计数必须显式提供。",
+    "箱线按样本比例汇总，各样本权重相同；不把每个细胞当成独立重复，不运行显著性检验。",
+    "comparisons中的标签由上游提供；示例没有比较标注。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/03_单细胞表达与组成绘图/细胞比例与组成绘图/C289be0602327__统计Seurat样本的细胞类型比例并绘制柱状或箱线图和组间比较标.R",
+      "sha256": "25c6b9fc2dcc8c2a248fe42549afe5e61ccfe33c93efb99971cc8c5d8afdcca7",
+      "notes": "仅阅读图式与已输出数据，未执行来源流程。"
+    },
+    {
+      "path": "source-collection/05_拟时与RNA速率/拟时热图趋势与轨迹绘图/配套资源/数据/b042b74610__mouse_monocle.rds",
+      "sha256": "b042b74610268232c54a6c3becf1a234631d3891cd6a60395f07eeb01067652e",
+      "notes": "读取既有表达、拟时和细胞注释；仅计数与分箱平均。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

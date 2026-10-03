@@ -1,0 +1,43 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 7,
+  "inputCasesPassed": 7,
+  "semanticCases": 2,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "57b0ef5775e7f2957472de7bdb9d2b4e720a08162e2eb6de728570b22331bc8f",
+        "actual": "57b0ef5775e7f2957472de7bdb9d2b4e720a08162e2eb6de728570b22331bc8f",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "5e11e1e3dac9faadb9427849bd2820e2cadb60eb8203d856602e1cc3e4b9b7d7",
+        "actual": "5e11e1e3dac9faadb9427849bd2820e2cadb60eb8203d856602e1cc3e4b9b7d7",
+        "passed": true
+      }
+    ],
+    "review": {
+      "labels": "reviewed",
+      "legends": "reviewed",
+      "scales": "reviewed",
+      "cropping": "reviewed",
+      "overlap": "reviewed",
+      "notes": "Four feature panels, provided group colors, mean-log2 expression scale, and subtitle identifying bin means without intervals checked."
+    }
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "sc-gsea-running-enrichment",
+  "title": "GSEA 运行富集分数曲线与基因排名",
+  "titleEn": "GSEA running enrichment and ranked statistic",
+  "plotFamily": "gsea_running_curve",
+  "scientificQuestion": "已有GSEA结果的基因集命中如何沿提供的基因排名形成运行富集分数？",
+  "description": "保留经典三层结构：运行ES曲线、基因集命中条带和原排名统计量。例示正负富集两条通路。",
+  "application": "用于展示已经完成的GSEA通路结果及其排名方向。",
+  "dataProfile": "完整降序排名15681行；gene_id/rank/statistic; 所选通路完整匹配基因；pathway_id/gene_id/rank; 原结果中Ribosome和Herpes simplex virus 1 infection两条通路，保留ES/NES/p_adjust/set_size; 两条完整运行ES轨迹，每条15681行；由适配器重建并核对原存储ES",
+  "visualProfile": "两条通路分别展示运行ES曲线与命中条带，下方灰色排名统计量；正NES红、负NES绿。",
+  "inputs": [
+    {
+      "path": "data/ranking.csv",
+      "description": "完整降序排名15681行；gene_id/rank/statistic"
+    },
+    {
+      "path": "data/hits.csv",
+      "description": "所选通路完整匹配基因；pathway_id/gene_id/rank"
+    },
+    {
+      "path": "data/enrichment.csv",
+      "description": "原结果中Ribosome和Herpes simplex virus 1 infection两条通路，保留ES/NES/p_adjust/set_size"
+    },
+    {
+      "path": "data/curves.csv",
+      "description": "两条完整运行ES轨迹，每条15681行；由适配器重建并核对原存储ES"
+    }
+  ],
+  "semanticDecisions": [
+    "使用2024-8-9原教学res.RData中的预计算GSEA结果；选hsa03010与hsa05168，非本次真实样本分析。",
+    "排名统计量保持原15681个基因及降序；高统计量在左，低统计量在右，修正来源图的左右文字方向。",
+    "适配器从提供geneList和geneSets按存储exponent=1重建展示曲线；每条曲线最大绝对极值与存储enrichmentScore误差≤1e-6。",
+    "NES、p.adjust和setSize从原结果直接保留；未做富集、置换、多重校正或上游差异分析。",
+    "绘图脚本只读取CSV，不加载Seurat/GSEA对象或调用富集分析函数。"
+  ],
+  "packages": [
+    "ggplot2",
+    "yaml",
+    "ragg",
+    "patchwork"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/2025-07-KS-account-codes/6-KS个性化作图（不止单细胞）/4-GSEA分析及作图/2022-6-12GSEA分析及作图/GSEA.R",
+      "sha256": "3e33f84840f8c49fedde972a75b6d9230cb3d89072297a88fc47ca91706a2224",
+      "notes": "2022-6-12经典gseaplot2三层布局；分析和安装代码不迁移。"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-9 更新-复现Cell子刊GSEA多组结果展示函数/res.RData",
+      "sha256": "7a2db3a6e374a8192d7c302ca66864bdfe6ea6fd56a331f8026569c4025a5c0b",
+      "notes": "2024-8-9预计算gseaResult，37条结果、15681个降序排名；本模板取正负两条通路。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

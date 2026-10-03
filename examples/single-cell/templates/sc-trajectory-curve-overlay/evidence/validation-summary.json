@@ -1,0 +1,43 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 4,
+  "inputCasesPassed": 4,
+  "semanticCases": 1,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "3de4cbbf2ac63a6124fafc5d7c895d1596f959b33f6cb7324dd7c6a48a0877a6",
+        "actual": "3de4cbbf2ac63a6124fafc5d7c895d1596f959b33f6cb7324dd7c6a48a0877a6",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "2f667764cf4fc268af170a5630e63ec59cf1e3dff8263cd167640ade360c2db6",
+        "actual": "2f667764cf4fc268af170a5630e63ec59cf1e3dff8263cd167640ade360c2db6",
+        "passed": true
+      }
+    ],
+    "review": {
+      "labels": "reviewed",
+      "legends": "reviewed",
+      "scales": "reviewed",
+      "cropping": "reviewed",
+      "overlap": "reviewed",
+      "notes": "Full PNG reviewed; same-layout one-page PDF raster inspected in expansion-contact-sheet.png."
+    }
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

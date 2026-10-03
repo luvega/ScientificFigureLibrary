@@ -1,0 +1,10 @@
+width: 10
+height: 6
+dpi: 300
+font_family: sans
+font_size: 12
+data_label: Synthetic example
+expression_scale: gene_zscore
+z_min: -1
+z_max: 2
+dot_max_size: 6

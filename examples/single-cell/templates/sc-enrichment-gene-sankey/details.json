@@ -1,0 +1,64 @@
+{
+  "id": "sc-enrichment-gene-sankey",
+  "title": "基因通路成员桑基图与富集气泡",
+  "titleEn": "Gene–pathway Sankey and enrichment",
+  "plotFamily": "enrichment_sankey",
+  "scientificQuestion": "提供的基因成员关系如何对应通路及原富集摘要？",
+  "description": "保留原教学小表中的gene/pathway成员边和独立富集量，以灰色条带和彩色通路节点结合右侧气泡显示。",
+  "application": "展示所选富集通路的提供基因成员关系，并与同一通路已有gene ratio、完整Count和提供显示分数对应，适合GO/KEGG等筛选通路的成员清单与摘要联看。",
+  "dataProfile": "gene/pathway/weight；原示例所选8通路的24条成员边。; pathway/gene_ratio/count/display_score；原教学富集摘要8行，Count不是当前显示基因数。",
+  "visualProfile": "灰色条带宽度编码所示成员边weight，左侧灰节点与斜体文字标识gene，右侧节点按pathway分类着色。右侧气泡x为提供gene_ratio、y与通路节点中心一致；气泡面积编码完整富集Count、颜色编码display_score。完整Count与所示成员数分开保留。",
+  "inputs": [
+    {
+      "path": "data/memberships.csv",
+      "description": "gene/pathway/weight；原示例所选8通路的24条成员边。"
+    },
+    {
+      "path": "data/enrichment.csv",
+      "description": "pathway/gene_ratio/count/display_score；原教学富集摘要8行，Count不是当前显示基因数。"
+    }
+  ],
+  "semanticDecisions": [
+    "来自原教学示例表，不宣称为本次真实生物数据或已重算富集。",
+    "按Enrichment.csv固定原文件顺序取前8通路；成员表仅保留匹配的gene/pathway/freq，weight=freq。",
+    "gene_ratio=原Generatio，count=原Count；display_score仅为原Log(q-value)乘-1，不将其伪装为新计算的校正P值。",
+    "条带宽度为所示成员边weight；完整富集Count可能大于所示成员数，二者不得混用。",
+    "提供成员关系不意味着直接调控或因果关系；无聚类、富集检验或网络推断。"
+  ],
+  "packages": [
+    "ggplot2",
+    "yaml",
+    "ragg",
+    "patchwork"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/2025-07-KS-account-codes/6-KS个性化作图（不止单细胞）/5-气泡图/2023-10-20 更新---桑基图+气泡图展示富集分析结果(3).zip!桑基图+气泡图展示富集分析结果.R",
+      "sha256": "c3b29f0db6a53b39d4e0863202787b5acae2e3b7d0cf05f30165f8471d308512",
+      "archiveEntry": "桑基图+气泡图展示富集分析结果.R",
+      "notes": "教程内部版本2023-10-20，外层合集拷贝日期2025-07；参考gene/pathway桑基图+富集气泡布局。"
+    },
+    {
+      "path": "source-collection/2025-07-KS-account-codes/6-KS个性化作图（不止单细胞）/5-气泡图/2023-10-20 更新---桑基图+气泡图展示富集分析结果(3).zip!df.csv",
+      "sha256": "c3b29f0db6a53b39d4e0863202787b5acae2e3b7d0cf05f30165f8471d308512",
+      "archiveEntry": "df.csv",
+      "notes": "原教学成员表43行；保留Enrichment表前8个pathway对应成员，freq作成员权重。"
+    },
+    {
+      "path": "source-collection/2025-07-KS-account-codes/6-KS个性化作图（不止单细胞）/5-气泡图/2023-10-20 更新---桑基图+气泡图展示富集分析结果(3).zip!Enrichment.csv",
+      "sha256": "c3b29f0db6a53b39d4e0863202787b5acae2e3b7d0cf05f30165f8471d308512",
+      "archiveEntry": "Enrichment.csv",
+      "notes": "原教学富集表14行；保留前8行，Generatio/Count原值不变，display_score=-原Log(q-value)。"
+    },
+    {
+      "path": "source-collection/2025-07-KS-account-codes/6-KS个性化作图（不止单细胞）/5-气泡图/2023-10-20 更新---桑基图+气泡图展示富集分析结果(3).zip!1.png",
+      "sha256": "c3b29f0db6a53b39d4e0863202787b5acae2e3b7d0cf05f30165f8471d308512",
+      "archiveEntry": "1.png",
+      "notes": "实际查看原gene→pathway灰色条带桑基图；仅作图式对照。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

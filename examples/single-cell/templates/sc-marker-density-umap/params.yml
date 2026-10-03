@@ -1,0 +1,11 @@
+width: 11
+height: 4.8
+dpi: 300
+font_family: sans
+font_size: 12
+title: Precomputed marker density maps
+data_label: "Synthetic example: analytic Gaussian mixture grids"
+contour_bins: 6
+density_label: Supplied density
+density_max: null
+gene_order: [ExampleGeneA, ExampleGeneB, ExampleGeneC]

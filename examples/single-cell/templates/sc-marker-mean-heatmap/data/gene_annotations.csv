@@ -1,0 +1,16 @@
+gene,marker_celltype
+ACTA1,Myonuclei
+MYH1,Myonuclei
+TNNT3,Myonuclei
+ACTA2,SMC
+TAGLN,SMC
+MYL9,SMC
+PECAM1,Endothelial
+VWF,Endothelial
+KDR,Endothelial
+LYZ,Macrophages
+C1QA,Macrophages
+CD68,Macrophages
+COL1A1,Mesenchymal
+DCN,Mesenchymal
+COL3A1,Mesenchymal

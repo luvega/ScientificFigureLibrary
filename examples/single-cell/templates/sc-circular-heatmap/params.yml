@@ -1,0 +1,13 @@
+# 绘图参数；不改变上游分析或统计结果
+width: 9
+height: 9
+dpi: 300
+font_family: "sans"
+font_size: 12
+title: "Example circular expression matrix"
+row_zscore: true
+colour_limit: 2
+cluster_rows: true
+label_cex: 0.75
+value_label: "Provided value"
+sample_label_cex: 0.6

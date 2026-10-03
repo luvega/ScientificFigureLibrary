@@ -1,0 +1,1878 @@
+{
+  "schema": "single-cell.public-copy-reproduction.v1",
+  "checkedAt": "2026-10-03T01:50:16.788Z",
+  "passed": true,
+  "templates": 38,
+  "hostPlatform": "win32",
+  "rVersion": "4.6.0",
+  "executionScope": "All public packages were copied into separate work directories and rerendered after removing inherited PNG/PDF outputs. Published package files were not modified.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed",
+  "records": [
+    {
+      "templateId": "sc-bipartite-ligand-target",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:02.509Z",
+      "completedAt": "2026-10-03T01:48:05.916Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2687,
+          "sha256": "303ad8ec3e3868929134d9749cee56036c23a9de1b68d9aa19219743b21e06ad"
+        },
+        {
+          "path": "data/edges.csv",
+          "bytes": 861,
+          "sha256": "8850ede21525412ad55f7de75947c21416b9575cec36c46270094a4773e562d6"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 401,
+          "sha256": "d3802b25f08246a77d06e805804cb5915f7c4a9f258d6c0ff71a0dd88512d388"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 197,
+          "sha256": "93ef1a32a2aaeec3109dab46773c297521ddfbd0b664235da6a1a584585ce876"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 591305,
+          "sha256": "beb0d0e2910a8adf139e1af42c228542a9543161d0ce914b6f2aa0b708bf1b47",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 44779,
+          "sha256": "0e1f3be0c1eb89de42aa118b250ee89eea0c572e1a21975bd22e5cfc5ff18c02",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-categorical-heatmap",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:05.944Z",
+      "completedAt": "2026-10-03T01:48:15.105Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3151,
+          "sha256": "8de222d0bd4736e956e8ce870a1992114826226fbef4f654c1e0d5a73ce228d9"
+        },
+        {
+          "path": "data/category_colors.csv",
+          "bytes": 38,
+          "sha256": "5d62c802134b23c7f057d17e1a5c138d98bea7d5a5c2d49f65e7cb5d6b63b137"
+        },
+        {
+          "path": "data/category_matrix.csv",
+          "bytes": 781,
+          "sha256": "fa9436a1345037cce7f55be1cc846ebffbe72a11c1b735baff3e42bc09acda76"
+        },
+        {
+          "path": "data/column_annotations.csv",
+          "bytes": 224,
+          "sha256": "05b0794b8810bbf7b00e34b1e6a25b3d9a50b50648718d22d8cf4838cad81ee9"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 120,
+          "sha256": "d05ff60dff78b816226e8a47d3690ccebcc5fdbfbbc92456563eb53efa065d09"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 176813,
+          "sha256": "6e7dcbb720e9deda4a06a2fa284cb7619f375c408d5a45e808153703eece26e7",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 31976,
+          "sha256": "bf993074a3c075b723b9ad45c1fa8030c228ad72d0b780d7e19b16f68993828a",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-celltype-stacked-proportion",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:15.131Z",
+      "completedAt": "2026-10-03T01:48:17.128Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3615,
+          "sha256": "f0ab72ddfea8114430d81e253bb1d994d1fa96c376303f2a6fec0811598e23c7"
+        },
+        {
+          "path": "data/cell_counts.csv",
+          "bytes": 764,
+          "sha256": "6c9e5a2553f10859561278db017cac9a08363c3245b446104d7ffce0993673fb"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 147,
+          "sha256": "f4f1317f3904343f589ca5a58acfb1a4b64e948f33812c5a8d022f81fab4e18c"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 99888,
+          "sha256": "286d40cd64ce073fa8c385c450ef9ca585741a59147964d489c8c5693deefb9e",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 23191,
+          "sha256": "61c403245146e8398e640b757aeb508fd0f8842295590982f3a2ec31d7b4f7be",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-circular-heatmap",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:17.163Z",
+      "completedAt": "2026-10-03T01:48:22.315Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3297,
+          "sha256": "56a41f5f0132407f7ab86b324c217dd59088716e3eee2fdd1b232210a11dea64"
+        },
+        {
+          "path": "data/expression.csv",
+          "bytes": 2836,
+          "sha256": "55db3a37320fa88cd9ded02498bf8a3801453b9ef20bf5190853c37eea87afdc"
+        },
+        {
+          "path": "data/row_annotations.csv",
+          "bytes": 382,
+          "sha256": "67c2b076a61737126ed1b831d756f7f16c50324cf0dbbca0d1a2ae62888896eb"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 293,
+          "sha256": "d2ff5e5197cb86e03010b656df45390dbd8495626c5e61dc7a619c243439cc58"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 646347,
+          "sha256": "05bfb406e8798ef9cbff7429d54fd22bde829950ab5aae54e438bf1cc55aa06d",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 117159,
+          "sha256": "14d5fb30b1e07a3183453967c0c96d4a2d557f2690f9149216ea4ad87f4ca517",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-clonotype-alluvial",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:22.340Z",
+      "completedAt": "2026-10-03T01:48:24.346Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 4034,
+          "sha256": "5bc94a57c1685a5b05ee868616c9aa68efc42b31025fc321bbb19d577c354352"
+        },
+        {
+          "path": "data/flows.csv",
+          "bytes": 1233,
+          "sha256": "4da40d089b7f1c38a7e28b97388552819db3c8f31c3815822b9de016d9bba724"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 153,
+          "sha256": "469d29319fad71c0eed1795091269159bd87acb78af79d9e16e422ad0cd049cf"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 497262,
+          "sha256": "290b3a97079501385466580a5cc7ad5e50ebdcde0ff51c4d70d05b5a3e42c643",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 52073,
+          "sha256": "2d0442e9bce7afe64ade5bc9ffcedce7dfdafe82dc05b2f662221ef74a270bde",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-communication-circle-network",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:24.371Z",
+      "completedAt": "2026-10-03T01:48:25.246Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3123,
+          "sha256": "d28b4442cfb87e7fac9debcbfa4b9ef26e09a2772660c70ff8503eab42c8a55c"
+        },
+        {
+          "path": "data/communication.csv",
+          "bytes": 7007,
+          "sha256": "d289a5bf5beb83664fa46b77bdd4a55855c68b7711f91946c984607304d132c2"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 90,
+          "sha256": "fc00226d208e09b11a5b65cf82e17003bfd407021163e2f7f7ed5d12fa28e227"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 122,
+          "sha256": "48943d2f601f4dd0e30660b836937213a39d9b8ec44d00c0e931109f5cd3b876"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 184002,
+          "sha256": "13f68edbe71cf04798ee6fb4fa58014ebbf34bc5288cc5b28de5f981f37a9391",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 37450,
+          "sha256": "b31e26fa2c6cb469b4292e88dbf7edc1dbfe63267d011237ce2c25bc8f173f2f",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-communication-group-bubble",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:25.268Z",
+      "completedAt": "2026-10-03T01:48:27.359Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2578,
+          "sha256": "ff72d139bb5089bd01e21eef57045ff0135dadb2d0ba87ab434ee9800098ec3e"
+        },
+        {
+          "path": "data/communication.csv",
+          "bytes": 7007,
+          "sha256": "d289a5bf5beb83664fa46b77bdd4a55855c68b7711f91946c984607304d132c2"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 254,
+          "sha256": "92c77614b9be5e60033492f569636380bbf24f13bba94498e19b20146abab406"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 474454,
+          "sha256": "0d74e05f3db0e32cdeebe32d6bde837dccd517c17ae151f93ff64d2bab0a1f6d",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 56472,
+          "sha256": "b274e5e77f9077f6c25142fae014b81b9de1c7583304ac907f30b08ec1b80edb",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-communication-lr-chord",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:27.381Z",
+      "completedAt": "2026-10-03T01:48:28.649Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2544,
+          "sha256": "283ad2be5dea622dcc91ba32335b371ae1c4520e15dbfbdaaffd33855ea2f97a"
+        },
+        {
+          "path": "data/input.csv",
+          "bytes": 232,
+          "sha256": "ae6df9865c8dfbad5ad8c48093746c72575338bb32a6518e45f51e0733cf420e"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 118,
+          "sha256": "bff01e96c1bf8c6a5781076db47b7a72b50a4cdcec30299adee8875033522972"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 318555,
+          "sha256": "490c09bda491fea969da12345ad1ffdc61720c287668693132f8fab74e1c5573",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 41380,
+          "sha256": "3b13ce7e584fb03b8f5e33c983d2097814268e82f49875f3a52f4dbab5b6b6cf",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-correlation-spearman-bubble",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:28.674Z",
+      "completedAt": "2026-10-03T01:48:30.717Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3159,
+          "sha256": "6b4cce8faab1b4ec60201f0ae1386243d93df1ac3ee7c440ff9dc1089dc9a1ec"
+        },
+        {
+          "path": "data/correlations.csv",
+          "bytes": 37601,
+          "sha256": "eb73347360007a96f2b00c89f7fc5eda0c1eece9001a84d7f58fe93bde32e55f"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 156,
+          "sha256": "bef64338e05b12f2a72c24ea8471b79f20e6322e760eaa300a785e0a7f62b6f6"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 676193,
+          "sha256": "90870ecd188c5a732f1c1b6d08c66a5d2610be2157cfbefa29db00cecff83a92",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 53237,
+          "sha256": "d8bec769dd1247b4abf0a3dcd6fb0a307df4bde07713a39dd1d5d39e45bab31a",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-enrichment-descore",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:30.737Z",
+      "completedAt": "2026-10-03T01:48:32.821Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3986,
+          "sha256": "1bcd03b197d24cbe048742184e365041e414dc5cfe19d4a8ce6dab3400f0d83c"
+        },
+        {
+          "path": "data/enrichment.csv",
+          "bytes": 1665,
+          "sha256": "3f2a85c67429c04ed356bb48e826b98d4440649d2f41e83545d677f29a69d58c"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 234,
+          "sha256": "1511245425cb8f6f0d2807ce0b0e1bc0cba7ba2ef7f8dffe90d9cb6d48acddff"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 254040,
+          "sha256": "1e16c12d91dbc57c1ae5f528aab25dbf8eac81df5edbf0efb490b392ff07710e",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 46696,
+          "sha256": "b602c9708ea1c740c76d7d9b6988dd5c204bbb33ad1c67d23f889fffca025a58",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-enrichment-gene-sankey",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:32.849Z",
+      "completedAt": "2026-10-03T01:48:35.152Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 5025,
+          "sha256": "7bc784616c6c9f64b170eccbd4e02a534a00e75b7210307176ab435d2de59fce"
+        },
+        {
+          "path": "data/enrichment.csv",
+          "bytes": 367,
+          "sha256": "b6ab0d839338991d71e8353df25b7b72a96a890f1577f380c3e4022efcb5297d"
+        },
+        {
+          "path": "data/memberships.csv",
+          "bytes": 940,
+          "sha256": "cd01d5476267c0721be705e58603253580a49ab5e1b36121899edc3186befa1b"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 185,
+          "sha256": "e117286090779e82052e98d2b6e0776b034d13d5a204efca4a0cdb1693155307"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 597285,
+          "sha256": "8fb8e2d2133cf8fecf5153557580a008c6f7c55574c0cda750d6601eaed0c4b6",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 64124,
+          "sha256": "fc61047971a1639e5fac94bcced34ec5a4fe9775d640aa26cb6d7a2acbdb2d8c",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-enrichment-pathway-genes",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:35.173Z",
+      "completedAt": "2026-10-03T01:48:37.076Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2422,
+          "sha256": "346e9a6736a828383352c95422623f25ecf35e5c1a320b81340e849b023f06af"
+        },
+        {
+          "path": "data/enrichment.csv",
+          "bytes": 1096,
+          "sha256": "e826a1f7f9a4f2eef35246a49eea954554c9f260ce4e2a072c030ebdc56e94d3"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 208,
+          "sha256": "3491a9967fbc9d0a2c0192f9d4045437bde6b0618021a8f1e45280fe7dd9b2ad"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 224545,
+          "sha256": "0b09421a533658bb845e6c0c7fadc50e68a4444648dfc0c8a22307d0bc23b478",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 33985,
+          "sha256": "946529020930552450d9b032955570074f8b668403609e4a6d50f0cba71a610f",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-expression-violin-fraction",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:37.101Z",
+      "completedAt": "2026-10-03T01:48:42.492Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 5118,
+          "sha256": "416d2f4d8be74a2aef5c703309e0836629d1ad8c318a28ccd80add405da921d8"
+        },
+        {
+          "path": "data/expression.csv",
+          "bytes": 19774,
+          "sha256": "3d40caacc8c6023398587e4c91e08b7ccfe86b1444afd832f432466d04552500"
+        },
+        {
+          "path": "data/significance.csv",
+          "bytes": 26,
+          "sha256": "d7038d607a76c4a81438793aa7338d97faa72b91589c8e604ec151eaff582c4d"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 219,
+          "sha256": "89925e4b631c3f980f8baed6beb8c167dbc825c5b2db79e7a74422fdd37685d5"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 343018,
+          "sha256": "e0a25bdb2c66f44b4f1febb45302faf1df9c957d8f80d2f676ba258dfb1e6a41",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 100724,
+          "sha256": "1efcbac0aecc0c51bfcb19438c468fb2bbdab5fef975045a193bcfbbe74b2120",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-feature-umap",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:42.513Z",
+      "completedAt": "2026-10-03T01:48:44.961Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2713,
+          "sha256": "c9984df662652891a7c817dee1410842ba3e410e293bffa8b7500513da9e09fe"
+        },
+        {
+          "path": "data/feature_expression.csv",
+          "bytes": 82831,
+          "sha256": "ad1aa38b5651e9418a26fe3b8c866872c6f67fa2046f8fb2562d781ec4e9863f"
+        },
+        {
+          "path": "data/generation.json",
+          "bytes": 416,
+          "sha256": "e3e2d294f5d26e9da9a8e5d7a45096db05bda667507c8afddbc7f0611b73e846"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 299,
+          "sha256": "b8a5b4a42dbfe4819ad413ccdd9c25c558ca1bcc38a92542a63e260b4cd5c220"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 497994,
+          "sha256": "bff13928cc8d9c17d067e77f3ae441cbbbcc00dc1035bef981b24f0c386f91a5",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 88718,
+          "sha256": "89dd2945ca3b54c4ee0adb2b4d6e74de44ab52d0193c265ac0365eb265c8ea86",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-gsea-multiterm-rank",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:44.982Z",
+      "completedAt": "2026-10-03T01:48:47.702Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 5721,
+          "sha256": "36bc21aa3dd37f3c51eef806491dd8c7e77eb5d624e069b2f1d802ac265bb8fc"
+        },
+        {
+          "path": "data/enrichment.csv",
+          "bytes": 1090,
+          "sha256": "2c873891a4f339b5987fb72d7642428144c758bbbbf84e3e4bd9d29918de448a"
+        },
+        {
+          "path": "data/hits.csv",
+          "bytes": 40389,
+          "sha256": "04cde1d535d6cde63c873a74d98e34d7cee6976df3cf024f91eef495e7cce24f"
+        },
+        {
+          "path": "data/ranking.csv",
+          "bytes": 419193,
+          "sha256": "e85011499cdaa6d1d483f24e710f3e9fee0483d1939cdab8a1fae1b5132f36cb"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 255,
+          "sha256": "b25eaeac6f3933f6ab9a96f53c1045827191156a319ec864627e3f1d763ab16c"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 214086,
+          "sha256": "2add8a48989355af456b268630940cdfd17dabe38282285d14350d0c423d70d9",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 46412,
+          "sha256": "1b82cd9882cc1c5af28b8a984267a6a2c190e186c7547bcbff250a5519dd0830",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-gsea-running-enrichment",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:47.736Z",
+      "completedAt": "2026-10-03T01:48:51.004Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 5581,
+          "sha256": "62b82ab9bddc4f44260d326db1ce3819b8562ba536c3612d39c66694d9bbac37"
+        },
+        {
+          "path": "data/curves.csv",
+          "bytes": 1129467,
+          "sha256": "d8728e909972823007a2f0fdd70ed7866468ddefce4eb44a0e0793e524f79b61"
+        },
+        {
+          "path": "data/enrichment.csv",
+          "bytes": 267,
+          "sha256": "da458e10c41a9b44080df765c999ba2c2190da0a75bedca92fb9901c851229a1"
+        },
+        {
+          "path": "data/hits.csv",
+          "bytes": 14760,
+          "sha256": "83abcab561758277256a4185242eb71532a06381868ecdd25ac7935ee4c63276"
+        },
+        {
+          "path": "data/ranking.csv",
+          "bytes": 419193,
+          "sha256": "e85011499cdaa6d1d483f24e710f3e9fee0483d1939cdab8a1fae1b5132f36cb"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 168,
+          "sha256": "3203c339c1b8dacf7ffe34e30de6c0ce5a94567dc2cf52e4e7c1409361cc5ad6"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 211029,
+          "sha256": "71b809e2681ff27404835b5dc3bb0ee08f7aeba527c0583c978a2cffcc263f32",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 263962,
+          "sha256": "1e258c8967772e7a1b5a845227ed865e46513352ebff26ff032e70bb3a0bf04f",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-marker-density-umap",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:51.024Z",
+      "completedAt": "2026-10-03T01:48:53.763Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3075,
+          "sha256": "b1c972d5353642aeb4d49997b48137aecefe9fca10bca8868a40dcec7546e2fe"
+        },
+        {
+          "path": "data/density_grid.csv",
+          "bytes": 278571,
+          "sha256": "58478afe2a4d51dd880a3b90bce0e74a6b02d3a0dcaeba5a28a3508293cd877b"
+        },
+        {
+          "path": "data/generation.json",
+          "bytes": 1377,
+          "sha256": "6a75436686387dff26da06031b45b61db3b4ebbe6057eff3bb1c889c412b323d"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 299,
+          "sha256": "6d18729ddd5c1ba95b19cf2247047da7532f3af3e341f401498752511f42cbe7"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 160231,
+          "sha256": "b35b57c70b4633f2832526cbff18de05f2eb0a83945717d5839adc2553e9c24d",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 67350,
+          "sha256": "8e6b54d6a6dfa22518cd521785847341d0fc81f101636acdb4c0531ff8e34d72",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-marker-dotplot-annotated",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:53.804Z",
+      "completedAt": "2026-10-03T01:48:56.540Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 4875,
+          "sha256": "47ca99c6c6cfe4b30d1722ebf2b194fb0050c06ffc00aaa05ed69bd386a9722f"
+        },
+        {
+          "path": "data/cluster_annotations.csv",
+          "bytes": 280,
+          "sha256": "ba16e371dfb59625cfa6953dffe224113ddfa95b77b5f609b43ad8018d750149"
+        },
+        {
+          "path": "data/expression_summary.csv",
+          "bytes": 4418,
+          "sha256": "9e636293b7c7fd9391456c512943dce3f8ef1dd00dc6d19136199e387777ee3f"
+        },
+        {
+          "path": "data/gene_annotations.csv",
+          "bytes": 312,
+          "sha256": "f17a2a2a9ccb423108ec05b376615e5270d42aa9a84a8fb47e65b8f126154006"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 166,
+          "sha256": "ebc37f3b00bf32f33ce22eab9ec53c739989f0adbf052ef4347a9a818269c545"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 278517,
+          "sha256": "b12ce9b3f1d0eb0fcd6111d24b32866bf0e60ee444bc8c94f083ca06228d5c3b",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 40304,
+          "sha256": "0651200050bf27c95e32471b80e431236236e303987c03e828718f22787d9151",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-marker-mean-heatmap",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:48:56.569Z",
+      "completedAt": "2026-10-03T01:49:04.668Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3878,
+          "sha256": "dac9e88015ed74c92eba05a35ddeb4c16833668570143dc701cd1f120ef1172e"
+        },
+        {
+          "path": "data/celltype_annotations.csv",
+          "bytes": 111,
+          "sha256": "6e0194498c06444c40672c2d994fbaf13422d38f510b0da2a96044d632118b36"
+        },
+        {
+          "path": "data/gene_annotations.csv",
+          "bytes": 268,
+          "sha256": "9c4320a8ecfa17505f62e31580c9eb67943253c1494165683c841ac6a3949b30"
+        },
+        {
+          "path": "data/mean_expression.csv",
+          "bytes": 670,
+          "sha256": "a853a553012e51ee23613daea0365fbeba1f1e2b6a17489fdc96d37463fdfa64"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 202,
+          "sha256": "989b5e71730f49cacb9e15d30cbc064a49c52e3475d847ee28602bcd22706a6e"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 129536,
+          "sha256": "a82edc426a32e7183c49a334434125f423f770b7ed3130699d0a57969de62fb5",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 40099,
+          "sha256": "013879ae8d5c4be9ae5154fbcb7f90649854ff24f10e42d5d509af1b57d60028",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-multigroup-volcano-counts",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:04.707Z",
+      "completedAt": "2026-10-03T01:49:09.929Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 4208,
+          "sha256": "86a132dfe84d1b64892807011c3200f83906055c7221e6857fd4f95cd82334cd"
+        },
+        {
+          "path": "data/differential_results.csv",
+          "bytes": 29911,
+          "sha256": "247b96507c2136221673c418a86790c8797f5602a05abe4f61908a3abdbe482c"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 192,
+          "sha256": "14a7fee6158ca9842f2a009a2426868843573393bdd87ae5e7e1f686394e0a96"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 464130,
+          "sha256": "b3ed3a18a4c350ac4517a8e1bf7fd0cec8acc67782b44c7e149df320303e72f2",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 66163,
+          "sha256": "533095317f67bf2de30e4463f4601ce4efeaa970ab16e24c884c9844007de0fd",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-paga-connectivity-network",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:09.963Z",
+      "completedAt": "2026-10-03T01:49:13.973Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 3920,
+          "sha256": "0d9ec55ef5a9c45bd2160b721b5657ede6ff7cec4b2c90fe306e2b7be95751ad"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3494,
+          "sha256": "8f6fc95cb62379b1e26a9ebfee913483980ed970bb643b77916fb546cc00f408"
+        },
+        {
+          "path": "data/edges.csv",
+          "bytes": 502,
+          "sha256": "0d15c6dcf06e10862bc7ac258bd33d60f6440f7854c7d496d17eff9cb2a00c5e"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 301,
+          "sha256": "86cd2ed60d8a9d6d5f73d97973baf2bd1c651177b22dceb7fcff52deacd52762"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 269,
+          "sha256": "04b846c65dc74b58e8fa44a7ad7bc9c8c1441fd912f173acad9e85929e54539e"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 244774,
+          "sha256": "cd1d9162037f0479f7df1f18f216ddcfb0f49f9cf2582ecbc4437f20e096ef90",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 23192,
+          "sha256": "c22768ba8081672b5a6d2615d05fd2f667514cadb05ed7b860e7a7d51f26315a",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-paired-raincloud",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:14.030Z",
+      "completedAt": "2026-10-03T01:49:17.510Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 4126,
+          "sha256": "dfcb1513b3548a622c166ebe4b6acef514be04046e80b75326521316f8964f64"
+        },
+        {
+          "path": "data/comparisons.csv",
+          "bytes": 22,
+          "sha256": "06061b336453a62625b34ebd0b9385a76d5546b829fe386401f0e7b2a8353b6f"
+        },
+        {
+          "path": "data/paired_values.csv",
+          "bytes": 1035,
+          "sha256": "e2f3595479bb5a42bdea29ec2bc9ee16f6825274b130a9bb2edf5e8ef9a2deb3"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 207,
+          "sha256": "f08ba02e728228d0ed414c2e515a89297bc95f4f5b41cee14a99f07a23c76cb9"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 270801,
+          "sha256": "e1c30fdae0ed550e0ff38e8166b991c7c63a0addd61263f2c7d71835a6711aec",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 20308,
+          "sha256": "c605f229b6d95836f0712c302cc8d4cf5dcb886645f14874f732caac92ebf70b",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-ppi-group-network",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:17.549Z",
+      "completedAt": "2026-10-03T01:49:21.728Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 3339,
+          "sha256": "55f87af2aa955352ba0a22aa0e83c72d8185e8037be448ddb947a3bd37942eac"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3831,
+          "sha256": "451b324daaa0554a5a8021c98173f7b005cc6989a8e89235283d19bbb808005c"
+        },
+        {
+          "path": "data/edges.csv",
+          "bytes": 6996,
+          "sha256": "28824e52a2de6bc34c6ef5268e728328631cccb713a724383a790ddc9fe209b4"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 1648,
+          "sha256": "302b4c0fb1e047a1643752ace89c6808e9cc43c03fb81a23ab0279c5379bf21a"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 174,
+          "sha256": "a00a7082e18fe26eb2469503ab802f18ef291c2d4dd16cf4cc51daef735e64a4"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 701745,
+          "sha256": "2ac227edb31a185a67b89959103a1ae9b4221a26ac303980418463c42759cdc0",
+          "matchesPublishedAsset": false
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 55786,
+          "sha256": "edf71b28e833b3a32eddc7e3b53bde91c286b5e1b00893e56cb36627a429f5b0",
+          "matchesPublishedAsset": false
+        }
+      ],
+      "visualDifferenceReview": {
+        "status": "reviewed",
+        "observedDifference": "Small changes in repelled label positions; retained the previously reviewed published preview.",
+        "nodeAndEdgeChecks": [
+          {
+            "path": "evidence/node-layout.csv",
+            "sha256": "c2836d0b5392cd758394d5a8d425e8aab08ff14162223ef244d9cbaaec525326",
+            "byteIdentical": true
+          },
+          {
+            "path": "evidence/plotted-edges.csv",
+            "sha256": "d416083af45bbaa2b3ad821c08ca763a70918f4ced95ed0dd154ad31108ea8c1",
+            "byteIdentical": true
+          }
+        ],
+        "scientificConclusionValidated": false
+      }
+    },
+    {
+      "templateId": "sc-pseudotime-celltype-density",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:21.753Z",
+      "completedAt": "2026-10-03T01:49:24.254Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2549,
+          "sha256": "bc97a2112e640c0fc85a45b9ec8d3ee7f42c94c7be816643f8a4791155c9b88f"
+        },
+        {
+          "path": "data/generation.json",
+          "bytes": 610,
+          "sha256": "a8f7d35d27eeacee60901d3ca8209597c50287079cda5a642ffd88d2cc2c233f"
+        },
+        {
+          "path": "data/pseudotime_density.csv",
+          "bytes": 78535,
+          "sha256": "1f7a8fc098defd348887cba20639e741a6e9e37837483aee459be0a30b5a7186"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 469,
+          "sha256": "f9493a70bb9b23562aacdc6bb9ae64b2504ab6d114611382c7db6e3c865e35b8"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 236056,
+          "sha256": "b132fde7114784470c75631bb826586203a5125a6a67a8dde3958146f4c5aae5",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 27507,
+          "sha256": "29fb9894f1719c261d1faeef32687ffcbf75efd23a104d679eb17a8a8f6c4340",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-pseudotime-expression-heatmap",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:24.299Z",
+      "completedAt": "2026-10-03T01:49:28.800Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2886,
+          "sha256": "ea17dafcae8fe1a4602697ec55cce35469d97d1fdb9681dd92c3c51df4424363"
+        },
+        {
+          "path": "data/bin_annotations.csv",
+          "bytes": 1814,
+          "sha256": "4faf1664e0e639d526a59362ae64f4b5064966577494bf2516e3e1e9d442d733"
+        },
+        {
+          "path": "data/expression.csv",
+          "bytes": 14453,
+          "sha256": "4f129ac3796510db784f19f5ee9b08d26f14c6da561aa3ef0bfda0c222a2b219"
+        },
+        {
+          "path": "data/gene_annotations.csv",
+          "bytes": 781,
+          "sha256": "c4da2e2ca6def8694fc311b126ebc4458f3ac81223fac982ba0161c199ece89f"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 264,
+          "sha256": "934fa78ef5168d0b10efbd11cee6bbe467f50fd87fdd967ab1e9866b98d09e8f"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 304202,
+          "sha256": "81955665d0f9e202687d1c151ecb6b46401509dd6685288dcdc589ed070a2ce0",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 48856,
+          "sha256": "a91162ff8c39ded38d6fe2cbc498b620936b1aec951c0131c71ced07012c0681",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-pseudotime-feature-trends",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:28.829Z",
+      "completedAt": "2026-10-03T01:49:30.979Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 3920,
+          "sha256": "0d9ec55ef5a9c45bd2160b721b5657ede6ff7cec4b2c90fe306e2b7be95751ad"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3527,
+          "sha256": "1ec820419ee8de4fc6463ee63b617063d871e542f11496c7c40fdf05c4b2d639"
+        },
+        {
+          "path": "data/points.csv",
+          "bytes": 40,
+          "sha256": "c2b55df5fb6c5e0948b23bdd2e8904ac49d3c1f8df445cd15d95f12a27c6a4bb"
+        },
+        {
+          "path": "data/trends.csv",
+          "bytes": 9940,
+          "sha256": "51372bcb8fd3e2f8c0b23c2c5d19812cdc9e99d0e908101ba87dd63ba0034d40"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 319,
+          "sha256": "9d7cd8164e6f45c71ec21fdcb0628a8cf625868c541183def891ab614a1c51b8"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 224445,
+          "sha256": "57b0ef5775e7f2957472de7bdb9d2b4e720a08162e2eb6de728570b22331bc8f",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 33841,
+          "sha256": "24247dd38a6621af8b50addbbbbfe5bb8fd97eda311f0b4340fcdd023d6fbbc3",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-qc-metric-panels",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:31.007Z",
+      "completedAt": "2026-10-03T01:49:33.611Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3376,
+          "sha256": "c2d7bd7b4db0e73041275fedb3c79019a105d574b825dc974b9cef3b3e8082cc"
+        },
+        {
+          "path": "data/generation.json",
+          "bytes": 447,
+          "sha256": "826771f57b80e116df36ffee3d0fe6628a5c80754b42e0000f4a53f9ee24432f"
+        },
+        {
+          "path": "data/qc_metrics.csv",
+          "bytes": 20707,
+          "sha256": "eb4fe71dc2411839621d23a3394ee56384c1c297e4e137ce4014aff2ce84429b"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 363,
+          "sha256": "be149716f1e043d5ee7d727264b5c0c611cc2b954013632fc83281663236b16e"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 596354,
+          "sha256": "b521f4a96ef3f7f70f6724261796e166882cb7c6bb7fae00bbea0257e8052e36",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 157222,
+          "sha256": "180f7839dd047eadbd9965a99d793e1938621ce53ea422fffd5c328ead3a6f6e",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-regulatory-tf-target-network",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:33.638Z",
+      "completedAt": "2026-10-03T01:49:35.991Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 3339,
+          "sha256": "55f87af2aa955352ba0a22aa0e83c72d8185e8037be448ddb947a3bd37942eac"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 5315,
+          "sha256": "2ab93cb01c683eb2a90562e6f1a744b11b61d280baf3802ade929edaccce9e8d"
+        },
+        {
+          "path": "data/edges.csv",
+          "bytes": 2010,
+          "sha256": "e415933a04dcb4399fa88d0d86db4f25d0f3df721ff2ea5333dd3d4eb7aa7b79"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 1653,
+          "sha256": "c6d859012ad56caa30c616f70e016f1097fd283b5ae9f2cee8c294728ce082ee"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 195,
+          "sha256": "3b8f06a7cb5782321dd786d1f56ef09a02f213aada998f833939718531d7aefb"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 591507,
+          "sha256": "c3cef970521bf023c5209961dcb23c7e77dba568fdf649a6eb19a104ffad3fa7",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 56714,
+          "sha256": "6fa90820403c6bfdd8ce8f445c5b9c299fc424d7d89a8c0e19c9e70e343500db",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-regulon-auc-heatmap",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:36.027Z",
+      "completedAt": "2026-10-03T01:49:41.685Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2156,
+          "sha256": "0cfa217d024cc3ebacb0a90bf7b63d4028920e1c7b6d7271d0f09ab8ac52656a"
+        },
+        {
+          "path": "data/auc.csv",
+          "bytes": 39456,
+          "sha256": "46cfeaa912b1c0dbf09104a15f6b02fd3aecaa1907dae418f675ddc42df345d7"
+        },
+        {
+          "path": "data/cells.csv",
+          "bytes": 2972,
+          "sha256": "88ca2ebc0c28ee078d91721aa84787b8d6a34b0093f60df436291a2f241c0689"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 85,
+          "sha256": "1d6aa7151a1c3bf4d43e0cff93810d91bae1494bedf5de2755e9048752361292"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 154988,
+          "sha256": "4dfb41d6072f4404668306ca0f1d3156b40783e6843bb8e0373d5483dc22ea17",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 49323,
+          "sha256": "b2adbdb51e9f722b5cc318430728c72a5a834de56991d866ffe3b2ce2fb419e5",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-regulon-csi-heatmap",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:41.722Z",
+      "completedAt": "2026-10-03T01:49:48.728Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2622,
+          "sha256": "32cd27e43adeef3cf0808855374037c1c84fb0a11527e35e4b7d0146bbbb435f"
+        },
+        {
+          "path": "data/csi.csv",
+          "bytes": 5745,
+          "sha256": "6d6e873f435ed3e224623ce1a86481fb7a453ce5ced7a25d6f99adfceea33b40"
+        },
+        {
+          "path": "data/regulon_annotations.csv",
+          "bytes": 808,
+          "sha256": "479da1c0d7dc021563781c56efa0c3aa4149556cc4130beb811db96ada7a3e3b"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 240,
+          "sha256": "bfd36ca0abb319dfa682b744985516f8b9a5fb919f1d5c39a53ec46a8c37560a"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 379681,
+          "sha256": "bd944702d3163495fa424146c2dffe277e3f4c36f3d5df565e4726afd4779639",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 37518,
+          "sha256": "9e8c4c8767e11af49ed2737e6ad6aa457b94009a859c0613341e507034004992",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-regulon-rss-ranking",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:48.759Z",
+      "completedAt": "2026-10-03T01:49:51.932Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 1879,
+          "sha256": "6b49b78c77677ae02c068245af82f3baca756e8ceb16e70d35fe5164dc682eac"
+        },
+        {
+          "path": "data/rss.csv",
+          "bytes": 3235,
+          "sha256": "d3727966aa210c7f8957b876e8bbbeeee600858ed006000ab64b23c68324278d"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 75,
+          "sha256": "773376976f519524dc4f7cfb561c82f5b02881db920fd6a60abded3b6a70e672"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 274435,
+          "sha256": "3beef453ce4fbc18cd2a39c4cea41ffedd729ea8459a43230caf26442b6f82ea",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 33357,
+          "sha256": "167cb48c26c887c0fbb9332a8bb54d4ef9a05f24b43e54fe9127129c181636e1",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-sample-celltype-proportion",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:51.969Z",
+      "completedAt": "2026-10-03T01:49:56.657Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 3920,
+          "sha256": "0d9ec55ef5a9c45bd2160b721b5657ede6ff7cec4b2c90fe306e2b7be95751ad"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 4609,
+          "sha256": "aa45f8f3088a7665e838794f8850868b5ddec6f050a0a28d67f1a135b036fdce"
+        },
+        {
+          "path": "data/comparisons.csv",
+          "bytes": 33,
+          "sha256": "d4475fdc79876a15e2714bde63db6fc42f5a2e2827451f88e9de22bfef818159"
+        },
+        {
+          "path": "data/counts.csv",
+          "bytes": 901,
+          "sha256": "1598b1a971208275bf649f5a4cc84082775dd937f145d53318d05e7b755f50e2"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 289,
+          "sha256": "5f7bcbc57c1c1edda1eaf155b3fc805ea3fad3229cd8c3c7c332adc1ba333808"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 135140,
+          "sha256": "1f766a3d9a99b923d8b70fa800bd1d2f15243e747524a5825c6f1f56082fce3d",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 30654,
+          "sha256": "103bdaa442a2da3ba05f8b052296ae207d070850122c5d58fd3e103309ee17b7",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-spatial-communication-overlay",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:56.704Z",
+      "completedAt": "2026-10-03T01:49:59.723Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 3920,
+          "sha256": "0d9ec55ef5a9c45bd2160b721b5657ede6ff7cec4b2c90fe306e2b7be95751ad"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3832,
+          "sha256": "7d207d8998a8d2d1a857980892c364708bcad81989c29f4c2791ec96dd585f03"
+        },
+        {
+          "path": "data/celltype_colors.csv",
+          "bytes": 122,
+          "sha256": "c43aaae501fdf4f2a3d9fb5ed68f818d02f63a67403e8be98f0ce9a0261a4023"
+        },
+        {
+          "path": "data/edges.csv",
+          "bytes": 353,
+          "sha256": "63cc86cdb473c344c04447b107e75e5f44ce3c58ff79e6882ad804a81b347a2b"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 208,
+          "sha256": "57561141c0c68edd3d13b7a22a9d880d94cb6052e900c261176de1653061f8b6"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 253,
+          "sha256": "647f21a2d54cf7091f8429e70cf497e1533ce1dcb8489974c293c94a6c542bf1"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 188392,
+          "sha256": "f77ef6caa4aa8630cb4f7bea7bd0e72fca76d833cce9eb1830c325d8a7fed47a",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 31912,
+          "sha256": "0bef0f51c505c5530175281ac649cb6af8d3f92fa58d854b9d641f16ece34811",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-spatial-feature-spots",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:49:59.759Z",
+      "completedAt": "2026-10-03T01:50:03.424Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 1748,
+          "sha256": "41359bb2058fa235f26b90da583cb1bbd1750f2b1821ac67aebb1884e1962568"
+        },
+        {
+          "path": "data/spots.csv",
+          "bytes": 47593,
+          "sha256": "f93f96b1738a5fc7ed9966601cdb5198d387c58ecd8677d0ff6b466d5b31bd4f"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 181,
+          "sha256": "80a24624d8ee1f96e50bb69dd760f6aeecf1570deda6583e30b2c0a920e9e3f6"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 688618,
+          "sha256": "2c5e69f52a61f5916a708f3451186295c77996450fca98ccaa24c8e97ba5afc0",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 53899,
+          "sha256": "b0cdcf77af0301ca081de5ef10cc555f6f0f00cd82f425e8275e553374fda8c2",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-ternary-expression",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:50:03.456Z",
+      "completedAt": "2026-10-03T01:50:06.619Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2624,
+          "sha256": "377653a45fe289aeafec561afe7ae77fa0bcd15233254a965cc0a0987e9793da"
+        },
+        {
+          "path": "data/expression.csv",
+          "bytes": 8675,
+          "sha256": "d9891f03545872ae54dc137ad4c2ca82b0a89070024184b79ab7e6aa110ee681"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 232,
+          "sha256": "0b8dd6a4161df7b447acd62d505f7b58e261cd9b5621a4dff77d179c030e1307"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 269482,
+          "sha256": "4d0f031a22b451923d2c7edb3fcd6a9c0a57c5b5a63ca56f9e9715ac62dace7c",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 36396,
+          "sha256": "0ed3e9c0223c30466339ea702978504b084ff355b27e9a6d91147e2ce114f980",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-trajectory-curve-overlay",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:50:06.661Z",
+      "completedAt": "2026-10-03T01:50:10.642Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2439,
+          "sha256": "46edd1a5ff92a34bdc55de800d6f6b739e6834e9f98cf42d900c818593023a3c"
+        },
+        {
+          "path": "data/cells.csv",
+          "bytes": 54337,
+          "sha256": "175a49e822a073753882e862e6b6cb8a11bb2ac815693407993e6c5e7812f6ce"
+        },
+        {
+          "path": "data/curves.csv",
+          "bytes": 6203,
+          "sha256": "6a2c4cf08f628310e0851267cf6d61164afda6f328c1693902d1849eaef8e3eb"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 84,
+          "sha256": "df544b14ffacd2f93635bbc4a0951989048ec2d4dcf0799a5835c534a0b60f7d"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 528377,
+          "sha256": "3de4cbbf2ac63a6124fafc5d7c895d1596f959b33f6cb7324dd7c6a48a0877a6",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 104805,
+          "sha256": "4bc239b880d5087ef6d320f31ad5763c86e457f3350444d89f0e597a0fa6becc",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-umap-marker-annotations",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:50:10.671Z",
+      "completedAt": "2026-10-03T01:50:13.841Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3070,
+          "sha256": "26ea83c0aee6994ed5c9d8ad52cb4bbbb7945f080fc6d8c9a361b4cbec52f3ff"
+        },
+        {
+          "path": "data/input.csv",
+          "bytes": 79639,
+          "sha256": "bd65ef693866491a1aff038cd8948a7234b9e64006d0b25c19aae1f2704bfd7d"
+        },
+        {
+          "path": "data/markers.csv",
+          "bytes": 724,
+          "sha256": "d75cbb012dbf4f936e03f85f04f3e549e02d04cde5dc24b3f02e0f8d8dd19073"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 154,
+          "sha256": "90bdc2f7f230a459d5418f0dc1ef398a277b9fdb9ed347297024e08f610fc4eb"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 654223,
+          "sha256": "9520318f67b6e9e596270807c4f0206f9a60342b47ef76d854cda62fd7c696c1",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 89005,
+          "sha256": "de80cdd4113927baa526023acda7a9f6fe74b916440945e528af544094efa6e3",
+          "matchesPublishedAsset": false
+        }
+      ]
+    },
+    {
+      "templateId": "sc-velocity-vector-umap",
+      "passed": true,
+      "exitCode": 0,
+      "startedAt": "2026-10-03T01:50:13.908Z",
+      "completedAt": "2026-10-03T01:50:16.631Z",
+      "command": "Rscript --vanilla code/plot.R",
+      "inputsAndCode": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2107,
+          "sha256": "885899872bdb85d084588ca5f60c3b4aa5d9f3198a80af2f643be553c7c089dd"
+        },
+        {
+          "path": "data/cells.csv",
+          "bytes": 25196,
+          "sha256": "ba943dccb5844edcc6d5a3bf2f038805643dfe0fa9ac8d9e0f4b94f4eba8795e"
+        },
+        {
+          "path": "data/vectors.csv",
+          "bytes": 1761,
+          "sha256": "8b1c4ec57f7a38b79b7ac8bcf7e53fd7a8a6d6302f9f53027a24c621099fc90e"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 198,
+          "sha256": "f14db08ecaabf2bbe19ef1949f9078e926879f99f9eea8fdc73ee2ff56691457"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "preview.png",
+          "bytes": 538852,
+          "sha256": "c8c4d8b7b26753a943974e762e5551bd1f54355cc9f785eaa696e0d10657c92b",
+          "matchesPublishedAsset": true
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 47043,
+          "sha256": "e083cce1a00bc7896c0a7cb1c8a3581e23492be443e76ca87ab6fb3ddafbd3fa",
+          "matchesPublishedAsset": false
+        }
+      ]
+    }
+  ],
+  "pngByteIdentical": 37
+}

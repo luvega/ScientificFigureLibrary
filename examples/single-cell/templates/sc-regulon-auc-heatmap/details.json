@@ -1,0 +1,50 @@
+{
+  "id": "sc-regulon-auc-heatmap",
+  "title": "SCENIC regulon AUC 活性热图",
+  "titleEn": "Heatmap of precomputed single-cell regulon AUC",
+  "plotFamily": "regulon_activity_heatmap",
+  "scientificQuestion": "已有 regulon AUC 分数在选定细胞之间如何分布？",
+  "description": "以预计算 AUC 矩阵绘制细胞层面的 regulon 活性热图，可选按 regulon 标准化；提供独立细胞注释与稳定顺序。",
+  "application": "- 检查选定细胞与regulon的预计算AUC分布。\n- 有真实细胞类型注释时可按给定注释排序，保留原始分数或明确标准化尺度。",
+  "dataProfile": "原 auc.csv 前80个细胞、指定24个regulon的原值子集；原例未提供对应celltype，列注释统一标为Unannotated，不虚构生物分组。",
+  "visualProfile": "ComplexHeatmap矩形热图、顶部列注释、蓝白红连续色阶；默认原始AUC，选项row_zscore明确标出。",
+  "inputs": [
+    {
+      "path": "data/auc.csv",
+      "description": "第一列regulon，其余列为唯一细胞ID；值为预计算AUC"
+    },
+    {
+      "path": "data/cells.csv",
+      "description": "cell_id/group/order；本例group=Unannotated"
+    }
+  ],
+  "semanticDecisions": [
+    "输入是预计算AUC，不是表达量、RSS或CSI；本接口要求有限[0,1]值。",
+    "scale=raw 原值不变；row_zscore逐regulon减均值除样本标准差，常量行置0。",
+    "行按CSV给定顺序；列按cells.csv order排序，不自动聚类；细胞ID精确匹配。",
+    "Unannotated是缺少类型注释的标记，不能据此解释细胞群。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml",
+    "ComplexHeatmap",
+    "circlize"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/1-单细胞转录组（scRNA）/3-scRNA转录因子分析（SCENIC）/3-pyscenic R语言版可视化及个性化分析/pySCENIC单细胞转录因子分析及可视化（pyscenic R语言可视化）.R",
+      "sha256": "d00b7a478c9cb549ea2fc54aaaec2588dec3cc18e79c5af31753689e2237071f",
+      "notes": "保留ComplexHeatmap活性热图结构与显式scale选项，仅提取可视化层。"
+    },
+    {
+      "path": "source-collection/(VIP) 2023-10-26 更新-SCENIC转录因子CSI计算及Module分析及可视化函数/auc.csv",
+      "sha256": "d6de859998e3d9e47a6a20942c1ca2b1390fcdf94c34f83b9893f4d01f640dd8",
+      "notes": "前80行细胞×指定24列regulon原值转置；未运行AUCell、RSS或CSI。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 6,
+  "inputCasesPassed": 6,
+  "semanticCases": 2,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "4ce38bb5f2a47424b2601f2cc18a19fccff5460a520c21e4793b9e63d7a0d05e",
+        "actual": "4ce38bb5f2a47424b2601f2cc18a19fccff5460a520c21e4793b9e63d7a0d05e",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "7c332e5a0fca332f845b548b1da276652e4fff7e9dad9980ab8df34a4bddbdbc",
+        "actual": "7c332e5a0fca332f845b548b1da276652e4fff7e9dad9980ab8df34a4bddbdbc",
+        "passed": true
+      }
+    ],
+    "review": "Group, degree and text-mining score legends are visible; selected labels are dense but readable at export size."
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

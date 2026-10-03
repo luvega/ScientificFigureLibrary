@@ -1,0 +1,43 @@
+{
+  "id": "sc-enrichment-pathway-genes",
+  "title": "通路条形图与基因列表",
+  "titleEn": "Enrichment bars with gene labels",
+  "plotFamily": "enrichment_pathway_gene_bars",
+  "scientificQuestion": "各模块的已有富集结果包含哪些通路和命中基因？",
+  "description": "将已计算通路富集结果与命中基因一起展示。条长为已有qvalue的负对数，分组用颜色区分；不重做富集分析。",
+  "application": "- 若已有多个细胞群或模块的富集表，可并列查看选定通路及其命中基因。\n- 需要同时说明统计支持和具体基因时，可保留输入的原始基因标识。",
+  "dataProfile": "真实模块KEGG结果中按模块编号取前5个含有限qvalue的模块，各取qvalue最小的2条，共10条；genes为Entrez IDs，非gene symbols。",
+  "visualProfile": "横向彩色条形、条内通路名称、条下同色斜体基因列表；模块分区。",
+  "inputs": [
+    {
+      "path": "data/enrichment.csv",
+      "description": "已有qvalue与原始Entrez基因列表"
+    }
+  ],
+  "semanticDecisions": [
+    "输入qvalue保持原值，未重新富集或校正",
+    "genes保留Entrez IDs，不伪称gene symbols",
+    "仅取前5模块各2条作为小示例；不是全量富集结果"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/(VIP) 2024-4-3 复现Nature富集分析条形图展示基因及通路/复现Nature富集分析条形图展示基因及通路.R",
+      "sha256": "56d7540cd58b9970615bb54e034d24b18389c05588fefda69688625d7e7d3f9a",
+      "notes": "布局与配色参考，跳过分析"
+    },
+    {
+      "path": "source-collection/(VIP) 2023-7-14 复现《Cell stem cell》图表：STRING互作分析+igraph绘制/示例数据及结果/module_KEGG_results.csv",
+      "sha256": "50f6f41c754ed07ef01eeeb50191836c1a7d439392c5faa7bee90ba641f5db21",
+      "notes": "跳过NA qvalue，按模块编号取前5个模块，各按qvalue升序取2条；已有统计值保持原值"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

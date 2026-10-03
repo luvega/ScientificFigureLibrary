@@ -1,0 +1,62 @@
+{
+  "id": "sc-regulatory-tf-target-network",
+  "title": "TF–target 候选定向调控网络",
+  "titleEn": "Directed TF–target candidate network",
+  "plotFamily": "regulatory_tf_target_network",
+  "scientificQuestion": "已有 TF–target 候选边在所选转录因子与靶基因之间如何连接？",
+  "description": "分层布局展示已给 TF→target 候选边，彩色转录因子节点与灰色靶基因节点分开呈现。箭头编码输入方向，importance 可用于筛选和可选线宽，不代表因果效应。",
+  "application": "- 查看预计算 pySCENIC GRN 边表中选定 TF 的候选靶基因。\n- 比较所选 TF 的共享 target 和连接结构；预测权重只按其原方法含义解释。",
+  "dataProfile": "原 sce.adj.csv 77,744 行；沿用来源选择 SOX7、SOX15、TAL1 且 importance > 10 后 64 条边、66 个节点。保留原始 importance 与完整名称，不重运行 SCENIC。",
+  "visualProfile": "默认分层布局，SOX15 橙色、TAL1 蓝色、SOX7 绿色，target 灰色；红色定向线，TF 粗体、target 斜体倾斜标签。可切换 FR 布局和 importance 线宽。",
+  "inputs": [
+    {
+      "path": "data/edges.csv",
+      "description": "TF,target,importance；候选方向与原始 feature importance"
+    },
+    {
+      "path": "data/nodes.csv",
+      "description": "id,role,colour,order；角色 TF/Target/TF_target，名称一一对应"
+    }
+  ],
+  "semanticDecisions": [
+    "方向严格按 TF→target 字段，不拆分下划线、竖线或连字符。",
+    "importance 是上游 GRN feature importance，非概率或调控效应；值不标准化、不重算。筛选采用严格 importance > threshold。",
+    "TF 与 target 同名时节点角色必须为 TF_target，保持同一节点；不得覆盖 TF 身份。",
+    "节点注释按 id 精确匹配全部输入端点；order 只控制布局顺序；TF,target 边键必须唯一。",
+    "默认 uniform 保留原例等宽红线；importance 模式仅映射原值到线宽，阈值和模式均在参数声明。",
+    "筛选后无连接的注释节点不参与本次布局；绘图边和节点坐标写入 evidence，筛选规则不会改变原输入。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml",
+    "igraph",
+    "ggrepel"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/_绘图skill整理/解压/教程/Aefcadb6c399f_8-2024-9-23 pyscenic-单细胞转录因子TF-target网络.zip/pyscenic-单细胞转录因子TF-target网络.R",
+      "sha256": "b893cb5926ca2838ca1d89ca790a0b0495f823f67c8b221130bd589235e107e0",
+      "notes": "来源 2024-9-23；保留分层与 FR 布局、红色连线、TF 三色和斜体 target；修正 target 覆盖 TF 身份和按节点行序配色问题。"
+    },
+    {
+      "path": "source-collection/_绘图skill整理/解压/教程/Aefcadb6c399f_8-2024-9-23 pyscenic-单细胞转录因子TF-target网络.zip/1.png",
+      "sha256": "659b35ca4d22c7a89c678f0206e26bf7a69c87f9b16f7c2866027caa6e56a954",
+      "notes": "实际查看原图风格"
+    },
+    {
+      "path": "source-collection/_绘图skill整理/解压/教程/Aefcadb6c399f_8-2024-9-23 pyscenic-单细胞转录因子TF-target网络.zip/2.png",
+      "sha256": "ccbde5e98e3666aa14c61a16448b9187cb4ff6e6438f1bf86b63b7960241bda2",
+      "notes": "实际查看原图风格"
+    },
+    {
+      "path": "source-collection/_绘图skill整理/解压/教程/Aefcadb6c399f_8-2024-9-23 pyscenic-单细胞转录因子TF-target网络.zip/sce.adj.csv",
+      "sha256": "925fa8595a6b41b16bc59b1c494ea36d12a075c77826737d4d900a25aec4aedf",
+      "notes": "读取预计算原示例表；不重算上游结果"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

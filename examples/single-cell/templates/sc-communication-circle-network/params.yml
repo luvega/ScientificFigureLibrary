@@ -1,0 +1,7 @@
+width: 12
+height: 6
+dpi: 300
+font_size: 12
+pvalue_threshold: 0.05
+weight_mode: significant_pairs
+max_edge_width: 4

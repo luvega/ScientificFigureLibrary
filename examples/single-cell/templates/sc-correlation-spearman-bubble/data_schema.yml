@@ -1,0 +1,6 @@
+inputs:
+  correlations.csv:
+    required: [group, gene, target, rho, pvalue, padj]
+    unique: [target, group, gene]
+    numeric: {rho: "[-1,1]", pvalue: "[0,1]", padj: "[0,1]"}
+    names: nonempty_complete_strings

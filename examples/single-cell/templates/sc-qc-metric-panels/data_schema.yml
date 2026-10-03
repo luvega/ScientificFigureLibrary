@@ -1,0 +1,28 @@
+{
+  "files": {
+    "data/qc_metrics.csv": {
+      "required": [
+        "cell_id",
+        "sample_id",
+        "group",
+        "nFeature_RNA",
+        "nCount_RNA",
+        "percent_mt"
+      ],
+      "unique": [
+        "cell_id"
+      ],
+      "constraints": [
+        "finite numbers",
+        "integer counts >= 0",
+        "nFeature_RNA <= nCount_RNA",
+        "percent_mt in [0,100]",
+        "at least two cells per sample",
+        "sample group consistent"
+      ]
+    }
+  },
+  "parameters": {
+    "thresholds": "reference lines only; no filtering"
+  }
+}

@@ -1,0 +1,23 @@
+inputs:
+  edges.csv:
+    required:
+    - TF
+    - target
+    - importance
+    unique:
+    - TF
+    - target
+    numeric:
+      importance: finite >= 0
+  nodes.csv:
+    required:
+    - id
+    - role
+    - colour
+    - order
+    relation: unique ID set exactly matches all TF/target endpoints; role derived
+      from both endpoints
+    roles:
+    - TF
+    - Target
+    - TF_target

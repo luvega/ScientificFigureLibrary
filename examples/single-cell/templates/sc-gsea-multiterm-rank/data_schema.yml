@@ -1,0 +1,63 @@
+{
+  "schema": "private-template-input.v1",
+  "inputs": {
+    "data/ranking.csv": {
+      "columns": {
+        "gene_id": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "number"
+        },
+        "statistic": {
+          "type": "number"
+        }
+      },
+      "description": "完整降序排名15681行；gene_id/rank/statistic"
+    },
+    "data/hits.csv": {
+      "columns": {
+        "pathway_id": {
+          "type": "string"
+        },
+        "gene_id": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "number"
+        }
+      },
+      "description": "原前10条通路完整匹配基因；pathway_id/gene_id/rank"
+    },
+    "data/enrichment.csv": {
+      "columns": {
+        "pathway_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "set_size": {
+          "type": "number"
+        },
+        "enrichment_score": {
+          "type": "number"
+        },
+        "nes": {
+          "type": "number"
+        },
+        "p_adjust": {
+          "type": "number"
+        }
+      },
+      "description": "原结果前10行；pathway_id/description/set_size/enrichment_score/nes/p_adjust"
+    }
+  },
+  "semantic_contract": [
+    "选取2024-8-9原res.RData结果表前10行，保留通路名称、匹配setSize、NES和p.adjust。",
+    "正NES条带在上、负NES在下；组内保留结果表顺序。基因排名由高统计量到低统计量。",
+    "本图编码基因集命中条带，不绘制运行ES曲线；不将条带称为经典GSEA曲线。",
+    "默认以文字直接显示NES和p.adjust；气泡模式面积为matched set_size，校正P颜色为-ln(p.adjust)，与来源函数保持自然对数尺度。",
+    "P=0仅在气泡显示使用声明下限，不修改输入值；不重新估计NES、P值或富集结果。"
+  ]
+}

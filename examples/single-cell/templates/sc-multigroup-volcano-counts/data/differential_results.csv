@@ -1,0 +1,481 @@
+comparison,celltype,gene,log2_fc,p_adj
+Comparison A,Macrophage,Macrophage_G01,0.9248,4.098711666612817e-08
+Comparison A,Macrophage,Macrophage_G02,1.7484,0.020205336131262505
+Comparison A,Macrophage,Macrophage_G03,0.308,0.42163006328475633
+Comparison A,Macrophage,Macrophage_G04,0.3065,0.7729140301538039
+Comparison A,Macrophage,Macrophage_G05,-0.7486,0.0001794806389879626
+Comparison A,Macrophage,Macrophage_G06,-1.6705,0.023617151886575913
+Comparison A,Macrophage,Macrophage_G07,-0.5863,0.7773920448248645
+Comparison A,Macrophage,Macrophage_G08,-0.316,0.9420179280899343
+Comparison A,Macrophage,Macrophage_G09,2.6257,2.9833483574190944e-06
+Comparison A,Macrophage,Macrophage_G10,-1.1907,7.664579621132707e-08
+Comparison A,Macrophage,Macrophage_G11,0.2588,0.9509024069926363
+Comparison A,Macrophage,Macrophage_G12,-0.3833,0.6982436366780614
+Comparison A,Macrophage,Macrophage_G13,0.2818,0.8106434151406073
+Comparison A,Macrophage,Macrophage_G14,0.5916,0.6171427701847891
+Comparison A,Macrophage,Macrophage_G15,0.4802,0.44503733266964185
+Comparison A,Macrophage,Macrophage_G16,-0.1696,0.9351810443291576
+Comparison A,Macrophage,Macrophage_G17,-0.6564,0.5669169922459523
+Comparison A,Macrophage,Macrophage_G18,-1.4267,8.710186220723588e-06
+Comparison A,Macrophage,Macrophage_G19,-1.1347,0.029337282169281265
+Comparison A,Macrophage,Macrophage_G20,-1.2782,2.9675333362832262e-05
+Comparison A,Macrophage,Macrophage_G21,-0.3079,0.13886151964776192
+Comparison A,Macrophage,Macrophage_G22,-0.0857,0.12481658148420398
+Comparison A,Macrophage,Macrophage_G23,-0.3571,0.23904950172164996
+Comparison A,Macrophage,Macrophage_G24,-0.0682,0.8165715364568652
+Comparison A,Macrophage,Macrophage_G25,1.0932,2.426231760927868e-05
+Comparison A,Macrophage,Macrophage_G26,-0.6691,0.9404821609945904
+Comparison A,Macrophage,Macrophage_G27,1.0671,0.00028127600484448306
+Comparison A,Macrophage,Macrophage_G28,-1.9289,2.5056024530690835e-05
+Comparison A,Macrophage,Macrophage_G29,-0.0549,0.28917347989815123
+Comparison A,Macrophage,Macrophage_G30,-0.7808,0.009389806308847599
+Comparison A,Macrophage,Macrophage_G31,0.802,0.0015367307211950783
+Comparison A,Macrophage,Macrophage_G32,-1.3166,0.003956507871341738
+Comparison A,Macrophage,Macrophage_G33,0.5071,0.21785555539055335
+Comparison A,Macrophage,Macrophage_G34,0.1203,0.43288522395429857
+Comparison A,Macrophage,Macrophage_G35,0.5799,0.2294121885677206
+Comparison A,Macrophage,Macrophage_G36,-1.2403,7.179415973689225e-06
+Comparison A,Macrophage,Macrophage_G37,2.6829,0.0003425401666879825
+Comparison A,Macrophage,Macrophage_G38,-1.062,4.1010428631103985e-07
+Comparison A,Macrophage,Macrophage_G39,1.5226,0.04512643211466753
+Comparison A,Macrophage,Macrophage_G40,-1.0988,1.8420864498572498e-09
+Comparison A,Macrophage,Macrophage_G41,0.0724,0.11387606401904879
+Comparison A,Macrophage,Macrophage_G42,-0.3708,0.23070355950142268
+Comparison A,Macrophage,Macrophage_G43,0.9866,8.338350927458483e-08
+Comparison A,Macrophage,Macrophage_G44,-0.5862,0.6323517204116161
+Comparison A,Macrophage,Macrophage_G45,-2.0184,1.329241625863698e-09
+Comparison A,Macrophage,Macrophage_G46,1.022,3.364482945529981e-05
+Comparison A,Macrophage,Macrophage_G47,-2.2666,0.0481512366873042
+Comparison A,Macrophage,Macrophage_G48,-0.6658,0.14741848477286512
+Comparison A,Macrophage,Macrophage_G49,1.3922,6.215319222031148e-09
+Comparison A,Macrophage,Macrophage_G50,-2.689,0.018860989794571365
+Comparison A,Macrophage,Macrophage_G51,0.9288,5.92571077143923e-09
+Comparison A,Macrophage,Macrophage_G52,-0.2671,0.12424072570387339
+Comparison A,Macrophage,Macrophage_G53,-1.0464,4.840023337141729e-09
+Comparison A,Macrophage,Macrophage_G54,0.2821,0.27749057997691956
+Comparison A,Macrophage,Macrophage_G55,-1.3936,0.0004940404605821141
+Comparison A,Macrophage,Macrophage_G56,0.633,0.31920710264058527
+Comparison A,Macrophage,Macrophage_G57,0.6976,0.06561864133084569
+Comparison A,Macrophage,Macrophage_G58,0.8191,1.2662775968254446e-05
+Comparison A,Macrophage,Macrophage_G59,0.9768,4.2154005551225735e-08
+Comparison A,Macrophage,Macrophage_G60,1.4202,2.745339185941656e-07
+Comparison A,mDC,mDC_G01,0.3414,0.8259171039461817
+Comparison A,mDC,mDC_G02,-1.4915,1.944943035136125e-09
+Comparison A,mDC,mDC_G03,-0.3631,0.739922067711777
+Comparison A,mDC,mDC_G04,0.2391,0.7664620487928029
+Comparison A,mDC,mDC_G05,1.691,3.97945519052469e-07
+Comparison A,mDC,mDC_G06,-1.021,5.725553785173929e-05
+Comparison A,mDC,mDC_G07,1.2459,2.9123884523396364e-06
+Comparison A,mDC,mDC_G08,0.5481,0.947687260889653
+Comparison A,mDC,mDC_G09,0.3271,0.4689700922166573
+Comparison A,mDC,mDC_G10,-0.1938,0.34028947123377956
+Comparison A,mDC,mDC_G11,0.2991,0.8346214596287262
+Comparison A,mDC,mDC_G12,1.6328,0.013178307758095129
+Comparison A,mDC,mDC_G13,-0.3144,0.28326108473414563
+Comparison A,mDC,mDC_G14,1.0515,1.7322223754503076e-06
+Comparison A,mDC,mDC_G15,-0.4461,0.6722168655974735
+Comparison A,mDC,mDC_G16,1.2089,0.011806424910908305
+Comparison A,mDC,mDC_G17,-1.7487,4.269362172834335e-08
+Comparison A,mDC,mDC_G18,0.0557,0.2237774852008123
+Comparison A,mDC,mDC_G19,-0.6706,0.3610014264392082
+Comparison A,mDC,mDC_G20,0.3928,0.36663334064111863
+Comparison A,mDC,mDC_G21,0.3273,0.078576736294345
+Comparison A,mDC,mDC_G22,-2.0105,5.667048098101228e-09
+Comparison A,mDC,mDC_G23,0.5702,0.9324929259244974
+Comparison A,mDC,mDC_G24,-1.097,1.8952948514427474e-05
+Comparison A,mDC,mDC_G25,0.0028,0.8784273681978558
+Comparison A,mDC,mDC_G26,0.2166,0.8319976806746123
+Comparison A,mDC,mDC_G27,-1.1302,0.00565463284595808
+Comparison A,mDC,mDC_G28,-0.6919,0.24571389390997977
+Comparison A,mDC,mDC_G29,0.7891,0.001468505285379273
+Comparison A,mDC,mDC_G30,-0.6876,0.8803401989957832
+Comparison A,mDC,mDC_G31,0.2357,0.7643216152989496
+Comparison A,mDC,mDC_G32,-0.2366,0.2749036307648142
+Comparison A,mDC,mDC_G33,0.8214,2.914464443556701e-07
+Comparison A,mDC,mDC_G34,-1.5706,5.788673365195112e-09
+Comparison A,mDC,mDC_G35,-0.3485,0.9470082549559119
+Comparison A,mDC,mDC_G36,0.0068,0.4427560742699782
+Comparison A,mDC,mDC_G37,-0.4146,0.3212552939911321
+Comparison A,mDC,mDC_G38,1.4321,1.2021227934164333e-08
+Comparison A,mDC,mDC_G39,0.7515,5.364957515067005e-09
+Comparison A,mDC,mDC_G40,0.0234,0.42687557907837437
+Comparison A,mDC,mDC_G41,-0.8578,1.1167567524428523e-09
+Comparison A,mDC,mDC_G42,1.111,8.128713915947163e-05
+Comparison A,mDC,mDC_G43,0.4845,0.7239235650721754
+Comparison A,mDC,mDC_G44,0.4736,0.4518524779185681
+Comparison A,mDC,mDC_G45,0.6583,0.2767532360855634
+Comparison A,mDC,mDC_G46,-1.2614,0.0004288582275999929
+Comparison A,mDC,mDC_G47,0.6401,0.3096912247350711
+Comparison A,mDC,mDC_G48,-0.7494,0.05461576019756974
+Comparison A,mDC,mDC_G49,1.0092,0.03214445477069794
+Comparison A,mDC,mDC_G50,-0.7919,0.00012534186002433086
+Comparison A,mDC,mDC_G51,2.1368,1.0315119234076913e-06
+Comparison A,mDC,mDC_G52,-1.0607,7.790082130080293e-05
+Comparison A,mDC,mDC_G53,1.0822,2.4805485628320558e-09
+Comparison A,mDC,mDC_G54,-0.4053,0.5081899593208739
+Comparison A,mDC,mDC_G55,0.6063,0.3112859310488413
+Comparison A,mDC,mDC_G56,-0.9657,4.66622404301192e-07
+Comparison A,mDC,mDC_G57,0.283,0.9123174186015817
+Comparison A,mDC,mDC_G58,-0.1412,0.8346347027263336
+Comparison A,mDC,mDC_G59,-0.0811,0.1862412256342696
+Comparison A,mDC,mDC_G60,0.5341,0.6159496084382874
+Comparison A,Neutrophil,Neutrophil_G01,0.3858,0.367966342473078
+Comparison A,Neutrophil,Neutrophil_G02,1.1466,0.0009171513276883685
+Comparison A,Neutrophil,Neutrophil_G03,-0.1281,0.6613992308586678
+Comparison A,Neutrophil,Neutrophil_G04,0.3351,0.6611616379557123
+Comparison A,Neutrophil,Neutrophil_G05,0.9279,1.0320341131591594e-06
+Comparison A,Neutrophil,Neutrophil_G06,1.2814,0.05004994693828987
+Comparison A,Neutrophil,Neutrophil_G07,1.0552,4.9763670557269316e-05
+Comparison A,Neutrophil,Neutrophil_G08,0.0454,0.560054570577479
+Comparison A,Neutrophil,Neutrophil_G09,0.3932,0.6457234105037709
+Comparison A,Neutrophil,Neutrophil_G10,-0.154,0.4275248121818052
+Comparison A,Neutrophil,Neutrophil_G11,-0.1242,0.9432688649771167
+Comparison A,Neutrophil,Neutrophil_G12,0.7759,5.8226696156704766e-08
+Comparison A,Neutrophil,Neutrophil_G13,1.0374,0.04679739329301799
+Comparison A,Neutrophil,Neutrophil_G14,1.2674,2.1029842110194495e-07
+Comparison A,Neutrophil,Neutrophil_G15,0.1745,0.5890434635354698
+Comparison A,Neutrophil,Neutrophil_G16,0.4428,0.28912455038221707
+Comparison A,Neutrophil,Neutrophil_G17,-0.9293,2.1633834888213757e-07
+Comparison A,Neutrophil,Neutrophil_G18,-0.201,0.5937037613390168
+Comparison A,Neutrophil,Neutrophil_G19,1.2275,4.105591480733429e-06
+Comparison A,Neutrophil,Neutrophil_G20,0.2198,0.33395761438433447
+Comparison A,Neutrophil,Neutrophil_G21,-0.8635,8.239593735991997e-06
+Comparison A,Neutrophil,Neutrophil_G22,-0.2947,0.6302972598611761
+Comparison A,Neutrophil,Neutrophil_G23,-0.6606,0.8174928273336058
+Comparison A,Neutrophil,Neutrophil_G24,2.3234,1.1692412278344719e-07
+Comparison A,Neutrophil,Neutrophil_G25,-0.4347,0.25498377708599645
+Comparison A,Neutrophil,Neutrophil_G26,0.5313,0.22451067110626122
+Comparison A,Neutrophil,Neutrophil_G27,-2.3632,5.606474442974189e-09
+Comparison A,Neutrophil,Neutrophil_G28,0.5897,0.16324571121656023
+Comparison A,Neutrophil,Neutrophil_G29,-0.1102,0.9782409959485113
+Comparison A,Neutrophil,Neutrophil_G30,1.0672,0.0002783716944714598
+Comparison A,Neutrophil,Neutrophil_G31,0.6665,0.8260790869674718
+Comparison A,Neutrophil,Neutrophil_G32,1.8989,0.0014161036704072075
+Comparison A,Neutrophil,Neutrophil_G33,-0.1909,0.4254838887024944
+Comparison A,Neutrophil,Neutrophil_G34,0.6223,0.7701726396914867
+Comparison A,Neutrophil,Neutrophil_G35,-1.2431,0.005931753972857578
+Comparison A,Neutrophil,Neutrophil_G36,1.5599,3.9422705926042635e-06
+Comparison A,Neutrophil,Neutrophil_G37,0.4595,0.663838441401076
+Comparison A,Neutrophil,Neutrophil_G38,-0.6348,0.5224605752752361
+Comparison A,Neutrophil,Neutrophil_G39,-0.2825,0.5250844235100907
+Comparison A,Neutrophil,Neutrophil_G40,-0.6109,0.9975184050283945
+Comparison A,Neutrophil,Neutrophil_G41,-0.7268,0.00029990576883768156
+Comparison A,Neutrophil,Neutrophil_G42,1.6682,0.0009071134016226127
+Comparison A,Neutrophil,Neutrophil_G43,0.8,1.3088493902596949e-06
+Comparison A,Neutrophil,Neutrophil_G44,0.4793,0.1962534155103845
+Comparison A,Neutrophil,Neutrophil_G45,1.0678,0.0008391417020099722
+Comparison A,Neutrophil,Neutrophil_G46,0.1044,0.6509667535003091
+Comparison A,Neutrophil,Neutrophil_G47,-1.5731,1.196752951763695e-06
+Comparison A,Neutrophil,Neutrophil_G48,0.7781,6.25016317716484e-05
+Comparison A,Neutrophil,Neutrophil_G49,-0.6515,0.8518032118835048
+Comparison A,Neutrophil,Neutrophil_G50,1.9973,2.039663423572675e-07
+Comparison A,Neutrophil,Neutrophil_G51,2.1596,0.027453759098976502
+Comparison A,Neutrophil,Neutrophil_G52,-1.7214,6.0724260332945796e-05
+Comparison A,Neutrophil,Neutrophil_G53,-0.1336,0.6953069455631747
+Comparison A,Neutrophil,Neutrophil_G54,-1.2905,1.8481611504396989e-06
+Comparison A,Neutrophil,Neutrophil_G55,1.5738,1.4867818857613466e-05
+Comparison A,Neutrophil,Neutrophil_G56,-1.5027,1.6962796998886468e-05
+Comparison A,Neutrophil,Neutrophil_G57,0.2825,0.6433828182030998
+Comparison A,Neutrophil,Neutrophil_G58,0.8825,0.03083629161212858
+Comparison A,Neutrophil,Neutrophil_G59,0.9228,6.709895356913557e-08
+Comparison A,Neutrophil,Neutrophil_G60,0.0257,0.2618916265502894
+Comparison A,T cell,Tcell_G01,1.6388,3.6552628685747e-08
+Comparison A,T cell,Tcell_G02,-0.4488,0.21476276882031914
+Comparison A,T cell,Tcell_G03,-0.1388,0.562830923792416
+Comparison A,T cell,Tcell_G04,-0.4819,0.7972581594807263
+Comparison A,T cell,Tcell_G05,-0.4484,0.2246455372003634
+Comparison A,T cell,Tcell_G06,-0.8475,0.004299114890667085
+Comparison A,T cell,Tcell_G07,0.1578,0.9422700647207801
+Comparison A,T cell,Tcell_G08,0.1005,0.5762526015363227
+Comparison A,T cell,Tcell_G09,0.3319,0.22326348738388158
+Comparison A,T cell,Tcell_G10,0.6502,0.7668185986640937
+Comparison A,T cell,Tcell_G11,0.8346,1.500937372019242e-07
+Comparison A,T cell,Tcell_G12,1.084,5.805788994223948e-09
+Comparison A,T cell,Tcell_G13,0.354,0.5666531552816808
+Comparison A,T cell,Tcell_G14,0.7082,7.010892599061678e-06
+Comparison A,T cell,Tcell_G15,-0.8547,0.003233511794020035
+Comparison A,T cell,Tcell_G16,-1.3714,1.9010656283976984e-08
+Comparison A,T cell,Tcell_G17,-0.6344,0.5499530502014212
+Comparison A,T cell,Tcell_G18,-0.9622,1.0373800841498492e-05
+Comparison A,T cell,Tcell_G19,0.0937,0.6206635992781171
+Comparison A,T cell,Tcell_G20,2.2101,0.00999993899765091
+Comparison A,T cell,Tcell_G21,1.7023,8.631661161772239e-07
+Comparison A,T cell,Tcell_G22,-0.5122,0.4026178908704503
+Comparison A,T cell,Tcell_G23,-1.3775,4.119206378231631e-06
+Comparison A,T cell,Tcell_G24,-0.0546,0.07891913984853868
+Comparison A,T cell,Tcell_G25,1.0353,5.6142436488252645e-06
+Comparison A,T cell,Tcell_G26,0.0938,0.73304130454245
+Comparison A,T cell,Tcell_G27,1.6623,0.004782650286899613
+Comparison A,T cell,Tcell_G28,0.8905,1.4246881208422772e-05
+Comparison A,T cell,Tcell_G29,-2.5208,0.0009420602102199143
+Comparison A,T cell,Tcell_G30,-0.467,0.3450950598072498
+Comparison A,T cell,Tcell_G31,-1.6137,7.163573901418237e-06
+Comparison A,T cell,Tcell_G32,-1.0905,1.190600103416219e-09
+Comparison A,T cell,Tcell_G33,-3.639,0.0014914269431225752
+Comparison A,T cell,Tcell_G34,0.5893,0.39325536666559063
+Comparison A,T cell,Tcell_G35,1.9311,4.2715844749793345e-07
+Comparison A,T cell,Tcell_G36,0.2564,0.26626226466795433
+Comparison A,T cell,Tcell_G37,1.7705,1.7300548123432097e-05
+Comparison A,T cell,Tcell_G38,0.8322,0.010471762841871055
+Comparison A,T cell,Tcell_G39,-0.4613,0.13849123262305607
+Comparison A,T cell,Tcell_G40,-0.3522,0.1471912473823558
+Comparison A,T cell,Tcell_G41,0.4768,0.6879570048053643
+Comparison A,T cell,Tcell_G42,-0.3351,0.5706383915522234
+Comparison A,T cell,Tcell_G43,0.9914,1.1412329317085031e-09
+Comparison A,T cell,Tcell_G44,-1.481,3.4644864730115103e-09
+Comparison A,T cell,Tcell_G45,2.9914,1.1469910432235531e-09
+Comparison A,T cell,Tcell_G46,0.9928,1.1321421200692695e-07
+Comparison A,T cell,Tcell_G47,0.4584,0.09866423030486177
+Comparison A,T cell,Tcell_G48,-1.285,0.00010398582786980748
+Comparison A,T cell,Tcell_G49,1.0222,0.00037145701641863555
+Comparison A,T cell,Tcell_G50,0.4456,0.563670563799749
+Comparison A,T cell,Tcell_G51,-1.0053,7.84412189734807e-06
+Comparison A,T cell,Tcell_G52,-1.5795,2.9303101391713195e-09
+Comparison A,T cell,Tcell_G53,1.1928,4.492265326707247e-05
+Comparison A,T cell,Tcell_G54,-1.4371,2.4013362325740267e-09
+Comparison A,T cell,Tcell_G55,1.7058,3.5265647560664035e-05
+Comparison A,T cell,Tcell_G56,0.0173,0.8148300326460284
+Comparison A,T cell,Tcell_G57,1.2814,1.2323791255034892e-07
+Comparison A,T cell,Tcell_G58,0.5176,0.5321278751741589
+Comparison A,T cell,Tcell_G59,-0.018,0.16578641458272908
+Comparison A,T cell,Tcell_G60,-1.2408,7.412835871812924e-09
+Comparison B,Macrophage,Macrophage_G01,-1.613,0.00013058478914965426
+Comparison B,Macrophage,Macrophage_G02,-0.2175,0.06211698511532859
+Comparison B,Macrophage,Macrophage_G03,0.0537,0.9803138375697459
+Comparison B,Macrophage,Macrophage_G04,0.7936,0.0002689268002427783
+Comparison B,Macrophage,Macrophage_G05,-0.772,6.652547371607602e-09
+Comparison B,Macrophage,Macrophage_G06,1.2794,2.9255129177181057e-05
+Comparison B,Macrophage,Macrophage_G07,0.9378,0.0014800040117029655
+Comparison B,Macrophage,Macrophage_G08,-0.3985,0.7585412930291084
+Comparison B,Macrophage,Macrophage_G09,1.1763,6.71615110840099e-06
+Comparison B,Macrophage,Macrophage_G10,-0.8055,0.0001410319455719682
+Comparison B,Macrophage,Macrophage_G11,1.1823,0.028543066656669367
+Comparison B,Macrophage,Macrophage_G12,1.9626,5.576998697662073e-09
+Comparison B,Macrophage,Macrophage_G13,1.3515,1.971256807441819e-06
+Comparison B,Macrophage,Macrophage_G14,-0.5162,0.3803461511004035
+Comparison B,Macrophage,Macrophage_G15,0.3981,0.2780224330974569
+Comparison B,Macrophage,Macrophage_G16,-1.4033,7.693991096477503e-05
+Comparison B,Macrophage,Macrophage_G17,-0.7664,1.5697283246386254e-07
+Comparison B,Macrophage,Macrophage_G18,-0.3225,0.7863763446089789
+Comparison B,Macrophage,Macrophage_G19,-0.8242,3.304343152428418e-05
+Comparison B,Macrophage,Macrophage_G20,-0.5224,0.30507680368812823
+Comparison B,Macrophage,Macrophage_G21,0.4699,0.7765076419350714
+Comparison B,Macrophage,Macrophage_G22,0.7826,1.9768659265854268e-05
+Comparison B,Macrophage,Macrophage_G23,-0.0943,0.4972910463176874
+Comparison B,Macrophage,Macrophage_G24,0.0953,0.4043971623228782
+Comparison B,Macrophage,Macrophage_G25,0.3949,0.40437476047019605
+Comparison B,Macrophage,Macrophage_G26,1.1918,8.348004853771616e-08
+Comparison B,Macrophage,Macrophage_G27,0.5695,0.9877561633754508
+Comparison B,Macrophage,Macrophage_G28,2.9082,1.3102412228506162e-07
+Comparison B,Macrophage,Macrophage_G29,-0.9701,1.567671872323617e-06
+Comparison B,Macrophage,Macrophage_G30,-0.1425,0.45331807600561713
+Comparison B,Macrophage,Macrophage_G31,0.6261,0.9783446071542076
+Comparison B,Macrophage,Macrophage_G32,-1.433,0.0008784405222360301
+Comparison B,Macrophage,Macrophage_G33,0.5695,0.14276530728644932
+Comparison B,Macrophage,Macrophage_G34,0.5793,0.8579009182028908
+Comparison B,Macrophage,Macrophage_G35,-2.3462,7.510834321674787e-06
+Comparison B,Macrophage,Macrophage_G36,0.1391,0.6748661600823205
+Comparison B,Macrophage,Macrophage_G37,0.8139,0.005754237068955579
+Comparison B,Macrophage,Macrophage_G38,0.1465,0.7564531534753409
+Comparison B,Macrophage,Macrophage_G39,-0.5323,0.6509122744038659
+Comparison B,Macrophage,Macrophage_G40,-0.1212,0.46130877027602135
+Comparison B,Macrophage,Macrophage_G41,1.8457,1.3822240680888173e-07
+Comparison B,Macrophage,Macrophage_G42,-0.867,0.0008929077017733321
+Comparison B,Macrophage,Macrophage_G43,-1.0989,0.04225137025328539
+Comparison B,Macrophage,Macrophage_G44,-0.7731,4.377255280014573e-08
+Comparison B,Macrophage,Macrophage_G45,1.5011,0.057594151941155323
+Comparison B,Macrophage,Macrophage_G46,0.0043,0.202674663719128
+Comparison B,Macrophage,Macrophage_G47,0.307,0.5569971516603147
+Comparison B,Macrophage,Macrophage_G48,0.8915,0.005137954106619426
+Comparison B,Macrophage,Macrophage_G49,-0.7649,0.00025848333042158283
+Comparison B,Macrophage,Macrophage_G50,-0.488,0.9707750046822816
+Comparison B,Macrophage,Macrophage_G51,0.0111,0.5185133730129384
+Comparison B,Macrophage,Macrophage_G52,-0.5168,0.6746512688783806
+Comparison B,Macrophage,Macrophage_G53,-0.0488,0.8340986288273878
+Comparison B,Macrophage,Macrophage_G54,0.2397,0.48626440171061047
+Comparison B,Macrophage,Macrophage_G55,1.3563,7.166534483813297e-06
+Comparison B,Macrophage,Macrophage_G56,0.3672,0.8605757007271606
+Comparison B,Macrophage,Macrophage_G57,-1.3112,5.533831739905962e-06
+Comparison B,Macrophage,Macrophage_G58,0.1128,0.4689444963673929
+Comparison B,Macrophage,Macrophage_G59,-0.3662,0.8925254953089626
+Comparison B,Macrophage,Macrophage_G60,-0.2457,0.9098403809738876
+Comparison B,mDC,mDC_G01,0.2474,0.45710830065898483
+Comparison B,mDC,mDC_G02,-1.916,0.0008722695375586689
+Comparison B,mDC,mDC_G03,-2.126,6.354611260384261e-07
+Comparison B,mDC,mDC_G04,0.3813,0.38262710404460804
+Comparison B,mDC,mDC_G05,1.1808,1.0974942076516488e-08
+Comparison B,mDC,mDC_G06,-0.1262,0.8392676165978046
+Comparison B,mDC,mDC_G07,1.1141,0.0417156296032012
+Comparison B,mDC,mDC_G08,-0.5634,0.43119830558687944
+Comparison B,mDC,mDC_G09,0.7209,0.0002524190430695332
+Comparison B,mDC,mDC_G10,-0.7578,5.392431006873558e-09
+Comparison B,mDC,mDC_G11,-1.4831,1.5923839043740774e-08
+Comparison B,mDC,mDC_G12,0.8794,4.609957044839309e-05
+Comparison B,mDC,mDC_G13,-0.0023,0.7151100923117115
+Comparison B,mDC,mDC_G14,-0.1171,0.09975856704779008
+Comparison B,mDC,mDC_G15,0.5269,0.8799348704016007
+Comparison B,mDC,mDC_G16,-0.3209,0.2851094323541996
+Comparison B,mDC,mDC_G17,-0.1893,0.5905126378524633
+Comparison B,mDC,mDC_G18,0.4434,0.6891072507766726
+Comparison B,mDC,mDC_G19,-1.0756,1.4155276487917964e-06
+Comparison B,mDC,mDC_G20,0.862,6.99270845253939e-08
+Comparison B,mDC,mDC_G21,1.4979,5.058726048305078e-07
+Comparison B,mDC,mDC_G22,-1.24,0.00016567010453739077
+Comparison B,mDC,mDC_G23,-0.6333,0.9540893760846373
+Comparison B,mDC,mDC_G24,-0.7177,8.746245695643537e-09
+Comparison B,mDC,mDC_G25,-0.5431,0.29007043579565034
+Comparison B,mDC,mDC_G26,2.051,0.01008339127613853
+Comparison B,mDC,mDC_G27,-0.4084,0.38093354464651646
+Comparison B,mDC,mDC_G28,-0.0659,0.306866064132498
+Comparison B,mDC,mDC_G29,0.4991,0.4125020136552972
+Comparison B,mDC,mDC_G30,-0.1282,0.7642362687813918
+Comparison B,mDC,mDC_G31,0.7154,4.906476557775871e-06
+Comparison B,mDC,mDC_G32,-0.0336,0.47877141721365113
+Comparison B,mDC,mDC_G33,-0.1818,0.7300496202923816
+Comparison B,mDC,mDC_G34,-0.0085,0.9132092346565073
+Comparison B,mDC,mDC_G35,-0.5178,0.6133766165594468
+Comparison B,mDC,mDC_G36,-0.4319,0.6426135816020407
+Comparison B,mDC,mDC_G37,1.8709,6.79717768367003e-07
+Comparison B,mDC,mDC_G38,2.1102,0.00021109183505691538
+Comparison B,mDC,mDC_G39,0.423,0.42698266436348586
+Comparison B,mDC,mDC_G40,-2.1951,1.4808214777357689e-05
+Comparison B,mDC,mDC_G41,-0.0994,0.25237229621365076
+Comparison B,mDC,mDC_G42,-1.1443,2.6936315326296383e-05
+Comparison B,mDC,mDC_G43,-0.0489,0.8460171086329488
+Comparison B,mDC,mDC_G44,-0.9,2.6777588681816124e-09
+Comparison B,mDC,mDC_G45,0.184,0.6982497204730346
+Comparison B,mDC,mDC_G46,1.0261,7.920323012651445e-08
+Comparison B,mDC,mDC_G47,0.9258,1.079627660143335e-06
+Comparison B,mDC,mDC_G48,-1.6884,5.6343302281688496e-05
+Comparison B,mDC,mDC_G49,0.3691,0.1358038047745575
+Comparison B,mDC,mDC_G50,-0.2852,0.19156227437327844
+Comparison B,mDC,mDC_G51,-1.1094,1.3050969914018496e-05
+Comparison B,mDC,mDC_G52,-1.2299,4.295274113821348e-08
+Comparison B,mDC,mDC_G53,-1.2356,2.1683868971965362e-08
+Comparison B,mDC,mDC_G54,0.9434,1.9988562003880497e-08
+Comparison B,mDC,mDC_G55,0.5653,0.8801337634630384
+Comparison B,mDC,mDC_G56,-0.7909,7.714743515364626e-07
+Comparison B,mDC,mDC_G57,0.5858,0.5432889200901044
+Comparison B,mDC,mDC_G58,2.0151,4.528715545907623e-05
+Comparison B,mDC,mDC_G59,-0.5361,0.1774426098928733
+Comparison B,mDC,mDC_G60,-0.0046,0.4461789675604058
+Comparison B,Neutrophil,Neutrophil_G01,-0.4994,0.18487457889246373
+Comparison B,Neutrophil,Neutrophil_G02,1.3387,1.0372377486154178e-06
+Comparison B,Neutrophil,Neutrophil_G03,-0.9998,0.0001389080084164645
+Comparison B,Neutrophil,Neutrophil_G04,0.6414,0.3544176601815768
+Comparison B,Neutrophil,Neutrophil_G05,1.9084,7.884642825344093e-08
+Comparison B,Neutrophil,Neutrophil_G06,-1.4001,8.859119415571727e-08
+Comparison B,Neutrophil,Neutrophil_G07,0.4317,0.12356324377442567
+Comparison B,Neutrophil,Neutrophil_G08,0.5544,0.19303560101043593
+Comparison B,Neutrophil,Neutrophil_G09,0.1547,0.5251485496296693
+Comparison B,Neutrophil,Neutrophil_G10,-0.0175,0.18047916447854284
+Comparison B,Neutrophil,Neutrophil_G11,-1.0332,1.7299521742733756e-08
+Comparison B,Neutrophil,Neutrophil_G12,-0.9492,0.05017463999215447
+Comparison B,Neutrophil,Neutrophil_G13,1.8714,3.8638900161986825e-09
+Comparison B,Neutrophil,Neutrophil_G14,-0.6991,0.7487181975378534
+Comparison B,Neutrophil,Neutrophil_G15,1.4392,3.7565024083879e-08
+Comparison B,Neutrophil,Neutrophil_G16,-0.105,0.08895663343992839
+Comparison B,Neutrophil,Neutrophil_G17,0.1422,0.6128799396979899
+Comparison B,Neutrophil,Neutrophil_G18,-1.1279,0.00479316467763263
+Comparison B,Neutrophil,Neutrophil_G19,-0.0262,0.9599565481993895
+Comparison B,Neutrophil,Neutrophil_G20,-0.2484,0.20034547594782454
+Comparison B,Neutrophil,Neutrophil_G21,3.0365,0.005067204341234509
+Comparison B,Neutrophil,Neutrophil_G22,0.4165,0.6222666547866977
+Comparison B,Neutrophil,Neutrophil_G23,-0.5929,0.16012077206810388
+Comparison B,Neutrophil,Neutrophil_G24,0.3666,0.4400370660803327
+Comparison B,Neutrophil,Neutrophil_G25,-0.0646,0.8591969304937871
+Comparison B,Neutrophil,Neutrophil_G26,1.2293,6.702904540323172e-07
+Comparison B,Neutrophil,Neutrophil_G27,-0.29,0.06584551651561373
+Comparison B,Neutrophil,Neutrophil_G28,-1.4923,7.119524137424504e-08
+Comparison B,Neutrophil,Neutrophil_G29,-0.3264,0.06406410753098739
+Comparison B,Neutrophil,Neutrophil_G30,-0.2236,0.708213674537175
+Comparison B,Neutrophil,Neutrophil_G31,1.9551,8.80836709294383e-05
+Comparison B,Neutrophil,Neutrophil_G32,-0.3079,0.7848776070107059
+Comparison B,Neutrophil,Neutrophil_G33,0.8353,8.449111794776623e-05
+Comparison B,Neutrophil,Neutrophil_G34,0.6813,0.17540778389822476
+Comparison B,Neutrophil,Neutrophil_G35,1.4645,3.878195402438898e-09
+Comparison B,Neutrophil,Neutrophil_G36,-2.3293,1.4655464587260232e-07
+Comparison B,Neutrophil,Neutrophil_G37,0.4177,0.8515421314904832
+Comparison B,Neutrophil,Neutrophil_G38,-0.8146,0.00015407639451442342
+Comparison B,Neutrophil,Neutrophil_G39,0.1146,0.16356122036242554
+Comparison B,Neutrophil,Neutrophil_G40,0.4888,0.670864700276108
+Comparison B,Neutrophil,Neutrophil_G41,1.4042,5.056247528214784e-06
+Comparison B,Neutrophil,Neutrophil_G42,-0.0616,0.740197870594924
+Comparison B,Neutrophil,Neutrophil_G43,-0.7581,8.476557230153363e-07
+Comparison B,Neutrophil,Neutrophil_G44,-0.0904,0.5330537572126594
+Comparison B,Neutrophil,Neutrophil_G45,-1.6731,0.007523535800675476
+Comparison B,Neutrophil,Neutrophil_G46,0.8768,2.106565627095993e-09
+Comparison B,Neutrophil,Neutrophil_G47,0.0459,0.2558457328264713
+Comparison B,Neutrophil,Neutrophil_G48,1.006,2.1302396332088883e-05
+Comparison B,Neutrophil,Neutrophil_G49,0.8939,5.479782583416787e-05
+Comparison B,Neutrophil,Neutrophil_G50,-1.4469,0.024804107929126015
+Comparison B,Neutrophil,Neutrophil_G51,-0.5217,0.5493999271191474
+Comparison B,Neutrophil,Neutrophil_G52,-1.0671,2.03317474744115e-06
+Comparison B,Neutrophil,Neutrophil_G53,-1.0202,2.5249066862560002e-05
+Comparison B,Neutrophil,Neutrophil_G54,1.0498,8.030606313650147e-05
+Comparison B,Neutrophil,Neutrophil_G55,1.3656,0.0003170167404104417
+Comparison B,Neutrophil,Neutrophil_G56,1.5119,2.800533802309599e-07
+Comparison B,Neutrophil,Neutrophil_G57,0.6819,0.989384605136044
+Comparison B,Neutrophil,Neutrophil_G58,0.9397,2.202015657029767e-07
+Comparison B,Neutrophil,Neutrophil_G59,0.6524,0.6751969642835798
+Comparison B,Neutrophil,Neutrophil_G60,-0.0242,0.7596221712080133
+Comparison B,T cell,Tcell_G01,0.6191,0.14005820890671417
+Comparison B,T cell,Tcell_G02,-0.231,0.9778265955811689
+Comparison B,T cell,Tcell_G03,0.7451,0.003484227217256191
+Comparison B,T cell,Tcell_G04,-1.2073,6.165667159983765e-06
+Comparison B,T cell,Tcell_G05,-0.8182,1.897662085637264e-05
+Comparison B,T cell,Tcell_G06,0.3606,0.6282393985480129
+Comparison B,T cell,Tcell_G07,1.9194,1.1073418966920735e-08
+Comparison B,T cell,Tcell_G08,-0.0482,0.6724020017739828
+Comparison B,T cell,Tcell_G09,-0.686,0.29831916329812225
+Comparison B,T cell,Tcell_G10,-0.5723,0.7504850910393588
+Comparison B,T cell,Tcell_G11,-1.1843,3.2053844777172484e-05
+Comparison B,T cell,Tcell_G12,-0.3664,0.5999076358661185
+Comparison B,T cell,Tcell_G13,-0.4966,0.7138620219410418
+Comparison B,T cell,Tcell_G14,-0.3046,0.2867638493787922
+Comparison B,T cell,Tcell_G15,-0.5209,0.1095412533879395
+Comparison B,T cell,Tcell_G16,-0.8997,5.435209051849243e-09
+Comparison B,T cell,Tcell_G17,0.6468,0.4457894989586918
+Comparison B,T cell,Tcell_G18,-0.636,0.24479857508549718
+Comparison B,T cell,Tcell_G19,1.3505,0.0030287243927682016
+Comparison B,T cell,Tcell_G20,0.5091,0.97738933387112
+Comparison B,T cell,Tcell_G21,0.5534,0.47032605515927933
+Comparison B,T cell,Tcell_G22,-0.3401,0.6973589874866734
+Comparison B,T cell,Tcell_G23,-1.2162,2.4074681456659392e-05
+Comparison B,T cell,Tcell_G24,0.248,0.7089555656973531
+Comparison B,T cell,Tcell_G25,0.0482,0.33713572667290886
+Comparison B,T cell,Tcell_G26,-0.3634,0.3215460620287988
+Comparison B,T cell,Tcell_G27,1.9585,3.3276225591336035e-05
+Comparison B,T cell,Tcell_G28,-0.6826,0.5264206020756004
+Comparison B,T cell,Tcell_G29,0.6723,0.4562982991675692
+Comparison B,T cell,Tcell_G30,-1.4097,0.0005897221118450315
+Comparison B,T cell,Tcell_G31,0.2464,0.6103376123239304
+Comparison B,T cell,Tcell_G32,-0.4479,0.41248206305415464
+Comparison B,T cell,Tcell_G33,1.892,5.7967868669470676e-09
+Comparison B,T cell,Tcell_G34,-0.3155,0.523606410026742
+Comparison B,T cell,Tcell_G35,-1.1403,7.035112675100128e-09
+Comparison B,T cell,Tcell_G36,-2.0422,0.002793947245595923
+Comparison B,T cell,Tcell_G37,-0.8633,1.6980356322469233e-08
+Comparison B,T cell,Tcell_G38,-0.169,0.787596610539735
+Comparison B,T cell,Tcell_G39,1.3137,9.651972925231251e-08
+Comparison B,T cell,Tcell_G40,-1.5447,9.005675331233328e-08
+Comparison B,T cell,Tcell_G41,0.4003,0.2118971799952603
+Comparison B,T cell,Tcell_G42,-0.8501,4.194577026220594e-06
+Comparison B,T cell,Tcell_G43,0.0599,0.6506213338197425
+Comparison B,T cell,Tcell_G44,0.2766,0.19270532730281448
+Comparison B,T cell,Tcell_G45,-0.5092,0.6331294655186144
+Comparison B,T cell,Tcell_G46,-0.9518,2.5292217446274072e-05
+Comparison B,T cell,Tcell_G47,0.3679,0.3885676464761749
+Comparison B,T cell,Tcell_G48,0.2351,0.19032088653494583
+Comparison B,T cell,Tcell_G49,1.2911,1.5877762580744398e-05
+Comparison B,T cell,Tcell_G50,1.2543,0.0025948384699796957
+Comparison B,T cell,Tcell_G51,-0.3634,0.5087607442839576
+Comparison B,T cell,Tcell_G52,-2.0525,3.926914126787827e-06
+Comparison B,T cell,Tcell_G53,-1.3879,1.048461679595267e-06
+Comparison B,T cell,Tcell_G54,-0.3809,0.07316831802146065
+Comparison B,T cell,Tcell_G55,0.3798,0.7264184324780393
+Comparison B,T cell,Tcell_G56,-1.6711,0.022584170910058935
+Comparison B,T cell,Tcell_G57,1.0831,2.392208876932235e-09
+Comparison B,T cell,Tcell_G58,-0.2017,0.3566779279989244
+Comparison B,T cell,Tcell_G59,-2.0774,0.05624874230179894
+Comparison B,T cell,Tcell_G60,0.7417,1.115954584096383e-06

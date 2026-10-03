@@ -1,0 +1,59 @@
+{
+  "id": "sc-gsea-multiterm-rank",
+  "title": "多通路 GSEA 命中排名与 NES／校正P复合图",
+  "titleEn": "Multi-term GSEA hit rank and statistics",
+  "plotFamily": "gsea_multiterm_rank",
+  "scientificQuestion": "多个已有GSEA通路的基因集命中位置、富集方向和提供统计量如何比较？",
+  "description": "保留2024-8-9多通路排名条带、正负方向颜色及右侧NES和校正P文字或气泡；这不是经典运行ES曲线。",
+  "application": "并列展示所选多个GSEA通路的命中排名和已有统计摘要。",
+  "dataProfile": "完整降序排名15681行；gene_id/rank/statistic; 原前10条通路完整匹配基因；pathway_id/gene_id/rank; 原结果前10行；pathway_id/description/set_size/enrichment_score/nes/p_adjust",
+  "visualProfile": "主图为红绿命中条带；右侧为p.adjust和NES，支持文字或气泡；正NES在上，负NES在下。",
+  "inputs": [
+    {
+      "path": "data/ranking.csv",
+      "description": "完整降序排名15681行；gene_id/rank/statistic"
+    },
+    {
+      "path": "data/hits.csv",
+      "description": "原前10条通路完整匹配基因；pathway_id/gene_id/rank"
+    },
+    {
+      "path": "data/enrichment.csv",
+      "description": "原结果前10行；pathway_id/description/set_size/enrichment_score/nes/p_adjust"
+    }
+  ],
+  "semanticDecisions": [
+    "选取2024-8-9原res.RData结果表前10行，保留通路名称、匹配setSize、NES和p.adjust。",
+    "正NES条带在上、负NES在下；组内保留结果表顺序。基因排名由高统计量到低统计量。",
+    "本图编码基因集命中条带，不绘制运行ES曲线；不将条带称为经典GSEA曲线。",
+    "默认以文字直接显示NES和p.adjust；气泡模式面积为matched set_size，校正P颜色为-ln(p.adjust)，与来源函数保持自然对数尺度。",
+    "P=0仅在气泡显示使用声明下限，不修改输入值；不重新估计NES、P值或富集结果。"
+  ],
+  "packages": [
+    "ggplot2",
+    "yaml",
+    "ragg",
+    "patchwork"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/（VIP）2024-8-9 更新-复现Cell子刊GSEA多组结果展示函数/GSEA_new作图函数.R",
+      "sha256": "6afc7307d7e7c2f628c92c4c030f211aa3652d74f6bc935042f55017dc518840",
+      "notes": "2024-8-9 ks_plot_gsea函数；保留条带/统计布局，删除硬编码路径和隐含函数依赖。"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-9 更新-复现Cell子刊GSEA多组结果展示函数/res.RData",
+      "sha256": "7a2db3a6e374a8192d7c302ca66864bdfe6ea6fd56a331f8026569c4025a5c0b",
+      "notes": "37条预计算结果、15681个排名；本包取结果表前10条通路。"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-9 更新-复现Cell子刊GSEA多组结果展示函数/1.jpg",
+      "sha256": "6966e9caccdf93c2b29a282ebfec0de50563600665947a95d71d35d86f6a4231",
+      "notes": "已实际查看的来源预览；左右High/Low文字按真实降序排名纠正。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

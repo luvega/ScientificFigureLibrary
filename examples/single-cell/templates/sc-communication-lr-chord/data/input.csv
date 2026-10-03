@@ -1,0 +1,5 @@
+"source","target","ligand","receptor","value","pvalue"
+"Dendritic","NK","APP","CD74",9.357,0
+"Dendritic","CD14 Monocytes","APP","CD74",9.931,0
+"Dendritic","Dendritic","APP","CD74",11.804,0
+"Dendritic","B","APP","CD74",16.647,0

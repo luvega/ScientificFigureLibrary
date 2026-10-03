@@ -1,0 +1,65 @@
+{
+  "id": "sc-communication-circle-network",
+  "title": "细胞通讯候选定向环形网络",
+  "titleEn": "Directed circle network of selected cell-interaction candidates",
+  "plotFamily": "directed_communication_network",
+  "scientificQuestion": "预计算受配体候选在选定细胞类型之间如何连接？",
+  "description": "环形排列细胞类型，箭头只表示标准输入source到target的字段顺序；线宽编码已筛选候选配对数或已给权重之和，保留自环。",
+  "application": "- 查看选定受配体子集的细胞间候选联系。\n- 已给权重尺度一致时，比较单组网络结构；不计算新通讯概率。",
+  "dataProfile": "复用首批精确对齐的 GO/WT CPDB 教程子集：108 行，3×3 细胞类型、6 个 interaction_id。默认计数仅指这6个候选，不是完整通讯分析中的互作总量。",
+  "visualProfile": "细胞类型彩色节点沿圆周固定排列，灰色定向弯曲边，原例环形节点与自环风格；每组一个面板。",
+  "inputs": [
+    {
+      "path": "data/communication.csv",
+      "description": "group/source/target/ligand/receptor/interaction_id/value/pvalue 分列"
+    },
+    {
+      "path": "data/nodes.csv",
+      "description": "celltype/colour/order；只控制节点风格，不使用虚构细胞数"
+    }
+  ],
+  "semanticDecisions": [
+    "source→target 按分列字段传入，名称含下划线或竖线也不拆分。",
+    "过滤采用 value>0 且 pvalue<阈值；同 group/source/target/interaction_id 必须唯一。",
+    "significant_pairs 是过滤后唯一候选记录的计数；sum_value 是同尺度输入 value 的直接求和。",
+    "缺少边的细胞对不补成显著边；节点颜色和顺序由独立注释给定；固定节点大小。",
+    "教程子集包含GJA1/GJA1等未由receptor_a/receptor_b标记确定配体—受体方向的候选；箭头只编码输入列顺序，不证明生物信号方向。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml",
+    "igraph"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/（VIP）2024-1-22 cellchat-cellpgonedbV5互作网络图函数/cellphonedbV5网络图函数.R",
+      "sha256": "9b9a2abab2ba13f1f5f75551e8a14379c696284b5691fc5787677b2d5c4f7bfe",
+      "notes": "保留环形布局、灰色边、自环与细胞类型配色；修正原例按目标列提取所致的方向风险。"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-17 cellphonedb V5多组受配体分析可视化函数/GO_cpdb/statistical_analysis_pvalues_08_15_2024_132104.txt",
+      "sha256": "5c5fe3b55d28bf0f64a9d8101f5e55da76542d30bee13a4222d5b31219f85fe7",
+      "notes": "原始pvalue，不重算"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-17 cellphonedb V5多组受配体分析可视化函数/GO_cpdb/statistical_analysis_means_08_15_2024_132104.txt",
+      "sha256": "bb21cc37ce1c95a9618c752ef4a755178d1bb1dd8b0d653cb8125974525e6cc0",
+      "notes": "原始CPDB mean，不是CellChat probability"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-17 cellphonedb V5多组受配体分析可视化函数/WT_cpdb/statistical_analysis_pvalues_08_15_2024_132617.txt",
+      "sha256": "8648b79bef25229b721b358925f695c571f4e1ea95d2dd53b7d84bbddb074390",
+      "notes": "原始pvalue，不重算"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-17 cellphonedb V5多组受配体分析可视化函数/WT_cpdb/statistical_analysis_means_08_15_2024_132617.txt",
+      "sha256": "d7d2bdc5c27b3324c68be4015ca4f0da45b44f599729ba6e09e1cf3c7048a66d",
+      "notes": "原始CPDB mean，不是CellChat probability"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

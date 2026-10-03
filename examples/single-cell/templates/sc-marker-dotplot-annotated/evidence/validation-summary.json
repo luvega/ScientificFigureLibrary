@@ -1,0 +1,43 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 3,
+  "inputCasesPassed": 3,
+  "semanticCases": 2,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "b12ce9b3f1d0eb0fcd6111d24b32866bf0e60ee444bc8c94f083ca06228d5c3b",
+        "actual": "b12ce9b3f1d0eb0fcd6111d24b32866bf0e60ee444bc8c94f083ca06228d5c3b",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "7a4fd713510dee2ff7bce7c41d5ddaaab9a9da4a25ab58da665d0ed8237a0a0f",
+        "actual": "7a4fd713510dee2ff7bce7c41d5ddaaab9a9da4a25ab58da665d0ed8237a0a0f",
+        "passed": true
+      }
+    ],
+    "review": {
+      "labels": "reviewed",
+      "legends": "reviewed",
+      "scales": "reviewed",
+      "cropping": "reviewed",
+      "overlap": "reviewed",
+      "notes": "Expression zscore legend, percentage size legend, and both annotation tracks checked."
+    }
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

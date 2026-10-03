@@ -1,0 +1,9 @@
+edge_id,source,target,signal,ligand,receptor,weight
+E1,N1,N2,Signal-A,LIG_A-1,REC|A,0.75
+E2,N2,N3,Signal-A,LIG_A-1,REC|A,0.5
+E3,N4,N5,Signal-A,LIG_A-1,REC|A,0.25
+E4,N5,N6,Signal-A,LIG_A-1,REC|A,0.6
+E5,N3,N1,Signal-B,LIG_B|2,REC_B-1,0.8
+E6,N6,N5,Signal-B,LIG_B|2,REC_B-1,0.45
+E7,N5,N2,Signal-B,LIG_B|2,REC_B-1,0.35
+E8,N4,N1,Signal-B,LIG_B|2,REC_B-1,0.55

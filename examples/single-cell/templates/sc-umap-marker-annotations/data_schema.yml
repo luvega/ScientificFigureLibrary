@@ -1,0 +1,22 @@
+schema: private-figure-input.v1
+fields:
+  data/input.csv:
+    cell_id: '非空字符串；每行唯一'
+    x: '有限数值；已计算二维嵌入坐标；须有变异'
+    y: '有限数值；已计算二维嵌入坐标；须有变异'
+    celltype: '非空字符串；须在marker表中存在'
+  data/markers.csv:
+    celltype: '字符串；对应输入细胞类型'
+    marker: '字符串；已提供marker标签，不重新发现marker'
+parameters:
+  data_label: '默认明确标记合成坐标；使用自己的坐标后相应修改'
+files:
+  - path: data/input.csv
+    description: 细胞二维坐标和细胞类型
+  - path: data/markers.csv
+    description: 细胞类型与marker标签
+semantics:
+  - 嵌入坐标不重新计算
+  - 编号由celltype稳定排序生成
+  - 样本量从实际输入行数计算
+  - 默认各类型最多5个marker；没有对应标签时报错

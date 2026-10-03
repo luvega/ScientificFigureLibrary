@@ -1,0 +1,40 @@
+{
+  "id": "sc-feature-umap",
+  "title": "基因表达UMAP分面图",
+  "titleEn": "Gene expression feature maps on supplied UMAP",
+  "plotFamily": "feature_umap",
+  "scientificQuestion": "已给定嵌入坐标中，各基因的表达强度分布在什么位置？",
+  "description": "在相同嵌入坐标上以连续色标显示多个基因的表达值，比较各表达区域的位置与强度。",
+  "application": "- 用预计算UMAP坐标与细胞级表达长表查看不同基因在已注释细胞区域的分布。\n- 在多个基因的表达单位一致时使用共同数值色标，保留零表达细胞并比较表达范围。",
+  "dataProfile": "cell_id×gene长表，每个基因包含同一批细胞及其固定umap_1、umap_2和非负expression。",
+  "visualProfile": "多个横向基因散点分面，相同坐标范围与灰蓝绿连续色标，细黑边框；较高值后绘制。",
+  "inputs": [
+    {
+      "path": "data/feature_expression.csv",
+      "description": "480个合成细胞×3个示例基因，含零表达"
+    }
+  ],
+  "semanticDecisions": [
+    "输入坐标和表达量保持原值，不重跑UMAP或归一化。",
+    "每个基因必须包含相同细胞，包括零表达；同一cell_id坐标须一致。",
+    "所有基因共用0到最大输入值色标；指定expression_max须覆盖所有输入值，禁止静默截断。",
+    "灰蓝绿配色与黑边框来自来源脚本；横向基因分面采用共同尺度。",
+    "合成坐标由四个正态点团生成，属于模拟嵌入，不是实际拟合的UMAP。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/KS科研分享与服务(单细胞)/1_单细胞代码(2023年更正版).R",
+      "sha256": "23dc0ae06fd1fa0d026c6693b99ae32e46499dbeb98202427b7bef445d656e59",
+      "notes": "只读核对279行多基因FeaturePlot以及873–880行灰蓝绿/灰珊瑚色标和黑边框；没有执行Seurat或降维。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

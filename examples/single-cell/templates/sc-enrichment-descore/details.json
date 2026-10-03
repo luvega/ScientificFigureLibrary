@@ -1,0 +1,51 @@
+{
+  "id": "sc-enrichment-descore",
+  "title": "DEscore 通路方向与富集显著性比较",
+  "titleEn": "DEscore directional enrichment comparison",
+  "plotFamily": "enrichment_descore",
+  "scientificQuestion": "提供通路富集结果中上、下调基因的平衡如何对应显著性及细胞类型？",
+  "description": "保留2024-4-5棒棒糖图和细胞类型侧条带；横坐标为提供q值的-log10，气泡面积为上下调基因总数，颜色为有符号DEscore。",
+  "application": "展示已经计算的通路结果及差异基因方向组成。",
+  "dataProfile": "原DEscore.csv全部15行；pathway_id/description/group/celltype/qvalue/up_count/down_count/all_count/de_score",
+  "visualProfile": "左侧通路文字与分组色条，右侧棒棒糖；紫到白到蓝编码[-1,1]DEscore，气泡面积编码all_count。",
+  "inputs": [
+    {
+      "path": "data/enrichment.csv",
+      "description": "原DEscore.csv全部15行；pathway_id/description/group/celltype/qvalue/up_count/down_count/all_count/de_score"
+    }
+  ],
+  "semanticDecisions": [
+    "保留原DEscore.csv全部15行及文件顺序；不重新计算差异表达、GO富集或qvalue。",
+    "DEscore=(up_count-down_count)/all_count，all_count=up_count+down_count；检查原值在1e-6内一致。",
+    "分组与celltype分列保存；Macrophage按真实原表标注，纠正来源图中将该块写为Neutrophil的固定文字。",
+    "横坐标=-log10(提供qvalue)，qvalue=0仅显示时使用参数下限；气泡面积编码上下调成员总数，不是背景基因数。",
+    "此有符号汇总表示通路差异基因的方向比例，不证明整个通路活性或因果效应。"
+  ],
+  "packages": [
+    "ggplot2",
+    "yaml",
+    "ragg",
+    "patchwork"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/A1ae3b930480d::复现Nature富集DEscore及可视化.R",
+      "sha256": "6f8935554a55705dc139a70f4c3fc36e625ce434957d8b6b351ae2774fdd3684",
+      "notes": "2024-4-5可视化部分；保留棒棒糖与侧注释色条，删除上游FindMarkers/enrichment。"
+    },
+    {
+      "path": "source-collection/_绘图skill整理/解压/教程/A1ae3b930480d_(VIP) 2024-4-5 复现Nature富集DEscore及可视化.zip/DEscore.csv",
+      "sha256": "e9ce5493e17ea3945f8fd1cbce63dbe75d051d6437d4d3ee0f1df0c3fc8ad28c",
+      "notes": "预计算15行DEscore结果原值；采用声明的字段重命名。"
+    },
+    {
+      "path": "source-collection/_绘图skill整理/解压/教程/A1ae3b930480d_(VIP) 2024-4-5 复现Nature富集DEscore及可视化.zip/1.png",
+      "sha256": "c5602fa3abdcd7743985bcb6b2442d9f79faf16e8789d9f88d6e6e2d7e97bd10",
+      "notes": "已实际查看来源图；原固定Macrophage标注错误已按输入表修正。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

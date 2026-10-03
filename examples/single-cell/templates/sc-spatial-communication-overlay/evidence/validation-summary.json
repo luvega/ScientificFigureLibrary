@@ -1,0 +1,43 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 9,
+  "inputCasesPassed": 9,
+  "semanticCases": 2,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "f77ef6caa4aa8630cb4f7bea7bd0e72fca76d833cce9eb1830c325d8a7fed47a",
+        "actual": "f77ef6caa4aa8630cb4f7bea7bd0e72fca76d833cce9eb1830c325d8a7fed47a",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "1855189ccb3fc0f2682ba382264ee5ccb3d45b689c8dddb22921d5a0150fce0d",
+        "actual": "1855189ccb3fc0f2682ba382264ee5ccb3d45b689c8dddb22921d5a0150fce0d",
+        "passed": true
+      }
+    ],
+    "review": {
+      "labels": "reviewed",
+      "legends": "reviewed",
+      "scales": "reviewed",
+      "cropping": "reviewed",
+      "overlap": "reviewed",
+      "notes": "Both signal facets, source-to-target arrows, downward image y-axis, separate LR inputs and complete cell-type legend checked. Coordinates and weights are synthetic."
+    }
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

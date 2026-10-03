@@ -1,0 +1,10 @@
+# 绘图参数；不改变上游分析或统计结果
+width: 11
+height: 7
+dpi: 300
+font_family: "sans"
+font_size: 12
+title: "Synthetic example: precomputed pseudotime expression"
+value_label: "Provided row z-score"
+colour_limit: 2
+show_gene_labels: true

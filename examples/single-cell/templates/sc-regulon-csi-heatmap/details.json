@@ -1,0 +1,44 @@
+{
+  "id": "sc-regulon-csi-heatmap",
+  "title": "Regulon CSI模块热图",
+  "titleEn": "Regulon CSI heatmap with given modules",
+  "plotFamily": "regulon_csi_heatmap",
+  "scientificQuestion": "已有CSI矩阵在预设模块内外呈现何种结构？",
+  "description": "方形热图显示已有regulon CSI数值及给定模块。CSI与AUC/RSS不同；模块关联不证明直接调控关系。",
+  "application": "- 已有SCENIC下游CSI矩阵及模块标签时，可查看模块内外数值结构。\n- 展示regulon活性应使用另一个AUC/RSS模板，不能将其当作CSI。",
+  "dataProfile": "seed=20261003合成24×24对称CSI示例，值域[0,1]，对角1；模块为预设。",
+  "visualProfile": "浅黄–深蓝色阶、两轴共享regulon顺序、模块色条和对角模块边框。",
+  "inputs": [
+    {
+      "path": "data/csi.csv",
+      "description": "预计算对称CSI方阵"
+    },
+    {
+      "path": "data/regulon_annotations.csv",
+      "description": "regulon,module"
+    }
+  ],
+  "semanticDecisions": [
+    "固定seed合成，未将auc.csv当作CSI",
+    "方阵、同ID、对称、值域[0,1]、对角1；不阈值截零",
+    "模块为输入标签，不重新发现",
+    "不运行SCENIC或CSI算法"
+  ],
+  "packages": [
+    "ComplexHeatmap",
+    "circlize",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/(VIP) 2023-10-26 更新-SCENIC转录因子CSI计算及Module分析及可视化函数/SCENIC_module.R",
+      "sha256": "1179bfcf42dcf8b86b2ededfffe48cdbff9a8be3ea94f687dc17d583e7500b57",
+      "notes": "参考43行后热图与方框；不执行1–40行CSI计算"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

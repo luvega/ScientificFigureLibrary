@@ -1,0 +1,10 @@
+width: 10
+height: 7
+dpi: 300
+font_family: sans
+font_size: 12
+title: Projected velocity vectors (synthetic)
+vector_scale: 0.7
+cell_point_size: 1.5
+arrow_length_mm: 1.4
+arrow_linewidth: 0.4

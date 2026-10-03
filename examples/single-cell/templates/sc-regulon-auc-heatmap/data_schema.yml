@@ -1,0 +1,9 @@
+inputs:
+  auc.csv:
+    first_column: regulon
+    other_columns: unique_cell_ids
+    values: 'finite [0,1] AUC'
+  cells.csv:
+    required: [cell_id, group, order]
+    relation: exact_match_to_matrix_columns
+    order: unique_numeric

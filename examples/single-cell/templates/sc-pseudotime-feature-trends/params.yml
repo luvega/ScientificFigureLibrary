@@ -1,0 +1,17 @@
+dpi: 300
+font_size: 11
+font_family: sans
+width: 10
+height: 7
+title: Feature trends along stored pseudotime
+group_order:
+  - 10X_ntph_F
+  - 10X_ntph_M
+group_colors:
+  - "#089E86"
+  - "#3D5387"
+value_label: Mean log2(exprs + 1)
+value_scale: log2_exprs_plus_one
+trend_kind: binned_mean
+show_points: false
+facet_columns: 2

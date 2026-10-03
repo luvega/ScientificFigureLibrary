@@ -1,0 +1,48 @@
+{
+  "schema": "private-figure-render.v1",
+  "status": "passed",
+  "scope": "example_data",
+  "exitCode": 0,
+  "startedAt": "2026-10-02T10:22:47.142Z",
+  "completedAt": "2026-10-02T10:22:49.207Z",
+  "command": "Rscript --vanilla code/plot.R",
+  "files": [
+    {
+      "path": "code/plot.R",
+      "bytes": 3494,
+      "sha256": "8f6fc95cb62379b1e26a9ebfee913483980ed970bb643b77916fb546cc00f408"
+    },
+    {
+      "path": "code/common.R",
+      "bytes": 3920,
+      "sha256": "0d9ec55ef5a9c45bd2160b721b5657ede6ff7cec4b2c90fe306e2b7be95751ad"
+    },
+    {
+      "path": "params.yml",
+      "bytes": 269,
+      "sha256": "04b846c65dc74b58e8fa44a7ad7bc9c8c1441fd912f173acad9e85929e54539e"
+    },
+    {
+      "path": "data/nodes.csv",
+      "bytes": 301,
+      "sha256": "86cd2ed60d8a9d6d5f73d97973baf2bd1c651177b22dceb7fcff52deacd52762"
+    },
+    {
+      "path": "data/edges.csv",
+      "bytes": 502,
+      "sha256": "0d15c6dcf06e10862bc7ac258bd33d60f6440f7854c7d496d17eff9cb2a00c5e"
+    },
+    {
+      "path": "preview.png",
+      "bytes": 244774,
+      "sha256": "cd1d9162037f0479f7df1f18f216ddcfb0f49f9cf2582ecbc4437f20e096ef90"
+    },
+    {
+      "path": "plot.pdf",
+      "bytes": 23191,
+      "sha256": "5297616e65aa2ab6d60fe33eeee5cc4c536e4ddb4bfa32550fd138a931b6c3ee"
+    }
+  ],
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

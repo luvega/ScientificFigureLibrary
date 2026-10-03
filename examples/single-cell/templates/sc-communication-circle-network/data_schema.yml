@@ -1,0 +1,8 @@
+inputs:
+  communication.csv:
+    required: [group, source, target, ligand, receptor, interaction_id, value, pvalue]
+    unique: [group, source, target, interaction_id]
+    numeric: {value: 'finite >= 0', pvalue: '[0,1]'}
+  nodes.csv:
+    required: [celltype, colour, order]
+    relation: 'all source/target exactly matched; order unique'

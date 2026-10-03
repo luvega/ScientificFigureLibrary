@@ -1,0 +1,39 @@
+{
+  "id": "sc-spatial-feature-spots",
+  "title": "空间spot特征数值图",
+  "titleEn": "Spatial feature spots (synthetic)",
+  "plotFamily": "spatial",
+  "scientificQuestion": "预计算特征值在所给spot坐标中的分布如何？",
+  "description": "输入spot坐标与提供数值，按切片和特征分面。默认反转y轴以适合左上角图像原点，不添加未提供的组织图。",
+  "application": "用于已有spot坐标下展示基因或非负特征数值的空间分布，按切片和特征比较局部高值区域。",
+  "dataProfile": "sample/spot_id/feature/x/y/value；同样本spot位置跨特征一致。",
+  "visualProfile": "点的位置由原x/y决定，固定点大小、填充色连续编码提供值；sample为列、feature为行分面并共享色标。保持等比例坐标，reverse_y默认将显示y轴反向以对应左上角图像原点。",
+  "inputs": [
+    {
+      "path": "data/spots.csv",
+      "description": "sample/spot_id/feature/x/y/value；同样本spot位置跨特征一致。"
+    }
+  ],
+  "semanticDecisions": [
+    "seed=20261004；两切片、两特征均为合成；同一spot跨特征坐标必须一致。",
+    "x/y为同一空间坐标基准；reverse_y仅改变显示方向，不归一化或缩放坐标。",
+    "value非负且保持原数值；不运行SCTransform或空间统计。",
+    "未提供histology image，因此不叠加组织背景。"
+  ],
+  "packages": [
+    "ggplot2",
+    "yaml",
+    "ragg"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/2025-07-KS-account-codes/4-空间转录组/10X visum空转分析/2-seurat分析10X空转下游基本流程（数据读取-降维聚类-annotation-基本可视化等）/Seurat分析10X空转下游基本流程.R",
+      "sha256": "d987a820b8980d53f2aca39afe289e034eb02fb2f3d61fea63750848e9cca2f3",
+      "notes": "源教程以SpatialDimPlot/SpatialFeaturePlot展示spot；只参考239–267行绘图样式，未运行读入、整合或聚类。目录无现成spot坐标+表达小表。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

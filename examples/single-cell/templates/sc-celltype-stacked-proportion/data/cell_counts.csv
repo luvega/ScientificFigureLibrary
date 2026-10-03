@@ -1,0 +1,31 @@
+sample_id,group,celltype,count
+HC_1,HC,T cell,189
+HC_1,HC,Macrophage,164
+HC_1,HC,Endothelial,115
+HC_1,HC,Epithelial,159
+HC_1,HC,Fibroblast,188
+HC_2,HC,T cell,121
+HC_2,HC,Macrophage,51
+HC_2,HC,Endothelial,61
+HC_2,HC,Epithelial,201
+HC_2,HC,Fibroblast,273
+AEH_1,AEH,T cell,82
+AEH_1,AEH,Macrophage,70
+AEH_1,AEH,Endothelial,244
+AEH_1,AEH,Epithelial,68
+AEH_1,AEH,Fibroblast,182
+AEH_2,AEH,T cell,94
+AEH_2,AEH,Macrophage,60
+AEH_2,AEH,Endothelial,155
+AEH_2,AEH,Epithelial,76
+AEH_2,AEH,Fibroblast,186
+EEC_1,EEC,T cell,104
+EEC_1,EEC,Macrophage,123
+EEC_1,EEC,Endothelial,59
+EEC_1,EEC,Epithelial,94
+EEC_1,EEC,Fibroblast,206
+EEC_2,EEC,T cell,154
+EEC_2,EEC,Macrophage,259
+EEC_2,EEC,Endothelial,197
+EEC_2,EEC,Epithelial,231
+EEC_2,EEC,Fibroblast,274

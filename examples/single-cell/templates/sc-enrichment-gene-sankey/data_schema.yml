@@ -1,0 +1,43 @@
+{
+  "schema": "private-template-input.v1",
+  "inputs": {
+    "data/memberships.csv": {
+      "columns": {
+        "gene": {
+          "type": "string"
+        },
+        "pathway": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "number"
+        }
+      },
+      "rows": 24
+    },
+    "data/enrichment.csv": {
+      "columns": {
+        "pathway": {
+          "type": "string"
+        },
+        "gene_ratio": {
+          "type": "number"
+        },
+        "count": {
+          "type": "number"
+        },
+        "display_score": {
+          "type": "number"
+        }
+      },
+      "rows": 8
+    }
+  },
+  "semantic_contract": [
+    "来自原教学示例表，不宣称为本次真实生物数据或已重算富集。",
+    "按Enrichment.csv固定原文件顺序取前8通路；成员表仅保留匹配的gene/pathway/freq，weight=freq。",
+    "gene_ratio=原Generatio，count=原Count；display_score仅为原Log(q-value)乘-1，不将其伪装为新计算的校正P值。",
+    "条带宽度为所示成员边weight；完整富集Count可能大于所示成员数，二者不得混用。",
+    "提供成员关系不意味着直接调控或因果关系；无聚类、富集检验或网络推断。"
+  ]
+}

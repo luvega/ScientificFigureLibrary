@@ -1,0 +1,10 @@
+width: 10
+height: 6
+dpi: 300
+font_family: sans
+font_size: 12
+data_label: Synthetic example
+scale: row_zscore
+orientation: horizontal
+border: true
+input_scale_label: Mean normalized expression

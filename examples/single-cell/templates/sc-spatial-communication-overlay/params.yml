@@ -1,0 +1,11 @@
+dpi: 300
+font_size: 11
+font_family: sans
+width: 11
+height: 6.8
+title: "Spatial communication: synthetic example"
+coordinate_system: image
+coordinate_unit: um (illustrative)
+weight_label: Provided communication score
+weight_threshold: 0
+facet_columns: 2

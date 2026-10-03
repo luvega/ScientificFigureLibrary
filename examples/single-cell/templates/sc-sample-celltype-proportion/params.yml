@@ -1,0 +1,15 @@
+dpi: 300
+font_size: 11
+font_family: sans
+width: 10
+height: 6.8
+title: Cell composition across example libraries
+plot_mode: box_points
+group_order:
+  - Tutorial libraries
+group_colors:
+  - "#E48B40"
+cell_type_order: null
+display_cell_types: null
+complete_composition: true
+facet_columns: 4

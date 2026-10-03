@@ -1,3 +1,8 @@
 # Community 快照按字节校验（source.lock.json 的 bytes/sha256），必须保持 LF。
 assets/community/*.json text eol=lf
 assets/community/LICENSES/* text eol=lf
+
+# Public examples retain exact bytes pinned in their render evidence/catalog.
+examples/single-cell/** -text whitespace=cr-at-eol
+# Captured R session output has aligned trailing padding; retain its bytes.
+examples/single-cell/templates/**/evidence/sessionInfo.txt -whitespace

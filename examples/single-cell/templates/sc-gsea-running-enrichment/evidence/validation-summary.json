@@ -1,0 +1,36 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 5,
+  "inputCasesPassed": 5,
+  "semanticCases": 1,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "71b809e2681ff27404835b5dc3bb0ee08f7aeba527c0583c978a2cffcc263f32",
+        "actual": "71b809e2681ff27404835b5dc3bb0ee08f7aeba527c0583c978a2cffcc263f32",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "eb63d7c7d2ceee68774482a8a299d38df8f9182f0331f55679fb3cd3f0cf89a8",
+        "actual": "eb63d7c7d2ceee68774482a8a299d38df8f9182f0331f55679fb3cd3f0cf89a8",
+        "passed": true
+      }
+    ],
+    "review": "Descending gene rank is left to right; positive and negative ES curves, hit panels, supplied statistics and ranked signal are visible."
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

@@ -1,0 +1,33 @@
+{
+  "format": "CSV UTF-8",
+  "files": [
+    {
+      "path": "data/expression.csv",
+      "first_column": "gene: unique identifier",
+      "remaining_columns": "time bin IDs; finite numeric preprocessed values",
+      "preprocessing": "template performs no smoothing or scaling"
+    },
+    {
+      "path": "data/bin_annotations.csv",
+      "required_columns": {
+        "bin_id": "matrix column ID",
+        "pseudotime": "finite number",
+        "celltype": "provided celltype"
+      },
+      "matching": "exact matrix columns, unique bin_id"
+    },
+    {
+      "path": "data/gene_annotations.csv",
+      "required_columns": {
+        "gene": "matrix row ID",
+        "module": "given module; no discovery"
+      },
+      "matching": "exact matrix rows, unique gene"
+    }
+  ],
+  "outputs": [
+    "preview.png",
+    "plot.pdf"
+  ],
+  "entrypoint": "code/plot.R"
+}

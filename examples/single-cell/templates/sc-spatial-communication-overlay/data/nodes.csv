@@ -1,0 +1,7 @@
+node_id,sample_id,cell_type,x,y
+N1,Example-1,T_cell/CD4,0,0
+N2,Example-1,B-cell,80,30
+N3,Example-1,Mono|Mac,180,10
+N4,Example-1,Epithelial,10,150
+N5,Example-1,Stromal,100,170
+N6,Example-1,Endothelial,200,130

@@ -1,0 +1,12 @@
+inputs:
+  paired_values.csv:
+    required: [sample_id, donor_id, pair_id, group, value]
+    unique_sample: sample_id
+    unique: [pair_id, group]
+    numeric: {value: finite}
+    relation: exactly_two_groups_and_complete_pairs
+  comparisons.csv:
+    required: [group1, group2, y, label]
+    optional_empty: true
+    numeric: {y: finite}
+    relation: known_distinct_groups

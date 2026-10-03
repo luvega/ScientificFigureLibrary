@@ -4,6 +4,8 @@
 
 # Scientific Figure Library
 
+本 fork 新增 [38项单细胞绘图模板](examples/single-cell/README.md)：R代码、最小示例、参数、PNG/PDF、来源说明和验证摘要。模板来源许可保留为 unknown，详见 [许可说明](examples/single-cell/LICENSE_NOTICE.md)。
+
 [Website](https://xuzhougeng.github.io/ScientificFigureLibrary/) ·
 [English](README.md) ·
 [快速开始](docs/QUICKSTART.md) ·
@@ -63,7 +65,7 @@ PR 的基础 CI 覆盖 Linux、Windows、macOS 上的测试、类型检查、构
 
 ## 许可证
 
-本仓库代码 MIT。用户导入的图保留导入时记录的许可证。
+SFL应用代码 MIT。用户导入的图以及本 fork 的单细胞模板保留各自记录的许可，后者来源许可为 unknown；见 [第三方声明](THIRD_PARTY_NOTICES.md)。
 
 ## Open Figure Modules
 

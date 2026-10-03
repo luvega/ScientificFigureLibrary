@@ -1,0 +1,49 @@
+{
+  "id": "sc-paired-raincloud",
+  "title": "样本配对雨云图",
+  "titleEn": "Paired sample raincloud plot",
+  "plotFamily": "paired_raincloud",
+  "scientificQuestion": "明确配对的两个样本组，其给定数值分布和每对样本的差异如何？",
+  "description": "将两个配对组的半小提琴、箱线、样本点与连接线组合展示，使总体分布和每对样本的变化同时可见。",
+  "application": "- 比较由家庭、受试者或实验设计明确配对的两个样本组。\n- 查看预计算指标的分布和组内离散程度，可附加上游提供的比较标注。",
+  "dataProfile": "保留原教程 40 个样本、20 个 Family.ID 配对及 Richness 数值；Patient 与 Relative 各 20 个。配对键来自 Family.ID。",
+  "visualProfile": "橙色和绿色半小提琴向两侧展开，箱线靠近样本点，灰色线连接同一 pair_id 的两组样本；数值纵轴。",
+  "inputs": [
+    {
+      "path": "data/paired_values.csv",
+      "description": "sample_id/donor_id/pair_id/group/value；每对每组仅一个样本"
+    },
+    {
+      "path": "data/comparisons.csv",
+      "description": "可选预计算标注 group1/group2/y/label；允许只有表头"
+    }
+  ],
+  "semanticDecisions": [
+    "原示例严格将 Family.ID 映射为 pair_id，DonorID 仅保留为 donor_id，不用来连接样本。",
+    "必须正好两个组；sample_id 全局唯一；pair_id/group 唯一，每对两组完整，不默默丢弃未配对样本。",
+    "小提琴密度和箱线分位数仅是绘图汇总；所有输入样本数值保留，不执行显著性检验或推断。",
+    "所有连线连接输入原值；相同 pair_id 使用相同确定性横向偏移，避免随机抖动损坏连接。",
+    "comparisons.csv 中的标注是上游提供的文字，不生成 P 值；图中纵轴标为 Richness，修正原例 Expression 标签与数据不符。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/KS科研分享与服务(付费内容）/2023-3-9配对云雨图/配对云雨图.R",
+      "sha256": "523619be270541a30ed49d26e953f95118d0a9af7c17d1cf078aef5cc4d45468",
+      "notes": "已核对原代码哈希；绘图风格与字段语义参考此代码。"
+    },
+    {
+      "path": "source-collection/KS科研分享与服务(付费内容）/2023-3-9配对云雨图/df.csv",
+      "sha256": "8e4c099d571d5e0fc9d6a09df1fe8c1348cac375ca6f52f87774bf9fef830c6b",
+      "notes": "实际读取的原教程输入；数值/类别保留，仅标准化列名。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

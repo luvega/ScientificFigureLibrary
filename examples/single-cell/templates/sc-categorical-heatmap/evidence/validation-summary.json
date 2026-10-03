@@ -1,0 +1,36 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 8,
+  "inputCasesPassed": 8,
+  "semanticCases": 2,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "6e7dcbb720e9deda4a06a2fa284cb7619f375c408d5a45e808153703eece26e7",
+        "actual": "6e7dcbb720e9deda4a06a2fa284cb7619f375c408d5a45e808153703eece26e7",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "17f890c6a5c59540e81d3767ca5560280fefc573f3f2bc61cd8f9346c50e5492",
+        "actual": "17f890c6a5c59540e81d3767ca5560280fefc573f3f2bc61cd8f9346c50e5492",
+        "passed": true
+      }
+    ],
+    "review": "Black/white yes/no categories, full row/column labels and keyed top annotations are visible."
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "private-figure-render.v1",
+  "status": "passed",
+  "scope": "synthetic_data",
+  "exitCode": 0,
+  "startedAt": "2026-10-02T06:38:21.912Z",
+  "completedAt": "2026-10-02T06:38:24.318Z",
+  "command": "Rscript --vanilla code/plot.R",
+  "files": [
+    {
+      "path": "code/plot.R",
+      "bytes": 3075,
+      "sha256": "b1c972d5353642aeb4d49997b48137aecefe9fca10bca8868a40dcec7546e2fe"
+    },
+    {
+      "path": "code/common.R",
+      "bytes": 2520,
+      "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+    },
+    {
+      "path": "params.yml",
+      "bytes": 299,
+      "sha256": "6d18729ddd5c1ba95b19cf2247047da7532f3af3e341f401498752511f42cbe7"
+    },
+    {
+      "path": "data/density_grid.csv",
+      "bytes": 278571,
+      "sha256": "58478afe2a4d51dd880a3b90bce0e74a6b02d3a0dcaeba5a28a3508293cd877b"
+    },
+    {
+      "path": "preview.png",
+      "bytes": 160231,
+      "sha256": "b35b57c70b4633f2832526cbff18de05f2eb0a83945717d5839adc2553e9c24d"
+    },
+    {
+      "path": "plot.pdf",
+      "bytes": 67350,
+      "sha256": "3dc46ed39176c10fe88e36088fe7ccce33b566ac264adae83e17781ca1f93de6"
+    }
+  ],
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "private-template-input.v1",
+  "inputs": {
+    "data/cells.csv": {
+      "columns": {
+        "cell_id": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "celltype": {
+          "type": "string"
+        }
+      },
+      "rows": 540
+    },
+    "data/vectors.csv": {
+      "columns": {
+        "vector_id": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "dx": {
+          "type": "number"
+        },
+        "dy": {
+          "type": "number"
+        }
+      },
+      "rows": 54
+    }
+  },
+  "semantic_contract": [
+    "seed=20261005；细胞、类型、网格位移完全合成；不是由spliced/unspliced估计。",
+    "vectors的x/y/dx/dy必须已经处于cells的同一嵌入坐标基准；vector_id为网格点ID，不需冒充cell_id。",
+    "显示端点严格为(x+vector_scale*dx,y+vector_scale*dy)，不按长度归一化；零向量保留但至少应有一个非零向量。",
+    "嵌入矢量只是提供的模型/示例量；不能据此证明分化方向或因果关系。"
+  ]
+}

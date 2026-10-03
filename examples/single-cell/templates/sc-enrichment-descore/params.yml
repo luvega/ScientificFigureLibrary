@@ -1,0 +1,10 @@
+width: 14
+height: 10
+dpi: 240
+font_family: sans
+font_size: 12
+title: DEscore directional enrichment comparison
+pathway_wrap: 62
+max_bubble_size: 10
+q_display_floor: 1.0e-300
+group_colours: ["#F98400", "#D51F26", "#00A08A", "#5BBCD6"]

@@ -1,0 +1,11 @@
+width: 11
+height: 4.8
+dpi: 300
+font_family: sans
+font_size: 12
+title: Gene expression feature maps
+data_label: "Synthetic example: 480 cells; no UMAP fitted"
+point_size: 0.8
+expression_label: Supplied expression
+expression_max: null
+gene_order: [ExampleGeneA, ExampleGeneB, ExampleGeneC]

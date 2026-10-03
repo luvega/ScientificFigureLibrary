@@ -1,0 +1,9 @@
+# 绘图参数；不改变上游分析或统计结果
+width: 11
+height: 8
+dpi: 300
+font_family: "sans"
+font_size: 12
+title: "Existing pathway enrichment by module"
+max_genes: 5
+pvalue_floor: 1.0e-30

@@ -1,0 +1,34 @@
+{
+  "format": "CSV UTF-8",
+  "files": [
+    {
+      "path": "data/communication.csv",
+      "required_columns": {
+        "group": "string",
+        "source": "string",
+        "target": "string",
+        "ligand": "string",
+        "receptor": "string",
+        "value": "number >= 0; one declared metric",
+        "pvalue": "number in [0,1]"
+      },
+      "optional_columns": {
+        "interaction_id": "upstream interaction identifier"
+      },
+      "uniqueness": [
+        "group",
+        "source",
+        "target",
+        "ligand",
+        "receptor"
+      ],
+      "missing_policy": "reject missing/nonfinite; no artificial zero rows",
+      "row_unit": "one provided interaction for one source-target pair and group"
+    }
+  ],
+  "outputs": [
+    "preview.png",
+    "plot.pdf"
+  ],
+  "entrypoint": "code/plot.R"
+}

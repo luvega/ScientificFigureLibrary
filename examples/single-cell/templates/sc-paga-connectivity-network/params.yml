@@ -1,0 +1,15 @@
+dpi: 300
+font_size: 11
+font_family: sans
+width: 9
+height: 7.5
+title: PAGA connectivity from tutorial outputs
+node_size_mode: uniform
+connectivity_threshold: 0.03
+group_order:
+  - Early_PMN
+  - Late_PMN
+group_colors:
+  - "#87C55F"
+  - "#F97B72"
+show_group_regions: true

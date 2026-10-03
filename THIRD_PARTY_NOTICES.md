@@ -2,6 +2,19 @@
 
 Scientific Figure Library code is MIT licensed.
 
+## Single-cell examples in the luvega fork
+
+The 38 template packages under `examples/single-cell/templates/` are publicly
+hosted copies explicitly requested by the fork maintainer. Their recorded source
+license remains **unknown**. Public hosting does not relicense their adapted
+code, example data or derived figures under the repository's MIT license.
+Per-template collection labels, source hashes and adaptation notes are retained
+in `provenance.md` and `details.json`. Original archives, full upstream analysis
+objects, machine-specific paths and local publication receipts are not included.
+See [the collection notice](examples/single-cell/LICENSE_NOTICE.md).
+
+## Existing catalogs and bundled dependencies
+
 The generated FigureYa search catalog, thumbnails, downloaded templates, and
 other material derived from
 [ying-ge/FigureYa](https://github.com/ying-ge/FigureYa) remain licensed under

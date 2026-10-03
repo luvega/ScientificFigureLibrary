@@ -1,0 +1,43 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 4,
+  "inputCasesPassed": 4,
+  "semanticCases": 1,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "bd944702d3163495fa424146c2dffe277e3f4c36f3d5df565e4726afd4779639",
+        "actual": "bd944702d3163495fa424146c2dffe277e3f4c36f3d5df565e4726afd4779639",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "77172a54d026fd22d7687971a8644ffc506273bcf2b57e126596d8333df76d74",
+        "actual": "77172a54d026fd22d7687971a8644ffc506273bcf2b57e126596d8333df76d74",
+        "passed": true
+      }
+    ],
+    "review": {
+      "labels": "reviewed",
+      "legends": "reviewed",
+      "scales": "reviewed",
+      "cropping": "reviewed",
+      "overlap": "reviewed",
+      "notes": "Symmetric matrix and supplied module labels checked; no new module discovery claimed."
+    }
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

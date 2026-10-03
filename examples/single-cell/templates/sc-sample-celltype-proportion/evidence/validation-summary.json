@@ -1,0 +1,43 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 7,
+  "inputCasesPassed": 7,
+  "semanticCases": 3,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "1f766a3d9a99b923d8b70fa800bd1d2f15243e747524a5825c6f1f56082fce3d",
+        "actual": "1f766a3d9a99b923d8b70fa800bd1d2f15243e747524a5825c6f1f56082fce3d",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "2c3f5e3d943ce18124a58587933678329e5e8abbbcb6d65031dfdaf143a1c2df",
+        "actual": "2c3f5e3d943ce18124a58587933678329e5e8abbbcb6d65031dfdaf143a1c2df",
+        "passed": true
+      }
+    ],
+    "review": {
+      "labels": "reviewed",
+      "legends": "reviewed",
+      "scales": "reviewed",
+      "cropping": "reviewed",
+      "overlap": "reviewed",
+      "notes": "Eight facets, two library points per category, common 0-100 percent scale, and complete legend checked. The example contains one group of two libraries, not a biological comparison."
+    }
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

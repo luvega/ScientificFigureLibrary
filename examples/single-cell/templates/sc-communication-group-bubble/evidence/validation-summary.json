@@ -1,0 +1,43 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 4,
+  "inputCasesPassed": 4,
+  "semanticCases": 1,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "0d74e05f3db0e32cdeebe32d6bde837dccd517c17ae151f93ff64d2bab0a1f6d",
+        "actual": "0d74e05f3db0e32cdeebe32d6bde837dccd517c17ae151f93ff64d2bab0a1f6d",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "cc6cf0b8e98f5bed4da399f1cfdc5497ff07ebf50747bc6d76e9345362127a7f",
+        "actual": "cc6cf0b8e98f5bed4da399f1cfdc5497ff07ebf50747bc6d76e9345362127a7f",
+        "passed": true
+      }
+    ],
+    "review": {
+      "labels": "reviewed",
+      "legends": "reviewed",
+      "scales": "reviewed",
+      "cropping": "reviewed",
+      "overlap": "reviewed",
+      "notes": "Source/target facets, LR labels, p-value and score legends checked."
+    }
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

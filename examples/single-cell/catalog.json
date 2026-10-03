@@ -1,0 +1,3626 @@
+{
+  "schema": "single-cell.public-examples.v1",
+  "preparedOn": "2026-10-03",
+  "templateCount": 38,
+  "dataScopes": {
+    "derived_example": 20,
+    "synthetic": 18
+  },
+  "license": "unknown",
+  "distribution": "public_copy",
+  "templates": [
+    {
+      "id": "sc-bipartite-ligand-target",
+      "title": "配体与靶基因二分网络",
+      "titleEn": "Bipartite ligand–target network",
+      "plotFamily": "bipartite_ligand_target",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-bipartite-ligand-target/code/plot.R",
+      "preview": "templates/sc-bipartite-ligand-target/preview.png",
+      "readme": "templates/sc-bipartite-ligand-target/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2687,
+          "sha256": "303ad8ec3e3868929134d9749cee56036c23a9de1b68d9aa19219743b21e06ad"
+        },
+        {
+          "path": "data/edges.csv",
+          "bytes": 861,
+          "sha256": "8850ede21525412ad55f7de75947c21416b9575cec36c46270094a4773e562d6"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 401,
+          "sha256": "d3802b25f08246a77d06e805804cb5915f7c4a9f258d6c0ff71a0dd88512d388"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 622,
+          "sha256": "5fe5c06071e34a133a820ed8c09306786b2d94f1de0c99e405d33543bd28d8f0"
+        },
+        {
+          "path": "description.md",
+          "bytes": 478,
+          "sha256": "288371ed88a9d1e89c0d2fc6377cc55fd5693fb603b74a7e57ab3b250c61362f"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2665,
+          "sha256": "c220ce3ee55d71bcb66ee8c6ef707c9f0a92946ab5380b3def8bd8bb8179ff5c"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1361,
+          "sha256": "37ebc1c1f1c4cb1271eaa347c408d26fa778d216b8b24e81e98ae758747a0ab4"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1394,
+          "sha256": "fdef1cbea4019163058dae531a2509537e6f228b3b2fdc866d3ae7ffb3a0f6a9"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 197,
+          "sha256": "93ef1a32a2aaeec3109dab46773c297521ddfbd0b664235da6a1a584585ce876"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 44778,
+          "sha256": "116306012080ccf137dcf2d7ae6d33e2b768c9d5f830bc0fefba345fec38ab26"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 591305,
+          "sha256": "beb0d0e2910a8adf139e1af42c228542a9543161d0ce914b6f2aa0b708bf1b47"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1730,
+          "sha256": "94c5c60497b89b5f19bffa57572bd6342813760b2b6231b34e5eba9a847ed089"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1663,
+          "sha256": "b09e4665b8bf17cadee21a53cb3695664b4614c6c5cd8c4c142f3987105be0d1"
+        }
+      ]
+    },
+    {
+      "id": "sc-categorical-heatmap",
+      "title": "离散类别矩阵热图",
+      "titleEn": "Categorical state matrix heatmap",
+      "plotFamily": "categorical_heatmap",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-categorical-heatmap/code/plot.R",
+      "preview": "templates/sc-categorical-heatmap/preview.png",
+      "readme": "templates/sc-categorical-heatmap/README.md",
+      "packages": [
+        "ComplexHeatmap",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3151,
+          "sha256": "8de222d0bd4736e956e8ce870a1992114826226fbef4f654c1e0d5a73ce228d9"
+        },
+        {
+          "path": "data/category_colors.csv",
+          "bytes": 38,
+          "sha256": "5d62c802134b23c7f057d17e1a5c138d98bea7d5a5c2d49f65e7cb5d6b63b137"
+        },
+        {
+          "path": "data/category_matrix.csv",
+          "bytes": 781,
+          "sha256": "fa9436a1345037cce7f55be1cc846ebffbe72a11c1b735baff3e42bc09acda76"
+        },
+        {
+          "path": "data/column_annotations.csv",
+          "bytes": 224,
+          "sha256": "05b0794b8810bbf7b00e34b1e6a25b3d9a50b50648718d22d8cf4838cad81ee9"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 454,
+          "sha256": "358fb06dcca653b5f19eaf4cdac87b2677ee9dd3a7b02de2ed74da1503c7386b"
+        },
+        {
+          "path": "description.md",
+          "bytes": 515,
+          "sha256": "bc051f57a012dade153d31d57426bed5f3b668bc43b727cc58f01cd5719268e3"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2946,
+          "sha256": "13353dcf1e97e38b2245bee0a2875ed1b82d808af87efed45e8bec7671a5333d"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1541,
+          "sha256": "c720313ef0aa2e5ec7e1e6ba8839c1be629e8e36fb80c22b49e46e7594714755"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1380,
+          "sha256": "7b27955f73fac197f40b7a42ceb1db49dd31312621fcd51b7963d65386910eae"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1262,
+          "sha256": "196a7cdddb5a8ebdef9251064874b172350fb584d34ebb714d1c656f48716797"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 120,
+          "sha256": "d05ff60dff78b816226e8a47d3690ccebcc5fdbfbbc92456563eb53efa065d09"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 31976,
+          "sha256": "17f890c6a5c59540e81d3767ca5560280fefc573f3f2bc61cd8f9346c50e5492"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 176813,
+          "sha256": "6e7dcbb720e9deda4a06a2fa284cb7619f375c408d5a45e808153703eece26e7"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1704,
+          "sha256": "f6af0e1999af14d664372993a63614a29b1e732133aaaa370c0533e7ce985782"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2325,
+          "sha256": "157ad02e22b91c69fb389e5465eaeb3ac69fe3542b52b5f5cd6cd251a31f14a3"
+        }
+      ]
+    },
+    {
+      "id": "sc-celltype-stacked-proportion",
+      "title": "细胞比例堆叠柱图",
+      "titleEn": "Stacked cell-type fractions",
+      "plotFamily": "stacked-bar",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-celltype-stacked-proportion/code/plot.R",
+      "preview": "templates/sc-celltype-stacked-proportion/preview.png",
+      "readme": "templates/sc-celltype-stacked-proportion/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3615,
+          "sha256": "f0ab72ddfea8114430d81e253bb1d994d1fa96c376303f2a6fec0811598e23c7"
+        },
+        {
+          "path": "data/cell_counts.csv",
+          "bytes": 764,
+          "sha256": "6c9e5a2553f10859561278db017cac9a08363c3245b446104d7ffce0993673fb"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 411,
+          "sha256": "c0e02fceb168f9560801a46730fb89e95a068736da495f0b3bc3695edaa17997"
+        },
+        {
+          "path": "description.md",
+          "bytes": 493,
+          "sha256": "6e66735a4f8529dc514eb082c8d80197fcc89dc3cf38beafceaab94d6187d50d"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2539,
+          "sha256": "1d8bdbca6b1608cb5ce3476924f407cbba0ec120f9142f2157983ced4c93f6d0"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1220,
+          "sha256": "fb5a7584b26b6f03e4bf63c74c06d9fbe1a9ce2a902fc87fa5d9877a4d7bfca4"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1188,
+          "sha256": "536de30305a092146a9d9a88529e5f59e4512791e4a1f04ad767fd6af5af9001"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1418,
+          "sha256": "acbe599cf842cab06738654e4f2fa7597f1f6ac4a641be5aa00c9628fdd6ad11"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 147,
+          "sha256": "f4f1317f3904343f589ca5a58acfb1a4b64e948f33812c5a8d022f81fab4e18c"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 23191,
+          "sha256": "3e4eec3456a778957e195d1cfd8b241a7cdc7a738a7dea590cd640e1ac450947"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 99888,
+          "sha256": "286d40cd64ce073fa8c385c450ef9ca585741a59147964d489c8c5693deefb9e"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1664,
+          "sha256": "3400d305e65f36fde6e67557842cb9deabb1070f3bddaee005bed474d4f5a1b6"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2180,
+          "sha256": "71102ec47c5030e0bfd28903cfc26cd1a1ec5246440dd2d1612997146beecf00"
+        }
+      ]
+    },
+    {
+      "id": "sc-circular-heatmap",
+      "title": "环形表达热图",
+      "titleEn": "Circular expression heatmap",
+      "plotFamily": "circular_expression_heatmap",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-circular-heatmap/code/plot.R",
+      "preview": "templates/sc-circular-heatmap/preview.png",
+      "readme": "templates/sc-circular-heatmap/README.md",
+      "packages": [
+        "circlize",
+        "ComplexHeatmap",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3297,
+          "sha256": "56a41f5f0132407f7ab86b324c217dd59088716e3eee2fdd1b232210a11dea64"
+        },
+        {
+          "path": "data/expression.csv",
+          "bytes": 2836,
+          "sha256": "55db3a37320fa88cd9ded02498bf8a3801453b9ef20bf5190853c37eea87afdc"
+        },
+        {
+          "path": "data/row_annotations.csv",
+          "bytes": 382,
+          "sha256": "67c2b076a61737126ed1b831d756f7f16c50324cf0dbbca0d1a2ae62888896eb"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 653,
+          "sha256": "f6c08131a17909197490a0a56503a7e0d62f9841a799a1e674396d8ffb2c1841"
+        },
+        {
+          "path": "description.md",
+          "bytes": 436,
+          "sha256": "840f02f905543c46b09b5f51a6dad5b20e09af1dd567dd7105b5114b99c3e7b2"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2217,
+          "sha256": "22b157135185f81166073dc62e71e39c29754edede54b124004ef9cd34087334"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1378,
+          "sha256": "d7c1a2a92dabcaddae4ed3771a852b874152578739274ef2bdee390844e719ac"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1376,
+          "sha256": "fa37aa91af8dfdc628591a44e7cec38b5f7fb804eec3c2c0a612f7c310f0d0f2"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1403,
+          "sha256": "12e623d2f4a7ce98a0474a4b0399538914bb80ef2097727ca9fd7a39136f7d84"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 293,
+          "sha256": "d2ff5e5197cb86e03010b656df45390dbd8495626c5e61dc7a619c243439cc58"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 117159,
+          "sha256": "1e7168340df66fdeac3399d46dc108fe184d3d37ebb969e88afb042102be5024"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 646347,
+          "sha256": "05bfb406e8798ef9cbff7429d54fd22bde829950ab5aae54e438bf1cc55aa06d"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1288,
+          "sha256": "3c6b071ca3209d9fde48d973dce0acb0a7f893d1fad77c240bf716acdad0de76"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1750,
+          "sha256": "68e9bb80eae595edbe6756c37d64368cd2a9729edd3373b40178231fc0c30fc2"
+        }
+      ]
+    },
+    {
+      "id": "sc-clonotype-alluvial",
+      "title": "细胞类型与克隆大小类别计数组成冲积图",
+      "titleEn": "Celltype × clone-size alluvial (synthetic)",
+      "plotFamily": "alluvial",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-clonotype-alluvial/code/plot.R",
+      "preview": "templates/sc-clonotype-alluvial/preview.png",
+      "readme": "templates/sc-clonotype-alluvial/README.md",
+      "packages": [
+        "ggplot2",
+        "yaml",
+        "ragg"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 4034,
+          "sha256": "5bc94a57c1685a5b05ee868616c9aa68efc42b31025fc321bbb19d577c354352"
+        },
+        {
+          "path": "data/flows.csv",
+          "bytes": 1233,
+          "sha256": "4da40d089b7f1c38a7e28b97388552819db3c8f31c3815822b9de016d9bba724"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 1067,
+          "sha256": "c15d7187cc51d7d92208f4584a0d326784adee313be8730acf56522d49ad478d"
+        },
+        {
+          "path": "description.md",
+          "bytes": 512,
+          "sha256": "5a25fe54170cd3ebc9975ef6f48d9aee7cacfec4423d2bd73b6949e502114f4f"
+        },
+        {
+          "path": "details.json",
+          "bytes": 3327,
+          "sha256": "8b52b182108ed9225486a815c6303b3e9c0c63baf9bd1ca670393285ac7de760"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1216,
+          "sha256": "8992e87ff6dafb1e9e4364d61c6073a659d3382d00df87c67fa09813701bd733"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1429,
+          "sha256": "55b47d3c7b3ce2f7caabfeee0ac2a577704f1504f3635874a434e3efc594dc87"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 153,
+          "sha256": "469d29319fad71c0eed1795091269159bd87acb78af79d9e16e422ad0cd049cf"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 52073,
+          "sha256": "4501b35513c17d65faca9221898b7ac145f87a748829183a7aedfacfc5572bd5"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 497262,
+          "sha256": "290b3a97079501385466580a5cc7ad5e50ebdcde0ff51c4d70d05b5a3e42c643"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 2253,
+          "sha256": "5019d429222c5c5dc9fb819b0ca2014d0addedbdc1e9e864c0f0eeaec1b2b192"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2207,
+          "sha256": "7ccb90e0da9238bc5f44818ff1fe26f8aebb523a4078cbfa5946d5f659c50a01"
+        }
+      ]
+    },
+    {
+      "id": "sc-communication-circle-network",
+      "title": "细胞通讯候选定向环形网络",
+      "titleEn": "Directed circle network of selected cell-interaction candidates",
+      "plotFamily": "directed_communication_network",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-communication-circle-network/code/plot.R",
+      "preview": "templates/sc-communication-circle-network/preview.png",
+      "readme": "templates/sc-communication-circle-network/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml",
+        "igraph"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3123,
+          "sha256": "d28b4442cfb87e7fac9debcbfa4b9ef26e09a2772660c70ff8503eab42c8a55c"
+        },
+        {
+          "path": "data/communication.csv",
+          "bytes": 7007,
+          "sha256": "d289a5bf5beb83664fa46b77bdd4a55855c68b7711f91946c984607304d132c2"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 90,
+          "sha256": "fc00226d208e09b11a5b65cf82e17003bfd407021163e2f7f7ed5d12fa28e227"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 346,
+          "sha256": "ed9912280f02def8fd98fa251b7e02f9ad679f8061c7f975f1c932bb7b2a2c51"
+        },
+        {
+          "path": "description.md",
+          "bytes": 569,
+          "sha256": "2968f9304c426efb4fe18d96d2397a094bebb9aef79aff39ae75eb4bacd3bb2f"
+        },
+        {
+          "path": "details.json",
+          "bytes": 3897,
+          "sha256": "c87adb42c6a5a3525c6f56cbfa17766b0f61878ae1ab0e302de5b8bd0ab07550"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1369,
+          "sha256": "60777f8d74210206f89670527c32df7d4a9f7c783f0f4487fa681c4744e92187"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 840,
+          "sha256": "1eadcc629184d76daf6e980c5ce51e81d8820989bb8f7a3e14e7ec967b3ae945"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1407,
+          "sha256": "aa536a72c5922c4499a242845534a952d62074d4bd03247827d987935566e9f2"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 122,
+          "sha256": "48943d2f601f4dd0e30660b836937213a39d9b8ec44d00c0e931109f5cd3b876"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 37450,
+          "sha256": "9b188b6f5b6bae5bcb1d379c2a1f6d30780f241e8dda1f527ab6976680ad6faa"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 184002,
+          "sha256": "13f68edbe71cf04798ee6fb4fa58014ebbf34bc5288cc5b28de5f981f37a9391"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 2568,
+          "sha256": "87bc8841588d3393a2dd3e2dac161956951b05cee4f9f5503150fee8d8f7aac6"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2351,
+          "sha256": "040c2f3a4f219405761083e3c588c75122695c1358714284e0b794430b73ab26"
+        }
+      ]
+    },
+    {
+      "id": "sc-communication-group-bubble",
+      "title": "多组细胞通讯受配体气泡图",
+      "titleEn": "Grouped ligand–receptor bubble plot",
+      "plotFamily": "grouped_ligand_receptor_bubble",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-communication-group-bubble/code/plot.R",
+      "preview": "templates/sc-communication-group-bubble/preview.png",
+      "readme": "templates/sc-communication-group-bubble/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2578,
+          "sha256": "ff72d139bb5089bd01e21eef57045ff0135dadb2d0ba87ab434ee9800098ec3e"
+        },
+        {
+          "path": "data/communication.csv",
+          "bytes": 7007,
+          "sha256": "d289a5bf5beb83664fa46b77bdd4a55855c68b7711f91946c984607304d132c2"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 861,
+          "sha256": "1190dfeb324ff6041a24da8e50578c5b50e9655a4ae2ea1a9db8b2f0d413fa77"
+        },
+        {
+          "path": "description.md",
+          "bytes": 540,
+          "sha256": "70c13e944ceee54889ecca94d3252f48ee69bb14966245ddff5d76c2d0611533"
+        },
+        {
+          "path": "details.json",
+          "bytes": 3307,
+          "sha256": "230c83cc5b8f71d6cb38ed1198f5d5aadfa0968f70539c09081b0633b8a3dceb"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1222,
+          "sha256": "372a0eb5bc7aee4340ba189740e5b0fea302f038214a429ea0b724b9f7fb1264"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1404,
+          "sha256": "16998f3ef287ef30400517d47007d39ea5ab838816744ca2247f9635d0ceb25c"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 254,
+          "sha256": "92c77614b9be5e60033492f569636380bbf24f13bba94498e19b20146abab406"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 56472,
+          "sha256": "cc6cf0b8e98f5bed4da399f1cfdc5497ff07ebf50747bc6d76e9345362127a7f"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 474454,
+          "sha256": "0d74e05f3db0e32cdeebe32d6bde837dccd517c17ae151f93ff64d2bab0a1f6d"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 2206,
+          "sha256": "823701227d5cc812866ad3cfdbac2a0bba9ab92a2c716d430b5b7ec3e8025cb1"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1828,
+          "sha256": "652faf2bef9f4f229b3b90d84f22bcff07da1fb220bc2b4b916a455a136d23bd"
+        }
+      ]
+    },
+    {
+      "id": "sc-communication-lr-chord",
+      "title": "细胞通讯受配体弦图",
+      "titleEn": "Directed ligand–receptor chord diagram grouped by cell type",
+      "plotFamily": "ligand_receptor_chord",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-communication-lr-chord/code/plot.R",
+      "preview": "templates/sc-communication-lr-chord/preview.png",
+      "readme": "templates/sc-communication-lr-chord/README.md",
+      "packages": [
+        "circlize",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2544,
+          "sha256": "283ad2be5dea622dcc91ba32335b371ae1c4520e15dbfbdaaffd33855ea2f97a"
+        },
+        {
+          "path": "data/input.csv",
+          "bytes": 232,
+          "sha256": "ae6df9865c8dfbad5ad8c48093746c72575338bb32a6518e45f51e0733cf420e"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 817,
+          "sha256": "e1c8a980702f45aa14366d704f379bcaac062de672c9794e308c9d8f04211886"
+        },
+        {
+          "path": "description.md",
+          "bytes": 465,
+          "sha256": "207ddb240d4f274ef6e0c8cdbddc1a0318f33fd22a0717885669440a842cc1f0"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2207,
+          "sha256": "97876d3b08b42173485d8a556b7cda53d3784ee7bd36190d2dea7e9cf8129f17"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1213,
+          "sha256": "191a5964296ed3a80c8e838bff00527584094774bdfbbf8ed4a0f11ed947fefa"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 914,
+          "sha256": "291ceac9c87b19e8b76215f4d2c1f36f6dd17c1e18b144d3c74312742b6e3b18"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1395,
+          "sha256": "0e09f7eca3a445137a9138bce5e4df9d814c0230f61bec464ed8c99dfc9c062a"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 118,
+          "sha256": "bff01e96c1bf8c6a5781076db47b7a72b50a4cdcec30299adee8875033522972"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 41380,
+          "sha256": "d3cdb46d95daf4a7c2de7648cc8476f9db7571d679e37de255170132fe0c4f34"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 318555,
+          "sha256": "490c09bda491fea969da12345ad1ffdc61720c287668693132f8fab74e1c5573"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1391,
+          "sha256": "2043803f4acb18fed89437890113d39a0c893a729a451d7aa56441a59c6d133b"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1798,
+          "sha256": "07f82a22231d14b400d732f8b13bc827e4f8b3e625e7f872d3602bac0decd6bc"
+        }
+      ]
+    },
+    {
+      "id": "sc-correlation-spearman-bubble",
+      "title": "Spearman 相关性气泡矩阵",
+      "titleEn": "Spearman correlation bubble matrix",
+      "plotFamily": "spearman_correlation_bubble",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-correlation-spearman-bubble/code/plot.R",
+      "preview": "templates/sc-correlation-spearman-bubble/preview.png",
+      "readme": "templates/sc-correlation-spearman-bubble/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3159,
+          "sha256": "6b4cce8faab1b4ec60201f0ae1386243d93df1ac3ee7c440ff9dc1089dc9a1ec"
+        },
+        {
+          "path": "data/correlations.csv",
+          "bytes": 37601,
+          "sha256": "eb73347360007a96f2b00c89f7fc5eda0c1eece9001a84d7f58fe93bde32e55f"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 215,
+          "sha256": "b83ac13e9dd56ed5eeb06cc0a2e88ddcb0a57852835d0e55744e77a204fcc4f1"
+        },
+        {
+          "path": "description.md",
+          "bytes": 574,
+          "sha256": "45bbceb15f7ab3ef06d7074c1a1cfb30add110d1382e6742d82e70fc24e60075"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2752,
+          "sha256": "5b1d6da460d7f3acf9081f9eb7098c746d45b89864adc9c137a32393eb96f388"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1222,
+          "sha256": "7f63ff14b5a49574f7d1004b15a3c56fbda40551f4de792ab351a722fb09b622"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1188,
+          "sha256": "536de30305a092146a9d9a88529e5f59e4512791e4a1f04ad767fd6af5af9001"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1289,
+          "sha256": "562e37ae379aceb56cfaf3f65c712e761f15262b78a19e016ee85d41776b27d5"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 156,
+          "sha256": "bef64338e05b12f2a72c24ea8471b79f20e6322e760eaa300a785e0a7f62b6f6"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 53237,
+          "sha256": "622c9b920f5ef68ca29f43fdfffaa8b056870497b1e54a167b28c1a0578d7ca1"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 676193,
+          "sha256": "90870ecd188c5a732f1c1b6d08c66a5d2610be2157cfbefa29db00cecff83a92"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1650,
+          "sha256": "24728728393b614ba4b09c1a89b7adcbf8d8f739ac9078b4bc19ff5ec9a06071"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2162,
+          "sha256": "59e42f95fa6d3ef2de4cfb14af69f3e218a216efa19def5b975bda80a8925ca3"
+        }
+      ]
+    },
+    {
+      "id": "sc-enrichment-descore",
+      "title": "DEscore 通路方向与富集显著性比较",
+      "titleEn": "DEscore directional enrichment comparison",
+      "plotFamily": "enrichment_descore",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-enrichment-descore/code/plot.R",
+      "preview": "templates/sc-enrichment-descore/preview.png",
+      "readme": "templates/sc-enrichment-descore/README.md",
+      "packages": [
+        "ggplot2",
+        "yaml",
+        "ragg",
+        "patchwork"
+      ],
+      "files": [
+        {
+          "path": "adapters/descore-to-table.R",
+          "bytes": 608,
+          "sha256": "d993d1cda36783cd4cf861ef391896f00a7c13ad0e1129ad159e285d8bfd8d22"
+        },
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3986,
+          "sha256": "1bcd03b197d24cbe048742184e365041e414dc5cfe19d4a8ce6dab3400f0d83c"
+        },
+        {
+          "path": "data/enrichment.csv",
+          "bytes": 1665,
+          "sha256": "3f2a85c67429c04ed356bb48e826b98d4440649d2f41e83545d677f29a69d58c"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 1447,
+          "sha256": "47d5cc15084cf7c42a9c4e2f0e2ec1e87def9a587be2a08c7bdf0eea46fd9d31"
+        },
+        {
+          "path": "description.md",
+          "bytes": 414,
+          "sha256": "7a06009b15db1207bd28600b4a4ca47c0f3d6fb66189f4a748eb8599d1e21d1d"
+        },
+        {
+          "path": "details.json",
+          "bytes": 3001,
+          "sha256": "e4e5fc61a0fa607fd08b1492733a784ae126f4db170c8d67de813ffe533f72b7"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1219,
+          "sha256": "b0b01c1a035eddf613fc689afe9a28cc51b4a316cbad6e3bcd29f5dcda23d0ee"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1225,
+          "sha256": "8ef58c1f1b9521f3154804014fd1e83d2faa7d07a0c1d05233eedcfa81533e57"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1273,
+          "sha256": "450b34a6dd92b281c153f7a26a63d46498983d199cc0b798311140a95e05f4b5"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 234,
+          "sha256": "1511245425cb8f6f0d2807ce0b0e1bc0cba7ba2ef7f8dffe90d9cb6d48acddff"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 46696,
+          "sha256": "82196e057259df7a641045adadf5a56f41566fec7cb50e398f79aedab59a335f"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 254040,
+          "sha256": "1e16c12d91dbc57c1ae5f528aab25dbf8eac81df5edbf0efb490b392ff07710e"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 2025,
+          "sha256": "9e1dc7ba60785d989dc66367e66c271a6db22c30aa5f2df0c174906dccd99915"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2350,
+          "sha256": "8fc27c380dd2308b635002c9a029ca65e1a0453a9836c2ea64dca1cb02956893"
+        }
+      ]
+    },
+    {
+      "id": "sc-enrichment-gene-sankey",
+      "title": "基因通路成员桑基图与富集气泡",
+      "titleEn": "Gene–pathway Sankey and enrichment",
+      "plotFamily": "enrichment_sankey",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-enrichment-gene-sankey/code/plot.R",
+      "preview": "templates/sc-enrichment-gene-sankey/preview.png",
+      "readme": "templates/sc-enrichment-gene-sankey/README.md",
+      "packages": [
+        "ggplot2",
+        "yaml",
+        "ragg",
+        "patchwork"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 5025,
+          "sha256": "7bc784616c6c9f64b170eccbd4e02a534a00e75b7210307176ab435d2de59fce"
+        },
+        {
+          "path": "data/enrichment.csv",
+          "bytes": 367,
+          "sha256": "b6ab0d839338991d71e8353df25b7b72a96a890f1577f380c3e4022efcb5297d"
+        },
+        {
+          "path": "data/memberships.csv",
+          "bytes": 940,
+          "sha256": "cd01d5476267c0721be705e58603253580a49ab5e1b36121899edc3186befa1b"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 1286,
+          "sha256": "0da4fba0fc7872b02fec242b8edbf6fca0c39b589eb19b0a8bb9727b5d46afb3"
+        },
+        {
+          "path": "description.md",
+          "bytes": 579,
+          "sha256": "cc63408bcea4202736e65e42f17ed26c3ab252c203655b131aa94f2ebaa31b1d"
+        },
+        {
+          "path": "details.json",
+          "bytes": 4264,
+          "sha256": "b5b51dfb646d4bc1df5ac19584bf6b4e2af958b5c78352943960428b47d01a42"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1372,
+          "sha256": "b4bf7b515404dbd1c73b24d454f8bd8271aa8baa88bc9362dce5e45801806ec0"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1225,
+          "sha256": "8ef58c1f1b9521f3154804014fd1e83d2faa7d07a0c1d05233eedcfa81533e57"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1429,
+          "sha256": "a267a61874531065f3899e33fcc28c41890807d4f75d40ebd203bbbb88b20ac5"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 185,
+          "sha256": "e117286090779e82052e98d2b6e0776b034d13d5a204efca4a0cdb1693155307"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 64124,
+          "sha256": "ca76a8d93eee6871f4c8cfa363134096b1de17fcdc07c7bb1ae9c3edcf9ba5bf"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 597285,
+          "sha256": "8fb8e2d2133cf8fecf5153557580a008c6f7c55574c0cda750d6601eaed0c4b6"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 2777,
+          "sha256": "08465569b7c3b929185dc9efb3aca81a991f19cc59f2adcc576ecf3dd84bc149"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2339,
+          "sha256": "22b1623005a1b6d9e18a1050ab6ab7761ec5a01af4794ee8fcd2e06b76f9f971"
+        }
+      ]
+    },
+    {
+      "id": "sc-enrichment-pathway-genes",
+      "title": "通路条形图与基因列表",
+      "titleEn": "Enrichment bars with gene labels",
+      "plotFamily": "enrichment_pathway_gene_bars",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-enrichment-pathway-genes/code/plot.R",
+      "preview": "templates/sc-enrichment-pathway-genes/preview.png",
+      "readme": "templates/sc-enrichment-pathway-genes/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2422,
+          "sha256": "346e9a6736a828383352c95422623f25ecf35e5c1a320b81340e849b023f06af"
+        },
+        {
+          "path": "data/enrichment.csv",
+          "bytes": 1096,
+          "sha256": "e826a1f7f9a4f2eef35246a49eea954554c9f260ce4e2a072c030ebdc56e94d3"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 527,
+          "sha256": "964f0c452bafdce8d90745ba9860e5725dbfe7fe8948bd6aa38aa4ac6850b701"
+        },
+        {
+          "path": "description.md",
+          "bytes": 562,
+          "sha256": "a0409a701f5b0e64287f6cefd1183317df21374617f9c2723a4ccccd3c1d933c"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2297,
+          "sha256": "f1cfb8f6c3241ad1bda5a3c078622760a146a263d808a0b61e2dc9b1088354c2"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1219,
+          "sha256": "9828e9812cb7f4e29f376c811ac457fd8121ac03891980b4fd3ddd0d095f7c99"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1434,
+          "sha256": "7be199c1dbe713b5254b0758ba31306db7e07f19e21ede2aa2363ecbe838a5eb"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 208,
+          "sha256": "3491a9967fbc9d0a2c0192f9d4045437bde6b0618021a8f1e45280fe7dd9b2ad"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 33985,
+          "sha256": "ffb8d0cc007c1fac679ba19df71577d6e826ace56b7e42f8f62ab8786fb3c943"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 224545,
+          "sha256": "0b09421a533658bb845e6c0c7fadc50e68a4444648dfc0c8a22307d0bc23b478"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1358,
+          "sha256": "de3734ab761e6f23e4ff19ce0a4c1660b10281e27679a5bb11519008766b9f03"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1766,
+          "sha256": "1a17c7811dc86a7f25d53f41d99e6ec856c67db7c1dc54ba6ba74b9e8e7d26d8"
+        }
+      ]
+    },
+    {
+      "id": "sc-expression-violin-fraction",
+      "title": "小提琴图与表达细胞比例",
+      "titleEn": "Expression violin and expressing-cell fraction",
+      "plotFamily": "violin",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-expression-violin-fraction/code/plot.R",
+      "preview": "templates/sc-expression-violin-fraction/preview.png",
+      "readme": "templates/sc-expression-violin-fraction/README.md",
+      "packages": [
+        "ggplot2",
+        "patchwork",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 5118,
+          "sha256": "416d2f4d8be74a2aef5c703309e0836629d1ad8c318a28ccd80add405da921d8"
+        },
+        {
+          "path": "data/expression.csv",
+          "bytes": 19774,
+          "sha256": "3d40caacc8c6023398587e4c91e08b7ccfe86b1444afd832f432466d04552500"
+        },
+        {
+          "path": "data/significance.csv",
+          "bytes": 26,
+          "sha256": "d7038d607a76c4a81438793aa7338d97faa72b91589c8e604ec151eaff582c4d"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 489,
+          "sha256": "ce56b679004b8388cf04864d627e801be4b6f2b53fb8f74fc157ba93a61ceafb"
+        },
+        {
+          "path": "description.md",
+          "bytes": 549,
+          "sha256": "35d7b21a8bdb7203f7d89f60dc4b589993b9373c5d2838761632ef2a02521d73"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2850,
+          "sha256": "4106e34a72c32c71130030dfefa1db8258ae40ef7997edf76406a0da2fe86515"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1377,
+          "sha256": "6f660239d94e8023f52a6303b66395568caca7431e9d24e6580701b9505b25b0"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1225,
+          "sha256": "8ef58c1f1b9521f3154804014fd1e83d2faa7d07a0c1d05233eedcfa81533e57"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1407,
+          "sha256": "36f632bef3f19724bb18a0f6c612f6b303d0eafd54b69aaa83a9a3134b438c8f"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 219,
+          "sha256": "89925e4b631c3f980f8baed6beb8c167dbc825c5b2db79e7a74422fdd37685d5"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 100724,
+          "sha256": "1f9e915f31c5a7f8478592baef443b13499931a21d2ecc5e23dab639fd631240"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 343018,
+          "sha256": "e0a25bdb2c66f44b4f1febb45302faf1df9c957d8f80d2f676ba258dfb1e6a41"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1765,
+          "sha256": "fd22ba69d6861bc8b5d7517bdb5dab32555b7fa2f2d1690367bf16166e32d085"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2336,
+          "sha256": "90fd27938c5e4f1b57c33d23c781b04a367f86d510d350cc322c8603a50cfdd1"
+        }
+      ]
+    },
+    {
+      "id": "sc-feature-umap",
+      "title": "基因表达UMAP分面图",
+      "titleEn": "Gene expression feature maps on supplied UMAP",
+      "plotFamily": "feature_umap",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-feature-umap/code/plot.R",
+      "preview": "templates/sc-feature-umap/preview.png",
+      "readme": "templates/sc-feature-umap/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2713,
+          "sha256": "c9984df662652891a7c817dee1410842ba3e410e293bffa8b7500513da9e09fe"
+        },
+        {
+          "path": "data/feature_expression.csv",
+          "bytes": 82831,
+          "sha256": "ad1aa38b5651e9418a26fe3b8c866872c6f67fa2046f8fb2562d781ec4e9863f"
+        },
+        {
+          "path": "data/generation.json",
+          "bytes": 416,
+          "sha256": "e3e2d294f5d26e9da9a8e5d7a45096db05bda667507c8afddbc7f0611b73e846"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 580,
+          "sha256": "43c35754c81aabdc381d8a1201bea15174476e81ae94cb7341659a27de8da42e"
+        },
+        {
+          "path": "description.md",
+          "bytes": 495,
+          "sha256": "1b66ddee5928687e644f28af8f053f7c22f1ba0a292ced1a364bd12ad03c4ebb"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2220,
+          "sha256": "ed63cb0469d344f0c5d81108375eded0cd6944e93c553a2c03d2ca0747523776"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1230,
+          "sha256": "40f8982087ca9694f83a93b767464235cb973a0a747d206c7c597a3184eb808a"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1429,
+          "sha256": "0ae943886bcbbf359ce6d7b293a5eb544a69ea62c5939ec48055053328473b70"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 299,
+          "sha256": "b8a5b4a42dbfe4819ad413ccdd9c25c558ca1bcc38a92542a63e260b4cd5c220"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 88717,
+          "sha256": "641b5a790d5a40115e21a710e5c1a006bb4293f58b96474356099aacdc57a3f6"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 497994,
+          "sha256": "bff13928cc8d9c17d067e77f3ae441cbbbcc00dc1035bef981b24f0c386f91a5"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1330,
+          "sha256": "ee97721df79bb8d966a55fb5909606efcf35e2bced2747b7fa130cdedd23f04e"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2024,
+          "sha256": "a3aaef0305d4eb0d0217396880e4b79e7e8e5545d3c9d84fe5a04e797ba21151"
+        }
+      ]
+    },
+    {
+      "id": "sc-gsea-multiterm-rank",
+      "title": "多通路 GSEA 命中排名与 NES／校正P复合图",
+      "titleEn": "Multi-term GSEA hit rank and statistics",
+      "plotFamily": "gsea_multiterm_rank",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-gsea-multiterm-rank/code/plot.R",
+      "preview": "templates/sc-gsea-multiterm-rank/preview.png",
+      "readme": "templates/sc-gsea-multiterm-rank/README.md",
+      "packages": [
+        "ggplot2",
+        "yaml",
+        "ragg",
+        "patchwork"
+      ],
+      "files": [
+        {
+          "path": "adapters/gsea-result-to-tables.R",
+          "bytes": 3577,
+          "sha256": "b1fa8d93a86c6c90f713c42f36c032b0c27700381b0dbb4da482cfd3025c6a52"
+        },
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 5721,
+          "sha256": "36bc21aa3dd37f3c51eef806491dd8c7e77eb5d624e069b2f1d802ac265bb8fc"
+        },
+        {
+          "path": "data/enrichment.csv",
+          "bytes": 1090,
+          "sha256": "2c873891a4f339b5987fb72d7642428144c758bbbbf84e3e4bd9d29918de448a"
+        },
+        {
+          "path": "data/hits.csv",
+          "bytes": 40389,
+          "sha256": "04cde1d535d6cde63c873a74d98e34d7cee6976df3cf024f91eef495e7cce24f"
+        },
+        {
+          "path": "data/ranking.csv",
+          "bytes": 419193,
+          "sha256": "e85011499cdaa6d1d483f24e710f3e9fee0483d1939cdab8a1fae1b5132f36cb"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 1870,
+          "sha256": "7bd4b50cbbc330dc9555fa475f0af7f4f7a2b738f5a024601735c7d7c15ff089"
+        },
+        {
+          "path": "description.md",
+          "bytes": 493,
+          "sha256": "74898d02636fee4e763412e05f635f00cd2dc5ecaaf79003523defbf6364c904"
+        },
+        {
+          "path": "details.json",
+          "bytes": 3268,
+          "sha256": "230d7791b04bbf465a1c71afc783820c09b59ece1c3dc75b8d74fe164041e168"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1521,
+          "sha256": "f254fd06c7fb30e22b9bee95c06d7808459ced54996963d6a03cf4d741a3678d"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1225,
+          "sha256": "8ef58c1f1b9521f3154804014fd1e83d2faa7d07a0c1d05233eedcfa81533e57"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1268,
+          "sha256": "b28987331972db8f1ff164911e467e2430b343a2317afbfa2303a544f497a878"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 255,
+          "sha256": "b25eaeac6f3933f6ab9a96f53c1045827191156a319ec864627e3f1d763ab16c"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 46412,
+          "sha256": "ac5cb90d1ce615a57e14606bd784274f3e70fb77986844f1e50ccc6970821a29"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 214086,
+          "sha256": "2add8a48989355af456b268630940cdfd17dabe38282285d14350d0c423d70d9"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 2002,
+          "sha256": "41a126e836a1127ffe7c53003a26d015bf3b7f78c58bdbc1a67cf073b2ec652f"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2562,
+          "sha256": "2b039bf4b838a409f354631a745a79d301f910d1bf24fcca85291491dea77e18"
+        }
+      ]
+    },
+    {
+      "id": "sc-gsea-running-enrichment",
+      "title": "GSEA 运行富集分数曲线与基因排名",
+      "titleEn": "GSEA running enrichment and ranked statistic",
+      "plotFamily": "gsea_running_curve",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-gsea-running-enrichment/code/plot.R",
+      "preview": "templates/sc-gsea-running-enrichment/preview.png",
+      "readme": "templates/sc-gsea-running-enrichment/README.md",
+      "packages": [
+        "ggplot2",
+        "yaml",
+        "ragg",
+        "patchwork"
+      ],
+      "files": [
+        {
+          "path": "adapters/gsea-result-to-tables.R",
+          "bytes": 3577,
+          "sha256": "b1fa8d93a86c6c90f713c42f36c032b0c27700381b0dbb4da482cfd3025c6a52"
+        },
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 5581,
+          "sha256": "62b82ab9bddc4f44260d326db1ce3819b8562ba536c3612d39c66694d9bbac37"
+        },
+        {
+          "path": "data/curves.csv",
+          "bytes": 1129467,
+          "sha256": "d8728e909972823007a2f0fdd70ed7866468ddefce4eb44a0e0793e524f79b61"
+        },
+        {
+          "path": "data/enrichment.csv",
+          "bytes": 267,
+          "sha256": "da458e10c41a9b44080df765c999ba2c2190da0a75bedca92fb9901c851229a1"
+        },
+        {
+          "path": "data/hits.csv",
+          "bytes": 14760,
+          "sha256": "83abcab561758277256a4185242eb71532a06381868ecdd25ac7935ee4c63276"
+        },
+        {
+          "path": "data/ranking.csv",
+          "bytes": 419193,
+          "sha256": "e85011499cdaa6d1d483f24e710f3e9fee0483d1939cdab8a1fae1b5132f36cb"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 2244,
+          "sha256": "18ea334490cd6e32ec522aacd19ffb73ef0f715732b095709217eeda1b0cd00c"
+        },
+        {
+          "path": "description.md",
+          "bytes": 569,
+          "sha256": "abf1d581a81513f2d40e1e2d95a9554fc07478e0f54365c41e25c36b58f191e5"
+        },
+        {
+          "path": "details.json",
+          "bytes": 3246,
+          "sha256": "fec635b0b02521e276f44694f2e76bc12dd18efe26202d27fc49cc18527d410e"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1674,
+          "sha256": "e2378643c5f66fce47418afbe078df25ec7a2a15337653c65aa2091eb1407955"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1225,
+          "sha256": "8ef58c1f1b9521f3154804014fd1e83d2faa7d07a0c1d05233eedcfa81533e57"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1304,
+          "sha256": "a783556418e7f32efbc48526bbbdc8fe9e5be76c81179e922a65e6c5cb405d6f"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 168,
+          "sha256": "3203c339c1b8dacf7ffe34e30de6c0ce5a94567dc2cf52e4e7c1409361cc5ad6"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 263962,
+          "sha256": "eb63d7c7d2ceee68774482a8a299d38df8f9182f0331f55679fb3cd3f0cf89a8"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 211029,
+          "sha256": "71b809e2681ff27404835b5dc3bb0ee08f7aeba527c0583c978a2cffcc263f32"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1767,
+          "sha256": "43cff4110b65bf757dbc51dc8900b555fbcb0b21c8d2fda5a5838cfea940334b"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2777,
+          "sha256": "503365c7e151b80ae15d6ac1929232cf54e77af1545c4e7a3b4b64b11b8b321d"
+        }
+      ]
+    },
+    {
+      "id": "sc-marker-density-umap",
+      "title": "预计算marker密度UMAP图",
+      "titleEn": "Precomputed marker density maps",
+      "plotFamily": "marker_density_umap",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-marker-density-umap/code/plot.R",
+      "preview": "templates/sc-marker-density-umap/preview.png",
+      "readme": "templates/sc-marker-density-umap/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3075,
+          "sha256": "b1c972d5353642aeb4d49997b48137aecefe9fca10bca8868a40dcec7546e2fe"
+        },
+        {
+          "path": "data/density_grid.csv",
+          "bytes": 278571,
+          "sha256": "58478afe2a4d51dd880a3b90bce0e74a6b02d3a0dcaeba5a28a3508293cd877b"
+        },
+        {
+          "path": "data/generation.json",
+          "bytes": 1377,
+          "sha256": "6a75436686387dff26da06031b45b61db3b4ebbe6057eff3bb1c889c412b323d"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 626,
+          "sha256": "3aee8ed8a1f3732b631c654ff3ce956e4249792d6bc749a7c537308cce4c41fb"
+        },
+        {
+          "path": "description.md",
+          "bytes": 557,
+          "sha256": "1ff8b9e7d30fce976f0458e40c1d1e4414f159551b8bfc844eef935e75d3aec3"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2758,
+          "sha256": "b49071bd52226a186131e793600ae2ffd5e9c7b8795aa1e3bb07c58a22af2234"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1225,
+          "sha256": "c3d6c889e30238e49e3cb7141d5aba6ecbbf1c8b0edcf26597a5256de09c1562"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1226,
+          "sha256": "640e2a60a85a2ef08c37bfbf7cc3bbf36e27efbf671e763ae2c5402e81aa7890"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1429,
+          "sha256": "92c9616014e18e64e4bae8733edb00cb01aff75d94a60e2f116970d805d03e8c"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 299,
+          "sha256": "6d18729ddd5c1ba95b19cf2247047da7532f3af3e341f401498752511f42cbe7"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 67350,
+          "sha256": "3dc46ed39176c10fe88e36088fe7ccce33b566ac264adae83e17781ca1f93de6"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 160231,
+          "sha256": "b35b57c70b4633f2832526cbff18de05f2eb0a83945717d5839adc2553e9c24d"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1804,
+          "sha256": "b9dd18cf6a5728ffec33f57be571c23d5a2431157dccf3606ce7e946809391db"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2100,
+          "sha256": "d72080067396b644d4dab355dc236c46710c5827278c62100b039f9bf96aacf7"
+        }
+      ]
+    },
+    {
+      "id": "sc-marker-dotplot-annotated",
+      "title": "多层注释 marker 气泡图",
+      "titleEn": "Annotated marker dot plot",
+      "plotFamily": "dotplot",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-marker-dotplot-annotated/code/plot.R",
+      "preview": "templates/sc-marker-dotplot-annotated/preview.png",
+      "readme": "templates/sc-marker-dotplot-annotated/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 4875,
+          "sha256": "47ca99c6c6cfe4b30d1722ebf2b194fb0050c06ffc00aaa05ed69bd386a9722f"
+        },
+        {
+          "path": "data/cluster_annotations.csv",
+          "bytes": 280,
+          "sha256": "ba16e371dfb59625cfa6953dffe224113ddfa95b77b5f609b43ad8018d750149"
+        },
+        {
+          "path": "data/expression_summary.csv",
+          "bytes": 4418,
+          "sha256": "9e636293b7c7fd9391456c512943dce3f8ef1dd00dc6d19136199e387777ee3f"
+        },
+        {
+          "path": "data/gene_annotations.csv",
+          "bytes": 312,
+          "sha256": "f17a2a2a9ccb423108ec05b376615e5270d42aa9a84a8fb47e65b8f126154006"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 528,
+          "sha256": "f9326c788ab08cbc3595cdc86fe8d027cb8955c3f5d06e5b16c58416fc32e353"
+        },
+        {
+          "path": "description.md",
+          "bytes": 547,
+          "sha256": "d843de1ba4d5669cd00fb5c3c5a71c63dcfb88869221cdc446cc35d4127ba90c"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2989,
+          "sha256": "318065135982090060d600fe88d99a58869ce1803ac4e21a9a222277f428732a"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1550,
+          "sha256": "5d716139445e7b6905b533dfca1ef617695e1b12f390d493d602c75cf8300266"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1422,
+          "sha256": "cf9d603b6b90114db7fe6f21181b1e586118bb7bbd7db49a7198a9a9f50bcccf"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 166,
+          "sha256": "ebc37f3b00bf32f33ce22eab9ec53c739989f0adbf052ef4347a9a818269c545"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 40302,
+          "sha256": "7a4fd713510dee2ff7bce7c41d5ddaaab9a9da4a25ab58da665d0ed8237a0a0f"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 278517,
+          "sha256": "b12ce9b3f1d0eb0fcd6111d24b32866bf0e60ee444bc8c94f083ca06228d5c3b"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1722,
+          "sha256": "b1a453e448c585820fa75bb40e84dd5545262b0b0234331f93b855611ac601ae"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2401,
+          "sha256": "392f78422130aadf063cf5153452dfbe49ee3a903b7c7991b7e3ea685a05937c"
+        }
+      ]
+    },
+    {
+      "id": "sc-marker-mean-heatmap",
+      "title": "marker 平均表达热图",
+      "titleEn": "Marker mean expression heatmap",
+      "plotFamily": "heatmap",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-marker-mean-heatmap/code/plot.R",
+      "preview": "templates/sc-marker-mean-heatmap/preview.png",
+      "readme": "templates/sc-marker-mean-heatmap/README.md",
+      "packages": [
+        "ComplexHeatmap",
+        "circlize",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3878,
+          "sha256": "dac9e88015ed74c92eba05a35ddeb4c16833668570143dc701cd1f120ef1172e"
+        },
+        {
+          "path": "data/celltype_annotations.csv",
+          "bytes": 111,
+          "sha256": "6e0194498c06444c40672c2d994fbaf13422d38f510b0da2a96044d632118b36"
+        },
+        {
+          "path": "data/gene_annotations.csv",
+          "bytes": 268,
+          "sha256": "9c4320a8ecfa17505f62e31580c9eb67943253c1494165683c841ac6a3949b30"
+        },
+        {
+          "path": "data/mean_expression.csv",
+          "bytes": 670,
+          "sha256": "a853a553012e51ee23613daea0365fbeba1f1e2b6a17489fdc96d37463fdfa64"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 498,
+          "sha256": "222a14cfd540b11c117cd3cf9ff7a2fa1435b7d6bc6323d134b60fc9f48669de"
+        },
+        {
+          "path": "description.md",
+          "bytes": 537,
+          "sha256": "3a7d48301a326499df45e9d719b12b8b2423f7e2147030164862e74a625978bd"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2817,
+          "sha256": "12538f34381ee3633728efeb3452289f88802966b9106d5ff5ec6185a233814f"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1547,
+          "sha256": "77c4c8abc32289ae29478da066537cfe0eee2749f024d4ea1f3c8fdb36ec7060"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1376,
+          "sha256": "62c5913bd6baca1749881b12608d25c6831cc197ec4f787de3b521fa79b7d200"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1409,
+          "sha256": "97ab63e726c8137609e91f56914d007cc19f4ad4a696e54aedcab3eab63473f0"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 202,
+          "sha256": "989b5e71730f49cacb9e15d30cbc064a49c52e3475d847ee28602bcd22706a6e"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 40098,
+          "sha256": "a4dded6c89311f455eff62836670bd140f30f609247dc128025eb8d7b23724b3"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 129536,
+          "sha256": "a82edc426a32e7183c49a334434125f423f770b7ed3130699d0a57969de62fb5"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1641,
+          "sha256": "d79824a4766446a9d69151efe785d3d4b6d1a6fd1ef666e313fadce69a817681"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2328,
+          "sha256": "9b7a8f2b92e06e3ebda43cd6f0de8c93c5cf7614bc5f52fd0903ac3925fbc59d"
+        }
+      ]
+    },
+    {
+      "id": "sc-multigroup-volcano-counts",
+      "title": "多群火山图与差异基因计数",
+      "titleEn": "Multigroup volcano and DEG counts",
+      "plotFamily": "volcano",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-multigroup-volcano-counts/code/plot.R",
+      "preview": "templates/sc-multigroup-volcano-counts/preview.png",
+      "readme": "templates/sc-multigroup-volcano-counts/README.md",
+      "packages": [
+        "ggplot2",
+        "patchwork",
+        "ggrepel",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 4208,
+          "sha256": "86a132dfe84d1b64892807011c3200f83906055c7221e6857fd4f95cd82334cd"
+        },
+        {
+          "path": "data/differential_results.csv",
+          "bytes": 29911,
+          "sha256": "247b96507c2136221673c418a86790c8797f5602a05abe4f61908a3abdbe482c"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 435,
+          "sha256": "397a96da6658a1639fdcabc46fcab624ae96790f06db988db7661264c94cbe11"
+        },
+        {
+          "path": "description.md",
+          "bytes": 522,
+          "sha256": "05d2d1bf1b0a3529cefb556f22f73177a5a2d2bd1c7144305c1b36673d87067c"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2682,
+          "sha256": "b3fd2741047a546d1b00cd610ab3c6ece958dec6cbc8c524802eab2b2541b590"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1232,
+          "sha256": "1718cf87c877be30185363e8bba08f8d902a401e57a06176fa4d90799c1979b3"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1279,
+          "sha256": "c44c0deae5e820911db4f8a08bb590ea0fe1aa9b8ef494cb3277739e2a567fd6"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1417,
+          "sha256": "13b4ec2cfe5930214ac517e2ae783c233afa9fb58e422c757ed2a9419962a2ba"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 192,
+          "sha256": "14a7fee6158ca9842f2a009a2426868843573393bdd87ae5e7e1f686394e0a96"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 66163,
+          "sha256": "f5879b78dd0e626baf380e72f9d7f64e23bc65211db1877fd28d65e941a2b7cc"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 464130,
+          "sha256": "b3ed3a18a4c350ac4517a8e1bf7fd0cec8acc67782b44c7e149df320303e72f2"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1733,
+          "sha256": "fa01673067fe541f8fd6e775d986bafc0ef24269cb6c1f16f5e6c283ab03dde2"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2183,
+          "sha256": "f5b2d67dff8ac9f5dd57802b93c3f3286befa4b742ff8d5674236fa93d4d9ffe"
+        }
+      ]
+    },
+    {
+      "id": "sc-paga-connectivity-network",
+      "title": "PAGA 群体连接网络",
+      "titleEn": "PAGA group connectivity network",
+      "plotFamily": "paga_connectivity_network",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-paga-connectivity-network/code/plot.R",
+      "preview": "templates/sc-paga-connectivity-network/preview.png",
+      "readme": "templates/sc-paga-connectivity-network/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "adapters/edges-from-connectivity.R",
+          "bytes": 1218,
+          "sha256": "de0f0bf8611a8484dff18b91309fe9673a214ddc86cba4f9cea50add943058ad"
+        },
+        {
+          "path": "code/common.R",
+          "bytes": 3920,
+          "sha256": "0d9ec55ef5a9c45bd2160b721b5657ede6ff7cec4b2c90fe306e2b7be95751ad"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3494,
+          "sha256": "8f6fc95cb62379b1e26a9ebfee913483980ed970bb643b77916fb546cc00f408"
+        },
+        {
+          "path": "data/edges.csv",
+          "bytes": 502,
+          "sha256": "0d15c6dcf06e10862bc7ac258bd33d60f6440f7854c7d496d17eff9cb2a00c5e"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 301,
+          "sha256": "86cd2ed60d8a9d6d5f73d97973baf2bd1c651177b22dceb7fcff52deacd52762"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 361,
+          "sha256": "8e9c3511e021497d6cf1d572c8b31fea8ef5132c24398988497cfda876706ddc"
+        },
+        {
+          "path": "description.md",
+          "bytes": 509,
+          "sha256": "2e6fd5e580403442a475a5e3a7592c37cdab908f148a4330da9752c89fe3cf92"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2697,
+          "sha256": "07fcf193d92b51fc0e318780edc8e488b7d1065d6f4a59d8b6b2575df28658fb"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1361,
+          "sha256": "875ae3f57a1e5a80bc42dee13b5de2d8e9455cc82918d1b33d2d07b58e57d1ab"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1450,
+          "sha256": "86fd4a276b0e666d48acdf014eac06de9aa4fe9960af599eeb2fa20dcfa61cef"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 269,
+          "sha256": "04b846c65dc74b58e8fa44a7ad7bc9c8c1441fd912f173acad9e85929e54539e"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 23191,
+          "sha256": "5297616e65aa2ab6d60fe33eeee5cc4c536e4ddb4bfa32550fd138a931b6c3ee"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 244774,
+          "sha256": "cd1d9162037f0479f7df1f18f216ddcfb0f49f9cf2582ecbc4437f20e096ef90"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1634,
+          "sha256": "9eddabf682b81b0da4da05497b61d9dc40dc89b44fe7ab09393c15f686b16de9"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2348,
+          "sha256": "45c2c0367fcfa51e652f8a575c146145e78fcf4ae73bc1ad4dd04299bd8e6a9a"
+        }
+      ]
+    },
+    {
+      "id": "sc-paired-raincloud",
+      "title": "样本配对雨云图",
+      "titleEn": "Paired sample raincloud plot",
+      "plotFamily": "paired_raincloud",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-paired-raincloud/code/plot.R",
+      "preview": "templates/sc-paired-raincloud/preview.png",
+      "readme": "templates/sc-paired-raincloud/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 4126,
+          "sha256": "dfcb1513b3548a622c166ebe4b6acef514be04046e80b75326521316f8964f64"
+        },
+        {
+          "path": "data/comparisons.csv",
+          "bytes": 22,
+          "sha256": "06061b336453a62625b34ebd0b9385a76d5546b829fe386401f0e7b2a8353b6f"
+        },
+        {
+          "path": "data/paired_values.csv",
+          "bytes": 1035,
+          "sha256": "e2f3595479bb5a42bdea29ec2bc9ee16f6825274b130a9bb2edf5e8ef9a2deb3"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 373,
+          "sha256": "c84096c7a9b4fc3fcaf405032974810e3f67d72df5bce6f847488087548b6d90"
+        },
+        {
+          "path": "description.md",
+          "bytes": 509,
+          "sha256": "d31ed1e1a2a8d82e39b576d96b4537e775a999343a4182abfd9260f9c8700794"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2833,
+          "sha256": "76c8f6ecac571b9ded2785994fe7cc780c9526328530d5c16f36db4cbd63aec3"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1375,
+          "sha256": "4154fc0a1b0e4a1d7bdbb46fc210d73b5172fda29c970e9c59ecfdb91ea18337"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1278,
+          "sha256": "aff6e5c7a619c959b10588fbea91d0c60b64448d5eb8c31f00e363ff70d085c5"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 207,
+          "sha256": "f08ba02e728228d0ed414c2e515a89297bc95f4f5b41cee14a99f07a23c76cb9"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 20307,
+          "sha256": "54a322c502a4e321a98f5656716543cd7cfe493104a3bbbbec14e3320f21d813"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 270801,
+          "sha256": "e1c30fdae0ed550e0ff38e8166b991c7c63a0addd61263f2c7d71835a6711aec"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1727,
+          "sha256": "bcb4bd6e4b631664a6de1657784868a9fd352365666dc94ae8569a2c984509fd"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2300,
+          "sha256": "4602086d03f1d882500e2b7de7ca4b04c5ecf487f29115059d3cf4335f402c87"
+        }
+      ]
+    },
+    {
+      "id": "sc-ppi-group-network",
+      "title": "分组 PPI 基因互作网络",
+      "titleEn": "Grouped protein interaction network",
+      "plotFamily": "ppi_group_network",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-ppi-group-network/code/plot.R",
+      "preview": "templates/sc-ppi-group-network/preview.png",
+      "readme": "templates/sc-ppi-group-network/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml",
+        "igraph",
+        "ggrepel"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 3339,
+          "sha256": "55f87af2aa955352ba0a22aa0e83c72d8185e8037be448ddb947a3bd37942eac"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3831,
+          "sha256": "451b324daaa0554a5a8021c98173f7b005cc6989a8e89235283d19bbb808005c"
+        },
+        {
+          "path": "data/edges.csv",
+          "bytes": 6996,
+          "sha256": "28824e52a2de6bc34c6ef5268e728328631cccb713a724383a790ddc9fe209b4"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 1648,
+          "sha256": "302b4c0fb1e047a1643752ace89c6808e9cc43c03fb81a23ab0279c5379bf21a"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 334,
+          "sha256": "514b410a29b81921f5d2969cc9002e2fdb825f40ff9c9c35798797d55bd8ec41"
+        },
+        {
+          "path": "description.md",
+          "bytes": 684,
+          "sha256": "c7d68e153671768449920f43d50f4c325d8d922ee7cd45b94dd5a44dd22e4aa5"
+        },
+        {
+          "path": "details.json",
+          "bytes": 3675,
+          "sha256": "e8a5a51f4c63507d0adcb763a8346080de6d2f9964b1932aca8beb2867d8ed32"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1363,
+          "sha256": "04312aa350d7bd35564808c8f740c50fe3a47493f91bdd00ea0c3bee48e062d7"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1261,
+          "sha256": "1826a53e8209d49cffaed85ac674064e2940ed08a8e7e8bdc59f7f29d2ddbb58"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1281,
+          "sha256": "e6f0c9f41d3f3eba4ff1eb04a88a0bcc66912f53538cce27e331eb98d36ec2cb"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 174,
+          "sha256": "a00a7082e18fe26eb2469503ab802f18ef291c2d4dd16cf4cc51daef735e64a4"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 55770,
+          "sha256": "7c332e5a0fca332f845b548b1da276652e4fff7e9dad9980ab8df34a4bddbdbc"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 701593,
+          "sha256": "4ce38bb5f2a47424b2601f2cc18a19fccff5460a520c21e4793b9e63d7a0d05e"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 2277,
+          "sha256": "6c552b83966e94eb257c22c2f181560e516b8b6428bc1b241802b5f5347825ba"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2785,
+          "sha256": "ddd17eecfbaee0906b000021edba0213122aea902eb8bc159147df3444f14579"
+        }
+      ]
+    },
+    {
+      "id": "sc-pseudotime-celltype-density",
+      "title": "拟时轴细胞类型密度图",
+      "titleEn": "Cell type density on supplied pseudotime",
+      "plotFamily": "pseudotime_celltype_density",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-pseudotime-celltype-density/code/plot.R",
+      "preview": "templates/sc-pseudotime-celltype-density/preview.png",
+      "readme": "templates/sc-pseudotime-celltype-density/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2549,
+          "sha256": "bc97a2112e640c0fc85a45b9ec8d3ee7f42c94c7be816643f8a4791155c9b88f"
+        },
+        {
+          "path": "data/generation.json",
+          "bytes": 610,
+          "sha256": "a8f7d35d27eeacee60901d3ca8209597c50287079cda5a642ffd88d2cc2c233f"
+        },
+        {
+          "path": "data/pseudotime_density.csv",
+          "bytes": 78535,
+          "sha256": "1f7a8fc098defd348887cba20639e741a6e9e37837483aee459be0a30b5a7186"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 643,
+          "sha256": "28a79e05e19f6e5f21ca495dc68f82d313a08883c5d0213c91f809916f793d2f"
+        },
+        {
+          "path": "description.md",
+          "bytes": 572,
+          "sha256": "89eeab095b28c1ae3681c19e66c3ad2d788ec996ec2cbd237b8dd164685d5425"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2833,
+          "sha256": "ebbe6341fbe4cbf991425c00705c31505267eda03680a44de1bc95206ad5c602"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1230,
+          "sha256": "11e141fdf949737614a2749941dd031b05ec856e121f391c1b3a698abc2ac2f6"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1429,
+          "sha256": "5c45aef6021e6e35f1cb4083d4f0c812f5fea21471905334f44f9f784b82a922"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 469,
+          "sha256": "f9493a70bb9b23562aacdc6bb9ae64b2504ab6d114611382c7db6e3c865e35b8"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 27506,
+          "sha256": "2ffda49f23cee3ff35343fca2fd85354f816121f1ff7397058a381bc7ef2977d"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 236056,
+          "sha256": "b132fde7114784470c75631bb826586203a5125a6a67a8dde3958146f4c5aae5"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1778,
+          "sha256": "b13ebc5853df5c994ead39989f808d3ca1613eca3ac3a5742c37b1958424cf2d"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2234,
+          "sha256": "e76556f865bc94cff4657ecab5cd38ddfd47d4386356e7457e11164c307611e5"
+        }
+      ]
+    },
+    {
+      "id": "sc-pseudotime-expression-heatmap",
+      "title": "拟时序表达热图与模块注释",
+      "titleEn": "Precomputed pseudotime expression heatmap",
+      "plotFamily": "pseudotime_expression_heatmap",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-pseudotime-expression-heatmap/code/plot.R",
+      "preview": "templates/sc-pseudotime-expression-heatmap/preview.png",
+      "readme": "templates/sc-pseudotime-expression-heatmap/README.md",
+      "packages": [
+        "ComplexHeatmap",
+        "circlize",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2886,
+          "sha256": "ea17dafcae8fe1a4602697ec55cce35469d97d1fdb9681dd92c3c51df4424363"
+        },
+        {
+          "path": "data/bin_annotations.csv",
+          "bytes": 1814,
+          "sha256": "4faf1664e0e639d526a59362ae64f4b5064966577494bf2516e3e1e9d442d733"
+        },
+        {
+          "path": "data/expression.csv",
+          "bytes": 14453,
+          "sha256": "4f129ac3796510db784f19f5ee9b08d26f14c6da561aa3ef0bfda0c222a2b219"
+        },
+        {
+          "path": "data/gene_annotations.csv",
+          "bytes": 781,
+          "sha256": "c4da2e2ca6def8694fc311b126ebc4458f3ac81223fac982ba0161c199ece89f"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 897,
+          "sha256": "3e1399202632c623d15ff3241934e9d4f5e66fe58c907b9d0f42522713d23156"
+        },
+        {
+          "path": "description.md",
+          "bytes": 496,
+          "sha256": "fd52c1b0aa54df7969b36950f345a78fa0390f0a23198e2a891d33370444d60b"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2060,
+          "sha256": "e3cde7c2bb46588465224ccbbaf10e65613c7935f709d290e643ee72d1af0950"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1540,
+          "sha256": "3ae960439cd1d1ee56d9f1a68a2b084613b06364076ddb36e386b680cd0cbd1a"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1376,
+          "sha256": "62c5913bd6baca1749881b12608d25c6831cc197ec4f787de3b521fa79b7d200"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1427,
+          "sha256": "78b8674a124683c17552ac27137e780b7b3ad09ee8b3cf295c1baf0d0b285fe6"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 264,
+          "sha256": "934fa78ef5168d0b10efbd11cee6bbe467f50fd87fdd967ab1e9866b98d09e8f"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 48856,
+          "sha256": "e99ae6c9db5053ad50ee17887ea2b77bc9c1954333bdc81e8e89ca7bc7bac50f"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 304202,
+          "sha256": "81955665d0f9e202687d1c151ecb6b46401509dd6685288dcdc589ed070a2ce0"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 999,
+          "sha256": "7d3043851138c206e045577fadcd462f118012bc4a3fadc57b5c20974cab4363"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1876,
+          "sha256": "3079642b69124d1a55dc4e034668700942ffbf93ad8f8dd737a157243b713ef1"
+        }
+      ]
+    },
+    {
+      "id": "sc-pseudotime-feature-trends",
+      "title": "基因与通路拟时趋势曲线",
+      "titleEn": "Precomputed feature trends along pseudotime",
+      "plotFamily": "pseudotime_feature_trends",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-pseudotime-feature-trends/code/plot.R",
+      "preview": "templates/sc-pseudotime-feature-trends/preview.png",
+      "readme": "templates/sc-pseudotime-feature-trends/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "adapters/bin-precomputed-values.R",
+          "bytes": 1910,
+          "sha256": "10dbf8e4a6c00878de3ae2694ea53197dcb0853af0a755d1f50dc466a3fc615b"
+        },
+        {
+          "path": "code/common.R",
+          "bytes": 3920,
+          "sha256": "0d9ec55ef5a9c45bd2160b721b5657ede6ff7cec4b2c90fe306e2b7be95751ad"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3527,
+          "sha256": "1ec820419ee8de4fc6463ee63b617063d871e542f11496c7c40fdf05c4b2d639"
+        },
+        {
+          "path": "data/points.csv",
+          "bytes": 40,
+          "sha256": "c2b55df5fb6c5e0948b23bdd2e8904ac49d3c1f8df445cd15d95f12a27c6a4bb"
+        },
+        {
+          "path": "data/trends.csv",
+          "bytes": 9940,
+          "sha256": "51372bcb8fd3e2f8c0b23c2c5d19812cdc9e99d0e908101ba87dd63ba0034d40"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 410,
+          "sha256": "6777d066ab689844cb82c6e75837411e4738c88a0fa3abad2e94da2952e68a90"
+        },
+        {
+          "path": "description.md",
+          "bytes": 531,
+          "sha256": "5021d9bffba24a4f0f49ac8d20c214a38c68b6ce11efa4a5e53310a08aca5085"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2796,
+          "sha256": "e095ac8a29309b43e6399c7203e377f6f275999bbfab71018517d6a90a7a1a3a"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1363,
+          "sha256": "497b067f38593f53bd11593a622e2ef1d7cf8b6a9a56c1c34651adf1e6cf788c"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1470,
+          "sha256": "a11a185906219083a3df1c65767dbf6d790c55dc7c622de4ea288e6e06e182b1"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 319,
+          "sha256": "9d7cd8164e6f45c71ec21fdcb0628a8cf625868c541183def891ab614a1c51b8"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 33840,
+          "sha256": "5e11e1e3dac9faadb9427849bd2820e2cadb60eb8203d856602e1cc3e4b9b7d7"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 224445,
+          "sha256": "57b0ef5775e7f2957472de7bdb9d2b4e720a08162e2eb6de728570b22331bc8f"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1651,
+          "sha256": "e7ba68ee2edcff198638433ff1e1a5ab6b593d2bafc03d06ce6d62b792488a02"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2438,
+          "sha256": "de8e3f11d95fb3bae8f22c352e61e06120e834b33c449b68b56936d4b844f21c"
+        }
+      ]
+    },
+    {
+      "id": "sc-qc-metric-panels",
+      "title": "细胞质量指标分面图",
+      "titleEn": "Cell quality metric panels",
+      "plotFamily": "qc_metric_panels",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-qc-metric-panels/code/plot.R",
+      "preview": "templates/sc-qc-metric-panels/preview.png",
+      "readme": "templates/sc-qc-metric-panels/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3376,
+          "sha256": "c2d7bd7b4db0e73041275fedb3c79019a105d574b825dc974b9cef3b3e8082cc"
+        },
+        {
+          "path": "data/generation.json",
+          "bytes": 447,
+          "sha256": "826771f57b80e116df36ffee3d0fe6628a5c80754b42e0000f4a53f9ee24432f"
+        },
+        {
+          "path": "data/qc_metrics.csv",
+          "bytes": 20707,
+          "sha256": "eb4fe71dc2411839621d23a3394ee56384c1c297e4e137ce4014aff2ce84429b"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 594,
+          "sha256": "2aa3c25aa8b61ebee3700fb848f78f50b508477d2cb43fd20f7783b981eb69a3"
+        },
+        {
+          "path": "description.md",
+          "bytes": 571,
+          "sha256": "afc53e45cdd8dd3b37b8e1e9d6c9249a3b4433613d8c67f8f6e79337388fd41b"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2187,
+          "sha256": "6067ad08418b3453277ef0a6b7a2ecf728bb354e641664dc50334a0d75a08d91"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1223,
+          "sha256": "790c6e8cfabe8bf53e667ad2d49233d19781c4f7086ff8725554a8267e08d636"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1429,
+          "sha256": "00ea1f129a2a52210fdfe53947e6e6cd833bc70a48aa761ee12eb9d2a16effde"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 363,
+          "sha256": "be149716f1e043d5ee7d727264b5c0c611cc2b954013632fc83281663236b16e"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 157222,
+          "sha256": "fe154d26cd638d80b3575ad2e1b8ea4ff99660f761a48a764e2b6dff533bd141"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 596354,
+          "sha256": "b521f4a96ef3f7f70f6724261796e166882cb7c6bb7fae00bbea0257e8052e36"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1235,
+          "sha256": "9a4928fb5d6ea417e20cc65e89b9bca5b27835414ef65a99f652f5b0c008f875"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1989,
+          "sha256": "e0f79af0a14049b74a44ff152f85dd2e589e4be0f64b2f10215454b757f28d8e"
+        }
+      ]
+    },
+    {
+      "id": "sc-regulatory-tf-target-network",
+      "title": "TF–target 候选定向调控网络",
+      "titleEn": "Directed TF–target candidate network",
+      "plotFamily": "regulatory_tf_target_network",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-regulatory-tf-target-network/code/plot.R",
+      "preview": "templates/sc-regulatory-tf-target-network/preview.png",
+      "readme": "templates/sc-regulatory-tf-target-network/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml",
+        "igraph",
+        "ggrepel"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 3339,
+          "sha256": "55f87af2aa955352ba0a22aa0e83c72d8185e8037be448ddb947a3bd37942eac"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 5315,
+          "sha256": "2ab93cb01c683eb2a90562e6f1a744b11b61d280baf3802ade929edaccce9e8d"
+        },
+        {
+          "path": "data/edges.csv",
+          "bytes": 2010,
+          "sha256": "e415933a04dcb4399fa88d0d86db4f25d0f3df721ff2ea5333dd3d4eb7aa7b79"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 1653,
+          "sha256": "c6d859012ad56caa30c616f70e016f1097fd283b5ae9f2cee8c294728ce082ee"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 403,
+          "sha256": "090d383133c2cf58c4d6824587bba6b0181479cf939e34c3ea713bee7f117280"
+        },
+        {
+          "path": "description.md",
+          "bytes": 638,
+          "sha256": "2de5a57280801198f70079655c018cca21eade38f8f9ab9b2fb6e802f0464948"
+        },
+        {
+          "path": "details.json",
+          "bytes": 3900,
+          "sha256": "54f10a4d28403ea945e2e737a4a0fcafc6d510053dfeb3a14243e906673661be"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1363,
+          "sha256": "38687e0697d1dfd3e387d5597c48da836668f09983e15efe710257dffb99bbb2"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1198,
+          "sha256": "d67c962a258ee120a7befcea7d2f2dd4eca78db5ede4fba5bdf7446933606056"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1293,
+          "sha256": "ebdc93b44ea94fc253b04230bd631314d42ca8d6869513b0f9091ec17bcf0541"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 195,
+          "sha256": "3b8f06a7cb5782321dd786d1f56ef09a02f213aada998f833939718531d7aefb"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 56714,
+          "sha256": "17bd717bff107af2d0e9571d5eaabab22afa296d709af0cc6916537fc8f25006"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 591507,
+          "sha256": "c3cef970521bf023c5209961dcb23c7e77dba568fdf649a6eb19a104ffad3fa7"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 2494,
+          "sha256": "fb6c371c8c55a33030d2301d9aa800a87ad3824ec095e8aaa64ec1759bfebf4a"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2529,
+          "sha256": "94db165fd8d2cb933735255376e71cf89acf37729bc073ccce2ebb27e215be37"
+        }
+      ]
+    },
+    {
+      "id": "sc-regulon-auc-heatmap",
+      "title": "SCENIC regulon AUC 活性热图",
+      "titleEn": "Heatmap of precomputed single-cell regulon AUC",
+      "plotFamily": "regulon_activity_heatmap",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-regulon-auc-heatmap/code/plot.R",
+      "preview": "templates/sc-regulon-auc-heatmap/preview.png",
+      "readme": "templates/sc-regulon-auc-heatmap/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml",
+        "ComplexHeatmap",
+        "circlize"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2156,
+          "sha256": "0cfa217d024cc3ebacb0a90bf7b63d4028920e1c7b6d7271d0f09ab8ac52656a"
+        },
+        {
+          "path": "data/auc.csv",
+          "bytes": 39456,
+          "sha256": "46cfeaa912b1c0dbf09104a15f6b02fd3aecaa1907dae418f675ddc42df345d7"
+        },
+        {
+          "path": "data/cells.csv",
+          "bytes": 2972,
+          "sha256": "88ca2ebc0c28ee078d91721aa84787b8d6a34b0093f60df436291a2f241c0689"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 241,
+          "sha256": "3c1b4a34cfb71f2ed20d19281394a745a8c4b4468aa13f8f29f902a55bac9567"
+        },
+        {
+          "path": "description.md",
+          "bytes": 528,
+          "sha256": "8f67b898af43e1bad7c39db1f9ade5365177af754a86401aa10bda2ee72fb9aa"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2716,
+          "sha256": "a61eb5ab9673912783d967ac1ea94f616f9c16f70210ba510998ba35ac63cca5"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1361,
+          "sha256": "737012857e264ea877d61ba8c308e45c0b1d883b95fa2232c0712104abaffab1"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1416,
+          "sha256": "de874175c1ccc2dc2c71266ec2d50b25bd0867ee9bf8197664ae9dfd67b1460c"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1429,
+          "sha256": "20444fa0f9d0724440f995916e7a2517203092198876537a099c45db9b3f76fd"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 85,
+          "sha256": "1d6aa7151a1c3bf4d43e0cff93810d91bae1494bedf5de2755e9048752361292"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 49323,
+          "sha256": "7b6c7bff7ff0fccaae92751f721e4cf03ef3388c037c5982c6955f1fec16a15c"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 154988,
+          "sha256": "4dfb41d6072f4404668306ca0f1d3156b40783e6843bb8e0373d5483dc22ea17"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1604,
+          "sha256": "9944ab67538cf3c97d32bf4cc2a98565c31729c5614886ec1c9e98e7780ae0a8"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2053,
+          "sha256": "9680456fbfa689c0a5b4b2fdf924d019fac0fef4f0700a2fd4c8fe38355318dd"
+        }
+      ]
+    },
+    {
+      "id": "sc-regulon-csi-heatmap",
+      "title": "Regulon CSI模块热图",
+      "titleEn": "Regulon CSI heatmap with given modules",
+      "plotFamily": "regulon_csi_heatmap",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-regulon-csi-heatmap/code/plot.R",
+      "preview": "templates/sc-regulon-csi-heatmap/preview.png",
+      "readme": "templates/sc-regulon-csi-heatmap/README.md",
+      "packages": [
+        "ComplexHeatmap",
+        "circlize",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2622,
+          "sha256": "32cd27e43adeef3cf0808855374037c1c84fb0a11527e35e4b7d0146bbbb435f"
+        },
+        {
+          "path": "data/csi.csv",
+          "bytes": 5745,
+          "sha256": "6d6e873f435ed3e224623ce1a86481fb7a453ce5ced7a25d6f99adfceea33b40"
+        },
+        {
+          "path": "data/regulon_annotations.csv",
+          "bytes": 808,
+          "sha256": "479da1c0d7dc021563781c56efa0c3aa4149556cc4130beb811db96ada7a3e3b"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 744,
+          "sha256": "bbedb87f0d80e44498b8e2a3a9f65ca489a27c613a67c3ea37a7d7726e0d9538"
+        },
+        {
+          "path": "description.md",
+          "bytes": 433,
+          "sha256": "319843553d11089cd73be700c3ce47ec2669be74a9fec4961be9a546656ad603"
+        },
+        {
+          "path": "details.json",
+          "bytes": 1877,
+          "sha256": "b224d3f7f9fbc96dbb426fbb080a81bebce734f4fb34bd4f2883b7eb88d45b29"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1376,
+          "sha256": "c6b15c254b4835af2f84939cb5b8aec6251ee886d1ad84e61a2f8db2ca19c16f"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1376,
+          "sha256": "62c5913bd6baca1749881b12608d25c6831cc197ec4f787de3b521fa79b7d200"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1422,
+          "sha256": "d7cc90e1ecdb431dcde214d554703fde392e29a3a9d911a2039fa5a0a432838b"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 240,
+          "sha256": "bfd36ca0abb319dfa682b744985516f8b9a5fb919f1d5c39a53ec46a8c37560a"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 37517,
+          "sha256": "77172a54d026fd22d7687971a8644ffc506273bcf2b57e126596d8333df76d74"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 379681,
+          "sha256": "bd944702d3163495fa424146c2dffe277e3f4c36f3d5df565e4726afd4779639"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1013,
+          "sha256": "601b2185a2b57c5142aababa460ed14e1f0d52836830b46248d571d5af5238e5"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1705,
+          "sha256": "dbcfc31586e80590da55466b1ca457ce8564f6790b9f44009ecc1d13a080d2c3"
+        }
+      ]
+    },
+    {
+      "id": "sc-regulon-rss-ranking",
+      "title": "SCENIC regulon 特异性排序图",
+      "titleEn": "Regulon specificity score rank panels",
+      "plotFamily": "regulon_specificity_ranking",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-regulon-rss-ranking/code/plot.R",
+      "preview": "templates/sc-regulon-rss-ranking/preview.png",
+      "readme": "templates/sc-regulon-rss-ranking/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml",
+        "ggrepel"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 1879,
+          "sha256": "6b49b78c77677ae02c068245af82f3baca756e8ceb16e70d35fe5164dc682eac"
+        },
+        {
+          "path": "data/rss.csv",
+          "bytes": 3235,
+          "sha256": "d3727966aa210c7f8957b876e8bbbeeee600858ed006000ab64b23c68324278d"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 173,
+          "sha256": "dd433152cc8beeae863b31d2cba92364c12f6122548ad32f17dd84dbe603ade4"
+        },
+        {
+          "path": "description.md",
+          "bytes": 474,
+          "sha256": "c9ee8e8c3104995eccff17cb37448243bf329395f768d4962b995119b47c2e71"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2176,
+          "sha256": "62bd14170fc3f47f86456e85c32f3992faeca80833c97f50291836d71e4e8ee0"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1213,
+          "sha256": "18a80522538ef64f019bd6a398af8bf5c00c1709de3f9b6d3700b794b94ec1f9"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1242,
+          "sha256": "ffa3fc8982b4ca77fa4e5f042dfb1301622ed56c5f2e7d97996ff7ad3b89cc10"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1429,
+          "sha256": "6816280de8e92aebdd26a2c4ced0fb35f02a231f577d8e31b7da1621e0e997ed"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 75,
+          "sha256": "773376976f519524dc4f7cfb561c82f5b02881db920fd6a60abded3b6a70e672"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 33357,
+          "sha256": "557189d60f751e206279c8a0ef6050736654d9d750820a8b5fbe5bf69ef6b834"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 274435,
+          "sha256": "3beef453ce4fbc18cd2a39c4cea41ffedd729ea8459a43230caf26442b6f82ea"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1323,
+          "sha256": "2739b470f5fab4fce1ecaea2d1c9f885cb497c6bf6a8da81a0946fe2118f97be"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1877,
+          "sha256": "188af46327574cc0aafa6aff81de8add931b43769597042464072357dfa63b9a"
+        }
+      ]
+    },
+    {
+      "id": "sc-sample-celltype-proportion",
+      "title": "样本细胞类型比例箱线与点图",
+      "titleEn": "Sample cell-type proportions",
+      "plotFamily": "sample_celltype_proportion",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-sample-celltype-proportion/code/plot.R",
+      "preview": "templates/sc-sample-celltype-proportion/preview.png",
+      "readme": "templates/sc-sample-celltype-proportion/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "adapters/counts-from-metadata.R",
+          "bytes": 1328,
+          "sha256": "a4d370c435cef727cb1194f926aa5ec60d6ead13c8aee84f84bd96fc9507d3d7"
+        },
+        {
+          "path": "code/common.R",
+          "bytes": 3920,
+          "sha256": "0d9ec55ef5a9c45bd2160b721b5657ede6ff7cec4b2c90fe306e2b7be95751ad"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 4609,
+          "sha256": "aa45f8f3088a7665e838794f8850868b5ddec6f050a0a28d67f1a135b036fdce"
+        },
+        {
+          "path": "data/comparisons.csv",
+          "bytes": 33,
+          "sha256": "d4475fdc79876a15e2714bde63db6fc42f5a2e2827451f88e9de22bfef818159"
+        },
+        {
+          "path": "data/counts.csv",
+          "bytes": 901,
+          "sha256": "1598b1a971208275bf649f5a4cc84082775dd937f145d53318d05e7b755f50e2"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 435,
+          "sha256": "b49caf1763dbbf98f30145a8edef8850c1dfdec745b089d6c522fa12a4f42017"
+        },
+        {
+          "path": "description.md",
+          "bytes": 523,
+          "sha256": "719f7103e9c85dbf076433c29ccd7a8161f5aa51d75cb05830ae29189b02a8c8"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2791,
+          "sha256": "6904e8ed58e08e51a0c81d6aa5b6e682099180f9ade78c9574b0855d8b58327b"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1367,
+          "sha256": "669e0857710c546374298b0e3df4366ea1beb83390c7697281c727240b9c22e8"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1518,
+          "sha256": "f2df073543e8f09fe0d1f96a7c55f38369cbd9aea45409ce23e5b5b3188cf1ab"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 289,
+          "sha256": "5f7bcbc57c1c1edda1eaf155b3fc805ea3fad3229cd8c3c7c332adc1ba333808"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 30651,
+          "sha256": "2c3f5e3d943ce18124a58587933678329e5e8abbbcb6d65031dfdaf143a1c2df"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 135140,
+          "sha256": "1f766a3d9a99b923d8b70fa800bd1d2f15243e747524a5825c6f1f56082fce3d"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1667,
+          "sha256": "54a6da080e4862427874fdc76766aed32d048b9752a4b1640e20406316db649b"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2393,
+          "sha256": "151ef3ea419299401c2593e2366e5d54193ce5ebc0afba6afc98504e3786fe1e"
+        }
+      ]
+    },
+    {
+      "id": "sc-spatial-communication-overlay",
+      "title": "空间细胞通讯叠加图",
+      "titleEn": "Spatial communication overlay",
+      "plotFamily": "spatial_communication_overlay",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-spatial-communication-overlay/code/plot.R",
+      "preview": "templates/sc-spatial-communication-overlay/preview.png",
+      "readme": "templates/sc-spatial-communication-overlay/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "adapters/edges-from-cellchat-table.R",
+          "bytes": 1711,
+          "sha256": "7cfa4d85515dc204a74b5e6b55edebd2efd7b85edc21178e36a4dd177d73ed3d"
+        },
+        {
+          "path": "code/common.R",
+          "bytes": 3920,
+          "sha256": "0d9ec55ef5a9c45bd2160b721b5657ede6ff7cec4b2c90fe306e2b7be95751ad"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3832,
+          "sha256": "7d207d8998a8d2d1a857980892c364708bcad81989c29f4c2791ec96dd585f03"
+        },
+        {
+          "path": "data/celltype_colors.csv",
+          "bytes": 122,
+          "sha256": "c43aaae501fdf4f2a3d9fb5ed68f818d02f63a67403e8be98f0ce9a0261a4023"
+        },
+        {
+          "path": "data/edges.csv",
+          "bytes": 353,
+          "sha256": "63cc86cdb473c344c04447b107e75e5f44ce3c58ff79e6882ad804a81b347a2b"
+        },
+        {
+          "path": "data/nodes.csv",
+          "bytes": 208,
+          "sha256": "57561141c0c68edd3d13b7a22a9d880d94cb6052e900c261176de1653061f8b6"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 538,
+          "sha256": "d863ba70880b9e5f4f6b8650fdf16a10122a0926d4b9df3b39a6abbe92813c51"
+        },
+        {
+          "path": "description.md",
+          "bytes": 478,
+          "sha256": "bbaeb94edb1a4d8a07f1b573feffa2a5a375d47de2da0edc547c1c0fb28400f3"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2587,
+          "sha256": "8c64a5241f938d68ca08853678d14388f2b946bf74a23ea41bb603b0a3988842"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1521,
+          "sha256": "1b4dbd74c6b7561408a3c77ea0915175505ef61651fe1c3bc7b95fab30ba51cf"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1501,
+          "sha256": "7f928496e2a661a83249e5e69397be58a265badb459948113de9114dfc15c363"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 253,
+          "sha256": "647f21a2d54cf7091f8429e70cf497e1533ce1dcb8489974c293c94a6c542bf1"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 31912,
+          "sha256": "1855189ccb3fc0f2682ba382264ee5ccb3d45b689c8dddb22921d5a0150fce0d"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 188392,
+          "sha256": "f77ef6caa4aa8630cb4f7bea7bd0e72fca76d833cce9eb1830c325d8a7fed47a"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1442,
+          "sha256": "bc8b143916373c3535f59b86bd95e88959320bb76f7d97028b3ce31c68b57448"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2505,
+          "sha256": "15786fad2324450dcb28dbcd9bc4a62883ce09e458a00e9b6d18af2aef71bc17"
+        }
+      ]
+    },
+    {
+      "id": "sc-spatial-feature-spots",
+      "title": "空间spot特征数值图",
+      "titleEn": "Spatial feature spots (synthetic)",
+      "plotFamily": "spatial",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-spatial-feature-spots/code/plot.R",
+      "preview": "templates/sc-spatial-feature-spots/preview.png",
+      "readme": "templates/sc-spatial-feature-spots/README.md",
+      "packages": [
+        "ggplot2",
+        "yaml",
+        "ragg"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 1748,
+          "sha256": "41359bb2058fa235f26b90da583cb1bbd1750f2b1821ac67aebb1884e1962568"
+        },
+        {
+          "path": "data/spots.csv",
+          "bytes": 47593,
+          "sha256": "f93f96b1738a5fc7ed9966601cdb5198d387c58ecd8677d0ff6b466d5b31bd4f"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 887,
+          "sha256": "9966735e8425930e87a86e579c648ba2556818e205a841a0650a5a10fa8c60f5"
+        },
+        {
+          "path": "description.md",
+          "bytes": 397,
+          "sha256": "dd19b8ad79265058858ed5e9a6441f87e2cc04a5a00d07823b1d675d63568123"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2256,
+          "sha256": "f58e6c29f56fe2ccc7d3b9cbbf774e1c20b8321edddd189446ebd7e6872a9ce0"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1217,
+          "sha256": "f5c2f293e20a19fd4335eed06afba70e71dd2b4c24ce7c6355409277c987ee03"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1429,
+          "sha256": "a05a593b4889c264562f5e40dea44b9a47d624a737f80f81aa8addc5297a25ec"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 181,
+          "sha256": "80a24624d8ee1f96e50bb69dd760f6aeecf1570deda6583e30b2c0a920e9e3f6"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 53899,
+          "sha256": "b6be838d3bea6c94801db7d74ccedc531f0bc16f29a299e86ce59e4eff7d84e1"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 688618,
+          "sha256": "2c5e69f52a61f5916a708f3451186295c77996450fca98ccaa24c8e97ba5afc0"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1377,
+          "sha256": "2e63b125fe80a6f3f99eb2f0dd0c2390231dceacb03e8c55e77fb3786efb37ca"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1787,
+          "sha256": "c8d2318f12d04aa0c8b5bd1548fce2fbfeb51cb5c71935229ad2ada881b03d8e"
+        }
+      ]
+    },
+    {
+      "id": "sc-ternary-expression",
+      "title": "三组表达三元图",
+      "titleEn": "Ternary expression plot",
+      "plotFamily": "ternary_expression",
+      "dataScope": "derived_example",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-ternary-expression/code/plot.R",
+      "preview": "templates/sc-ternary-expression/preview.png",
+      "readme": "templates/sc-ternary-expression/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2624,
+          "sha256": "377653a45fe289aeafec561afe7ae77fa0bcd15233254a965cc0a0987e9793da"
+        },
+        {
+          "path": "data/expression.csv",
+          "bytes": 8675,
+          "sha256": "d9891f03545872ae54dc137ad4c2ca82b0a89070024184b79ab7e6aa110ee681"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 489,
+          "sha256": "38ce9a13d2ef1c0d59301459e8eda25d4b2bc25b89c464b143e081b5397f9cd0"
+        },
+        {
+          "path": "description.md",
+          "bytes": 434,
+          "sha256": "e71690caff06c4a1ce29b35ce3f0865fbaecef6ec7458f3c6f02a4e052dfde77"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2485,
+          "sha256": "9e555114dd3a00ed164d51514594746b1f154ee412e5a591c2fd39b9778bb6cc"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1219,
+          "sha256": "529f4ad4d7d50f412805b847f342e9f9f8c9b6b2e6a9a52a6102f97c07bf804d"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1383,
+          "sha256": "fb0bc3a34bcab2d668f67a3cffb496a7f713f55300c221fc717f199d7591d8c7"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 232,
+          "sha256": "0b8dd6a4161df7b447acd62d505f7b58e261cd9b5621a4dff77d179c030e1307"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 36395,
+          "sha256": "8c68d43f9c3f8a28959458426870c5bf4708d887a56dbde6842ee5518d92d9e0"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 269482,
+          "sha256": "4d0f031a22b451923d2c7edb3fcd6a9c0a57c5b5a63ca56f9e9715ac62dace7c"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1664,
+          "sha256": "b2435084a92b93216d82adf47fc5a550bb6bf89d21b502a8e1d307fd53e4f5b8"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1650,
+          "sha256": "0ac0c083267d2dbbdbefd342fe6654391b12f505f41bee054865af2f0313479e"
+        }
+      ]
+    },
+    {
+      "id": "sc-trajectory-curve-overlay",
+      "title": "拟时轨迹曲线与降维叠加图",
+      "titleEn": "Precomputed trajectory curves over an embedding",
+      "plotFamily": "trajectory_embedding_overlay",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-trajectory-curve-overlay/code/plot.R",
+      "preview": "templates/sc-trajectory-curve-overlay/preview.png",
+      "readme": "templates/sc-trajectory-curve-overlay/README.md",
+      "packages": [
+        "ggplot2",
+        "ragg",
+        "yaml",
+        "patchwork"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2439,
+          "sha256": "46edd1a5ff92a34bdc55de800d6f6b739e6834e9f98cf42d900c818593023a3c"
+        },
+        {
+          "path": "data/cells.csv",
+          "bytes": 54337,
+          "sha256": "175a49e822a073753882e862e6b6cb8a11bb2ac815693407993e6c5e7812f6ce"
+        },
+        {
+          "path": "data/curves.csv",
+          "bytes": 6203,
+          "sha256": "6a2c4cf08f628310e0851267cf6d61164afda6f328c1693902d1849eaef8e3eb"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 304,
+          "sha256": "7167021b476ce03f08052f7de45f1bc2bc97d107a4fd36b05b528d61100c7a0c"
+        },
+        {
+          "path": "description.md",
+          "bytes": 528,
+          "sha256": "e68c3d999c29d222dd10e84c500e732ce183c425a63bfbc5f0a0cecfb542588d"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2382,
+          "sha256": "c6c0b5217ee1d154a25f0b4dad4871414b9ec6fe6c89a463cf9e21a9acf5c0ad"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1367,
+          "sha256": "4e989130218c095ed3ca6d3ec37bd1196fdc65128b08315e88037a6b34ba9780"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1198,
+          "sha256": "8609508bb18b8d60f1ca5e0d9130e143fb6dfc5b58eb72c6189f8a3fb3719eb0"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1429,
+          "sha256": "e34043ec366e154b25da5760b3717778dc0d4641a909313b36d33d587e9aa590"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 84,
+          "sha256": "df544b14ffacd2f93635bbc4a0951989048ec2d4dcf0799a5835c534a0b60f7d"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 104804,
+          "sha256": "2f667764cf4fc268af170a5630e63ec59cf1e3dff8263cd167640ade360c2db6"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 528377,
+          "sha256": "3de4cbbf2ac63a6124fafc5d7c895d1596f959b33f6cb7324dd7c6a48a0877a6"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1282,
+          "sha256": "7d729857db88b764feeeb8f2797b63c01b6a4b5453aad35bcd552a012602a2ee"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2096,
+          "sha256": "02dbd25ee1878adbfa5a6fa01bbce132acc4a304e4627e48e0ba51b866b73453"
+        }
+      ]
+    },
+    {
+      "id": "sc-umap-marker-annotations",
+      "title": "UMAP 细胞群与 marker 注释",
+      "titleEn": "UMAP with numbered cell groups and marker annotations",
+      "plotFamily": "umap_marker_annotations",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-umap-marker-annotations/code/plot.R",
+      "preview": "templates/sc-umap-marker-annotations/preview.png",
+      "readme": "templates/sc-umap-marker-annotations/README.md",
+      "packages": [
+        "ggplot2",
+        "ggrepel",
+        "ragg",
+        "yaml"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 3070,
+          "sha256": "26ea83c0aee6994ed5c9d8ad52cb4bbbb7945f080fc6d8c9a361b4cbec52f3ff"
+        },
+        {
+          "path": "data/input.csv",
+          "bytes": 79639,
+          "sha256": "bd65ef693866491a1aff038cd8948a7234b9e64006d0b25c19aae1f2704bfd7d"
+        },
+        {
+          "path": "data/markers.csv",
+          "bytes": 724,
+          "sha256": "d75cbb012dbf4f936e03f85f04f3e549e02d04cde5dc24b3f02e0f8d8dd19073"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 885,
+          "sha256": "db5f451adc4fb059a32a1cb2d8bcfcec9f97642b0cf0b2d53e363fb2cd1eb8a3"
+        },
+        {
+          "path": "description.md",
+          "bytes": 466,
+          "sha256": "78e819ad082b6a688b64b9f3329207e0249367caeb7d6ca14352f2a9b3d30e4a"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2237,
+          "sha256": "bce24381a1c9b0e0d90853af6281cb5fea6b883f11240125eac9f95ed47e474a"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1367,
+          "sha256": "ca2f6677fd4c722b3e15210c51a8362bcca3b0dc95c6e389e521cbbac06cf1e0"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1179,
+          "sha256": "bf2340a0a0f8ecf989fcc7d7137d23fd0330281c73b83ec5b1c52a1ecfa14a21"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1430,
+          "sha256": "2ac0b9e3ec004808ab3a49b1e20bc49d071ff754a0ff3bdb1f3967e5ab90f930"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 154,
+          "sha256": "90bdc2f7f230a459d5418f0dc1ef398a277b9fdb9ed347297024e08f610fc4eb"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 89004,
+          "sha256": "5404a70f9c6d4fe7b8d1442429c952008bd0224aab8ca98e502c541b0f04d69d"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 654223,
+          "sha256": "9520318f67b6e9e596270807c4f0206f9a60342b47ef76d854cda62fd7c696c1"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1302,
+          "sha256": "2a8ab04c8810bb9cc83068908df46f866211be550224213e42e762c42ac411cd"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1744,
+          "sha256": "8f54524c86ad5ac78f5ff8fa2adcee859a100b406990191aad8bd526eb5aa08f"
+        }
+      ]
+    },
+    {
+      "id": "sc-velocity-vector-umap",
+      "title": "预计算嵌入速度矢量图",
+      "titleEn": "Projected velocity vectors (synthetic)",
+      "plotFamily": "velocity",
+      "dataScope": "synthetic",
+      "license": "unknown",
+      "distribution": "public_copy",
+      "entrypoint": "templates/sc-velocity-vector-umap/code/plot.R",
+      "preview": "templates/sc-velocity-vector-umap/preview.png",
+      "readme": "templates/sc-velocity-vector-umap/README.md",
+      "packages": [
+        "ggplot2",
+        "yaml",
+        "ragg"
+      ],
+      "files": [
+        {
+          "path": "code/common.R",
+          "bytes": 2520,
+          "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+        },
+        {
+          "path": "code/plot.R",
+          "bytes": 2107,
+          "sha256": "885899872bdb85d084588ca5f60c3b4aa5d9f3198a80af2f643be553c7c089dd"
+        },
+        {
+          "path": "data/cells.csv",
+          "bytes": 25196,
+          "sha256": "ba943dccb5844edcc6d5a3bf2f038805643dfe0fa9ac8d9e0f4b94f4eba8795e"
+        },
+        {
+          "path": "data/vectors.csv",
+          "bytes": 1761,
+          "sha256": "8b1c4ec57f7a38b79b7ac8bcf7e53fd7a8a6d6302f9f53027a24c621099fc90e"
+        },
+        {
+          "path": "data_schema.yml",
+          "bytes": 1270,
+          "sha256": "0d1b74f1d525d579ab51d9d9950b407d1e42c5d0eaee0d87235fcc4a2ebddb4b"
+        },
+        {
+          "path": "description.md",
+          "bytes": 459,
+          "sha256": "52fa3953f3e4e16802860fbe694d5c3e1311db67cdbbc4c7fd36ec389b79c849"
+        },
+        {
+          "path": "details.json",
+          "bytes": 2763,
+          "sha256": "1ee082f888708b2a1334302ca9617dea7a6bc85d0c2158c85e8af579ed647f9b"
+        },
+        {
+          "path": "evidence/render.json",
+          "bytes": 1368,
+          "sha256": "898debe906cd032108b98cb07ca5d138fd9f488ec5ed3ec5332c2e0e3aad1a85"
+        },
+        {
+          "path": "evidence/sessionInfo.txt",
+          "bytes": 1207,
+          "sha256": "3d19d72e18dce2d46a56f9eb36557f7b2b6ee73813ebade7e90f024bc0416a73"
+        },
+        {
+          "path": "evidence/validation-summary.json",
+          "bytes": 1429,
+          "sha256": "e8f09f49afa2da3e019bb428fae7cfb7fe1b155db7df489bb51ca2e74adc0bd2"
+        },
+        {
+          "path": "params.yml",
+          "bytes": 198,
+          "sha256": "f14db08ecaabf2bbe19ef1949f9078e926879f99f9eea8fdc73ee2ff56691457"
+        },
+        {
+          "path": "plot.pdf",
+          "bytes": 47043,
+          "sha256": "ec380bf68df80a4a595d1e4afd5c0910b95504cc327a0369473295d141246f0d"
+        },
+        {
+          "path": "preview.png",
+          "bytes": 538852,
+          "sha256": "c8c4d8b7b26753a943974e762e5551bd1f54355cc9f785eaa696e0d10657c92b"
+        },
+        {
+          "path": "provenance.md",
+          "bytes": 1706,
+          "sha256": "e5b3113d667f452fe2a00e428cc651e1f19d59737a3aff2fb013a68bc0f2cb6a"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2057,
+          "sha256": "205d61f3ca2f48756234ac2f93c19a7b5b9e2dd9f44a001c473ac325d3e471c4"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+inputs:
+  nodes:
+    required:
+      - node_id
+      - x
+      - y
+      - n_cells
+      - group
+    unique:
+      - node_id
+    n_cells: missing in uniform mode or positive integer
+  edges:
+    required:
+      - source
+      - target
+      - connectivity
+    unique: unordered source-target pair
+    connectivity: "[0,1]"
+    relation: known distinct node ids

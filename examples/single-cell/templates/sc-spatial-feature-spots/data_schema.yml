@@ -1,0 +1,34 @@
+{
+  "schema": "private-template-input.v1",
+  "inputs": {
+    "data/spots.csv": {
+      "columns": {
+        "sample": {
+          "type": "string"
+        },
+        "spot_id": {
+          "type": "string"
+        },
+        "feature": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "rows": 804
+    }
+  },
+  "semantic_contract": [
+    "seed=20261004；两切片、两特征均为合成；同一spot跨特征坐标必须一致。",
+    "x/y为同一空间坐标基准；reverse_y仅改变显示方向，不归一化或缩放坐标。",
+    "value非负且保持原数值；不运行SCTransform或空间统计。",
+    "未提供histology image，因此不叠加组织背景。"
+  ]
+}

@@ -1,0 +1,16 @@
+width: 10
+height: 5.6
+dpi: 300
+font_family: sans
+font_size: 12
+title: Cell type density on supplied pseudotime
+data_label: "Synthetic example: precomputed analytic curves"
+density_label: Supplied density
+fill_alpha: 0.35
+line_width: 0.8
+celltype_order: [ExampleEarly, ExampleIntermediate, ExampleTransition, ExampleLate]
+celltype_colors:
+  ExampleEarly: '#62496F'
+  ExampleIntermediate: '#3F6F76'
+  ExampleTransition: '#F4CE4B'
+  ExampleLate: '#C65840'

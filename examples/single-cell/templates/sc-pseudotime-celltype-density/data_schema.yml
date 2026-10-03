@@ -1,0 +1,27 @@
+{
+  "files": {
+    "data/pseudotime_density.csv": {
+      "required": [
+        "pseudotime",
+        "density",
+        "celltype"
+      ],
+      "optional": [
+        "group"
+      ],
+      "unique": [
+        "group",
+        "celltype",
+        "pseudotime"
+      ],
+      "constraints": [
+        "finite nonnegative pseudotime and density",
+        "each curve at least three distinct points and positive density"
+      ]
+    }
+  },
+  "parameters": {
+    "celltype_colors": "named mapping; every celltype must match",
+    "density": "input density unchanged; integration is not automatically normalized"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "sc-ternary-expression",
+  "title": "三组表达三元图",
+  "titleEn": "Ternary expression plot",
+  "plotFamily": "ternary_expression",
+  "scientificQuestion": "基因已有平均表达量在三个组之间如何相对分配？",
+  "description": "三个非负量转换成总和为一的组成；靠近某顶点表示该组比例较高。三元位置不能代替差异表达检验。",
+  "application": "- 若三组有可比较表达量，可查看所选基因的相对分配。\n- 点大小可补充总表达量，均值方法应在图注说明。",
+  "dataProfile": "E1/E18/E30各3个重复求算术均值，按文件顺序取均值总和>0.1的前150基因。",
+  "visualProfile": "三角形顶点代表三个组；点色是最高占比组，20%辅助网格；ggplot等效重心坐标。",
+  "inputs": [
+    {
+      "path": "data/expression.csv",
+      "description": "gene及非负a,b,c"
+    }
+  ],
+  "semanticDecisions": [
+    "只作行归一化，不额外log变换",
+    "最大占比颜色不代表统计显著性；平局为Tie",
+    "a左下、b右下、c顶部",
+    "底边20%刻度表示b/E18份额；其余网格为三个组的固定份额线"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/2024-11-22 Ternary plot：三元图及其在转录组中的部分应用示例/三元图.R",
+      "sha256": "0a91e10ffef31a871a9c2c4c08494c056d9921e71a5f04a1baff7de9265d4dba",
+      "notes": "三组表达三元布局；用等价重心坐标代替ggtern"
+    },
+    {
+      "path": "source-collection/2024-11-22 Ternary plot：三元图及其在转录组中的部分应用示例/Bulk_FPKM.csv",
+      "sha256": "83349214c20ca670a1dc3a663defe9f64dd130dbb0924c523140568bfcc6e6c5",
+      "notes": "各组三重复均值；固定顺序取150条"
+    },
+    {
+      "path": "source-collection/2024-11-22 Ternary plot：三元图及其在转录组中的部分应用示例/Ternary plot：三元图及其在转录组中的部分应用示例.pdf",
+      "sha256": "2210103361ea516147adf309ce1d1991f81a9a030774627b03cc408dd8628ac3",
+      "notes": "实际查看PDF第6页E1/E18/E30三元图作为视觉参考；顶点排列使用明确的等效重心坐标映射"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

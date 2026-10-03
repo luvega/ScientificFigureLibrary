@@ -1,0 +1,53 @@
+{
+  "id": "sc-marker-dotplot-annotated",
+  "title": "多层注释 marker 气泡图",
+  "titleEn": "Annotated marker dot plot",
+  "plotFamily": "dotplot",
+  "scientificQuestion": "不同细胞 cluster 的 marker 平均表达和表达细胞比例如何对应细胞类型与谱系注释？",
+  "description": "顶部基因功能分区、左侧细胞类型色条、谱系背景和表达气泡叠加，保留 2025-8-8 参考图的多层注释结构。",
+  "application": "- 用每个cluster的预计算marker均值和表达比例核对细胞类型注释，观察同一谱系内外的marker分布。\n- 同时展示基因分区、细胞类型与谱系的对应关系，便于发现注释与表达模式不一致的cluster。",
+  "dataProfile": "预计算 gene×cluster 平均表达和 0–100 表达百分比，加两张对应注释表。",
+  "visualProfile": "蓝绿连续气泡色、面积编码百分比、浅色谱系背景、深色顶部基因分区。",
+  "inputs": [
+    {
+      "path": "data/expression_summary.csv",
+      "description": "gene、cluster_id、average_expression、percent_expressed；每个gene×cluster组合一行"
+    },
+    {
+      "path": "data/gene_annotations.csv",
+      "description": "gene、marker_celltype、gene_group；行顺序为基因顺序"
+    },
+    {
+      "path": "data/cluster_annotations.csv",
+      "description": "cluster_id、celltype、lineage；行顺序为从上到下的cluster顺序"
+    }
+  ],
+  "semanticDecisions": [
+    "输入平均表达是宿主预计算的非负均值，不调用 FindAllMarkers、DotPlot 或 Seurat。",
+    "表达细胞百分比须以该 cluster 全部纳入细胞为分母，范围 0–100；零值保留。",
+    "默认按每个基因跨 cluster 计算 z-score，剪裁 [-1,2]，气泡色标题明确写 Gene z-score；可选 mean 显示原均值。",
+    "注释 CSV 行顺序决定坐标顺序；缺少gene×cluster组合时停止，不能隐式补零。",
+    "顶部gene_group与左侧celltype分区由连续注释块计算，不使用原图的硬编码细胞索引。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/（VIP）2025-8-8 复现SCI精致图表之单细胞marker基因注释气泡图.zip",
+      "archiveEntry": "复现SCI单细胞marker基因注释气泡图.R",
+      "notes": "源码仅阅读；含未注释网盘链接和上游分析，不能直接执行。"
+    },
+    {
+      "path": "source-collection/（VIP）2025-8-8 复现SCI精致图表之单细胞marker基因注释气泡图.zip",
+      "archiveEntry": "SCI高分文章必配精致图：单细胞marker基因注释气泡图.pdf",
+      "notes": "实际查看第10页组合图；参考顶部/左侧注释和背景分区。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

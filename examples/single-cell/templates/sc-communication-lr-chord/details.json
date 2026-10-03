@@ -1,0 +1,42 @@
+{
+  "id": "sc-communication-lr-chord",
+  "title": "细胞通讯受配体弦图",
+  "titleEn": "Directed ligand–receptor chord diagram grouped by cell type",
+  "plotFamily": "ligand_receptor_chord",
+  "scientificQuestion": "预计算的受配体候选关系如何连接不同细胞类型？",
+  "description": "将已筛选的细胞通讯结果绘制为带方向的弦图，分别标出细胞类型扇区与受配体节点。",
+  "application": "- 查看 CellPhoneDB 或 CellChat 结果中指定细胞群之间的受配体候选关系。\n- 聚焦少量受配体配对，用分组扇区减少网络图标签拥挤。",
+  "dataProfile": "每行一条预计算关系，包含 source、target、ligand、receptor、value、pvalue；标识分列保存。",
+  "visualProfile": "内侧受配体节点、外侧细胞类型色块，定向弦带宽度编码输入权重。",
+  "inputs": [
+    {
+      "path": "data/input.csv",
+      "description": "标准化、预先筛选的CellPhoneDB教程结果边表"
+    }
+  ],
+  "semanticDecisions": [
+    "source/target/ligand/receptor保持分列，不拆分实体名称",
+    "value采用输入mean；不作因果或实际信号传递判断",
+    "pvalue仅用于显式阈值过滤，不重新检验",
+    "同细胞类型同基因节点合并，权重按原始边表传入"
+  ],
+  "packages": [
+    "circlize",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/(VIP) 2024-11-7 【改装函数】弦图可视化cellphonedb细胞互作结果/ks_comm_chordDiagram.R",
+      "notes": "保留分组定向弦图结构；避免用下划线拆分复合物，新增明确权重语义。"
+    },
+    {
+      "path": "source-collection/(VIP) 2024-11-7 【改装函数】弦图可视化cellphonedb细胞互作结果/cpdb_pbmc_summary.txt",
+      "notes": "已有预计算PBMC结果，只选显著的APP/CD74配对；4条边从Dendritic指向NK、CD14 Monocytes、Dendritic、B。没有重跑通讯分析。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

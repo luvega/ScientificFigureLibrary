@@ -1,0 +1,48 @@
+{
+  "id": "sc-pseudotime-feature-trends",
+  "title": "基因与通路拟时趋势曲线",
+  "titleEn": "Precomputed feature trends along pseudotime",
+  "plotFamily": "pseudotime_feature_trends",
+  "scientificQuestion": "已提供的基因或通路数值汇总如何沿既有拟时变化？",
+  "description": "按特征分面、按组着色展示已有拟时趋势；可接收上游提供的区间和细胞点。",
+  "application": "- 展示预计算基因表达趋势或通路评分趋势。\n- 比较不同组沿同一拟时尺度的已有汇总，不在绘图时重新拟合轨迹或置信区间。",
+  "dataProfile": "原教程CellDataSet含6025个细胞的既有拟时。保留Anxa1、Xist、Ncf1、Ltf，按21个固定等宽拟时箱计算各文库mean(log2(exprs+1))；未拟合平滑模型或区间。",
+  "visualProfile": "四个特征分面、青绿与深蓝曲线，拟时横轴；区间仅在输入明确提供时显示。",
+  "inputs": [
+    {
+      "path": "data/trends.csv",
+      "description": "feature/group/pseudotime/value/lower/upper/n_cells；已计算的趋势点，区间可同时为空"
+    },
+    {
+      "path": "data/points.csv",
+      "description": "可选cell_id/feature/group/pseudotime/value；只作点展示，允许只有表头"
+    }
+  ],
+  "semanticDecisions": [
+    "示例曲线是固定21箱的平均值连线，明确标为Binned mean；不能称为拟合曲线或置信区间。",
+    "示例尺度为log2(原exprs数值+1)，不推断原矩阵是否为原始计数；参数必须明确值尺度。",
+    "按feature/group分别依拟时排序；同一曲线的拟时坐标唯一。输入lower≤value≤upper，上下界必须同时提供或同时为空。",
+    "不使用geom_smooth，不重新计算拟时、通路评分、显著性或区间。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/05_拟时与RNA速率/拟时热图趋势与轨迹绘图/C0852a1789790__将基因表达和通路评分关联Monocle2拟时并展示平滑变化趋势.R",
+      "sha256": "775ad71a7104c36becbc20b9a81fe27c01a16cba439e26231ea1507ba1a360d2",
+      "notes": "仅阅读图式与已输出数据，未执行来源流程。"
+    },
+    {
+      "path": "source-collection/05_拟时与RNA速率/拟时热图趋势与轨迹绘图/配套资源/数据/b042b74610__mouse_monocle.rds",
+      "sha256": "b042b74610268232c54a6c3becf1a234631d3891cd6a60395f07eeb01067652e",
+      "notes": "读取既有表达、拟时和细胞注释；仅计数与分箱平均。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

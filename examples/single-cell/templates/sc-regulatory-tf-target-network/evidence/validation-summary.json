@@ -1,0 +1,36 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 6,
+  "inputCasesPassed": 6,
+  "semanticCases": 2,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "c3cef970521bf023c5209961dcb23c7e77dba568fdf649a6eb19a104ffad3fa7",
+        "actual": "c3cef970521bf023c5209961dcb23c7e77dba568fdf649a6eb19a104ffad3fa7",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "17bd717bff107af2d0e9571d5eaabab22afa296d709af0cc6916537fc8f25006",
+        "actual": "17bd717bff107af2d0e9571d5eaabab22afa296d709af0cc6916537fc8f25006",
+        "passed": true
+      }
+    ],
+    "review": "Three TFs connect through visible arrowheads to complete target labels; directed input and importance meaning are retained."
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

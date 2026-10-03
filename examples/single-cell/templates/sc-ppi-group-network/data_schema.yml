@@ -1,0 +1,15 @@
+inputs:
+  edges.csv:
+    required:
+    - from
+    - to
+    - automated_textmining
+    unique: unordered from/to pair
+    numeric:
+      automated_textmining: finite [0,1]
+    selfLoops: false
+  nodes.csv:
+    required:
+    - gene
+    - group
+    relation: unique gene set exactly equals edge endpoints; join by gene ID

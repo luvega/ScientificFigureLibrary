@@ -1,0 +1,15 @@
+files:
+  data/mean_expression.csv:
+    first_column: gene
+    other_columns: celltype names
+    constraints: ["unique gene rows", "finite numeric values"]
+  data/gene_annotations.csv:
+    required: [gene, marker_celltype]
+    key: gene
+  data/celltype_annotations.csv:
+    required: [celltype, color]
+    key: celltype
+    constraints: ["unique identifiers matching matrix columns", "color in hexadecimal RGB"]
+
+parameters:
+  data_label: "actual input scope; default Synthetic example"

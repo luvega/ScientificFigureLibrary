@@ -1,0 +1,12 @@
+files:
+  data/expression.csv:
+    required: [cell_id, sample_id, group, gene, expression]
+    unique: [cell_id, gene]
+    constraints: ["finite nonnegative expression including zeros", "at least two cells in every gene and group", "consistent cell and sample metadata"]
+  data/significance.csv:
+    optional: true
+    required_if_nonempty: [gene, group1, group2, label]
+    optional_columns: [y_position]
+
+parameters:
+  data_label: "actual input scope; default Synthetic example"

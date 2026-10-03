@@ -1,0 +1,25 @@
+{
+  "format": "CSV UTF-8",
+  "files": [
+    {
+      "path": "data/expression.csv",
+      "first_column": "gene: unique nonempty row identifier",
+      "remaining_columns": "unique sample names with finite numeric values",
+      "row_unit": "gene",
+      "column_unit": "sample"
+    },
+    {
+      "path": "data/row_annotations.csv",
+      "required_columns": {
+        "gene": "matrix row ID",
+        "sector": "display sector; example Panel is not a biological module"
+      },
+      "matching": "exact matrix rows, unique gene"
+    }
+  ],
+  "outputs": [
+    "preview.png",
+    "plot.pdf"
+  ],
+  "entrypoint": "code/plot.R"
+}

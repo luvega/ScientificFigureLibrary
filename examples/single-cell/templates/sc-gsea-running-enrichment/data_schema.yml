@@ -1,0 +1,77 @@
+{
+  "schema": "private-template-input.v1",
+  "inputs": {
+    "data/ranking.csv": {
+      "columns": {
+        "gene_id": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "number"
+        },
+        "statistic": {
+          "type": "number"
+        }
+      },
+      "description": "完整降序排名15681行；gene_id/rank/statistic"
+    },
+    "data/hits.csv": {
+      "columns": {
+        "pathway_id": {
+          "type": "string"
+        },
+        "gene_id": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "number"
+        }
+      },
+      "description": "所选通路完整匹配基因；pathway_id/gene_id/rank"
+    },
+    "data/enrichment.csv": {
+      "columns": {
+        "pathway_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "set_size": {
+          "type": "number"
+        },
+        "enrichment_score": {
+          "type": "number"
+        },
+        "nes": {
+          "type": "number"
+        },
+        "p_adjust": {
+          "type": "number"
+        }
+      },
+      "description": "原结果中Ribosome和Herpes simplex virus 1 infection两条通路，保留ES/NES/p_adjust/set_size"
+    },
+    "data/curves.csv": {
+      "columns": {
+        "pathway_id": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "number"
+        },
+        "running_es": {
+          "type": "number"
+        }
+      },
+      "description": "两条完整运行ES轨迹，每条15681行；由适配器重建并核对原存储ES"
+    }
+  },
+  "semantic_contract": [
+    "使用2024-8-9原教学res.RData中的预计算GSEA结果；选hsa03010与hsa05168，非本次真实样本分析。",
+    "排名统计量保持原15681个基因及降序；高统计量在左，低统计量在右，修正来源图的左右文字方向。",
+    "适配器从提供geneList和geneSets按存储exponent=1重建展示曲线；每条曲线最大绝对极值与存储enrichmentScore误差≤1e-6。",
+    "NES、p.adjust和setSize从原结果直接保留；未做富集、置换、多重校正或上游差异分析。",
+    "绘图脚本只读取CSV，不加载Seurat/GSEA对象或调用富集分析函数。"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "private-figure-render.v1",
+  "status": "passed",
+  "scope": "example_data",
+  "exitCode": 0,
+  "startedAt": "2026-10-02T08:47:47.658Z",
+  "completedAt": "2026-10-02T08:47:52.423Z",
+  "command": "Rscript --vanilla code/plot.R",
+  "files": [
+    {
+      "path": "code/plot.R",
+      "bytes": 5721,
+      "sha256": "36bc21aa3dd37f3c51eef806491dd8c7e77eb5d624e069b2f1d802ac265bb8fc"
+    },
+    {
+      "path": "code/common.R",
+      "bytes": 2520,
+      "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+    },
+    {
+      "path": "params.yml",
+      "bytes": 255,
+      "sha256": "b25eaeac6f3933f6ab9a96f53c1045827191156a319ec864627e3f1d763ab16c"
+    },
+    {
+      "path": "data/ranking.csv",
+      "bytes": 419193,
+      "sha256": "e85011499cdaa6d1d483f24e710f3e9fee0483d1939cdab8a1fae1b5132f36cb"
+    },
+    {
+      "path": "data/hits.csv",
+      "bytes": 40389,
+      "sha256": "04cde1d535d6cde63c873a74d98e34d7cee6976df3cf024f91eef495e7cce24f"
+    },
+    {
+      "path": "data/enrichment.csv",
+      "bytes": 1090,
+      "sha256": "2c873891a4f339b5987fb72d7642428144c758bbbbf84e3e4bd9d29918de448a"
+    },
+    {
+      "path": "preview.png",
+      "bytes": 214086,
+      "sha256": "2add8a48989355af456b268630940cdfd17dabe38282285d14350d0c423d70d9"
+    },
+    {
+      "path": "plot.pdf",
+      "bytes": 46412,
+      "sha256": "ac5cb90d1ce615a57e14606bd784274f3e70fb77986844f1e50ccc6970821a29"
+    }
+  ],
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "sc-categorical-heatmap",
+  "title": "离散类别矩阵热图",
+  "titleEn": "Categorical state matrix heatmap",
+  "plotFamily": "categorical_heatmap",
+  "scientificQuestion": "给定类别状态如何分布于各行实体和列分组？",
+  "description": "以离散颜色展示类别矩阵，并在顶部加入列分组注释；保持输入行列顺序，不把类别状态转换成连续表达量。",
+  "application": "- 展示基因或其他实体在各组中的 yes/no 或多类别状态。\n- 查看状态分布与给定列分组之间的关系，使用类别图例解释颜色。",
+  "dataProfile": "原教程 22×8 的 yes/no 矩阵，名称为 gene1–gene22、disease1–disease8；列分组按原代码明确给定的演示注释整理。",
+  "visualProfile": "黑白方格编码 yes/no，灰色网格和黑色边框；上方蓝、暗红及青色条显示列组，保留完整行列名称。",
+  "inputs": [
+    {
+      "path": "data/category_matrix.csv",
+      "description": "row_id 后为独立列名称，所有单元格为非空类别字符串"
+    },
+    {
+      "path": "data/column_annotations.csv",
+      "description": "column_id/group/color；注释与矩阵列严格一一匹配"
+    },
+    {
+      "path": "data/category_colors.csv",
+      "description": "category/color；覆盖全部实际类别的颜色映射"
+    }
+  ],
+  "semanticDecisions": [
+    "类别以字符读取，不进行 z-score、聚类、数值插值或连续梯度映射。",
+    "示例 no=#FFFFFF，yes=#000000；列组 Male_spc/Female_spc/MF 颜色沿用原代码，分组只是教程注释。",
+    "矩阵行 ID 和列名均须非空且唯一；类别映射唯一并覆盖全部实际类别，禁止遗漏或重复。",
+    "列注释以 column_id 匹配矩阵列，不依赖注释文件行序；未知、缺失及重复 ID 均报错。",
+    "默认保留矩阵输入行列顺序；完整名称保留，不拆分连字符、下划线或斜线。"
+  ],
+  "packages": [
+    "ComplexHeatmap",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/_绘图skill整理/解压/教程/Af9c4a2b5ebbb_KS-热图系列.zip/热图7：离散型热图/离散型热图.R",
+      "sha256": "966805810ff8057cdb09edcc8997085648b26bd147742574ca63736a57d506c0",
+      "notes": "已核对原代码哈希；绘图风格与字段语义参考此代码。"
+    },
+    {
+      "path": "source-collection/_绘图skill整理/解压/教程/Af9c4a2b5ebbb_KS-热图系列.zip/热图7：离散型热图/gene_dis.csv",
+      "sha256": "974fe68e521afd8cb83c32d3cfc3463bc1e7e8dbef11709f4f07fe5154b3c314",
+      "notes": "实际读取的原教程输入；数值/类别保留，仅标准化列名。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

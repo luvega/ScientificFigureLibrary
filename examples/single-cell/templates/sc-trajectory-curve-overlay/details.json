@@ -1,0 +1,44 @@
+{
+  "id": "sc-trajectory-curve-overlay",
+  "title": "拟时轨迹曲线与降维叠加图",
+  "titleEn": "Precomputed trajectory curves over an embedding",
+  "plotFamily": "trajectory_embedding_overlay",
+  "scientificQuestion": "已有轨迹曲线和拟时序值如何对应降维空间中的细胞分布？",
+  "description": "将已给曲线采样点叠加于降维坐标，分别按细胞类型和预计算拟时序着色；不重新拟合轨迹。",
+  "application": "- 将Slingshot/Monocle等已有轨迹结果转换为标准坐标与曲线表后复用。\n- 对照输入细胞类型、曲线位置和拟时序；图形展示不验证起点或分支推断。",
+  "dataProfile": "合成900个细胞坐标、3个演示celltype、两条各100采样点曲线；缺少原mouse_data.rds与拟合对象，不能复现原推断。",
+  "visualProfile": "并列两个等比例降维面板，黑色轨迹线；左侧类型色块、右侧连续拟时序色阶，保留原Slingshot叠加曲线风格。",
+  "inputs": [
+    {
+      "path": "data/cells.csv",
+      "description": "cell_id/x/y/celltype/pseudotime；唯一细胞坐标"
+    },
+    {
+      "path": "data/curves.csv",
+      "description": "lineage/order/x/y；预拟合曲线采样点"
+    }
+  ],
+  "semanticDecisions": [
+    "曲线完全由输入采样点给定；按lineage/order连接，不用细胞坐标重新拟合。",
+    "pseudotime保持输入数值，不归一化；缺失或非有限值报错，本批次不隐式删细胞。",
+    "曲线每lineage至少2点、order唯一正整数；cell_id全表唯一，类型完整字符串保留。",
+    "左右面板使用同一坐标比例，细胞类型按出现顺序；不加未经输入支持的方向箭头。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml",
+    "patchwork"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/（VIP）2023-8-17 slingshot轨迹分析及可视化/slingshot轨迹分析.R",
+      "sha256": "ed5021f2fd5536087e5db914eed346e4d635ad25f2ecb1c3a9a882d5c733675e",
+      "notes": "只保留原step2曲线叠加及两种着色；删除slingshot拟合、tradeSeq、起点指定等分析。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

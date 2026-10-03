@@ -1,0 +1,52 @@
+{
+  "id": "sc-marker-mean-heatmap",
+  "title": "marker 平均表达热图",
+  "titleEn": "Marker mean expression heatmap",
+  "plotFamily": "heatmap",
+  "scientificQuestion": "各细胞类型预计算的 marker 均值在基因注释块中呈现什么表达分布？",
+  "description": "预计算平均表达矩阵经明确尺度转换，按 marker 所属细胞类型排列，并保留原图顶部色条、分块和细黑色单元边框。",
+  "application": "- 对已定义细胞类型的预计算marker均值进行排序展示，观察标记基因在其所属类型与其他类型中的相对表达。\n- 用顶部marker类型色条组织基因分块；解释均值的z-score尺度时保留上游汇总定义。",
+  "dataProfile": "唯一 gene 行、celltype 列的预计算均值矩阵及匹配注释。",
+  "visualProfile": "粉紫连续热图、顶部细胞类型色条、基因分块和可选转置方向。",
+  "inputs": [
+    {
+      "path": "data/mean_expression.csv",
+      "description": "第一列gene，其余列为celltype，数值为上游已计算的均值"
+    },
+    {
+      "path": "data/gene_annotations.csv",
+      "description": "gene、marker_celltype；每个gene仅一行"
+    },
+    {
+      "path": "data/celltype_annotations.csv",
+      "description": "celltype、color；行顺序决定细胞类型顺序"
+    }
+  ],
+  "semanticDecisions": [
+    "模板接收真正预计算的均值；不运行 AverageExpression 或 AggregateExpression。",
+    "默认按基因跨细胞类型计算row z-score，图例明确标注，不能将 z-score 误读为原平均表达。",
+    "恒定基因的z-score置0并告警；none模式直接显示输入值，需设置input_scale_label。",
+    "基因注释必须与矩阵行一一匹配、细胞类型注释与列一一匹配，缺失或多余标识均停止。",
+    "horizontal默认显示细胞类型为行、marker基因为列；vertical显示基因为行。"
+  ],
+  "packages": [
+    "ComplexHeatmap",
+    "circlize",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/（VIP）2024-10-17 【一键函数】单细胞marker基因平均表达量热图函数/单细胞marker基因平均表达量热图函数.R",
+      "notes": "源码有Seurat5 AggregateExpression被当作平均表达与df_markers全局引用；已改为明确均值输入。"
+    },
+    {
+      "path": "source-collection/（VIP）2024-10-17 【一键函数】单细胞marker基因平均表达量热图函数/1.png",
+      "notes": "实际查看横向热图；保留粉紫色、黑边与顶部marker类型注释。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

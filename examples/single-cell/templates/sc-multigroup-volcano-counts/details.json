@@ -1,0 +1,46 @@
+{
+  "id": "sc-multigroup-volcano-counts",
+  "title": "多群火山图与差异基因计数",
+  "titleEn": "Multigroup volcano and DEG counts",
+  "plotFamily": "volcano",
+  "scientificQuestion": "预计算差异分析中各细胞类型的上下调结果与符合阈值的基因数如何对应？",
+  "description": "保留原案例多色细胞类型火山点及上方上下调计数柱；显著性阈值同时控制分类、计数和标签。",
+  "application": "- 比较多个预计算对比中各细胞类型的log2FC、校正p值及符合统一阈值的上下调基因数。\n- 在上下调计数条与火山点中使用一致的细胞类型颜色和显著性标准，便于核对基因标签与DEG数目。",
+  "dataProfile": "comparison×celltype×gene 的log2FC和已校正p值；可选label布尔列。",
+  "visualProfile": "原参考绿蓝橙红细胞类型色、签名计数柱、虚线阈值与避让基因标签。",
+  "inputs": [
+    {
+      "path": "data/differential_results.csv",
+      "description": "comparison、celltype、gene、log2_fc、p_adj；可另加label布尔列"
+    }
+  ],
+  "semanticDecisions": [
+    "不运行 FindMarkers，不随机赋予病例分组；输入为已经完成差异分析的结果。",
+    "统一显著性规则p_adj ≤ p_adj_threshold且abs(log2_fc) ≥ log2_fc_threshold且log2_fc不为0。",
+    "上下调计数和标签只来自满足同一显著性规则的基因；不将所有正负logFC点都计作DEG。",
+    "p_adj=0仅在绘图时替换为zero_p_floor，原值保留在输出表中；不会重新校正p值。",
+    "默认每comparison×celltype最多标注最低p_adj的一基因；label列可显式选择，但不标注未达阈值基因。"
+  ],
+  "packages": [
+    "ggplot2",
+    "patchwork",
+    "ggrepel",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/（VIP）2024-3-7 多组差异基因多彩火山图及上下调差异基因数目展示/多组差异基因多彩火山图及上下调差异基因数目展示.R",
+      "notes": "源例计算FindMarkers后将所有logFC正负都记作DEG；重构为已算结果输入和统一显著阈值。"
+    },
+    {
+      "path": "source-collection/（VIP）2024-3-7 多组差异基因多彩火山图及上下调差异基因数目展示/figures.pptx",
+      "archiveEntry": "ppt/media/image3.png",
+      "notes": "实际查看原组合图，保留细胞类型配色、上下调柱与火山布局。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

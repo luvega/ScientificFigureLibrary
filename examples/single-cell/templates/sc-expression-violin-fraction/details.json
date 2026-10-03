@@ -1,0 +1,48 @@
+{
+  "id": "sc-expression-violin-fraction",
+  "title": "小提琴图与表达细胞比例",
+  "titleEn": "Expression violin and expressing-cell fraction",
+  "plotFamily": "violin",
+  "scientificQuestion": "各组的表达分布与表达细胞比例是否同时改变？",
+  "description": "保留参考图的小提琴、细胞点、组配色和上方表达比例饼图；只显示用户提供的比较标注。",
+  "application": "- 并列展示各组特定基因的细胞级表达密度与零表达比例，区分表达强度变化和表达细胞份额变化。\n- 在保留sample_id的表达长表上显示上游提供的比较标签，避免由绘图模板自动进行细胞层面显著性检验。",
+  "dataProfile": "包含零值的cell_id×gene表达长表和样本分组；可选预计算比较标注表。",
+  "visualProfile": "红绿橙小提琴、黑色边框、灰色未表达扇区和组色表达比例饼图。",
+  "inputs": [
+    {
+      "path": "data/expression.csv",
+      "description": "cell_id、sample_id、group、gene、expression；包含零表达细胞"
+    },
+    {
+      "path": "data/significance.csv",
+      "description": "可选；gene、group1、group2、label，可另加y_position；默认空表不画统计标签"
+    }
+  ],
+  "semanticDecisions": [
+    "表达比例分母是该gene×group输入的全部纳入细胞，分子是expression > expression_threshold的细胞；默认阈值0。",
+    "每个纳入cell_id必须包含每个展示gene的一行，包括零表达；仅输入表达细胞会导致比例高估。",
+    "仅展示预计算significance.csv；不运行细胞层面t.test，不把细胞当独立生物重复。",
+    "sample_id用于保留样本来源，但密度和比例为细胞级pooled展示，不自动作样本加权或组间推断。",
+    "示例显著性表为空；合成表达分布不赋予显著性标签。"
+  ],
+  "packages": [
+    "ggplot2",
+    "patchwork",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/（VIP）2024-8-26 VlnPlot小提琴展示基因表达-添加显著性检验-表达基因细胞比例（原创函数）/VlnPlot小提琴展示基因表达-添加显著性检验-表达基因细胞比例（原创函数）.R",
+      "notes": "原例自动细胞t.test改为外部预计算标签；保留表达比例计算与饼图思想。"
+    },
+    {
+      "path": "source-collection/（VIP）2024-8-26 VlnPlot小提琴展示基因表达-添加显著性检验-表达基因细胞比例（原创函数）/5.png",
+      "notes": "实际查看带比例饼图的ANXA1小提琴参考；保留主要图层。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

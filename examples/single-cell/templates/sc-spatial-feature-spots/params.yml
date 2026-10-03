@@ -1,0 +1,9 @@
+width: 10
+height: 8
+dpi: 300
+font_family: sans
+font_size: 12
+title: Spatial feature spots (synthetic)
+point_size: 3.0
+reverse_y: true
+value_label: Synthetic provided value

@@ -1,0 +1,16 @@
+"pathway_id","description","group","celltype","qvalue","up_count","down_count","all_count","de_score"
+"GO:0019883","antigen processing and presentation of endogenous antigen","Neutrophil","Neutrophil",0.000233906,0,5,5,-1
+"GO:1900118","negative regulation of execution phase of apoptosis","Neutrophil","Neutrophil",0.001632185,4,0,4,1
+"GO:1900117","regulation of execution phase of apoptosis","Neutrophil","Neutrophil",0.004471788,4,0,4,1
+"GO:0048002","antigen processing and presentation of peptide antigen","Neutrophil","Neutrophil",0.005312676,0,5,5,-1
+"GO:0071559","response to transforming growth factor beta","Macrophage","Macrophage",1.16e-12,14,5,19,0.473684211
+"GO:0030198","extracellular matrix organization","Macrophage","Macrophage",3.52e-10,16,6,22,0.454545455
+"GO:0043062","extracellular structure organization","Macrophage","Macrophage",3.52e-10,8,9,17,-0.058823529
+"GO:0016055","Wnt signaling pathway","Macrophage","Macrophage",3.52e-10,9,10,19,-0.052631579
+"GO:2001233","regulation of apoptotic signaling pathway","mDC","mDC",0.000295053,13,5,18,0.444444444
+"GO:0010921","regulation of phosphatase activity","mDC","mDC",0.000344124,8,1,9,0.777777778
+"GO:0035304","regulation of protein dephosphorylation","mDC","mDC",0.000436755,8,1,9,0.777777778
+"GO:0007159","leukocyte cell-cell adhesion","T cell","T cell",0.00193512,7,4,11,0.272727273
+"GO:0002711","positive regulation of T cell mediated immunity","T cell","T cell",0.00366714,2,3,5,-0.2
+"GO:0001916","positive regulation of T cell mediated cytotoxicity","T cell","T cell",0.00390806,1,3,4,-0.5
+"GO:0030098","lymphocyte differentiation","T cell","T cell",0.005603312,7,3,10,0.4

@@ -1,0 +1,6 @@
+inputs:
+  rss.csv:
+    required: [celltype, regulon, rss]
+    unique: [celltype, regulon]
+    numeric: {rss: '[0,1]'}
+    relation: same_regulon_universe_per_celltype

@@ -1,0 +1,47 @@
+{
+  "id": "sc-umap-marker-annotations",
+  "title": "UMAP 细胞群与 marker 注释",
+  "titleEn": "UMAP with numbered cell groups and marker annotations",
+  "plotFamily": "umap_marker_annotations",
+  "scientificQuestion": "如何同时展示细胞群的降维位置与其 marker 注释？",
+  "description": "在已计算的二维嵌入坐标上，用淡色点云、编号中心和外置 marker 标签展示细胞群及其注释。",
+  "application": "- 展示单细胞注释结果，使读者同时查看群体位置和注释依据。\n- 对比已完成的细胞分群时，核对 marker 标签和细胞类型是否对应。",
+  "dataProfile": "每行一个细胞，包含 cell_id、x、y、celltype；另表每行一个 celltype 与 marker 配对。",
+  "visualProfile": "无坐标刻度的等比例散点图，点云半透明，中心圆形编号，左右外置带连线的 marker 文本。",
+  "inputs": [
+    {
+      "path": "data/input.csv",
+      "description": "细胞二维坐标和细胞类型"
+    },
+    {
+      "path": "data/markers.csv",
+      "description": "细胞类型与marker标签"
+    }
+  ],
+  "semanticDecisions": [
+    "嵌入坐标不重新计算",
+    "编号由celltype稳定排序生成",
+    "样本量从实际输入行数计算",
+    "默认各类型最多5个marker；没有对应标签时报错"
+  ],
+  "packages": [
+    "ggplot2",
+    "ggrepel",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/2024-4-15 复现Nature-单细胞UMAP修饰添加celltype及marker基因标注/复现nature单细胞UMAP降维图修饰.R",
+      "notes": "参考淡色点云、编号圆圈、外置marker连线；不运行FindAllMarkers；源对象未提供，坐标是固定种子的合成示例。"
+    },
+    {
+      "path": "source-collection/2024-4-15 复现Nature-单细胞UMAP修饰添加celltype及marker基因标注/marker_genes.csv",
+      "notes": "保留教程已有marker名称作展示标签，不把模拟坐标视为对应实验结果。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

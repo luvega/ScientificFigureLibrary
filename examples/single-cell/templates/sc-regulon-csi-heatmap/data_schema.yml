@@ -1,0 +1,31 @@
+{
+  "format": "CSV UTF-8",
+  "files": [
+    {
+      "path": "data/csi.csv",
+      "first_column": "regulon: unique identifier",
+      "remaining_columns": "same regulon IDs, finite numeric CSI",
+      "constraints": [
+        "square",
+        "same row/column IDs",
+        "symmetric within 1e-8",
+        "values [0,1]",
+        "diagonal 1"
+      ],
+      "metric": "CSI only, not AUC or RSS"
+    },
+    {
+      "path": "data/regulon_annotations.csv",
+      "required_columns": {
+        "regulon": "matrix identifier",
+        "module": "given module label"
+      },
+      "matching": "exact unique matrix IDs"
+    }
+  ],
+  "outputs": [
+    "preview.png",
+    "plot.pdf"
+  ],
+  "entrypoint": "code/plot.R"
+}

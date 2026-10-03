@@ -1,0 +1,11 @@
+files:
+  data/cell_counts.csv:
+    required: [sample_id, group, celltype, count]
+    unique: [sample_id, group, celltype]
+    constraints: ["finite nonnegative integer count", "one group per sample_id", "positive normalization denominators"]
+parameters:
+  normalization: [within_group, within_celltype]
+  include_total: boolean
+
+parameters:
+  data_label: "actual input scope; default Synthetic example"

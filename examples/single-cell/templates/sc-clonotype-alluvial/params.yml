@@ -1,0 +1,8 @@
+width: 13
+height: 7
+dpi: 300
+font_family: sans
+font_size: 12
+title: Celltype × clone-size alluvial (synthetic)
+node_gap: 0.035
+node_width: 0.24

@@ -1,0 +1,53 @@
+{
+  "schema": "private-figure-render.v1",
+  "status": "passed",
+  "scope": "example_data",
+  "exitCode": 0,
+  "startedAt": "2026-10-02T08:47:20.253Z",
+  "completedAt": "2026-10-02T08:47:30.513Z",
+  "command": "Rscript --vanilla code/plot.R",
+  "files": [
+    {
+      "path": "code/plot.R",
+      "bytes": 3151,
+      "sha256": "8de222d0bd4736e956e8ce870a1992114826226fbef4f654c1e0d5a73ce228d9"
+    },
+    {
+      "path": "code/common.R",
+      "bytes": 2520,
+      "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+    },
+    {
+      "path": "params.yml",
+      "bytes": 120,
+      "sha256": "d05ff60dff78b816226e8a47d3690ccebcc5fdbfbbc92456563eb53efa065d09"
+    },
+    {
+      "path": "data/category_matrix.csv",
+      "bytes": 781,
+      "sha256": "fa9436a1345037cce7f55be1cc846ebffbe72a11c1b735baff3e42bc09acda76"
+    },
+    {
+      "path": "data/column_annotations.csv",
+      "bytes": 224,
+      "sha256": "05b0794b8810bbf7b00e34b1e6a25b3d9a50b50648718d22d8cf4838cad81ee9"
+    },
+    {
+      "path": "data/category_colors.csv",
+      "bytes": 38,
+      "sha256": "5d62c802134b23c7f057d17e1a5c138d98bea7d5a5c2d49f65e7cb5d6b63b137"
+    },
+    {
+      "path": "preview.png",
+      "bytes": 176813,
+      "sha256": "6e7dcbb720e9deda4a06a2fa284cb7619f375c408d5a45e808153703eece26e7"
+    },
+    {
+      "path": "plot.pdf",
+      "bytes": 31976,
+      "sha256": "17f890c6a5c59540e81d3767ca5560280fefc573f3f2bc61cd8f9346c50e5492"
+    }
+  ],
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

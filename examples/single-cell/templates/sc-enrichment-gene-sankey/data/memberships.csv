@@ -1,0 +1,25 @@
+gene,pathway,weight
+ATP5F1D,Thermogenesis,1
+ATP5MC2,Thermogenesis,1
+COX4I1,Thermogenesis,1
+COX5B,Thermogenesis,1
+RPSA,ribosome assembly,1
+RPL5,ribosome assembly,1
+ANXA1,VEGFA-VEGFR2 signaling,1
+CCND1,VEGFA-VEGFR2 signaling,1
+FN1,VEGFA-VEGFR2 signaling,1
+CLU,regulation of apoptotic signaling pathway,1
+FGFR1,regulation of apoptotic signaling pathway,1
+GSTP1,regulation of apoptotic signaling pathway,1
+HIF1A,regulation of apoptotic signaling pathway,1
+HSPB1,regulation of apoptotic signaling pathway,1
+CCND1,Kaposi sarcoma-associated herpesvirus infection,1
+GNG5,Kaposi sarcoma-associated herpesvirus infection,1
+GNGT1,Kaposi sarcoma-associated herpesvirus infection,1
+ATP5F1D,purine nucleotide metabolic process,1
+ATP5MC2,purine nucleotide metabolic process,1
+NQO1,purine nucleotide metabolic process,1
+ACSL3,purine nucleotide metabolic process,1
+CLDN4,cell-cell adhesion,1
+APOE,Ferroptosis,1
+COL4A1,Ferroptosis,1

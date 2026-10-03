@@ -1,0 +1,45 @@
+{
+  "id": "sc-pseudotime-celltype-density",
+  "title": "拟时轴细胞类型密度图",
+  "titleEn": "Cell type density on supplied pseudotime",
+  "plotFamily": "pseudotime_celltype_density",
+  "scientificQuestion": "不同细胞类型在已给拟时轴上的密度分布有什么位置与形状差异？",
+  "description": "叠加预计算的细胞类型拟时密度曲线，并按可选分组并列展示，以观察分布峰值位置、范围和形状。",
+  "application": "- 在拟时分析完成后展示各细胞类型沿同一拟时坐标的分布，查看它们占据的相对区段。\n- 当组间拟时坐标和密度计算方法可比时，按组并列显示相同类型的曲线；曲线不直接支持细胞状态转移概率或因果顺序。",
+  "dataProfile": "celltype×group×pseudotime长表，density为外部预计算有限非负值；group可省略。",
+  "visualProfile": "青绿、橙、黄、紫具名细胞类型配色，透明叠加填充、连续曲线、组分面和共同纵轴。",
+  "inputs": [
+    {
+      "path": "data/pseudotime_density.csv",
+      "description": "4个示例类型×2组×201点的一维预计算合成密度曲线"
+    }
+  ],
+  "semanticDecisions": [
+    "density和pseudotime保持外部输入原值，不重跑Monocle、KDE或拟时根节点选择。",
+    "group可省略，省略时显示一个All data分面；若多个group，拟时单位须由用户保证可比。",
+    "曲线高度是密度，不是细胞数、细胞比例或状态转移概率；入口不再归一化或按峰值缩放。",
+    "细胞类型使用具名颜色映射，顺序改变不改变实体颜色；不使用来源p4中标签与图例颜色不一致的映射。",
+    "合成示例的每条解析高斯曲线在0–10范围用梯形积分归一化为1，仅为图式演示。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/（VIP）2024-10-14 monocle3拟时热图celltype密度图/monocle3拟时热图celltype密度图.R",
+      "sha256": "275a2afbce92a4181ee3fe3eae5a26324903d8ea13077085fd68681d57d3ca32",
+      "notes": "只读核对48–60行叠加geom_density和98–106行分类型密度图；新入口只读已计算的一维grid，不执行ks_run_monocle3或KDE。"
+    },
+    {
+      "path": "source-collection/（VIP）2024-10-14 monocle3拟时热图celltype密度图/p2.png",
+      "sha256": "4aec03618c6b4adf9379174f43267d515b074df7b65e148eeb4320281d03395f",
+      "notes": "实际查看p2.png叠加密度、透明填充和青绿橙黄紫配色；新模板不采用断轴。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

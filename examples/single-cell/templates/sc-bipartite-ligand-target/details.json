@@ -1,0 +1,52 @@
+{
+  "id": "sc-bipartite-ligand-target",
+  "title": "配体与靶基因二分网络",
+  "titleEn": "Bipartite ligand–target network",
+  "plotFamily": "bipartite_ligand_target",
+  "scientificQuestion": "已有配体–靶基因矩阵中哪些连接值得展示？",
+  "description": "左右两列节点与连接展示已有关系，边宽和深浅表示输入权重。连线不证明直接调控或因果作用。",
+  "application": "- 若已有配体–靶基因预测权重，可选择关注连接并说明模型来源。\n- 也可展示两类实体关系，但需按输入重新定义节点角色和权重。",
+  "dataProfile": "原始矩阵列为ligand、行为target，转换为正值边表后保留权重最大的36条连接。",
+  "visualProfile": "左侧圆点为ligand，右侧菱形为target，黑灰连线表示权重，标签向两侧展开。",
+  "inputs": [
+    {
+      "path": "data/edges.csv",
+      "description": "from,to,weight"
+    },
+    {
+      "path": "data/nodes.csv",
+      "description": "id,side"
+    }
+  ],
+  "semanticDecisions": [
+    "删除原例随机生成up/down注释；无信息不虚构调控方向",
+    "权重保留来源值，不重算任何网络",
+    "连线只代表输入关系"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/2024-11-13 复现NC图表：二分图 (bipartite plot) 网络绘制（三种方法）-应用于细胞互作受配体展示-调控网络展示等等/复现NC图表-二分图网络绘制.R",
+      "sha256": "d2af7778561503dc3d26ad64dc30dabb3c572a2b5d3080738cb9a2f50b19a95d",
+      "notes": "左右布局及权重连线风格"
+    },
+    {
+      "path": "source-collection/2024-11-13 复现NC图表：二分图 (bipartite plot) 网络绘制（三种方法）-应用于细胞互作受配体展示-调控网络展示等等/active_ligand_target_links.csv",
+      "sha256": "eea4c742125c2abbcd22a9c403fa1e4ca8bf3e7e9df7725719d8fefbf0c1121f",
+      "notes": "保留最大的36条正值连接"
+    },
+    {
+      "path": "source-collection/2024-11-13 复现NC图表：二分图 (bipartite plot) 网络绘制（三种方法）-应用于细胞互作受配体展示-调控网络展示等等/p1.pdf",
+      "sha256": "8ae4dd7d5abe4fd8343781f8b1e76590b7f94b065921b92e5b3e0ef0173c1fc2",
+      "notes": "实际查看第一页，只对照布局与权重编码；示例随机调控方向不沿用"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

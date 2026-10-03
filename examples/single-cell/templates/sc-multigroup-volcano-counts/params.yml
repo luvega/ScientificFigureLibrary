@@ -1,0 +1,10 @@
+width: 11
+height: 7
+dpi: 300
+font_family: sans
+font_size: 12
+data_label: Synthetic example
+p_adj_threshold: 0.05
+log2_fc_threshold: 0.5
+zero_p_floor: 1.0e-300
+labels_per_celltype: 1

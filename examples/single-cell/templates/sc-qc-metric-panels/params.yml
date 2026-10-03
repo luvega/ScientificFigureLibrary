@@ -1,0 +1,16 @@
+width: 11
+height: 5.5
+dpi: 300
+font_family: sans
+font_size: 12
+title: Cell quality metric panels
+data_label: "Synthetic example: 360 cells across 6 samples"
+point_size: 0.45
+feature_min: 200
+feature_max: 6000
+count_max: 30000
+mt_max: 5
+sample_order: [C1, C2, C3, T1, T2, T3]
+group_colors:
+  ExampleControl: '#69B7CE'
+  ExampleTreatment: '#E4502E'

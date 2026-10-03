@@ -1,0 +1,45 @@
+{
+  "id": "sc-correlation-spearman-bubble",
+  "title": "Spearman 相关性气泡矩阵",
+  "titleEn": "Spearman correlation bubble matrix",
+  "plotFamily": "spearman_correlation_bubble",
+  "scientificQuestion": "预计算相关结果中，目标基因与其他基因的关联方向和强度如何随分组变化？",
+  "description": "将预计算 Spearman 相关结果按基因与分组排列，用气泡面积展示相关系数绝对值，并用蓝色和红色分别展示负、正相关的调整后 P 值等级。",
+  "application": "- 比较不同样本组或细胞类型中，目标基因与候选基因的相关方向及强度。\n- 同时查看效应大小和多重检验调整后的显著性，筛选值得进一步验证的关联。",
+  "dataProfile": "原教程预计算结果共 744 行，包含 24 个组、31 个基因及目标 CDKN2A；系数和 P 值逐项保留。",
+  "visualProfile": "基因横轴、分组纵轴；负相关使用蓝色带边气泡，正相关使用红色气泡；点面积编码 |ρ|，两套颜色图例编码调整后 P 值等级。",
+  "inputs": [
+    {
+      "path": "data/correlations.csv",
+      "description": "group/gene/target/rho/pvalue/padj；预计算 Spearman 结果"
+    }
+  ],
+  "semanticDecisions": [
+    "不运行相关性检验，不调整或重新计算 P 值；rho 必须在 [-1,1]，pvalue 与 padj 必须在 [0,1]。",
+    "气泡面积编码 |rho|；rho=0 无面积，不归入正负相关；符号决定红或蓝。",
+    "padj 使用 <=0.0001、<=0.001、<=0.01、<=0.05、>0.05 五个互斥等级，阈值边界不留空。",
+    "默认基因与组保留输入首次出现顺序；完整名称分列保存；缺失组合不补零。",
+    "原数据是教程提供的相关结果；本包不把相关方向解释为调控或因果关系。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/KS科研分享与服务(付费内容）/2022-5-12复现NC2相关气泡图/NC相关气泡渐变图.R",
+      "sha256": "990c2701f023db4b6ab4632a8272ba17a4ed4168f92e123ae6bbe91d3e1e3f87",
+      "notes": "已核对原代码哈希；绘图风格与字段语义参考此代码。"
+    },
+    {
+      "path": "source-collection/KS科研分享与服务(付费内容）/2022-5-12复现NC2相关气泡图/CDKN2A.csv",
+      "sha256": "628a8629212ec0febd569f895a72cc065fb6dcbe4939777e8ae5ad4afaa8af55",
+      "notes": "实际读取的原教程输入；数值/类别保留，仅标准化列名。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

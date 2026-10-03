@@ -1,0 +1,57 @@
+{
+  "id": "sc-ppi-group-network",
+  "title": "分组 PPI 基因互作网络",
+  "titleEn": "Grouped protein interaction network",
+  "plotFamily": "ppi_group_network",
+  "scientificQuestion": "预计算互作边连接了哪些分组基因，节点连接数和文本挖掘支持分数如何分布？",
+  "description": "无向互作网络以节点填色表示输入基因分组，节点大小表示展示子图中的连接度，灰色线宽表示 automated_textmining 分数。标签标出给定度数阈值以上的节点。",
+  "application": "- 展示已导出的 STRING 等互作结果与独立基因分组。\n- 查看分组节点之间的连接及高连接度节点；互作支持分数不解释为结合强度或因果作用。",
+  "dataProfile": "来源 gene_group.csv 150 个基因，string_interactions.csv 378 条无向边；automated_textmining 原值 0–0.952，分组为 up/down。所有节点按完整 gene ID 关联，未查询 STRING 或重新推断网络。",
+  "visualProfile": "沿用 KK 力导布局、灰色互作线、带黑边的分组填色圆点、节点度数大小与高连接度引导线标签。边宽显示来源文本挖掘分数，图例明确命名。",
+  "inputs": [
+    {
+      "path": "data/edges.csv",
+      "description": "from,to,automated_textmining；无向端点和原文本挖掘支持分数"
+    },
+    {
+      "path": "data/nodes.csv",
+      "description": "gene,group；唯一节点 ID 及分组"
+    }
+  ],
+  "semanticDecisions": [
+    "from/to 仅是无向边端点，交换顺序不改变图义；名称保持原字符串，不拆分。",
+    "automated_textmining 为来源文本挖掘支持分数，范围 [0,1]；不是实验结合强度、表达值或整体 combined score。",
+    "节点 group 按 gene 精确关联全部端点；注释缺失、重复、额外节点均报错，避免行顺序错配。",
+    "节点大小采用所展示无向子图 degree；默认标签条件 degree > 5，数值只作为标注阈值。",
+    "禁止重复无向边与自环；不合并未知来源重复记录；零分边保留并使用最小可见线宽。",
+    "KK 布局不使用文本挖掘分数作为距离权重；节点固定按 gene 排序后布局，annotation 行顺序不影响连接和分组。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml",
+    "igraph",
+    "ggrepel"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/_绘图skill整理/解压/教程/Aeb575658259b_2022-11-28ggraph基因蛋白互作网络图.zip/ggraph基因互作网络图.R",
+      "sha256": "83c460ce8c079f2c06d935b36f75b70f768657ef8deb4f9a352546565e8f1dce",
+      "notes": "来源 2022-11-28；保留 KK 网络风格与 degree > 5 标签。原脚本按行顺序绑定 gene_info$group，重构后严格按 gene ID 关联；网络明确设为无向。"
+    },
+    {
+      "path": "source-collection/_绘图skill整理/解压/教程/Aeb575658259b_2022-11-28ggraph基因蛋白互作网络图.zip/gene_group.csv",
+      "sha256": "e01c645e186852483d6f4e86785c9ec56388a7371644636e1b1547d9e8b44db7",
+      "notes": "读取预计算原示例表；不重算上游结果"
+    },
+    {
+      "path": "source-collection/_绘图skill整理/解压/教程/Aeb575658259b_2022-11-28ggraph基因蛋白互作网络图.zip/string_interactions.csv",
+      "sha256": "28824e52a2de6bc34c6ef5268e728328631cccb713a724383a790ddc9fe209b4",
+      "notes": "读取预计算原示例表；不重算上游结果"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

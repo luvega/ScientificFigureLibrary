@@ -1,0 +1,11 @@
+width: 12
+height: 10
+dpi: 260
+font_size: 12
+font_family: sans
+layout: kk
+label_degree_threshold: 5
+seed: 20261002
+group_colours:
+  up: '#F8766D'
+  down: '#00BFC4'

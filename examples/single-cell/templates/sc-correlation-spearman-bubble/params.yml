@@ -1,0 +1,9 @@
+width: 14
+height: 10
+dpi: 300
+font_size: 11
+font_family: sans
+title: Spearman correlation with CDKN2A
+gene_order: null
+group_order: null
+max_bubble_size: 6

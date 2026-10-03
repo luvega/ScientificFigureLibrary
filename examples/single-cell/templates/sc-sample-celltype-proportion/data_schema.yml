@@ -1,0 +1,22 @@
+inputs:
+  counts:
+    required:
+      - sample_id
+      - group
+      - cell_type
+      - count
+      - total_cells
+    unique:
+      - sample_id
+      - cell_type
+    count: nonnegative integer
+    total_cells: positive integer, consistent per sample
+    denominator: all annotated input cells in the sample
+  comparisons:
+    optional_empty: true
+    required:
+      - cell_type
+      - group1
+      - group2
+      - y
+      - label

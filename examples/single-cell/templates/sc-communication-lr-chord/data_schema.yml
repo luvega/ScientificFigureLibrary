@@ -1,0 +1,17 @@
+schema: private-figure-input.v1
+fields:
+  data/input.csv:
+    source: '发送细胞类型；完整字符串'
+    target: '接收细胞类型；完整字符串'
+    ligand: '配体或复合物标识；完整字符串'
+    receptor: '受体或复合物标识；完整字符串'
+    value: '非负有限数值；来源mean或prob须声明；两种尺度不可混用'
+    pvalue: '有限数值；[0,1]；默认保留pvalue<0.05且value>0'
+files:
+  - path: data/input.csv
+    description: 标准化、预先筛选的CellPhoneDB教程结果边表
+semantics:
+  - source/target/ligand/receptor保持分列，不拆分实体名称
+  - value采用输入mean；不作因果或实际信号传递判断
+  - pvalue仅用于显式阈值过滤，不重新检验
+  - 同细胞类型同基因节点合并，权重按原始边表传入

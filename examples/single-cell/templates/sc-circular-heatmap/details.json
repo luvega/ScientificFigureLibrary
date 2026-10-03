@@ -1,0 +1,51 @@
+{
+  "id": "sc-circular-heatmap",
+  "title": "环形表达热图",
+  "titleEn": "Circular expression heatmap",
+  "plotFamily": "circular_expression_heatmap",
+  "scientificQuestion": "选定基因在已有多样本矩阵中的相对模式如何分布？",
+  "description": "数值矩阵绕圆周显示，径向轨道表示样本，扇区组织行集合。可显示原值或行z-score；行缩放表示相对模式。",
+  "application": "- 若已有表达或评分矩阵，可结合扇区和行标签展示模式。\n- 行z-score颜色不能用于比较不同基因的绝对表达量。",
+  "dataProfile": "原df_heat.csv前24行及12个样本列；每8行为一个排版Panel，数值未改。",
+  "visualProfile": "蓝–白–黄色阶、内侧树、外侧基因名和环形开口；开口标示样本轨道。",
+  "inputs": [
+    {
+      "path": "data/expression.csv",
+      "description": "基因×样本矩阵"
+    },
+    {
+      "path": "data/row_annotations.csv",
+      "description": "基因与排版sector"
+    }
+  ],
+  "semanticDecisions": [
+    "Panel是排版分区，不是生物学模块",
+    "默认按行z-score；常数行赋0并警告",
+    "聚类仅用于行布局，不做上游分析",
+    "样本名沿正确热图track伸入开口；HC1到TL6由外到内，与列顺序匹配"
+  ],
+  "packages": [
+    "circlize",
+    "ComplexHeatmap",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "derived_example",
+  "sourceRefs": [
+    {
+      "path": "source-collection/2025-3-12 circle_plot系列(1)-circlize包绘制环形热图详细注释版.zip",
+      "sha256": "a5831e98e9337f74c0c8dec154d5a31032352b0b965b41e13f77a3dacd394a05",
+      "archiveEntry": "环形热图.R",
+      "notes": "矩阵和布局参考"
+    },
+    {
+      "path": "source-collection/2025-3-12 circle_plot系列(1)-circlize包绘制环形热图详细注释版.zip",
+      "sha256": "a5831e98e9337f74c0c8dec154d5a31032352b0b965b41e13f77a3dacd394a05",
+      "archiveEntry": "df_heat.csv",
+      "notes": "前24行及全部12列"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

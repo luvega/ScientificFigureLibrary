@@ -1,0 +1,27 @@
+{
+  "files": {
+    "data/density_grid.csv": {
+      "required": [
+        "x",
+        "y",
+        "density",
+        "gene"
+      ],
+      "unique": [
+        "gene",
+        "x",
+        "y"
+      ],
+      "constraints": [
+        "finite numeric x y density",
+        "density >= 0 and each gene has positive density",
+        "complete shared evenly spaced rectangular grid",
+        "at least three points per axis"
+      ]
+    }
+  },
+  "parameters": {
+    "density_max": "null for input maximum; no clipping",
+    "contour_bins": "positive integer; interpolation of existing grid only"
+  }
+}

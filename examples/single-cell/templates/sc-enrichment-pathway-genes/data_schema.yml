@@ -1,0 +1,23 @@
+{
+  "format": "CSV UTF-8",
+  "files": [
+    {
+      "path": "data/enrichment.csv",
+      "required_columns": {
+        "group": "string, nonempty",
+        "pathway": "string, nonempty",
+        "qvalue": "number in [0,1]",
+        "genes": "Entrez IDs separated by /"
+      },
+      "optional_columns": {
+        "pathway_id": "string"
+      },
+      "row_unit": "a pathway result within one given module"
+    }
+  ],
+  "outputs": [
+    "preview.png",
+    "plot.pdf"
+  ],
+  "entrypoint": "code/plot.R"
+}

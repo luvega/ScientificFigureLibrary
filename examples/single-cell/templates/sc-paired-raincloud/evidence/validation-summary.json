@@ -1,0 +1,36 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 7,
+  "inputCasesPassed": 7,
+  "semanticCases": 2,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "e1c30fdae0ed550e0ff38e8166b991c7c63a0addd61263f2c7d71835a6711aec",
+        "actual": "e1c30fdae0ed550e0ff38e8166b991c7c63a0addd61263f2c7d71835a6711aec",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "54a322c502a4e321a98f5656716543cd7cfe493104a3bbbbec14e3320f21d813",
+        "actual": "54a322c502a4e321a98f5656716543cd7cfe493104a3bbbbec14e3320f21d813",
+        "passed": true
+      }
+    ],
+    "review": "Outward half densities, boxes, 40 dots and within-family links are visible; Richness axis follows the input."
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

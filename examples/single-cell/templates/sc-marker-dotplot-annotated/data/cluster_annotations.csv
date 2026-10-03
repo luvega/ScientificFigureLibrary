@@ -1,0 +1,15 @@
+cluster_id,celltype,lineage
+C1,Mac,Immune
+C2,Mac,Immune
+C3,Ly,Immune
+C4,Ly,Immune
+C5,Cepi,Epithelial
+C6,Cepi,Epithelial
+C7,Uepi,Epithelial
+C8,Uepi,Epithelial
+C9,Endo,Endothelial
+C10,Endo,Endothelial
+C11,SMC,Stromal
+C12,SMC,Stromal
+C13,Sfib,Stromal
+C14,Sfib,Stromal

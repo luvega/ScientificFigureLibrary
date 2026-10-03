@@ -1,0 +1,53 @@
+{
+  "schema": "private-figure-render.v1",
+  "status": "passed",
+  "scope": "synthetic_data",
+  "exitCode": 0,
+  "startedAt": "2026-10-02T04:40:05.866Z",
+  "completedAt": "2026-10-02T04:40:17.466Z",
+  "command": "Rscript --vanilla code/plot.R",
+  "files": [
+    {
+      "path": "code/plot.R",
+      "bytes": 3878,
+      "sha256": "dac9e88015ed74c92eba05a35ddeb4c16833668570143dc701cd1f120ef1172e"
+    },
+    {
+      "path": "code/common.R",
+      "bytes": 2520,
+      "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+    },
+    {
+      "path": "params.yml",
+      "bytes": 202,
+      "sha256": "989b5e71730f49cacb9e15d30cbc064a49c52e3475d847ee28602bcd22706a6e"
+    },
+    {
+      "path": "data/mean_expression.csv",
+      "bytes": 670,
+      "sha256": "a853a553012e51ee23613daea0365fbeba1f1e2b6a17489fdc96d37463fdfa64"
+    },
+    {
+      "path": "data/gene_annotations.csv",
+      "bytes": 268,
+      "sha256": "9c4320a8ecfa17505f62e31580c9eb67943253c1494165683c841ac6a3949b30"
+    },
+    {
+      "path": "data/celltype_annotations.csv",
+      "bytes": 111,
+      "sha256": "6e0194498c06444c40672c2d994fbaf13422d38f510b0da2a96044d632118b36"
+    },
+    {
+      "path": "preview.png",
+      "bytes": 129536,
+      "sha256": "a82edc426a32e7183c49a334434125f423f770b7ed3130699d0a57969de62fb5"
+    },
+    {
+      "path": "plot.pdf",
+      "bytes": 40098,
+      "sha256": "a4dded6c89311f455eff62836670bd140f30f609247dc128025eb8d7b23724b3"
+    }
+  ],
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

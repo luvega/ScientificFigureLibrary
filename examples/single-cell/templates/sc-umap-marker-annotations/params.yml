@@ -1,0 +1,8 @@
+width: 12
+height: 8
+dpi: 300
+font_family: sans
+font_size: 12
+point_alpha: 0.3
+marker_limit: 5
+data_label: 'Synthetic coordinates; tutorial marker labels'

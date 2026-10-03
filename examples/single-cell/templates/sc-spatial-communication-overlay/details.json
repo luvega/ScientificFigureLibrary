@@ -1,0 +1,48 @@
+{
+  "id": "sc-spatial-communication-overlay",
+  "title": "空间细胞通讯叠加图",
+  "titleEn": "Spatial communication overlay",
+  "plotFamily": "spatial_communication_overlay",
+  "scientificQuestion": "提供的定向通讯边如何分布在给定空间坐标中？",
+  "description": "在固定空间坐标上显示细胞类型节点和定向通讯边，按信号分面、用线宽展示提供的通讯分数。",
+  "application": "- 展示已有空间通讯结果与节点坐标的对应关系。\n- 比较不同信号在同一样本坐标中的边分布。",
+  "dataProfile": "合成输入含6个群体中心、2个信号和8条定向边；坐标单位为示意微米。用于接口和方向验证，不对应真实组织或CellChat推断。",
+  "visualProfile": "按信号分面，群体色点、定向箭头和完整细胞类型标签；图像坐标可明确选择纵轴向下。",
+  "inputs": [
+    {
+      "path": "data/nodes.csv",
+      "description": "node_id/sample_id/cell_type/x/y；节点可为已有群体中心或spot"
+    },
+    {
+      "path": "data/edges.csv",
+      "description": "edge_id/source/target/signal/ligand/receptor/weight；名称分列"
+    },
+    {
+      "path": "data/celltype_colors.csv",
+      "description": "cell_type/color；覆盖全部节点类别"
+    }
+  ],
+  "semanticDecisions": [
+    "输入坐标不交换x/y；image模式只反转显示y轴，cartesian模式纵轴向上，使用相同固定比例。",
+    "箭头从source指向target；两个端点必须位于同一样本，本模板展示单一样本。",
+    "ligand和receptor独立列保存，禁止拆分含下划线、竖线、连字符的名称。",
+    "每个signal/source/target组合只允许一个已汇总的边；不同LR行不得在绘图时隐式相加。",
+    "weight是输入的预计算分数，不等同于空间距离、蛋白结合或因果证据。没有组织图像时不生成假组织背景。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/10_空间Bulk与其他组学/空间细胞通讯/Cbdc16255ee93__结合10X空间坐标建立CellChat对象推断通讯并展示空间互作.R",
+      "sha256": "7d84cc2748308166b03a1c3574c968ecd5c6b3184526ba0d0c2c4260aae14041",
+      "notes": "仅阅读图式与已输出数据，未执行来源流程。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

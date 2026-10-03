@@ -1,0 +1,36 @@
+{
+  "schema": "single-cell.example-validation.v1",
+  "checkedAt": "2026-10-02T14:33:52.616Z",
+  "plotExecution": "passed",
+  "inputCases": 7,
+  "inputCasesPassed": 7,
+  "semanticCases": 2,
+  "visualReview": {
+    "status": "passed",
+    "checks": [
+      {
+        "path": "preview.png",
+        "expected": "90870ecd188c5a732f1c1b6d08c66a5d2610be2157cfbefa29db00cecff83a92",
+        "actual": "90870ecd188c5a732f1c1b6d08c66a5d2610be2157cfbefa29db00cecff83a92",
+        "passed": true
+      },
+      {
+        "path": "plot.pdf",
+        "expected": "622c9b920f5ef68ca29f43fdfffaa8b056870497b1e54a167b28c1a0578d7ca1",
+        "actual": "622c9b920f5ef68ca29f43fdfffaa8b056870497b1e54a167b28c1a0578d7ca1",
+        "passed": true
+      }
+    ],
+    "review": "All 24 groups and 31 genes are visible; separate sign and adjusted-P legends and absolute-rho area legend are readable."
+  },
+  "isolatedReuse": {
+    "status": "passed",
+    "searchFound": true,
+    "previewConfirmed": true,
+    "materializedUnchanged": true,
+    "rerenderStatus": "passed"
+  },
+  "evidenceScope": "Historical validation of identical runtime and preview bytes; full private test logs and local publication receipts are not distributed.",
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

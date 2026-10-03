@@ -1,0 +1,21 @@
+{
+  "format": "CSV UTF-8",
+  "files": [
+    {
+      "path": "data/expression.csv",
+      "required_columns": {
+        "gene": "unique nonempty identifier",
+        "a": "number >= 0",
+        "b": "number >= 0",
+        "c": "number >= 0"
+      },
+      "constraint": "a+b+c>0; comparable input units",
+      "coordinate_mapping": "a left bottom, b right bottom, c top"
+    }
+  ],
+  "outputs": [
+    "preview.png",
+    "plot.pdf"
+  ],
+  "entrypoint": "code/plot.R"
+}

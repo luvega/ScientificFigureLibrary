@@ -1,0 +1,22 @@
+{
+  "seed": null,
+  "description": "固定解析高斯曲线：4个示例类型均值0.9、3、5.5、8.2，标准差0.45、0.75、0.9、0.85；第二示例组均值平移0.35。每条曲线在0–10、步长0.05网格上梯形积分归一化为1。没有拟时分析、KDE或真实细胞状态结论。",
+  "algorithm": "N(mean+group_shift,sd) evaluated on grid; divide by trapezoid integral on [0,10]",
+  "means": [
+    0.9,
+    3,
+    5.5,
+    8.2
+  ],
+  "standard_deviations": [
+    0.45,
+    0.75,
+    0.9,
+    0.85
+  ],
+  "group_shifts": [
+    0,
+    0.35
+  ],
+  "grid_step": 0.05
+}

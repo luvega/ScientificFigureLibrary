@@ -1,0 +1,45 @@
+{
+  "id": "sc-marker-density-umap",
+  "title": "预计算marker密度UMAP图",
+  "titleEn": "Precomputed marker density maps",
+  "plotFamily": "marker_density_umap",
+  "scientificQuestion": "已计算的marker密度在嵌入空间中的高值区域位于何处？",
+  "description": "将已给定的二维marker密度网格绘为黑底色面，并用等值线标出密度层次，比较多个基因高值区域的位置。",
+  "application": "- 展示外部计算的marker密度结果，查看表达相关高值区域与既有嵌入空间的位置关系。\n- 当多个基因的密度方法、单位和网格一致时，用共同色标比较密度数值；不同方法结果应单独解释。",
+  "dataProfile": "gene×x×y的完整等距矩形网格，density为有限非负的预计算值；所有基因共享网格。",
+  "visualProfile": "黑底横向基因分面、magma连续填色、白色点状等值线和共同密度色标。",
+  "inputs": [
+    {
+      "path": "data/density_grid.csv",
+      "description": "3个示例基因×45×45合成二维密度网格"
+    }
+  ],
+  "semanticDecisions": [
+    "入口只读已计算density_grid.csv，不运行KDE、Nebulosa、表达阈值筛选或降维。",
+    "源图采用细胞点密度，新模板明确采用完整矩形密度网格色面；两者输入结构不同。",
+    "等值线由已有grid插值形成，不是重新估计密度，也不是细胞类型边界。",
+    "所有基因共用密度数值色标；输入值不重新归一化或按峰值缩放。",
+    "合成示例为解析高斯混合密度，固定网格，无真实基因或细胞类型结论。"
+  ],
+  "packages": [
+    "ggplot2",
+    "ragg",
+    "yaml"
+  ],
+  "dataScope": "synthetic",
+  "sourceRefs": [
+    {
+      "path": "source-collection/(VIP)2024-9-26【函数】单细胞marker基因密度图修饰以及一键函数/【函数】单细胞marker基因密度图修饰以及一键函数.R",
+      "sha256": "f243a15d68b2295d98522ec2da6f5c889b03a9e2fadea3cfe5ebbb61760432d1",
+      "notes": "只读核对single_CM_density函数156–269行，尤其178–198行预计算密度提取和点绘图；新入口改为读取现成矩形grid，不调用Nebulosa。"
+    },
+    {
+      "path": "source-collection/(VIP)2024-9-26【函数】单细胞marker基因密度图修饰以及一键函数/p2.png",
+      "sha256": "68a8c24759d102081b828a110060e3464bbf2d3aaf929557fc4695c940e6255a",
+      "notes": "实际查看p2.png黑底magma marker分面图；仅作配色和图层参考，未使用其来源对象或密度数值。"
+    }
+  ],
+  "license": "unknown",
+  "distribution": "public_copy",
+  "sourceAttribution": "Source collection labels and original hashes are retained; source files and analysis objects are not bundled."
+}

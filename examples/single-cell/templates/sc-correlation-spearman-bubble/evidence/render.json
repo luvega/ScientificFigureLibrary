@@ -1,0 +1,43 @@
+{
+  "schema": "private-figure-render.v1",
+  "status": "passed",
+  "scope": "example_data",
+  "exitCode": 0,
+  "startedAt": "2026-10-02T08:47:20.249Z",
+  "completedAt": "2026-10-02T08:47:25.116Z",
+  "command": "Rscript --vanilla code/plot.R",
+  "files": [
+    {
+      "path": "code/plot.R",
+      "bytes": 3159,
+      "sha256": "6b4cce8faab1b4ec60201f0ae1386243d93df1ac3ee7c440ff9dc1089dc9a1ec"
+    },
+    {
+      "path": "code/common.R",
+      "bytes": 2520,
+      "sha256": "f6bc5202bcb03748fdd3b834679a7528b0d118f2868a7879026e36edc3d2ebbf"
+    },
+    {
+      "path": "params.yml",
+      "bytes": 156,
+      "sha256": "bef64338e05b12f2a72c24ea8471b79f20e6322e760eaa300a785e0a7f62b6f6"
+    },
+    {
+      "path": "data/correlations.csv",
+      "bytes": 37601,
+      "sha256": "eb73347360007a96f2b00c89f7fc5eda0c1eece9001a84d7f58fe93bde32e55f"
+    },
+    {
+      "path": "preview.png",
+      "bytes": 676193,
+      "sha256": "90870ecd188c5a732f1c1b6d08c66a5d2610be2157cfbefa29db00cecff83a92"
+    },
+    {
+      "path": "plot.pdf",
+      "bytes": 53237,
+      "sha256": "622c9b920f5ef68ca29f43fdfffaa8b056870497b1e54a167b28c1a0578d7ca1"
+    }
+  ],
+  "upstreamWorkflow": "not_run",
+  "scientificValidation": "not_assessed"
+}

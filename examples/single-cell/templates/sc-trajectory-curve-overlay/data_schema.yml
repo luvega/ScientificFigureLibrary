@@ -1,0 +1,9 @@
+inputs:
+  cells.csv:
+    required: [cell_id, x, y, celltype, pseudotime]
+    unique: cell_id
+    numeric: 'finite x/y; finite nonnegative pseudotime'
+  curves.csv:
+    required: [lineage, order, x, y]
+    unique: [lineage, order]
+    relation: 'each lineage >= 2 points; positive integer order'

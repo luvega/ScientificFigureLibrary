@@ -1,0 +1,10 @@
+# 绘图参数；不改变上游分析或统计结果
+width: 12
+height: 7
+dpi: 300
+font_family: "sans"
+font_size: 12
+title: "Existing CPDB ligand–receptor results"
+value_label: "CPDB mean (provided)"
+pvalue_floor: 1.0e-06
+max_point_size: 7.5
