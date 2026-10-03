@@ -4,7 +4,9 @@
 
 # Scientific Figure Library
 
-本 fork 新增 [38项单细胞绘图模板](examples/single-cell/README.md)：R代码、最小示例、参数、PNG/PDF、来源说明和验证摘要。模板来源许可保留为 unknown，详见 [许可说明](examples/single-cell/LICENSE_NOTICE.md)。
+**正在查看 luvega 维护的版本。请从 [luvega 版使用说明](README.luvega.zh-CN.md) 开始**：获取 `luvega` 分支、运行模板、接入 SFL，以及保留自己改动的上游同步方法。
+
+本 fork 新增 [38 项单细胞绘图模板](examples/single-cell/README.md)：R 代码、最小示例、参数、PNG/PDF、来源说明和验证摘要。模板来源许可保留为 unknown，详见 [许可说明](examples/single-cell/LICENSE_NOTICE.md)。以下为上游通用介绍；本 fork 的安装入口以专用使用说明为准。
 
 [Website](https://xuzhougeng.github.io/ScientificFigureLibrary/) ·
 [English](README.md) ·

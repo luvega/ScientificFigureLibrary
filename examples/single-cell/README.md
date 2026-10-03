@@ -2,7 +2,7 @@
 
 本目录由 luvega fork 维护，包含38个可独立运行的R绘图包：20个已有案例结果衍生示例（derived_example），18个合成示例（synthetic）。来源于四批单细胞作图整理，保持稳定的 sc- 模板身份、相对输入、独立入口和中文说明。
 
-[预览总览](preview-overview.png) · [目录与资产哈希](catalog.json) · [验证状态](VALIDATION.md) · [许可与来源](LICENSE_NOTICE.md)
+[luvega 版使用说明](../../README.luvega.zh-CN.md) · [预览总览](preview-overview.png) · [目录与资产哈希](catalog.json) · [验证状态](VALIDATION.md) · [许可与来源](LICENSE_NOTICE.md)
 
 ![38项预览](preview-overview.png)
 
@@ -21,10 +21,10 @@
 这些目录是可运行案例，托管到GitHub本身不会自动注册为Provider。需要收入自己的本机图库时，在仓库根目录执行：
 
 ```sh
-node scripts/private-template-tools.mjs candidate --template examples/single-cell/templates/sc-spatial-communication-overlay --out candidate.local.json
+node scripts/private-template-tools.mjs candidate --template examples/single-cell/templates/sc-spatial-communication-overlay --out ../sc-spatial-candidate.local.json
 ```
 
-将本机生成的候选交给 SFL 的 plan_publish，审阅后 apply_publish。候选继续采用 unknown 许可和本机使用范围；不得把公开可下载理解为已取得新的再分发许可。candidate.local.json 含本机资产路径，应保留在自己的工作区。详见 [迁移工具说明](../../docs/PRIVATE_TEMPLATE_MIGRATION.zh-CN.md)。SFL不执行绘图；由宿主执行代码。
+将本机生成的候选交给 SFL 的 plan_publish，审阅后 apply_publish。候选继续采用 unknown 许可和本机使用范围；不得把公开可下载理解为已取得新的再分发许可。sc-spatial-candidate.local.json 含本机资产路径，应保留在仓库外的本机工作区。详见 [迁移工具说明](../../docs/PRIVATE_TEMPLATE_MIGRATION.zh-CN.md)。SFL不执行绘图；由宿主执行代码。
 
 ## 模板目录
 

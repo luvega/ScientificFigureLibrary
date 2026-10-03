@@ -2,6 +2,14 @@
 
 适用于整个仓库。保持本文件简短，只放日常开发约束和按需阅读入口；详细设计、决策依据和任务进度放在对应文档中。
 
+## luvega fork 维护规则
+
+- 本 fork 的写入目标固定为 `luvega/ScientificFigureLibrary`（`origin`）；`xuzhougeng/ScientificFigureLibrary`（`upstream`）只用于读取更新。除非用户日后明确改变约定，不向原作者推送，也不创建、重开或提交上游 PR。
+- `main` 保留上游基线；`luvega` 是定制版与 fork 默认分支。保留新增模板、迁移工具、说明和规则，持续接入上游更新；每次版本更新或发布前先比较上游，再合并、解决冲突并验证。不得用强制同步、重置或强推覆盖自己的改动。
+- 提交和推送前核对仓库及分支；GitHub CLI 的默认仓库设为本 fork。已撤销的 `feat/private-single-cell-migration` 远程分支不自动恢复。
+- 使用说明见 [luvega 版 README](README.luvega.zh-CN.md)，具体同步步骤见 [Fork 维护](docs/FORK_MAINTENANCE.zh-CN.md)。更新用户可见行为时同步说明；不把这项维护约定描述为已经启用的定时同步服务。
+- 公开副本限于已获授权的 `examples/single-cell/`；保留实际许可与证据范围，不提交私有来源目录、本机路径、图库配置或审批回执。
+
 ## 产品边界
 
 - SFL 是本地图片—代码知识库客户端，管理可复用图片、代码及其关联，提供浏览、检索、预览、选择、导入、发布和材料化；具体研究任务的组织、执行与持续管理由宿主 Agent 负责。
