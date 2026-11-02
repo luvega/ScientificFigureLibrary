@@ -2,7 +2,9 @@
 
 这是 [luvega 的 SFL fork](https://github.com/luvega/ScientificFigureLibrary)，以原项目 **0.9.2** 为当前基线，补充了 **38 个可独立运行的单细胞绘图模板**、案例迁移工具和运行目录准备工具。定制版放在 `luvega` 分支；`main` 保留上游基线。
 
-[38 个模板与预览](examples/single-cell/README.md) · [验证记录](examples/single-cell/VALIDATION.md) · [许可与来源](examples/single-cell/LICENSE_NOTICE.md) · [同步维护](docs/FORK_MAINTENANCE.zh-CN.md)
+[在线使用文档](https://luvega.github.io/ScientificFigureLibrary/) · [38 个模板与预览](examples/single-cell/README.md) · [验证记录](examples/single-cell/VALIDATION.md) · [许可与来源](examples/single-cell/LICENSE_NOTICE.md) · [同步维护](docs/FORK_MAINTENANCE.zh-CN.md)
+
+在线网站从 `luvega` 分支的公开说明生成，提供项目介绍、安装、MCP 接入及案例复用方法。私有案例、真实研究数据和本机运行证据继续保存在本机；网站构建与发布说明见 [Pages 维护](docs/PAGES.luvega.zh-CN.md)。
 
 本版还支持将本机真实数据案例按数据类型、作图目的接入 Local Published。图库界面的两个中文分类下拉从已发布来源标签生成，MCP 提供 `requiredTags` 精确组合过滤。材料化后由宿主准备独立工作副本并重新出图、保存来源和执行证据。具体用法见[真实数据案例接入说明](docs/REAL_DATA_CASES.zh-CN.md)；私有案例及研究数据不随公开仓库分发。
 
