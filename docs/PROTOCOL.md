@@ -651,7 +651,7 @@ catalog itself and choose by meaning. It is read-only and model-visible.
 
 - A new listing takes optional `providerIds` (default Providers when omitted;
   Community stays explicit-only), `familyGroup`, `plotFamily`, `language`,
-  `assetKind`, `limit` (0–100, default 50; `0` returns counts and facets only)
+  `assetKind`, `requiredTags`, `limit` (0–100, default 50; `0` returns counts and facets only)
   and `detail` (`compact`, the default, or `full`). It registers an ordinary
   browse result set: the same Provider filters, catalog revision and Library
   binding checks as search; a `familyGroup` filter is applied to the Provider
@@ -667,7 +667,7 @@ catalog itself and choose by meaning. It is read-only and model-visible.
   (per-Provider `matched` and `health`), `facets` (`providerId`, `familyGroup`,
   `plotFamily`, `language`, `assetKind` counts over the whole filtered listing;
   empty values appear as `unclassified`/`unknown`) and `entries[]` with
-  `candidateId`, `providerId`, `templateId`, `title`, optional `titleEn`,
+  `candidateId`, `providerId`, `templateId`, `title`, optional `titleEn` and source `tags`,
   `familyGroup`, `plotFamily`, `language`, `assetKind`, `thumbnailAvailable` and
   a single-line `summary`.
   Text content repeats this as one `|`-separated line per entry. `compact` lines
@@ -676,6 +676,41 @@ catalog itself and choose by meaning. It is read-only and model-visible.
   `[no-thumbnail]`; `full` lines add language, Provider and thumbnail columns with
   a 100-character summary. It contains no images, exact selectors, challenges
   or receipts.
+- `requiredTags` is an optional array of at most 100 source tag strings, each
+  at most 200 characters. Both keyword search and catalog listing require
+  **every** requested tag (AND), before ranking, counts, facets and pagination.
+  Matching trims each tag, normalizes Unicode to NFC, removes empty strings,
+  deduplicates and sorts; it remains case-sensitive and matches whole tags.
+  `undefined`, `[]` and whitespace-only arrays impose no tag filter. For example,
+  `["expression", "heatmap"]` requires both source labels; a matching title or
+  description cannot satisfy a missing tag. No tag taxonomy or data-type/purpose
+  enumeration is built into the service.
+- Local Published, Open Figure Modules and public catalog Providers use their
+  stored source tags. FigureYa has no source-tag field and returns no matches
+  for a nonempty `requiredTags` filter; SFL never infers tags from prose or
+  filenames. Optional `tags` in search candidates and catalog entries preserve
+  source metadata values. The Local gallery API accepts the same `requiredTags`;
+  private `customTag` annotations remain separate and cannot satisfy it. The
+  Web gallery exposes **数据类型** and **作图目的** dropdowns, populated only
+  from Local Published source tags prefixed with `数据类型:` and `作图目的:`.
+  The full selected source tags are sent as `requiredTags`; no classification
+  values are hardcoded or inferred from prose. Both default to all; **清空分类**
+  removes both constraints, so older entries without classification remain
+  visible in the unfiltered gallery. The native client has no dedicated control.
+- Local gallery responses include `tagFacets: { providerId, tags: [{ value,
+  count }] }` over all Local Published Heads, independently of the current
+  Provider choice, keyword or tag intersection. Source tags are normalized as
+  for matching and counted once per template. It reuses the metadata listing
+  memo rather than resolving each full candidate. `galleryPage` preserves its
+  cached result set and omits `tagFacets`; the Web controls retain the full
+  options across pagination. These facets are separate from catalog listing
+  facets and never include Working-only or private custom tags.
+- Normalized nonempty `requiredTags` participate in the search query digest.
+  Pagination continues the existing filtered result set without new filters;
+  changing tags requires a new search/listing. `catalogRevision` describes
+  Provider content, not the filter: cache prior catalog pages together with
+  their original Provider and tag filters, and do not reuse a narrow listing
+  as evidence about another tag combination or the entire library.
 - A keyword `figure_library_search` with no match points the Agent to this tool.
   The Skill makes catalog listing plus semantic choice the default for a
   described need and keeps keyword search for named templates or chart types.

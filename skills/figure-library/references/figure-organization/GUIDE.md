@@ -11,6 +11,7 @@ Respect the active project's AGENTS instructions, directories, language and exec
 - Preserve author functions. Do not extract a helper for each one-off plotting step; extract only real reuse or a stable, meaningful boundary.
 - Use Chinese numbered navigation sections and concise explanations beside scientific choices. Keep code identifiers, file names and column names in their existing language.
 - Record actual input/output paths and the producing script. Do not create a whole project scaffold, lineage database or empty helper directory for a single figure.
+- When a materialized case includes `host-run.json`, read its declared relative files, steps, output names and source references. Verify the current input/code/parameter hashes, restore the `template.json` runtime mapping into a fresh work directory, and execute only the authorized declared steps using the Host's configured runtime. Preserve original evidence separately; record new logs, session/package versions, exit status and PNG/PDF hashes. Cached real results support redraw without repeating upstream fitting. A historical wrapper stored as evidence is not a new execution step.
 - Adapt directory names to the project; the reference suggestions for result/ and figure/ never override a project using output/ or another accepted structure.
 - Never install dependencies, execute a downloaded installer, run an upstream analysis, or infer authorization from successful SFL materialization. Use only the execution scope the user has granted.
 

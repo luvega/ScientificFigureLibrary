@@ -102,6 +102,7 @@ import {
 } from "./candidate-images.ts";
 import { defineCatalogListing } from "./catalog-listing.ts";
 import { plotFamilyGroup, type PlotFamilyGroup } from "./plot-family-groups.ts";
+import { normalizeRequiredTags, RequiredTagsSchema } from "./search-tags.ts";
 
 export { VERSION };
 export const MATERIALIZATION_PROTOCOL_VERSION = 2;
@@ -125,6 +126,7 @@ const SearchInput = z.object({
   plotFamily: z.string().min(1).max(200).optional(),
   reviewStatus: z.enum(["not_reviewed", "draft", "approved", "archived"]).optional(),
   codeStatus: z.enum(["none", "scaffold", "provided", "reviewed"]).optional(),
+  requiredTags: RequiredTagsSchema,
   providerIds: z
     .array(z.string().min(1).max(200))
     .min(1)
@@ -219,6 +221,7 @@ function headlessPlotTaskItem(candidate: TemplateCandidate) {
     ...(candidate.materializationSelectors ? { materializationSelectors: candidate.materializationSelectors } : {}),
     ...(candidate.materializationModes ? { materializationModes: candidate.materializationModes } : {}),
     title: candidate.title,
+    ...(candidate.tags ? { tags: [...candidate.tags] } : {}),
     ...(candidate.titleEn ? { titleEn: candidate.titleEn } : {}),
     description: candidate.description,
     application: candidate.application ?? "",
@@ -317,6 +320,7 @@ function searchQueryDigest(input: ParsedSearchInput) {
       plotFamily: input.plotFamily ?? null,
       reviewStatus: input.reviewStatus ?? null,
       codeStatus: input.codeStatus ?? null,
+      ...(normalizeRequiredTags(input.requiredTags).length ? { requiredTags: normalizeRequiredTags(input.requiredTags) } : {}),
       providerIds: [...input.providerIds].sort(),
       limit: input.limit,
       browse: input.browse === true,
@@ -1016,6 +1020,7 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
       plotFamily: parsedInput.plotFamily,
       reviewStatus: parsedInput.reviewStatus,
       codeStatus: parsedInput.codeStatus,
+      requiredTags: parsedInput.requiredTags,
       ...(parsedInput.browse ? { browse: true } : {}),
     };
     const context = await currentLibraries();
@@ -1182,6 +1187,7 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
           ...(input.templates ? { templateKeys: input.templates.map((item) => templateKey(item.providerId, item.templateId)) } : {}),
           language: input.language,
           assetKind: input.assetKind,
+          requiredTags: input.requiredTags,
           providerIds: input.providerIds ?? registry.defaultProviderIds(),
           limit: input.limit,
         },
@@ -1701,17 +1707,19 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
         query: z.string().max(2000).optional(),
         dataProfile: z.string().max(2000).optional(),
         customTag: z.string().trim().min(1).max(40).optional(),
+        requiredTags: RequiredTagsSchema,
         /** "url": the local web client loads cached card thumbnails from /api/thumb instead of inline data URLs. */
         thumbnailDelivery: z.enum(["inline", "url"]).optional(),
       }).strict().parse(raw ?? {});
       const operationStartedAt = performance.now();
       const correlationId = diagnostics.createCorrelationId("gallery");
       try {
-        return await executeUnifiedSearch({
+        const response = await executeUnifiedSearch({
           parsedInput: {
             query: input.query ?? "",
             browse: !input.query?.trim(),
             dataProfile: input.dataProfile,
+            requiredTags: input.requiredTags,
             providerIds: input.providerIds ?? registry.defaultProviderIds(),
             limit: input.limit ?? 12,
           },
@@ -1723,6 +1731,18 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
           operationStartedAt,
           ...(input.thumbnailDelivery === "url" ? { thumbnails: localThumbnails } : {}),
         });
+        // Facets describe every Local Published Head, independent of this query/filter.
+        // Reuse the verified listing memo instead of resolving each candidate again.
+        const { versionedLibrary } = await currentLibraries();
+        const counts = new Map<string, number>();
+        for (const item of await versionedLibrary.listPublishedCandidates()) {
+          for (const tag of normalizeRequiredTags(item.tags)) counts.set(tag, (counts.get(tag) ?? 0) + 1);
+        }
+        return { ...response, structuredContent: { ...response.structuredContent,
+          tagFacets: { providerId: LOCAL_LIBRARY_PROVIDER_ID,
+            tags: [...counts].sort(([left], [right]) => left < right ? -1 : left > right ? 1 : 0)
+              .map(([value, count]) => ({ value, count })) },
+        } };
       } catch (error) {
         return previewFailure("Gallery listing failed", error);
       }

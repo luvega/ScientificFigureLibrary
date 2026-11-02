@@ -14,6 +14,7 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 import { createServer } from "../src/server.ts";
 import { resetNetworkAccessForTests } from "../src/network-access.ts";
+import { VersionedTemplateLibrary, type VersionedTemplateCandidate } from "../src/versioned-library.ts";
 
 const png = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=", "base64");
 const hash = (value: Uint8Array) => createHash("sha256").update(value).digest("hex");
@@ -88,6 +89,9 @@ test("local app HTML exposes dual gallery pagination without a browse-gallery bu
   assert.doesNotMatch(html, /id="refresh"/u);
   assert.match(html, /id="pick-materialize-directory"/u);
   assert.match(html, /id="copy-selection"/u);
+  assert.match(html, /id="search-data-type"/u);
+  assert.match(html, /id="search-plot-purpose"/u);
+  assert.match(html, /id="clear-source-filters"/u);
   assert.match(html, /复制绘图提示词/u);
   assert.match(html, /参考包未缓存时会先下载固定版本再复制/u);
   assert.doesNotMatch(html, /id="cache-selection"|缓存所选参考/u);
@@ -336,6 +340,11 @@ test("local client binds, uploads, imports, reviews, publishes, previews and mat
   const search = await external.callTool({ name: "figure_library_search", arguments: { query: "localclientfixture", providerIds: ["org.scientificfigurelibrary.local"] } });
   assert.ok((data(search).candidates as unknown[])?.length, JSON.stringify(search));
   const candidate = record((data(search).candidates as unknown[])[0]);
+  const localTagged = data(await api("/api/gallery", { providerIds: ["org.scientificfigurelibrary.local"], requiredTags: [" localclientfixture ", "localclientfixture"] }));
+  assert.equal(records(localTagged.candidates).length, 1);
+  assert.deepEqual(records(localTagged.candidates)[0]!.tags, ["localclientfixture"]);
+  assert.equal(records(data(await api("/api/gallery", { providerIds: ["org.scientificfigurelibrary.local"], requiredTags: ["localclientfixture", "个人分类"] })).candidates).length, 0, "private custom tags must not satisfy source-tag filters");
+  assert.equal(records(data(await api("/api/gallery", { providerIds: ["org.scientificfigurelibrary.local"], requiredTags: ["LocalClientFixture"] })).candidates).length, 0);
   const selection = { resultSetId: data(search).resultSetId, providerId: candidate.providerId, exactSelector: candidate.exactSelector };
   const preview = await api("/api/preview", selection);
   const exact = data(preview);
@@ -392,6 +401,54 @@ test("closing a shared service ends direct operations and local preview access",
   await assert.rejects(service.execute("figure_library_source_status"), /closed/u);
   await assert.rejects(service.local.library(), /closed/u);
   await assert.rejects(service.readResource("figure-library://guidance/figure-library/SKILL.md"), /closed/u);
+});
+
+test("Local gallery source-tag facets cover all Published metadata independently of search and pagination", async t => {
+  const { api, call, overrides } = await isolated(t);
+  const binding = record(data(await call("figure_library_plan_bind_global", { libraryDirectory: overrides.FIGURE_LIBRARY_DIR, migrationMode: "none" })).plan);
+  await call("figure_library_apply_bind_global", { planDigest: binding.planDigest, operationId: "bind-source-tag-facets" }, true);
+  const library = new VersionedTemplateLibrary(overrides.FIGURE_LIBRARY_DIR);
+  const add = async (id: string, tags: string[], publish = true) => {
+    const candidate: VersionedTemplateCandidate = {
+      title: id, description: "Source facet fixture", application: "Classification filter test", tags,
+      assetKind: "plot_template", language: "R", codeStatus: "scaffold", executionStatus: "not_run", license: "MIT",
+      canonicalImplementation: { assetPath: "code/plot.R", selectedBy: "user" },
+      visualGrouping: { visualAssetPaths: ["visuals/source/preview.png"], confirmedBy: "user" },
+      figureCodeLinks: [{ visualAssetPath: "visuals/source/preview.png", codeAssetPaths: ["code/plot.R"], relationship: "user_supplied_pair", confirmedBy: "user", evidence: "Test fixture association" }],
+      assets: [
+        { logicalPath: "visuals/source/preview.png", role: "visual", visualRole: "source_reference", mediaType: "image/png", bytes: png },
+        { logicalPath: "code/plot.R", role: "code", codeOrigin: "user_supplied", language: "R", text: "# must never execute\n" },
+      ],
+    };
+    await library.applyCreateWorking(await library.planCreateWorking({ templateId: id, candidate }), `${id}-working`);
+    if (publish) await library.applyPublish(await library.planPublish({ templateId: id }), `${id}-publish`);
+  };
+  await add("source-tag-a", ["数据类型:表达矩阵", "作图目的:表达模式", "data-type:matrix", "purpose:pattern"]);
+  await add("source-tag-b", ["数据类型:表达矩阵", "作图目的:组间比较"]);
+  await add("source-tag-legacy", []);
+  await add("source-tag-draft", ["数据类型:仅草稿标签"], false);
+  const args = { providerIds: ["org.scientificfigurelibrary.local"] };
+  const first = data(await api("/api/gallery", { ...args, limit: 1 }));
+  assert.equal(first.total, 3);
+  const facets = record(first.tagFacets);
+  assert.equal(facets.providerId, "org.scientificfigurelibrary.local");
+  const tags = records(facets.tags);
+  assert.equal(tags.find(tag => tag.value === "数据类型:表达矩阵")?.count, 2);
+  assert.equal(tags.find(tag => tag.value === "作图目的:表达模式")?.count, 1);
+  assert.equal(tags.some(tag => tag.value === "数据类型:仅草稿标签"), false);
+  const next = data(await api("/api/gallery-page", { resultSetId: first.resultSetId, cursor: record(first.pagination).nextCursor }));
+  assert.equal(next.total, 3);
+  assert.equal("tagFacets" in next, false, "pagination must reuse the result set without rebuilding classification facets");
+  const filtered = data(await api("/api/gallery", { ...args, requiredTags: ["数据类型:表达矩阵", "作图目的:表达模式"] }));
+  assert.equal(filtered.total, 1);
+  assert.equal(records(filtered.candidates)[0]!.templateId, "source-tag-a");
+  assert.deepEqual(filtered.tagFacets, facets, "options must not shrink to the current filter intersection");
+  const empty = data(await api("/api/gallery", { ...args, query: "unmatched-keyword-for-source-facets", requiredTags: ["数据类型:不存在"] }));
+  assert.equal(empty.total, 0);
+  assert.deepEqual(empty.tagFacets, facets);
+  const cleared = data(await api("/api/gallery", { ...args, requiredTags: [] }));
+  assert.equal(cleared.total, 3);
+  assert.ok(records(cleared.candidates).some(candidate => candidate.templateId === "source-tag-legacy"));
 });
 
 test("custom tags validate targets, preserve originals and filter before pagination", async t => {

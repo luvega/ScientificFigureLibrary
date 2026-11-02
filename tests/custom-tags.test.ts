@@ -63,9 +63,17 @@ test("corrupt data and symlinks fail closed without overwriting the original", a
   await assert.rejects(store.set(identity, input(["x"])), /原文件已保留/u);
   assert.equal(await fs.readFile(file, "utf8"), "broken-json");
   await fs.unlink(file);
-  const other = path.join(root, "other.json"); await fs.writeFile(other, "untouched");
-  await fs.symlink(other, file);
-  await assert.rejects(store.list(), /原文件已保留/u);
-  await assert.rejects(store.set(identity, input(["x"])), /原文件已保留/u);
-  assert.equal(await fs.readFile(other, "utf8"), "untouched");
+  await t.test("file symlink is rejected without modifying its target", async st => {
+    const other = path.join(root, "other.json"); await fs.writeFile(other, "untouched");
+    try { await fs.symlink(other, file); }
+    catch (error) {
+      if (process.platform === "win32" && (error as NodeJS.ErrnoException).code === "EPERM") {
+        st.skip("Windows file symlink creation requires a privilege unavailable to this process"); return;
+      }
+      throw error;
+    }
+    await assert.rejects(store.list(), /原文件已保留/u);
+    await assert.rejects(store.set(identity, input(["x"])), /原文件已保留/u);
+    assert.equal(await fs.readFile(other, "utf8"), "untouched");
+  });
 });

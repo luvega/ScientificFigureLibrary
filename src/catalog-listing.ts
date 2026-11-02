@@ -1,6 +1,7 @@
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
 import { scopedCandidateId } from "./candidate-images.ts";
+import { RequiredTagsSchema } from "./search-tags.ts";
 import { markdownPlainText } from "./figure-description.ts";
 import { PLOT_FAMILY_GROUP_IDS, plotFamilyGroup, type PlotFamilyGroup } from "./plot-family-groups.ts";
 import type { OperationRegistry } from "./service/operations.ts";
@@ -22,6 +23,7 @@ export const CatalogListingInput = z.object({
     .describe("Re-list only these entries (from an earlier listing) to get fresh candidateIds without reading the whole catalog again."),
   language: z.string().min(1).max(100).optional(),
   assetKind: z.enum(["plot_template", "visual_reference"]).optional(),
+  requiredTags: RequiredTagsSchema,
   limit: z.number().int().min(0).max(CATALOG_LISTING_MAX_LIMIT).optional().default(CATALOG_LISTING_DEFAULT_LIMIT)
     .describe("Entries per page; 0 returns only Provider counts and facets."),
   detail: z.enum(["compact", "full"]).optional().default("compact")
@@ -54,6 +56,7 @@ interface ListedEntry {
   providerId: string;
   templateId: string;
   title: string;
+  tags?: string[];
   titleEn?: string;
   familyGroup: PlotFamilyGroup;
   plotFamily: string;
@@ -94,6 +97,7 @@ export function buildCatalogListing(set: CatalogListingSet, offset: number, limi
     providerId: candidate.providerId,
     templateId: candidate.templateId,
     title: oneLine(candidate.title),
+    ...(candidate.tags ? { tags: [...candidate.tags] } : {}),
     ...(candidate.titleEn ? { titleEn: oneLine(candidate.titleEn) } : {}),
     familyGroup: plotFamilyGroup(candidate),
     plotFamily: candidate.plotFamily || "unclassified",
@@ -184,7 +188,7 @@ export function defineCatalogListing(operations: OperationRegistry, options: {
       const invalid = (message: string) =>
         terminal(outcome("failed", "catalog_listing_invalid_input", `Catalog listing failed: ${message}`));
       const offset = input.offset ?? 0;
-      if (input.resultSetId && (input.providerIds || input.plotFamily || input.familyGroup || input.templates || input.language || input.assetKind)) {
+      if (input.resultSetId && (input.providerIds || input.plotFamily || input.familyGroup || input.templates || input.language || input.assetKind || input.requiredTags)) {
         return invalid("filters cannot change while continuing a listing; start a new listing without resultSetId.");
       }
       if (!input.resultSetId && offset !== 0) {

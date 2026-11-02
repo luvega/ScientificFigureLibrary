@@ -1,4 +1,5 @@
 import { resolveFigureDescription } from "./figure-description.ts";
+import { matchesRequiredTags } from "./search-tags.ts";
 import { createHash } from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -289,6 +290,7 @@ function matchesLocalFilters(
   item: PublishedVersionedTemplateCandidate,
   request: SearchRequest,
 ) {
+  if (!matchesRequiredTags(item.tags, request.requiredTags)) return false;
   if (request.assetKind && item.assetKind !== request.assetKind) return false;
   if (request.reviewStatus && request.reviewStatus !== "approved") return false;
   if (request.codeStatus && item.codeStatus !== request.codeStatus) return false;
@@ -388,6 +390,7 @@ export class LocalPublishedProviderAdapter implements ProviderAdapter {
           exactSelector: selector,
           sourceLabel: this.descriptor.sourceLabel,
           title: item.title,
+          tags: [...item.tags],
           ...(item.titleEn ? { titleEn: item.titleEn } : {}),
           retrievalScore: request.browse ? 1 : evidence.score,
           matchedTerms: request.browse ? [] : evidence.matchedTerms.slice(0, 12),

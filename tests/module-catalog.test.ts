@@ -229,6 +229,10 @@ test("ModuleCatalogIndex loads a healthy empty snapshot and rejects preview tamp
   const searched = (await loaded.searchAll({ query: "personal catalog scatter" }))[0];
   assert.equal(searched?.providerId, PERSONAL_MODULE_PROVIDER_ID);
   assert.equal(searched?.titleEn, module.titleEn);
+  assert.deepEqual(searched?.tags, module.tags);
+  assert.equal((await loaded.searchAll({ query: "personal catalog scatter", requiredTags: [" scatter ", "fixture", "fixture"] })).length, 1);
+  assert.deepEqual(await loaded.searchAll({ query: "personal catalog scatter", requiredTags: ["fixture", "missing"] }), []);
+  assert.deepEqual(await loaded.searchAll({ query: "personal catalog scatter", requiredTags: ["Fixture"] }), []);
   await fs.writeFile(path.join(root, ...module.thumbnail.path.split("/")), Buffer.from("tampered"));
   await assert.rejects(
     ModuleCatalogIndex.load(root, { expectedProviderId: PERSONAL_MODULE_PROVIDER_ID, validatePreviews: true }),

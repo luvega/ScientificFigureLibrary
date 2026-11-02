@@ -81,6 +81,22 @@ Keep provenance/execution truth in metadata, not repeated template-facing discla
    `catalogRevision`; re-read the pages only when it changed. Listed
    `candidateId`s belong to their listing `resultSetId`; if image tools report
    it stale, list again before displaying.
+   When the user's constraints map to known source labels, both catalog listing
+   and keyword search accept `requiredTags: ["tag-a", "tag-b"]`: every complete
+   tag must match (AND). Tags are trimmed, NFC-normalized, deduplicated and sorted,
+   with case preserved. Use returned optional `tags` to verify source labels;
+   do not invent labels from prose or treat a private custom tag as a source tag.
+   FigureYa has no source tags and yields no matches under a nonempty tag filter.
+   Empty tag arrays preserve ordinary retrieval. A changed tag combination needs
+   a new result set; continue existing pages without filters. Reuse prior catalog
+   reads only with their original filters and catalog revision. Zero filtered
+   matches describe that combination, not the full library. Source-tag filtering
+   is available through MCP and the Local gallery API. The Web gallery's
+   **数据类型** and **作图目的** dropdowns read `数据类型:`/`作图目的:` source
+   labels dynamically from all Local Published templates and submit the two
+   selected full tags as AND constraints. **清空分类** restores the unfiltered
+   view, including older unclassified templates. No specific taxonomy is built
+   into these controls. The native client currently has no dedicated control.
 4. Use `figure_library_search` (keyword) only when the user names a template or
    chart type, or as a quick first try. Zero or poor keyword hits never mean
    the library lacks the figure; fall back to step 3. Only after the default

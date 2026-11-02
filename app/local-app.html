@@ -32,6 +32,8 @@
       <div class="search-panel">
       <form id="search-form" class="search-form"><label class="sr-only" for="search-query">搜索模板</label><input id="search-query" placeholder="描述你想找的图，例如：单细胞分组比例、火山图…"><button type="submit">搜索图库</button></form>
       <div class="search-filters"><label>图片来源<select id="search-provider"><option value="">全部默认来源</option></select></label><label>自定义标签<select id="search-custom-tag"><option value="">全部自定义标签</option></select></label><label>数据特征<input id="search-data" placeholder="可选：gene、log2FC、padj"></label></div>
+      <div class="search-filters"><label>数据类型<select id="search-data-type"><option value="">全部数据类型</option></select></label><label>作图目的<select id="search-plot-purpose"><option value="">全部作图目的</option></select></label></div>
+      <button type="button" id="clear-source-filters" class="quiet" disabled>清空分类</button>
 
       <div id="suggestions" class="suggestions"><span>从常见图形开始</span><button data-query="volcano differential expression">火山图</button><button data-query="heatmap expression matrix">热图</button><button data-query="UMAP single cell">UMAP</button><button data-query="barplot proportion cell type">细胞比例</button><button data-query="GO enrichment pathway">富集分析</button></div>
       </div>

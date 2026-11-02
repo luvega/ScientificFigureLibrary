@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { unzipSync } from "fflate";
 import { PNG } from "pngjs";
+import { matchesRequiredTags } from "./search-tags.ts";
 import {
   buildSearchIntent,
   compareSearchHits,
@@ -2103,6 +2104,7 @@ export class PublicCatalogProviderAdapter implements ProviderAdapter {
     const intent = buildSearchIntent(request);
     const scored = this.snapshot.catalog.entries
       .filter((entry) => {
+        if (!matchesRequiredTags(entry.search.tags, request.requiredTags)) return false;
         if (request.assetKind && request.assetKind !== "plot_template") return false;
         if (request.reviewStatus && request.reviewStatus !== "not_reviewed") return false;
         if (request.codeStatus && request.codeStatus !== "provided") return false;
@@ -2157,6 +2159,7 @@ export class PublicCatalogProviderAdapter implements ProviderAdapter {
         exactSelector: selector,
         sourceLabel: this.descriptor.sourceLabel,
         title: entry.title,
+        tags: [...entry.search.tags],
         retrievalScore: request.browse ? 1 : evidence.score,
         matchedTerms: request.browse ? [] : evidence.matchedTerms.slice(0, 12),
         reasons: request.browse ? ["图库浏览"] : evidence.reasons,

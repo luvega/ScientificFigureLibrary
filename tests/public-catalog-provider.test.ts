@@ -662,6 +662,11 @@ test("offline preview is loaded from the verified snapshot and preserves public 
   assert.ok(candidate);
   assert.equal(candidate.reviewStatus, "not_reviewed");
   assert.equal(candidate.executionStatus, "not_run");
+  assert.deepEqual(candidate.tags, fixture.entry.search.tags);
+  const requiredTags = [...fixture.entry.search.tags, ...fixture.entry.search.tags.map(tag => ` ${tag} `)];
+  const [filtered] = await adapter.search(context(), { query: "volcano", requiredTags });
+  assert.deepEqual(filtered?.exactSelector, candidate.exactSelector);
+  assert.deepEqual(await adapter.search(context(), { query: "volcano", requiredTags: [...requiredTags, "missing-exact-tag"] }), []);
   const resolved = await adapter.resolve(context(), candidate.exactSelector, "preview");
   const preview = await adapter.loadPreview(context(), resolved);
   assert.deepEqual(preview.bytes, fixture.previewBytes);

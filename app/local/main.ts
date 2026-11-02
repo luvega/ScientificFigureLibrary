@@ -7,6 +7,7 @@ import { formatUserNetworkError } from "../../src/process-log.ts";
 import { cacheReferences, planReferenceCopy, referenceStatuses, referenceStatusFacts, referenceStatusIcons, writeReferencePrompts } from "./reference-cache.ts";
 import { setButtonContent } from "../icons.ts";
 import { createCustomTagUI, LOCAL_TAG_PROVIDER } from "./custom-tags.ts";
+import { createSourceTagFilters } from "./source-tag-filters.ts";
 import { refreshCacheTasks, watchCacheTasks } from "./cache-tasks.ts";
 import { mountClientUpdates } from "./updates.ts";
 import { PAGE_STORAGE_KEY, PAGE_TITLES, galleryCacheActionLabel, galleryMissingCount, isPageId, pageHash, prefetchButtonLabel, readSavedPage, type PageId } from "./ui-state.ts";
@@ -49,6 +50,7 @@ const tagUI = createCustomTagUI(document, api, async () => {
     else if (page === "discover" && el<HTMLSelectElement>("search-custom-tag").value) await search();
   } catch (error) { notify(`标签已保存，但刷新失败：${String(error)}`, true); }
 });
+const sourceTagFilters = createSourceTagFilters(document, () => void run(search));
 async function refreshCustomTags() {
   try { await tagUI.refresh(); } catch (error) { notify(String(error), true); }
 }
@@ -347,6 +349,7 @@ function display(parsed: SearchResult) {
 }
 function displayResult(value: CallToolResult) {
   requireResult(value);
+  sourceTagFilters.update(details(value).tagFacets);
   const parsed = parseSearchResult(value.structuredContent, value._meta);
   if (!parsed) throw new Error("无法读取候选图片列表");
   display(parsed);
@@ -354,7 +357,8 @@ function displayResult(value: CallToolResult) {
 function galleryArgs() {
   const provider = el<HTMLSelectElement>("search-provider").value;
   const customTag = el<HTMLSelectElement>("search-custom-tag").value;
-  return { limit: 12, thumbnailDelivery: "url", ...(provider ? { providerIds: [provider] } : {}), ...(customTag ? { customTag } : {}) };
+  const requiredTags = sourceTagFilters.requiredTags();
+  return { limit: 12, thumbnailDelivery: "url", ...(provider ? { providerIds: [provider] } : {}), ...(customTag ? { customTag } : {}), ...(requiredTags.length ? { requiredTags } : {}) };
 }
 async function loadGallery() {
   input("search-query").value = "";

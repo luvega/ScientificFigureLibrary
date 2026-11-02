@@ -19,6 +19,7 @@ import type {
   ModuleSourcePackManifest,
 } from "./types.ts";
 import { parseArchiveTransportSources } from "./open-modules.ts";
+import { matchesRequiredTags } from "./search-tags.ts";
 
 export const MODULE_CATALOG_SCHEMA = "figure-library.module-catalog.v1" as const;
 export const MODULE_PREVIEW_MANIFEST_SCHEMA =
@@ -906,6 +907,7 @@ export class ModuleCatalogIndex {
     const intent = buildSearchIntent(request);
     const scored = this.catalog.modules
       .filter((module) => {
+        if (!matchesRequiredTags(module.tags, request.requiredTags)) return false;
         if (request.assetKind && request.assetKind !== "plot_template") return false;
         if (request.reviewStatus && request.reviewStatus !== "not_reviewed") return false;
         if (request.codeStatus && request.codeStatus !== "provided" && request.codeStatus !== "reviewed") {
@@ -982,6 +984,7 @@ export class ModuleCatalogIndex {
           exactSelector: selector,
           sourceLabel: this.catalog.provider.displayName,
           title: module.title,
+          tags: [...module.tags],
           titleEn: module.titleEn,
           retrievalScore: request.browse ? 1 : evidence.score,
           matchedTerms: request.browse ? [] : evidence.matchedTerms.slice(0, 12),

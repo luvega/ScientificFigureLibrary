@@ -38,7 +38,7 @@ test('source overlay leaves conflicting normalized versions ambiguous',async t=>
 test('source overlay cannot read a mapped file outside declared roots',async t=>{
  const root=await fixture(t),allowed=path.join(root,'allowed');await fs.mkdir(allowed);const outside=path.join(root,'outside.csv');await fs.writeFile(outside,'value');
  const result=await resolveSourceReferences({references:[{path:path.join(allowed,'old.csv'),sha256:sha('value')}],sourceRoots:[allowed],mappings:[{originalPath:path.join(allowed,'old.csv'),originalSha256:sha('value'),currentPath:outside,currentSha256:sha('value')}]});
- assert.equal(result.records[0].status,'stale_mapping');assert.match(result.records[0].errors[0].error,/outside/);
+ assert.equal(result.records[0].status,'stale_mapping');assert.match(result.records[0].errors?.[0]?.error??'',/outside/);
 });
 test('source overlay does not infer a missing historical digest',async t=>{
  const root=await fixture(t),file=path.join(root,'source.csv');await fs.writeFile(file,'value');
@@ -47,7 +47,7 @@ test('source overlay does not infer a missing historical digest',async t=>{
 test('archive metadata cannot substitute for a removed archive or its member',async t=>{
  const root=await fixture(t),old=path.join(root,'removed.zip'),catalog=path.join(root,'archive-catalog.json');await fs.writeFile(catalog,'[]');
  const result=await resolveSourceReferences({references:[{path:old,sha256:sha('archive')}],sourceRoots:[root],mappings:[{originalPath:old,originalSha256:sha('archive'),currentPath:catalog,currentSha256:sha('[]'),disposition:'expanded_container_removed'}]});
- assert.equal(result.records[0].status,'stale_mapping');assert.match(result.records[0].errors[0].error,/not source content/);
+ assert.equal(result.records[0].status,'stale_mapping');assert.match(result.records[0].errors?.[0]?.error??'',/not source content/);
 });
 test('a retained archive member resolves by its own digest while retaining the container identity',async t=>{
  const root=await fixture(t),old=path.join(root,'removed.zip'),current=path.join(root,'data.csv');await fs.writeFile(current,'x\n1\n');

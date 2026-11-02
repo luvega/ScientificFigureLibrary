@@ -26,7 +26,7 @@ function entries(value: unknown) { assert.ok(Array.isArray(value)); return value
 function fixture(title: string, plotFamily: string, language: "R" | "Python"): VersionedTemplateCandidate {
   const codePath = language === "R" ? "code/plot.R" : "code/plot.py";
   return {
-    title, description: `catalogfixture ${plotFamily} reference for semantic listing`, tags: ["catalogfixture"],
+    title, description: `catalogfixture ${plotFamily} reference for semantic listing`, tags: ["catalogfixture", `family:${plotFamily}`, `language:${language}`, "café"],
     visualProfile: plotFamily, dataProfile: "gene matrix", packages: [], license: "MIT",
     assetKind: "plot_template", language, plotFamily, codeStatus: "reviewed", executionStatus: "not_run",
     canonicalImplementation: { assetPath: codePath, selectedBy: "user" },
@@ -74,6 +74,31 @@ test("catalog listing gives agents a compact, paginated, facet-counted catalog t
     await publish("listing-heatmap-r", "heatmap", "R");
 
     const local = { providerIds: [LOCAL_LIBRARY_PROVIDER_ID] };
+    // Source tags constrain both MCP entry points before pagination, without lexical fallback.
+    const tagged = await call("figure_library_list_catalog", { ...local, requiredTags: [" family:volcano ", "catalogfixture", "cafe\u0301", "family:volcano"], limit: 1 });
+    assert.equal(data(tagged).total, 2);
+    assert.equal(entries(data(tagged).entries).length, 1);
+    assert.ok((entries(data(tagged).entries)[0]!.tags as string[]).includes("family:volcano"));
+    const taggedNext = await call("figure_library_list_catalog", { resultSetId: data(tagged).resultSetId, offset: data(tagged).nextOffset, limit: 1 });
+    assert.equal(data(taggedNext).total, 2);
+    assert.equal(data(taggedNext).nextOffset, null);
+    assert.equal(code(await call("figure_library_list_catalog", { resultSetId: data(tagged).resultSetId, requiredTags: ["family:heatmap"] })), "catalog_listing_invalid_input");
+    assert.equal(data(await call("figure_library_list_catalog", { ...local, requiredTags: ["catalogfixture", "Family:volcano"] })).total, 0);
+    const taggedSearch = await call("figure_library_search", { ...local, query: "catalogfixture", requiredTags: ["family:volcano", "catalogfixture"], limit: 1 });
+    assert.equal(record(data(taggedSearch).pagination).total, 2);
+    assert.equal(entries(data(taggedSearch).candidates).length, 1);
+    assert.ok((entries(data(taggedSearch).candidates)[0]!.tags as string[]).includes("family:volcano"));
+    const sameFilter = await call("figure_library_search", { ...local, query: "catalogfixture", requiredTags: [" catalogfixture ", "family:volcano", "catalogfixture"], limit: 1, resultSetId: data(taggedSearch).resultSetId });
+    assert.equal(code(sameFilter), "search_candidates_ready");
+    assert.equal(code(await call("figure_library_search", { ...local, query: "catalogfixture", requiredTags: ["family:heatmap"], limit: 1, resultSetId: data(taggedSearch).resultSetId })), "operation_failed");
+    const taggedSearchNext = await call("figure_library_search_page", { resultSetId: data(taggedSearch).resultSetId, cursor: record(data(taggedSearch).pagination).nextCursor });
+    assert.equal(entries(data(taggedSearchNext).candidates).length, 1);
+    assert.equal(record(data(taggedSearchNext).pagination).hasMore, false);
+    assert.notEqual(entries(data(taggedSearchNext).candidates)[0]!.templateId, entries(data(taggedSearch).candidates)[0]!.templateId);
+    const figureYaTags = { providerIds: [FIGUREYA_PROVIDER_ID], requiredTags: ["volcano"] };
+    assert.equal(data(await call("figure_library_list_catalog", figureYaTags)).total, 0);
+    assert.equal(entries(data(await call("figure_library_search", { ...figureYaTags, query: "volcano" })).candidates).length, 0);
+    assert.equal(data(await call("figure_library_list_catalog", { ...local, requiredTags: [] })).total, 3);
     const first = await call("figure_library_list_catalog", { ...local, limit: 2 });
     assert.equal(code(first), "catalog_listing_ready");
     assert.equal(data(first).total, 3);

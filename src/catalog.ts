@@ -1,5 +1,6 @@
 import { PreviewDownloadStore, type PreviewDownloadOptions } from "./preview-downloads.ts";
 import { markdownPlainText } from "./figure-description.ts";
+import { matchesRequiredTags } from "./search-tags.ts";
 import { familyWords } from "./plot-family-groups.ts";
 import { createHash } from "node:crypto";
 import fs from "node:fs/promises";
@@ -587,6 +588,8 @@ function figureYaFamilies(module: FigureYaModule) {
 }
 
 function matchesFigureYaFilters(module: FigureYaModule, request: SearchRequest) {
+  // FigureYa has no source-tag field. Do not infer exact tags from its prose.
+  if (!matchesRequiredTags(undefined, request.requiredTags)) return false;
   if (request.assetKind && request.assetKind !== "plot_template") return false;
   if (request.reviewStatus && request.reviewStatus !== "not_reviewed") return false;
   if (request.codeStatus) {

@@ -299,7 +299,7 @@ test("full backup Apply uses the shared writer lock and rejects recursive target
       /must be outside/u,
     );
     const linkedSource = path.join(root, "linked-source");
-    await fs.symlink(sourceRoot, linkedSource, "dir");
+    await fs.symlink(sourceRoot, linkedSource, process.platform === "win32" ? "junction" : "dir");
     await assert.rejects(
       manager.planFullBackup({
         destination: linkedSource,

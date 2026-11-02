@@ -296,6 +296,8 @@ export interface FigureYaCatalog {
 
 export interface SearchRequest {
   query: string;
+  /** Exact source tags, combined with AND; trim/NFC normalization is case-sensitive. */
+  requiredTags?: string[];
   dataProfile?: string;
   visualProfile?: string;
   assetKind?: AssetKind;
@@ -399,6 +401,8 @@ export interface TemplateCandidate {
   materializationSelectors?: Partial<Record<MaterializeMode, ExactTemplateSelector>>;
   sourceLabel: string;
   title: string;
+  /** Source metadata tags; distinct from private local-client custom tags. */
+  tags?: string[];
   titleEn?: string;
   retrievalScore: number;
   matchedTerms: string[];
