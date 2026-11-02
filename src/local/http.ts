@@ -8,7 +8,7 @@ import { integrationGuide, localConnection } from "./integrations.ts";
 import { createClientUpdateChecker } from "./updates.ts";
 import { VERSION } from "../version.ts";
 import { createLibraryService, type LibraryService } from "../library-service.ts";
-import { inspectNetworkAccess, loadNetworkAccess, saveNetworkAccess } from "../network-access.ts";
+import { inspectNetworkAccess, loadNetworkAccess, saveNetworkAccess, testNetworkAccess } from "../network-access.ts";
 import { pickLocalDirectory } from "./pick-directory.ts";
 
 const BODY_LIMIT = 1024 * 1024;
@@ -50,6 +50,17 @@ async function readBody(request: IncomingMessage, limit: number) {
     chunks.push(chunk);
   }
   return Buffer.concat(chunks);
+}
+
+// Thumbnail URLs name exact bytes (content hash or exact content digest), so they never change.
+function image(response: ServerResponse, thumbnail: { bytes: Uint8Array; mimeType: string } | undefined) {
+  if (!thumbnail) return json(response, 404, { error: "Thumbnail unavailable" });
+  response.writeHead(200, {
+    "Content-Type": thumbnail.mimeType,
+    "Content-Length": thumbnail.bytes.byteLength,
+    "Cache-Control": "private, max-age=31536000, immutable",
+  });
+  response.end(thumbnail.bytes);
 }
 
 function json(response: ServerResponse, status: number, value: unknown) {
@@ -109,6 +120,12 @@ export async function startLocalHttp(options: {
         response.end(html);
         return;
       }
+      if (url.pathname === "/favicon.svg" && request.method === "GET") {
+        const icon = await fs.readFile(path.resolve(import.meta.dirname, "../assets/brand/sfl-logo.svg"));
+        response.writeHead(200, { "Content-Type": "image/svg+xml; charset=utf-8" });
+        response.end(icon);
+        return;
+      }
       if (url.pathname === "/api/connect" && request.method === "POST") {
         const { ticket } = z.object({ ticket: z.string().max(100) }).strict().parse(JSON.parse((await readBody(request, BODY_LIMIT)).toString()));
         const expires = tickets.get(ticket);
@@ -132,6 +149,16 @@ export async function startLocalHttp(options: {
       if (request.method === "GET" && url.pathname === "/api/gallery-cache/tasks") return json(response, 200, await service.local.galleryCacheTasks());
       if (request.method === "GET" && url.pathname === "/api/gallery-cache/status") return json(response, 200, await service.local.galleryCacheStatus());
       if (request.method === "GET" && url.pathname === "/api/network-access") return json(response, 200, await inspectNetworkAccess());
+      if (request.method === "GET" && url.pathname.startsWith("/api/thumb/")) {
+        const sha256 = url.pathname.slice("/api/thumb/".length);
+        return image(response, /^[a-f0-9]{64}$/u.test(sha256) ? service.local.thumbnail(sha256) : undefined);
+      }
+      if (request.method === "GET" && url.pathname === "/api/library-thumb") {
+        return image(response, await service.local.libraryThumbnail({
+          templateId: url.searchParams.get("templateId"), revisionId: url.searchParams.get("revisionId"),
+          contentDigest: url.searchParams.get("contentDigest"),
+        }));
+      }
       if (request.method !== "POST") return json(response, 404, { error: "Unknown local client endpoint" });
       if (url.pathname === "/api/upload") {
         const filename = z.string().min(1).max(200).parse(request.headers["x-sfl-filename"]);
@@ -176,9 +203,11 @@ export async function startLocalHttp(options: {
         const body = z.object({
           useSystemProxy: z.boolean(),
           httpsProxy: z.string().max(200).optional(),
+          revision: z.string().length(64).optional(),
         }).strict().parse(input);
         return json(response, 200, await saveNetworkAccess(body));
       }
+      if (url.pathname === "/api/network-access/test") return json(response, 200, await testNetworkAccess());
       if (url.pathname === "/api/preview") return json(response, 200, await service.local.preview(input));
       if (url.pathname === "/api/reference-cache/status") return json(response, 200, await service.local.referenceStatus(input));
       if (url.pathname === "/api/reference-cache/ensure") {
@@ -189,6 +218,7 @@ export async function startLocalHttp(options: {
       if (url.pathname === "/api/asset") return json(response, 200, await service.local.asset(input));
       if (url.pathname === "/api/favorites") return json(response, 200, await service.local.changeFavorite(input));
       if (url.pathname === "/api/gallery") return json(response, 200, await service.local.gallery(input));
+      if (url.pathname === "/api/gallery-page") return json(response, 200, await service.local.galleryPage(input));
       if (url.pathname === "/api/resource") {
         const { uri } = z.object({ uri: z.string().max(2_000) }).strict().parse(input);
         if (!uri.startsWith("figure-library://candidate-images/") && !uri.startsWith("figure-library://guidance/")) throw new Error("Unsupported resource");

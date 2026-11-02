@@ -1,5 +1,64 @@
 # Scientific Figure Library protocol
 
+## 0.9.1 network and MCP update status
+
+The local Settings page saves one machine/user `network-access.json`. An already-running
+stdio MCP process reloads it before each HTTPS operation; one operation retains its
+proxy choice through redirects. Supported proxies remain opt-in, loopback HTTP CONNECT
+only (`127.0.0.1`, `localhost`, or `::1`). A saved address takes precedence over a
+valid environment address and supported system detection. An enabled but invalid,
+missing, or unreachable proxy fails the operation; it does not switch to direct access.
+The page and MCP tools distinguish configuration from a reachable local port and a
+successful request to the fixed GitHub release endpoint. The configuration is shared
+only by processes running as the same user on the same machine; remote and container
+MCP servers have their own configuration. Saves use an atomic file replacement and
+`revision` conflict check. A stale page must reload before retrying a save.
+
+`figure_library_network_status` returns the current configuration and revision;
+`figure_library_network_test` runs a bounded request only to SFL's GitHub releases
+endpoint. Neither accepts a URL. The local HTTP API exposes the same operations at
+`GET /api/network-access` and `POST /api/network-access/test` after session
+authentication. The save endpoint accepts the returned `revision`.
+
+All three MCP diagnostic tools use the standard terminal outcome envelope below.
+Status fields are exposed alongside `structuredContent.envelope`, and the first text
+item includes the terminal fields followed by the status data. Operational failures
+retain that envelope and set `isError: true`; failed diagnostics never consume or
+append an update notice. Inspect `code` once rather than repeating an identical call:
+
+- `network_status` / `network_configuration_invalid` / `network_status_failed`;
+- `network_test_passed` / `network_test_failed`;
+- `update_status` / `update_check_failed` / `update_status_failed`.
+
+The connectivity probe keeps its inspected proxy through the TCP probe and HTTPS
+request. After the optional 1.5-second local-port probe, its 8-second request deadline
+covers CONNECT, TLS, HTTPS headers and the proxied response body. Cancellation closes
+the active sockets in every phase. Other proxy fetches have a 60-second whole-request
+deadline shared across automatic redirects. Gitee's explicit archive redirect shares
+the initial download's proxy snapshot (including direct access) and deadline; changes
+to settings take effect only on the next download operation.
+
+The stdio MCP adapter reads a shared stable GitHub Release cache on startup and may
+append one extra **text content item** to the first successful tool result in a
+session when a fresh cache proves a newer version. It leaves structured content,
+receipts, plans, operation IDs, and authoritative stored results unchanged. Cold or
+stale caches refresh in the background with a bounded timeout; initialization and
+ordinary tool results never wait for GitHub. Successful remote checks expire after
+24 hours and failed checks cool down for one hour. A failed check means unknown,
+not current. The notice includes the running version, latest stable version, verified
+version-specific Release link, and restart guidance. Hosts may choose how to display
+tool text; no popup, automatic install, or stdout log is implied.
+
+`figure_library_update_status` reports the current/latest versions, check time,
+freshness, and Release link. Pass `{ "refresh": true }` for an explicit bounded
+check, including when unsolicited notices are disabled. Set
+`SFL_MCP_UPDATE_NOTICES=0` in the MCP process environment to disable background
+checks and unsolicited notices. The local Web client retains its own update banner.
+If a remote check succeeds but saving its cache fails, the fresh result remains
+available in memory with `cachePersisted: false` and `cachePersistenceError`. This is
+not a failed remote check. Reading status does not discard that result or trigger an
+automatic retry; after restart, a process without the persisted cache may check again.
+
 > Landing page and install: [README.md](../README.md). This file is the full tool contract, safety rules, and Library layout.
 
 
@@ -419,6 +478,10 @@ only for transport. The
 model-visible `structuredContent` contains only compact candidate summaries;
 thumbnail Data URLs are keyed by result-scoped `candidateId` under result
 `_meta.candidatePreviews`, which MCP Apps expose only to the component.
+MCP tools and the MCP App always receive inline Data URLs. Only the private
+local web client may opt in to URL thumbnails (`previewUrl` under the same
+`_meta` key, served by its authenticated local HTTP endpoint); see
+[本地客户端](LOCAL_CLIENT.md#卡片缩略图).
 
 Each candidate includes `providerId` and `exactSelector`:
 
@@ -579,6 +642,60 @@ delegation still precedes exact headless preview/review/confirmation. The exact
 headless preview also exposes `PREVIEW_CHALLENGE` in its text response. All
 materialization and replay gates below remain unchanged. An Agent receiving
 an image is not proof the user saw it on their screen.
+
+### Catalog listing for semantic selection
+
+Search ranking is lexical, so a query worded differently from template names
+can return nothing. `figure_library_list_catalog` lets the host Agent read the
+catalog itself and choose by meaning. It is read-only and model-visible.
+
+- A new listing takes optional `providerIds` (default Providers when omitted;
+  Community stays explicit-only), `familyGroup`, `plotFamily`, `language`,
+  `assetKind`, `limit` (0–100, default 50; `0` returns counts and facets only)
+  and `detail` (`compact`, the default, or `full`). It registers an ordinary
+  browse result set: the same Provider filters, catalog revision and Library
+  binding checks as search; a `familyGroup` filter is applied to the Provider
+  results before the set is registered and is part of its query digest.
+- `familyGroup` is a read-only canonical figure-type group (for example
+  `embedding`, `volcano`, `set_overlap`, `survival`, `proportion`, `other`,
+  `unclassified`; list in [plot-family-groups.ts](../src/plot-family-groups.ts)).
+  It is derived from the stored `plotFamily`, falling back to words in the
+  template ID and English title when the family is empty or only a domain label.
+  Stored metadata, selectors and the keyword search `plotFamily` filter are
+  unchanged.
+- The response has `resultSetId`, `total`, `offset`, `nextOffset`, `sources[]`
+  (per-Provider `matched` and `health`), `facets` (`providerId`, `familyGroup`,
+  `plotFamily`, `language`, `assetKind` counts over the whole filtered listing;
+  empty values appear as `unclassified`/`unknown`) and `entries[]` with
+  `candidateId`, `providerId`, `templateId`, `title`, optional `titleEn`,
+  `familyGroup`, `plotFamily`, `language`, `assetKind`, `thumbnailAvailable` and
+  a single-line `summary`.
+  Text content repeats this as one `|`-separated line per entry. `compact` lines
+  carry `candidateId | title | titleEn | familyGroup/plotFamily | summary` with a
+  60-character summary, grouped under `PROVIDER <id>` headers and flagging only
+  `[no-thumbnail]`; `full` lines add language, Provider and thumbnail columns with
+  a 100-character summary. It contains no images, exact selectors, challenges
+  or receipts.
+- A keyword `figure_library_search` with no match points the Agent to this tool.
+  The Skill makes catalog listing plus semantic choice the default for a
+  described need and keeps keyword search for named templates or chart types.
+- Every response, including `limit: 0`, carries `catalogRevision` (also as a
+  `CATALOG_REVISION:` text line). It changes when any listed Provider catalog
+  or the Library binding changes, so an Agent can read the pages once per
+  session and later compare only the revision. A listing `resultSetId` can
+  still be evicted or go stale; image and preview tools then report
+  `search_results_stale` and a fresh listing is needed for display.
+- `templates` (1–12 `{ providerId, templateId }` pairs from an earlier
+  listing) re-lists only those entries under a new `resultSetId`, so an Agent
+  that reused its earlier read can get fresh `candidateId`s for display
+  without reading every page again. It cannot be combined with `resultSetId`.
+- Continue with `{ resultSetId, offset: nextOffset }` and no filters. Filters on
+  a continuation, an `offset` without `resultSetId` or past the end return
+  `catalog_listing_invalid_input`; a search result set, an evicted listing,
+  or a catalog/Library change returns `search_results_stale`.
+- Listed `candidateId`s belong to the listing result set, so
+  `figure_library_get_candidate_images` and the thumbnail URIs accept them, and
+  the returned `exactSelector` feeds the unchanged headless exact-preview path.
 
 ## Exact materialization
 
@@ -980,7 +1097,7 @@ alone must not be described as delivery to the user.
 | Area | Tools |
 | --- | --- |
 | Guidance | `figure_library_get_skill` |
-| Workbench and retrieval | `figure_library_get_candidate_images`, `figure_library_search_page`, `figure_library_open`, `figure_library_search`, `figure_library_describe`, `figure_library_preview`, `figure_library_preview_exact_headless`, `figure_library_confirm_selection_headless`, `figure_library_create_plot_task_headless`, `figure_library_source_status` |
+| Workbench and retrieval | `figure_library_get_candidate_images`, `figure_library_search_page`, `figure_library_list_catalog`, `figure_library_open`, `figure_library_search`, `figure_library_describe`, `figure_library_preview`, `figure_library_preview_exact_headless`, `figure_library_confirm_selection_headless`, `figure_library_create_plot_task_headless`, `figure_library_source_status` |
 | App-only component tools | `figure_library_preview_exact`, `figure_library_confirm_selection`, `figure_library_record_ui_event` |
 | Diagnostics export | `figure_library_export_diagnostics` |
 | Global binding | `figure_library_plan_bind_global`, `figure_library_apply_bind_global` |
@@ -996,6 +1113,23 @@ alone must not be described as delivery to the user.
 
 There are no `figure_capture_*`, project status/pin, direct-write import, sync,
 archive/reconcile, or one-step materialize tools in the standard 0.6 server.
+
+### Tool profiles
+
+`SFL_TOOL_PROFILE` selects which tools the MCP adapter registers, so a host can
+load fewer tool schemas. It does not change the shared service, the local
+clients or any tool contract. Unset or empty means `full`; any other value
+than the three below stops the server at startup.
+
+| Profile | Registers | Measured `tools/list` size |
+| --- | --- | --- |
+| `use` | guidance, source status, search/pagination/catalog listing, candidate images, describe/preview, App and headless exact preview/confirmation, plot-task handoff, UI events, materialization, global/workspace binding, write-lock recovery, Provider source listing, diagnostics export, network and update status (28 tools) | about 24 KB |
+| `author` | `use` plus direct intake, review inspection, gate updates, publish, discard, restore and adoption (46 tools) | about 56 KB |
+| `full` (default) | every tool in the table above, including bundles, Provider source changes, publication export and GitHub/Open Figure PRs (62 tools), and any tool added later | about 72 KB |
+
+The list lives in [tool-profiles.ts](../src/tool-profiles.ts). A reduced profile
+adds a sentence to the server instructions naming it, so the Agent can ask
+the user to switch to `full` instead of inventing a missing workflow.
 
 ## Distribution
 
@@ -1017,10 +1151,10 @@ and the Wisp update feed, then uploads them to the GitHub Release. See
 
 The four host archives are:
 
-- `scientific-figure-library-wisp-0.9.0.zip` — install from Wisp **Settings → Plugins**
-- `scientific-figure-library-codex-0.9.0.zip` — Codex plugin with `.codex-plugin/plugin.json`, `.codex-plugin/mcp.json`, and `skills/figure-library`
-- `scientific-figure-library-claude-0.9.0.zip` — Claude Code plugin with `.claude-plugin/plugin.json`, `.claude-plugin/mcp.json`, and auto-discovered `skills/`
-- `scientific-figure-library-cursor-0.9.0.zip` — Cursor plugin with `.cursor-plugin/plugin.json`, plugin-root `mcp.json`, and auto-discovered `skills/`
+- `scientific-figure-library-wisp-0.9.2.zip` — install from Wisp **Settings → Plugins**
+- `scientific-figure-library-codex-0.9.2.zip` — Codex plugin with `.codex-plugin/plugin.json`, `.codex-plugin/mcp.json`, and `skills/figure-library`
+- `scientific-figure-library-claude-0.9.2.zip` — Claude Code plugin with `.claude-plugin/plugin.json`, `.claude-plugin/mcp.json`, and auto-discovered `skills/`
+- `scientific-figure-library-cursor-0.9.2.zip` — Cursor plugin with `.cursor-plugin/plugin.json`, plugin-root `mcp.json`, and auto-discovered `skills/`
 
 Each package uses its Host's plugin-root contract. Codex resolves `cwd: "."`
 from the installed plugin root, Claude expands `${CLAUDE_PLUGIN_ROOT}`, Cursor
@@ -1044,7 +1178,7 @@ Build a standalone npm package:
 
 ```bash
 npm run package:npm
-npm install --global ./release/scientific-figure-library-0.9.0.tgz
+npm install --global ./release/scientific-figure-library-0.9.2.tgz
 ```
 
 Use `scientific-figure-library` as the MCP command after installation.
@@ -1102,7 +1236,7 @@ npm run package:source-pack -- \
 
 The helper verifies selected ZIP identities and caps a transport pack at 200
 MiB. Extract the resulting
-`release/figure-library-source-pack-volcano-0.9.0.zip` before use.
+`release/figure-library-source-pack-volcano-0.9.2.zip` before use.
 
 ## Catalog development
 
@@ -1141,7 +1275,7 @@ and exact inventory before atomically replacing `assets/community`. The source
 checkout and target must be separate directory trees. Packaging has an
 additional final-release gate that requires the three reviewed 1.0.0 seed
 releases; the empty bootstrap snapshot is valid for development tests but
-cannot be packaged as the 0.9.0 release.
+cannot be packaged as the 0.9.2 release.
 
 ## Markdown descriptions and bundled Skills
 
@@ -1194,7 +1328,7 @@ license. See
 
 ## 本地轻量安装包的预览交付
 
-本地 DMG / Windows ZIP 与 npm 包（Pi / dsh 安装路径）的 FigureYa 与 Open Figure Modules bootstrap 可包含 `preview-downloads.json`，其每个图片身份必须与既有预览 manifest 完全一致。图片来源固定为构建提交中的文件；不改变 Provider、exact selector 或 Published Release 的身份。
+本地 DMG / Windows ZIP、npm 包（Pi / dsh 安装路径）以及 Wisp / Claude / Codex / Cursor 插件 ZIP 的 FigureYa 与 Open Figure Modules bootstrap 只携带目录元数据和 `preview-downloads.json`，不携带画廊图片（`assets/brand/` 除外），其每个图片身份必须与既有预览 manifest 完全一致。图片来源固定为构建提交中的文件，因此打包要求 `assets/` 与该提交一致、且该提交已推送；不改变 Provider、exact selector 或 Published Release 的身份。下载与其他 HTTPS 操作一样使用 0.9.1 的同用户代理设置；产品不以完全离线使用为目标。
 
 候选可返回 `previewDelivery: "download"`。此模式下 `previewAvailable` 表示存在可获取的固定身份，并不承诺网络可达或已经缓存；当前页图片传输结果由 `searchPreviewAvailable` / `searchPreviewStatus` 表达。搜索不会下载非当前页候选的图片。精确预览只有取得、校验和传输真实图片后才可确认。缩略图下载失败不改变精确图片身份，可重新请求预览。
 

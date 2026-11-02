@@ -52,6 +52,7 @@ import {
   SEARCH_MAX_DATA_URL_BYTES,
   mapPool,
   searchPreviewPageRemainingMs,
+  prepareThumbnailImage,
   prepareTransportImage,
   searchPerImageBudget,
   singlePreviewBudget,
@@ -90,6 +91,7 @@ import { outcome, terminal } from "./tool-outcome.ts";
 import { defineGuidanceOperations } from "./guidance.ts";
 import type { LocalOperations } from "./local/contracts.ts";
 import { createReferenceCache } from "./local/reference-cache.ts";
+import { LocalThumbnailStore } from "./local/thumbnails.ts";
 import { OperationRegistry, resourceTemplate } from "./service/operations.ts";
 import {
   candidateImageUri,
@@ -98,6 +100,8 @@ import {
   defineCandidateImages,
   scopedCandidateId,
 } from "./candidate-images.ts";
+import { defineCatalogListing } from "./catalog-listing.ts";
+import { plotFamilyGroup, type PlotFamilyGroup } from "./plot-family-groups.ts";
 
 export { VERSION };
 export const MATERIALIZATION_PROTOCOL_VERSION = 2;
@@ -251,7 +255,7 @@ function validationStateText(state: ValidationStateSummaryV1) {
 
 function candidateText(candidates: Array<TemplateCandidate & { candidateId: string; thumbnailUri?: string }>) {
   if (!candidates.length) {
-    return "No matching templates were found in the selected Providers. No tool retry is needed unless the user changes the search intent.";
+    return "No keyword match in the selected Providers. Keyword search misses descriptive wording; call figure_library_list_catalog and choose by meaning before telling the user the library lacks this figure type. Do not retry the same search.";
   }
   const publicationReview = candidates.some((candidate) => candidate.matchKind);
   return [
@@ -292,7 +296,14 @@ function candidateText(candidates: Array<TemplateCandidate & { candidateId: stri
 type ParsedSearchInput = Omit<z.infer<typeof SearchInput>, "providerIds" | "resultSetId"> & {
   providerIds: string[];
   browse?: boolean;
+  /** Catalog listing only: canonical figure-type group applied after Provider search. */
+  familyGroup?: PlotFamilyGroup;
+  /** Catalog listing only: exact Provider-qualified template keys to re-list. */
+  templateKeys?: string[];
 };
+
+/** Provider IDs and template IDs never contain a space, so it is a safe separator. */
+const templateKey = (providerId: string, templateId: string) => `${providerId} ${templateId}`;
 
 function searchQueryDigest(input: ParsedSearchInput) {
   return sha256(
@@ -309,6 +320,8 @@ function searchQueryDigest(input: ParsedSearchInput) {
       providerIds: [...input.providerIds].sort(),
       limit: input.limit,
       browse: input.browse === true,
+      ...(input.familyGroup ? { familyGroup: input.familyGroup } : {}),
+      ...(input.templateKeys ? { templateKeys: [...input.templateKeys].sort() } : {}),
     }),
   );
 }
@@ -345,6 +358,8 @@ async function hydrateCandidatePreviews(options: {
   registry: ProviderRegistry;
   moduleCatalogs?: ReadonlyMap<string, import("./module-catalog.ts").ModuleCatalogIndex>;
   perImageBudget?: number;
+  /** Local web client: register a URL thumbnail instead of inlining a data URL. */
+  thumbnails?: LocalThumbnailStore;
 }) {
   const needed = options.candidates.filter(
     (candidate) => candidate.searchPreviewAvailable ?? candidate.previewAvailable,
@@ -379,14 +394,20 @@ async function hydrateCandidatePreviews(options: {
           moduleCatalogs: options.moduleCatalogs,
           purpose: "search",
         });
-        const transport = await prepareTransportImage({
-          sourceBytes: preview.bytes,
-          sourceMime: preview.mimeType,
-          sourceSha256: preview.sha256,
-          purpose: "SearchCard",
-          maxDataUrlBytes: budget,
-          libraryRoot: options.context.snapshot.root,
-        });
+        const transport = options.thumbnails
+          ? await prepareThumbnailImage({
+              sourceBytes: preview.bytes,
+              sourceSha256: preview.sha256,
+              libraryRoot: options.context.snapshot.root,
+            })
+          : await prepareTransportImage({
+              sourceBytes: preview.bytes,
+              sourceMime: preview.mimeType,
+              sourceSha256: preview.sha256,
+              purpose: "SearchCard",
+              maxDataUrlBytes: budget,
+              libraryRoot: options.context.snapshot.root,
+            });
         if (!transport.ok) {
           return searchPreviewUnavailable(candidate, transportPreviewStatus(transport.reason));
         }
@@ -396,7 +417,9 @@ async function hydrateCandidatePreviews(options: {
             ? { previewStatus: "ready" as const }
             : {}),
           searchPreviewStatus: "ready" as const,
-          previewDataUrl: transport.dataUrl,
+          ...(options.thumbnails
+            ? { previewUrl: options.thumbnails.register(transport.transportBytes, transport.transportMime) }
+            : { previewDataUrl: transport.dataUrl }),
           previewMimeType: preview.mimeType,
           previewByteLength: preview.byteLength,
           previewSha256: preview.sha256,
@@ -455,8 +478,7 @@ async function hydrateCandidatePreviews(options: {
 function splitCandidatePage(resultSetId: string, candidates: TemplateCandidate[]) {
   const candidatePreviews: Record<
     string,
-    {
-      previewDataUrl: string;
+    ({ previewDataUrl: string } | { previewUrl: string }) & {
       previewMimeType?: string;
       previewByteLength?: number;
       previewSha256?: string;
@@ -464,16 +486,16 @@ function splitCandidatePage(resultSetId: string, candidates: TemplateCandidate[]
   > = {};
   const visibleCandidates = candidates.map((candidate) => {
     const candidateId = scopedCandidateId(resultSetId, candidate);
-    const { previewDataUrl, ...visible } = candidate;
-    if (previewDataUrl) {
+    const { previewDataUrl, previewUrl, ...visible } = candidate;
+    if (previewDataUrl || previewUrl) {
       candidatePreviews[candidateId] = {
-        previewDataUrl,
+        ...(previewDataUrl ? { previewDataUrl } : { previewUrl: previewUrl! }),
         previewMimeType: candidate.previewMimeType,
         previewByteLength: candidate.previewByteLength,
         previewSha256: candidate.previewSha256,
       };
     }
-    return { ...visible, candidateId, ...(previewDataUrl ? { thumbnailUri: candidateImageUri(resultSetId, candidateId) } : {}) };
+    return { ...visible, candidateId, ...(previewDataUrl || previewUrl ? { thumbnailUri: candidateImageUri(resultSetId, candidateId) } : {}) };
   });
   return { visibleCandidates, candidatePreviews };
 }
@@ -541,6 +563,8 @@ interface SearchSessionState {
     { health: "degraded" | "corrupt"; errorCode: string; safeMessage: string }
   >;
   candidateIds: Set<string>;
+  /** Created by figure_library_list_catalog; may be continued by offset. */
+  catalogListing?: boolean;
 }
 
 export interface LibraryServiceOptions {
@@ -556,6 +580,7 @@ export interface LibraryServiceOptions {
 export async function createLibraryService(options: LibraryServiceOptions = {}) {
   const operations = new OperationRegistry();
   const favorites = new FavoriteStore(options.favoritesDirectory);
+  const localThumbnails = new LocalThumbnailStore();
   const index = await CatalogIndex.load();
   const providerController = options.registry
     ? undefined
@@ -675,11 +700,14 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
   };
   const referenceCache = createReferenceCache({
     registry, context: currentProviderContext,
-    candidate: async (resultSetId, candidateId) => {
+    candidates: async (resultSetId, candidateIds) => {
       const { state } = await requireSearchState(resultSetId);
-      const candidate = state.candidates.find((item) => scopedCandidateId(resultSetId, item) === candidateId);
-      if (!candidate) throw new PreviewProtocolError("preview_selection_mismatch", "A candidate ID does not belong to this result set.");
-      return candidate;
+      const byId = new Map(state.candidates.map((item) => [scopedCandidateId(resultSetId, item), item]));
+      return candidateIds.map((candidateId) => {
+        const candidate = byId.get(candidateId);
+        if (!candidate) throw new PreviewProtocolError("preview_selection_mismatch", "A candidate ID does not belong to this result set.");
+        return candidate;
+      });
     },
   });
   defineCandidateImages(operations, {
@@ -766,6 +794,7 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
     invocationSource: "agent" | "app" | "server";
     toolName: "figure_library_search" | "figure_library_search_page";
     operationStartedAt: number;
+    thumbnails?: LocalThumbnailStore;
   }): Promise<CallToolResult> => {
     const context = await currentLibraries();
     const currentCatalogRevision = await registry.catalogRevision(
@@ -791,6 +820,7 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
       index,
       registry,
       moduleCatalogs: liveModuleCatalogs(),
+      ...(options.thumbnails ? { thumbnails: options.thumbnails } : {}),
     });
     const { visibleCandidates, candidatePreviews } = splitCandidatePage(
       options.resultSetId,
@@ -815,7 +845,7 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
       visibleCandidates.length ? "search_candidates_ready" : "search_no_matches",
       visibleCandidates.length
         ? `Unified search returned page ${pageIndex} of ${options.state.candidates.length} complete ranked matches. Display this page in the host or optional App, then wait for user selection.`
-        : "Unified search completed without a matching candidate from the selected Providers.",
+        : "Unified keyword search found no match in the selected Providers; use figure_library_list_catalog for semantic selection before concluding the figure type is missing.",
       visibleCandidates.length ? "ask_user" : "none",
     );
     const structuredContent = {
@@ -899,6 +929,41 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
     return result;
   };
 
+  async function searchPageFromCursor(options: {
+    resultSetId: string;
+    cursor: string;
+    correlationId: string;
+    invocationSource: "app" | "server";
+    operationStartedAt: number;
+    thumbnails?: LocalThumbnailStore;
+  }) {
+    const state = searchSessions.get(options.resultSetId);
+    if (!state) {
+      throw new PreviewProtocolError(
+        "search_results_stale",
+        "The search result set is unavailable in this server session; run the search again.",
+      );
+    }
+    const resolved = previewConfirmations.resolveCursor(options.cursor);
+    if (resolved.resultSetId !== options.resultSetId) {
+      throw new PreviewProtocolError(
+        "search_results_stale",
+        "The pagination cursor does not belong to this result set.",
+      );
+    }
+    return await buildSearchPage({
+      resultSetId: options.resultSetId,
+      state,
+      offset: resolved.offset,
+      limit: resolved.limit,
+      correlationId: options.correlationId,
+      invocationSource: options.invocationSource,
+      toolName: "figure_library_search_page",
+      operationStartedAt: options.operationStartedAt,
+      thumbnails: options.thumbnails,
+    });
+  }
+
   async function executeUnifiedSearch(options: {
     parsedInput: ParsedSearchInput;
     explicitlySelected: boolean;
@@ -909,13 +974,39 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
     resultSetId?: string;
     customTag?: string;
     favoriteSelector?: ExactTemplateSelector;
+    thumbnails?: LocalThumbnailStore;
   }) {
     const { parsedInput, explicitlySelected, correlationId, invocationSource, toolName, operationStartedAt } = options;
     if (options.resultSetId) {
       const state = searchSessions.get(options.resultSetId);
       if (!state || state.queryDigest !== searchQueryDigest(parsedInput)) throw new Error("The cached publication search is missing or its query/filters changed; create a new Plan.");
-      return await buildSearchPage({ resultSetId: options.resultSetId, state, offset: 0, limit: parsedInput.limit, correlationId, invocationSource, toolName, operationStartedAt });
+      return await buildSearchPage({ resultSetId: options.resultSetId, state, offset: 0, limit: parsedInput.limit, correlationId, invocationSource, toolName, operationStartedAt, thumbnails: options.thumbnails });
     }
+    const { resultSetId, state } = await createSearchResultSet(options);
+    return await buildSearchPage({
+      resultSetId,
+      state,
+      offset: 0,
+      limit: parsedInput.limit,
+      correlationId,
+      invocationSource,
+      toolName,
+      operationStartedAt,
+      thumbnails: options.thumbnails,
+    });
+  }
+
+  async function createSearchResultSet(options: {
+    parsedInput: ParsedSearchInput;
+    explicitlySelected: boolean;
+    correlationId: string;
+    invocationSource: "agent" | "app";
+    toolName: "figure_library_search" | "figure_library_search_page" | "figure_library_list_catalog";
+    customTag?: string;
+    favoriteSelector?: ExactTemplateSelector;
+    catalogListing?: boolean;
+  }) {
+    const { parsedInput, explicitlySelected, correlationId, invocationSource, toolName } = options;
     const request: SearchRequest = {
       query: parsedInput.query,
       dataProfile: parsedInput.dataProfile,
@@ -982,6 +1073,13 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
       const matching = new Set(annotations.entries.filter(entry => entry.tags.includes(options.customTag!)).map(customTagKey));
       for (const result of searched) result.candidates = result.candidates.filter(candidate => matching.has(customTagKey(candidate)));
     }
+    if (parsedInput.familyGroup) {
+      for (const result of searched) result.candidates = result.candidates.filter((candidate) => plotFamilyGroup(candidate) === parsedInput.familyGroup);
+    }
+    if (parsedInput.templateKeys) {
+      const wanted = new Set(parsedInput.templateKeys);
+      for (const result of searched) result.candidates = result.candidates.filter((candidate) => wanted.has(templateKey(candidate.providerId, candidate.templateId)));
+    }
     const providerMatches = Object.fromEntries(
       searched.map(({ providerId, candidates }) => [providerId, candidates.length]),
     );
@@ -1039,6 +1137,7 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
       providerMatches,
       providerFailures,
       candidateIds: new Set(normalized.map((candidate) => scopedCandidateId(resultSetId, candidate))),
+      ...(options.catalogListing ? { catalogListing: true } : {}),
     };
     searchSessions.set(resultSetId, state);
     while (searchSessions.size > 128) {
@@ -1056,24 +1155,59 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
       libraryRevision: bindingDigest,
       safeMessage: `Matched ${normalized.length} candidates.`,
     });
-    return await buildSearchPage({
-      resultSetId,
-      state,
-      offset: 0,
-      limit: parsedInput.limit,
-      correlationId,
-      invocationSource,
-      toolName,
-      operationStartedAt,
-    });
+    return { resultSetId, state };
   }
+
+  const catalogListingSources = (state: SearchSessionState) =>
+    registry.list().map(({ providerId, sourceLabel }) => {
+      const failure = state.providerFailures[providerId];
+      return {
+        providerId,
+        sourceLabel,
+        matched: state.providerMatches[providerId] ?? 0,
+        health: failure?.health ?? (state.input.providerIds.includes(providerId) ? "ready" : "not_selected"),
+        ...(failure ? { errorCode: failure.errorCode, safeMessage: failure.safeMessage } : {}),
+      };
+    });
+  defineCatalogListing(operations, {
+    failure: previewFailure,
+    list: async (input) => {
+      const correlationId = diagnostics.createCorrelationId("catalog");
+      const { resultSetId, state } = await createSearchResultSet({
+        parsedInput: {
+          query: "",
+          browse: true,
+          plotFamily: input.plotFamily,
+          ...(input.familyGroup ? { familyGroup: input.familyGroup } : {}),
+          ...(input.templates ? { templateKeys: input.templates.map((item) => templateKey(item.providerId, item.templateId)) } : {}),
+          language: input.language,
+          assetKind: input.assetKind,
+          providerIds: input.providerIds ?? registry.defaultProviderIds(),
+          limit: input.limit,
+        },
+        explicitlySelected: input.providerIds !== undefined,
+        correlationId,
+        invocationSource: "agent",
+        toolName: "figure_library_list_catalog",
+        catalogListing: true,
+      });
+      return { resultSetId, catalogRevision: state.catalogRevision, candidates: state.candidates, sources: catalogListingSources(state) };
+    },
+    continueListing: async (resultSetId) => {
+      const { state } = await requireSearchState(resultSetId);
+      if (!state.catalogListing) {
+        throw new PreviewProtocolError("search_results_stale", "This resultSetId belongs to a search, not a catalog listing; use figure_library_search_page for it.");
+      }
+      return { resultSetId, catalogRevision: state.catalogRevision, candidates: state.candidates, sources: catalogListingSources(state) };
+    },
+  });
 
   operations.define(
     "figure_library_search",
     {
       title: "Search all matching scientific figure Providers",
       description:
-        "Search Local Published, FigureYa, Open Figure Modules and opted-in personal Providers. Present candidates using host thumbnail resources/image tools or the optional App, then wait for selection. Community is explicit-only; Working, Capture and flat-v1 entries are excluded.",
+        "Keyword search over Local Published, FigureYa, Open Figure Modules and opted-in personal Providers; best for named templates or chart types. For a described need (data, scientific question, look) or no/poor matches, use figure_library_list_catalog and choose by meaning. Present candidates using host thumbnail resources/image tools or the optional App, then wait for selection. Community is explicit-only; Working, Capture and flat-v1 entries are excluded.",
       inputSchema: SearchInput.shape,
       annotations: {
         readOnlyHint: true,
@@ -1150,30 +1284,7 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
         invocationSource: "server",
       });
       try {
-        const state = searchSessions.get(resultSetId);
-        if (!state) {
-          throw new PreviewProtocolError(
-            "search_results_stale",
-            "The search result set is unavailable in this server session; run the search again.",
-          );
-        }
-        const resolved = previewConfirmations.resolveCursor(cursor);
-        if (resolved.resultSetId !== resultSetId) {
-          throw new PreviewProtocolError(
-            "search_results_stale",
-            "The pagination cursor does not belong to this result set.",
-          );
-        }
-        return await buildSearchPage({
-          resultSetId,
-          state,
-          offset: resolved.offset,
-          limit: resolved.limit,
-          correlationId,
-          invocationSource: "server",
-          toolName: "figure_library_search_page",
-          operationStartedAt,
-        });
+        return await searchPageFromCursor({ resultSetId, cursor, correlationId, invocationSource: "server", operationStartedAt });
       } catch (error) {
         await diagnostics.record({
           level: "error",
@@ -1576,7 +1687,10 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
         if (!head) continue;
         const content = await library.getContent(series.templateId, head.revisionId, head.contentDigest);
         if (!content) throw new Error("Library entry cannot resolve its exact content");
-        items.push({ ...series, title: content.title, description: content.description, assetKind: content.assetKind });
+        items.push({
+          ...series, title: content.title, description: content.description, assetKind: content.assetKind,
+          revisionId: head.revisionId, contentDigest: head.contentDigest, previewAvailable: Boolean(content.primaryPreview),
+        });
       }
       return terminal(outcome("ok", "local_library_listed", "Local knowledge library entries."), { items });
     },
@@ -1587,6 +1701,8 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
         query: z.string().max(2000).optional(),
         dataProfile: z.string().max(2000).optional(),
         customTag: z.string().trim().min(1).max(40).optional(),
+        /** "url": the local web client loads cached card thumbnails from /api/thumb instead of inline data URLs. */
+        thumbnailDelivery: z.enum(["inline", "url"]).optional(),
       }).strict().parse(raw ?? {});
       const operationStartedAt = performance.now();
       const correlationId = diagnostics.createCorrelationId("gallery");
@@ -1605,9 +1721,21 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
           invocationSource: "app",
           toolName: "figure_library_search",
           operationStartedAt,
+          ...(input.thumbnailDelivery === "url" ? { thumbnails: localThumbnails } : {}),
         });
       } catch (error) {
         return previewFailure("Gallery listing failed", error);
+      }
+    },
+    galleryPage: async (raw) => {
+      const input = SearchPageInput.strict().parse(raw);
+      try {
+        return await searchPageFromCursor({
+          ...input, correlationId: diagnostics.createCorrelationId("gallery-page"),
+          invocationSource: "app", operationStartedAt: performance.now(), thumbnails: localThumbnails,
+        });
+      } catch (error) {
+        return previewFailure("Gallery pagination failed", error);
       }
     },
     asset: async (raw) => {
@@ -2443,7 +2571,7 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
         const input = z.discriminatedUnion("action", [
           z.object({ action: z.literal("add"), resultSetId: z.string().min(1), candidateId: z.string().min(1) }).strict(),
           z.object({ action: z.literal("remove"), id: z.string().regex(HASH) }).strict(),
-          z.object({ action: z.literal("open"), id: z.string().regex(HASH) }).strict(),
+          z.object({ action: z.literal("open"), id: z.string().regex(HASH), thumbnailDelivery: z.enum(["inline", "url"]).optional() }).strict(),
         ]).parse(raw);
         if (input.action === "remove") await favorites.remove(input.id);
         else if (input.action === "add") {
@@ -2464,6 +2592,7 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
           return executeUnifiedSearch({
             parsedInput: { query: "", browse: true, providerIds: [favorite.providerId], limit: 1 },
             favoriteSelector: favorite.exactSelector, explicitlySelected: true,
+            ...(input.thumbnailDelivery === "url" ? { thumbnails: localThumbnails } : {}),
             correlationId: diagnostics.createCorrelationId("favorite"), invocationSource: "app",
             toolName: "figure_library_search", operationStartedAt: performance.now(),
           });
@@ -2483,6 +2612,19 @@ export async function createLibraryService(options: LibraryServiceOptions = {}) 
       asset: (input: unknown) => operations.run(() => localOperations.asset(input)),
       previewCache: () => operations.run(() => inspectPreviewCache({ galleries: downloadableGalleries() })),
       gallery: (input: unknown) => operations.run(() => localOperations.gallery(input)),
+      galleryPage: (input: unknown) => operations.run(() => localOperations.galleryPage(input)),
+      thumbnail: (sha256: string) => localThumbnails.get(sha256),
+      libraryThumbnail: (raw: unknown) => operations.run(async () => {
+        const input = z.object({ templateId: z.string().min(1).max(500), revisionId: z.string().min(1).max(200),
+          contentDigest: z.string().regex(HASH) }).strict().parse(raw);
+        const context = await currentLibraries();
+        const content = await context.versionedLibrary.getContent(input.templateId, input.revisionId, input.contentDigest);
+        const asset = content?.primaryPreview ? content.assets.find((entry) => entry.logicalPath === content.primaryPreview) : undefined;
+        if (!content || !asset || asset.bytes > 16 * 1024 * 1024) return undefined;
+        const { bytes } = await context.versionedLibrary.readAsset({ ...input, logicalPath: asset.logicalPath });
+        const thumbnail = await prepareThumbnailImage({ sourceBytes: bytes, sourceSha256: asset.sha256, libraryRoot: context.snapshot.root });
+        return thumbnail.ok ? { bytes: thumbnail.transportBytes, mimeType: thumbnail.transportMime } : undefined;
+      }),
       prefetchPreviewCache: (providerId: string) => operations.run(() => prefetchPreviewCache(providerId, downloadableGalleries())),
       clearPreviewCache: () => operations.run(async () => {
         const cleared = await clearPreviewCache();

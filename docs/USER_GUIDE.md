@@ -508,7 +508,20 @@ topics in this table are on-demand references, not independent Skills.
 Without the App, call `figure_library_get_skill` to read the same guidance.
 Search returns candidate IDs and thumbnail URIs; use
 `figure_library_get_candidate_images` or MCP resource reads to display the page,
-and `figure_library_search_page` to continue browsing. After the user selects a
+and `figure_library_search_page` to continue browsing. When you describe a need
+(your data, the scientific question, the look) rather than name a chart, the
+Agent by default calls `figure_library_list_catalog`: it first reads Provider
+counts and plot-family/language facets, then compact one-line-per-template
+pages, and picks matches by meaning with a reason for each. Keyword search
+stays for named templates or chart types, and a keyword miss never means the
+library lacks the figure. Listed candidates display through the same image tool.
+
+To load fewer tools in a host, set `SFL_TOOL_PROFILE` in its MCP server
+configuration: `use` (finding, previewing and materializing templates; 28
+tools, about a third of the schema size), `author` (adds intake, review and
+publishing to Local Published) or `full` (default, every tool). For example, in
+a JSON MCP configuration add `"env": { "SFL_TOOL_PROFILE": "use" }` to the
+`figure-library` server entry. The local clients are not affected. After the user selects a
 candidate, use the existing exact headless preview/confirmation and Plan/Apply
 flow. Host image display must be tested separately from tool execution.
 
@@ -609,5 +622,19 @@ Use ☆ on a gallery card or template detail to save that exact version; ★ rem
 Favorites are stored in the machine-local user configuration, survive restarts and are independent of preview/archive caches. Provider identities and exact versions stay separate. If the original version is withdrawn, updated or its source disabled, opening it reports an error and retains the bookmark; remove it or explicitly star a new version from the gallery. Starring does not download archives, execute code, select plotting references or grant preview/materialization approval.
 
 ## Client updates
+
+External MCP clients can inspect shared same-user/machine proxy settings with
+`figure_library_network_status`, probe the fixed SFL GitHub release endpoint with
+`figure_library_network_test`, and read or explicitly refresh the stable release
+cache with `figure_library_update_status` (`{ "refresh": true }`). All three return
+the standard terminal envelope and structured status even on operational failures;
+inspect the error code rather than repeating an unchanged failed call. The HTTPS
+probe has an eight-second deadline across CONNECT, TLS and the proxied response
+body, after an optional local-port probe of up to 1.5 seconds. Gitee archive redirects
+retain one proxy snapshot and download deadline. A fresh release check remains
+available in memory if cache persistence fails (`cachePersisted: false`); that warning
+is separate from a network failure. `SFL_MCP_UPDATE_NOTICES=0` disables background
+checks and unsolicited notices, but not explicit checks. Updates remain manual and
+require restarting the MCP process.
 
 The local client checks the latest official stable release in the background after connecting. When an update is available, open the release page from the banner or dismiss it for the current session. In Settings → Client updates, view the running version and check again manually. Network failures appear in settings and can be retried after checking the network or proxy. Choose the appropriate platform and architecture on the release page and install manually; the check does not download packages or migrate your library.
