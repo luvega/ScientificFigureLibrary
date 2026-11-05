@@ -9,6 +9,7 @@ const { assertPersonalSnapshotInventory, buildArchive, commonPluginFiles, PLUGIN
 
 const root = path.resolve(import.meta.dirname, "..");
 const WEBSITE = "https://xuzhougeng.github.io/ScientificFigureLibrary/";
+const FORK_WEBSITE = "https://luvega.github.io/ScientificFigureLibrary/";
 const REPOSITORY = "https://github.com/xuzhougeng/ScientificFigureLibrary";
 const DEVELOPERS = "xuzhougeng and jarxunlai";
 const BRAND_ASSET = "assets/brand/sfl-logo.svg";
@@ -82,7 +83,8 @@ test("host plugin manifests share version, skill, and MCP identity", () => {
   assert.deepEqual(wisp.skills, ["figure-library"].map((name) => `skills/${name}`));
   assert.equal(fs.existsSync(path.join(root, ".mcp.json")), false);
 
-  assert.equal(pkg.homepage, WEBSITE);
+  // The fork's package homepage leads to its own usage guide; plugin attribution stays upstream.
+  assert.equal(pkg.homepage, FORK_WEBSITE);
   assert.equal(pkg.author, DEVELOPERS);
   assert.equal((pkg.repository as { url?: string }).url, REPOSITORY);
 

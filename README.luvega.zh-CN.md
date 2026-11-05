@@ -6,6 +6,8 @@
 
 在线网站从 `luvega` 分支的公开说明生成，提供项目介绍、安装、MCP 接入及案例复用方法。私有案例、真实研究数据和本机运行证据继续保存在本机；网站构建与发布说明见 [Pages 维护](docs/PAGES.luvega.zh-CN.md)。
 
+当前源码已合并上游 [`4066e6b`](https://github.com/xuzhougeng/ScientificFigureLibrary/commit/4066e6b7d08e5db03bbab278d0a4eaaa69f31901)，接入 Windows Go/WebView2 桌面外壳和 MCP 初次检索结果加载兼容修复，版本号仍为 **0.9.2**。下文的源码启动方式继续使用 Node.js 22+；自行构建含 `SFL.exe` 的 Windows ZIP 还需要 Go 1.26+，具体版本见 [go.mod](desktop/windows/shell/go.mod)，客户端使用方式见[本地安装说明](docs/INSTALL_LOCAL.md)。源码更新、安装包和已发布模板各自保留版本与验证记录。
+
 本版还支持将本机真实数据案例按数据类型、作图目的接入 Local Published。图库界面的两个中文分类下拉从已发布来源标签生成，MCP 提供 `requiredTags` 精确组合过滤。材料化后由宿主准备独立工作副本并重新出图、保存来源和执行证据。具体用法见[真实数据案例接入说明](docs/REAL_DATA_CASES.zh-CN.md)；私有案例及研究数据不随公开仓库分发。
 
 ## 这个版本提供什么
